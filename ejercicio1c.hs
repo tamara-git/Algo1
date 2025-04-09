@@ -9,8 +9,8 @@ g(8)= 16
 g(16)=4
 g(131)=1
 
-h :: Integer -> Integer
+fog :: Integer -> Integer
 h = fog
 
-k :: Integer -> Integer
+gof :: Integer -> Integer
 k = gof
