@@ -10,7 +10,7 @@ g(16)=4
 g(131)=1
 
 h :: Integer -> Integer
-h = (fog)
+h = fog
 
 k :: Integer -> Integer
-k = (gof)
+k = gof
