@@ -3,3 +3,8 @@ algunoEsCero ::  Float -> Float -> Bool
 algunoEsCero x y | x == 0 = True
                  | y == 0 = True 
                  | otherwise = False
+
+--Con Pattern Matching
+algunoEsCero :: Float -> Float -> Bool
+algunoEsCero x = 0
+algunoEsCero y = 0
