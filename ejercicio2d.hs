@@ -5,6 +5,7 @@ algunoEsCero x y | x == 0 = True
                  | otherwise = False
 
 --Con Pattern Matching
-algunoEsCero :: Float -> Float -> Bool
-algunoEsCero x = 0
-algunoEsCero y = 0
+algunoEsCero2 :: Float -> Float -> Bool
+algunoEsCero2 x = 0
+algunoEsCero2 y = 0
+
