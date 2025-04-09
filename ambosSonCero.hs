@@ -1,5 +1,5 @@
 ambosSonCero ::  Float -> Float -> Bool
-ambosSonCero x y |  (x==0 = True) && (y==0 = True)
+ambosSonCero x y |  (x==0 && y==0) = True
                  | otherwise = False
 
 --Con Pattern Matching
