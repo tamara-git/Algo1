@@ -4,4 +4,5 @@ ambosSonCero x y |  (x==0 && y==0) = True
 
 --Con Pattern Matching
 ambosSonCero2 :: Float -> Float -> Bool
-ambosSonCero2 x y = 0 0
+ambosSonCero2 0 0 = True
+ambosSonCero2 x y = False
