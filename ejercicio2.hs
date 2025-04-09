@@ -1,4 +1,3 @@
-{-asegura: el resultado es un número positivo-}
- absoluto :: Integer -> Integer
-absoluto x == -x | x < 0
-absoluto x == x  | x >= 0
+absoluto :: Integer -> Integer
+absoluto x  | x < 0 = -x
+            | x >= 0 = x
