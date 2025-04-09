@@ -4,4 +4,4 @@ maximo2 x y | (x >= y) = x
       
 
 maximo3 :: Integer -> Integer -> Integer -> Integer
-maximo3 x y z = maximo2 (maximo2 (x y)) z
+maximo3 x y z = maximo2 (maximo2 x y) z
