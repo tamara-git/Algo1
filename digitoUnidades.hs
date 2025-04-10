@@ -1,0 +1,1 @@
+{-Dado un número entero, extrae su dígito de las unidades.-}

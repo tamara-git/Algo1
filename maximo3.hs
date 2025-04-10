@@ -1,3 +1,4 @@
+{-devuelve el máximo entre tres números enteros.-}
 maximo2 :: Integer -> Integer -> Integer
 maximo2 x y | (x >= y) = x
             | otherwise = y
