@@ -10,7 +10,7 @@ g(16)=4
 g(131)=1
 
 h :: Integer -> Integer
-h= f.g
+h= f(g x)
 
 k :: Integer -> Integer
-k = g.f
+k = g(f x)
