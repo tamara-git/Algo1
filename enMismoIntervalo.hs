@@ -5,4 +5,4 @@ Intervalo x  | x <= 3
 
 enMismoIntervalo :: Float -> Float -> Bool
 enMismoIntervalo x y | Intervalo x == Intervalo y = True
-                     | otherwise False
+                     | otherwise = False
