@@ -4,5 +4,5 @@ Intervalo x | (x <= 3) = 'A'
             | ( x > 7) = 'C'
 
 enMismoIntervalo :: Float -> Float -> Bool
-enMismoIntervalo x y  | (Intervalo x == Intervalo y) = True
+enMismoIntervalo x y  = (Intervalo x == Intervalo y)
                       | otherwise = False                     
