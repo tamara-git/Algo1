@@ -4,4 +4,4 @@ distancia_al_cuadrado :: Punto2D -> Punto2D -> Float
 distancia_al_cuadrado (a,b) (c,d) = (a-c)**2 + (b-d)**2
 
 distancia :: Punto2D -> Punto2D -> Float
-distancia (a,b) (c,d) = sqrt (distancia_al_cuadrado)
+distancia (a,b) (c,d) = sqrt (distancia_al_cuadrado (a,b) (c,d))
