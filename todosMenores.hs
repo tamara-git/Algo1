@@ -12,12 +12,12 @@ todosMenores (a,b,c) = (f(a) > g(a)) && (f(b) > g(b)) && (f(c) > g(c))
 } -}
 f :: Integer -> Integer
 f n | n <= 7 = n*2
-    | n > 7 = 2n-1
+    | n > 7 = 2*n - 1
 
 {- problema g (n:Z) : Z {
     requiere: {True}
     asegura: {Si n es un número par entonces res = n/2, en caso contrario, res = 3n+1}
 } -}
 g :: Integer -> Integer
-g n |  mod n 2 == 0 = div n 2
-    | otherwise = 3n+1
+g n |  mod n 2 == 0 = n/2
+    | otherwise = 3*n + 1
