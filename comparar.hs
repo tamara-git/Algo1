@@ -21,6 +21,6 @@ sumaUltimosDosDigitos :: Integer -> Integer
 comparar :: Integer -> Integer -> Integer
 comparar a b  | sumaUltimosDosDigitos a < sumaUltimosDosDigitos b = 1
               | sumaUltimosDosDigitos a > sumaUltimosDosDigitos b = -1
-              | sumaUltimosDosDigitos a = sumaUltimosDosDigitos b = 0
+              | sumaUltimosDosDigitos a == sumaUltimosDosDigitos b = 0
               
 
