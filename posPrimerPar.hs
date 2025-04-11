@@ -4,4 +4,4 @@ posPrimerPar :: (Integer, Integer, Integer) -> Integer
 posPrimerPar (a,b,c) | mod a 2 == 0 = 0
                      | mod b 2 == 0 = 1
                      | mod c 2 == 0 = 2
-                     
+                     | otherwise = 4
