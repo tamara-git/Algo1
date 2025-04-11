@@ -6,4 +6,4 @@ type Anio = Integer
 type EsBisiesto = Bool
 
 bisiesto :: Integer -> Bool 
-bisiesto x = not ((mod x 4 /= 0) && (mod x 100) && (mod x 400 /= 0))
+bisiesto x = not ((mod x 4 /= 0) && (mod x 100 = 0) && (mod x 400 /= 0))
