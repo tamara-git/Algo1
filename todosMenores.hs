@@ -19,5 +19,5 @@ f n | n <= 7 = n*2
     asegura: {Si n es un número par entonces res = n/2, en caso contrario, res = 3n+1}
 } -}
 g :: Integer -> Integer
-g n |  mod n 2 == 0 = n/2
+g n |  mod n 2 == 0 = div n 2
     | otherwise = 3*n + 1
