@@ -6,7 +6,7 @@ esMultiploDe x y | mod x y == 0 = x
                  
 
 sumarSoloMultiplos :: (Integer, Integer, Integer) -> Integer -> Integer
-sumarSoloMultiplos (a,b,c) d  | esMultiploDe a d + esMultiploDe b d + esMultiploDe c d 
+sumarSoloMultiplos (a,b,c) d  = esMultiploDe a d + esMultiploDe b d + esMultiploDe c d 
 
                               
                             
