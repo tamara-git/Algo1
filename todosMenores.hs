@@ -4,7 +4,7 @@ type Terna = (Integer, Integer, Integer)
     asegura: {(res=true) ↔ (f(t0) > g(t0) ∧ (f(t1) > g(t1)) ∧ (f(t2) > g(t2)))}
 }-}
 todosMenores :: Terna -> Bool
-todosMenores (a,b,c) | (f(a) > g(a)) && (f(b) > g(b)) && (f(c) > g(c))
+todosMenores (a,b,c) = (f(a) > g(a)) && (f(b) > g(b)) && (f(c) > g(c))
 
 {-problema f (n:Z) : Z {
     requiere: {True}
@@ -21,4 +21,3 @@ f n | n <= 7 = n*2
 g :: Integer -> Integer
 g n |  mod n 2 == 0 = n/2
     | otherwise = 3n+1
-    
