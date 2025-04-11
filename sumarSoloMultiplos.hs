@@ -2,7 +2,7 @@
 múltiplos del número natural.-}
 esMultiploDe :: Integer -> Integer -> Integer
 esMultiploDe x y | mod x y == 0 = x
-                 | otherwise 0
+                 | otherwise = 0
                  
 
 sumarSoloMultiplos :: (Integer, Integer, Integer) -> Integer -> Integer
