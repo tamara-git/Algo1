@@ -6,7 +6,8 @@
 type Punto3D = (Float, Float, Float)
 
 absoluto :: Punto3D -> Punto3D
-absoluto (a,b,c) (d,e,f) | (a+b+c) - (d+e+f) = (d+e+f) - (a+b+c)
+absoluto x y  | (x < 0) || (y< 0) == -(x-y)
+              | otherwise = x-y
                  
 distanciaManhattan :: Punto3D -> Punto3D -> Float
-distanciaManhattan (a,b,c) (d,e,f) = absoluto (a,b,c) (d,e,f)
+distanciaManhattan (a,b,c) (d,e,f) = absoluto a d + absoluto b e + absoluto c f
