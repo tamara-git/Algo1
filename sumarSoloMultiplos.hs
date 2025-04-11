@@ -4,7 +4,7 @@ esMultiploDe :: Integer -> Integer -> Bool
 esMultiploDe x y = mod x y == 0
 
 sumarSoloMultiplos :: (Integer, Integer, Integer) -> Integer -> Integer
-sumarSoloMultiplos (a,b,c) d  | esMultiploDe a d || esMultiploDe b d || esMultiploDe c d == True = (a+b+c)
+sumarSoloMultiplos (a,b,c) d  | (esMultiploDe a d || esMultiploDe b d || esMultiploDe c d) = (a+b+c)
                               | otherwise = 0
 
                               
