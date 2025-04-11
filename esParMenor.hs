@@ -2,5 +2,5 @@
 correspondiente de la segunda tupla-}
 type Punto2D = (Float,Float)
 esParMenor :: Punto2D -> Punto2D -> Bool
-esParMenor (a,b) (c,d)  | fst(a,b) < fst(c,d)
-                        | snd(a,b) < snd(c,d)
+esParMenor (a,b) (c,d) | (a<c) && (b<d) = True
+                       | otherwise = False
