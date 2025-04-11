@@ -16,7 +16,7 @@ comparar 2312 7 ⇝ 1 porque 2312 ≺ 7 y 1 + 2 < 0 + 7.
 comparar 45 172 ⇝ 0 porque no vale 45 ≺ 172 ni tampoco 172 ≺ 45. -}
 
 sumaUltimosDosDigitos :: Integer -> Integer
- sumaUltimosDosDigitos x = (mod x 10) + ((div x 10) mod 10)
+ sumaUltimosDosDigitos x = (mod x 10) +  mod ((div x 10) 10)
 
 comparar :: Integer -> Integer -> Integer
 comparar a b  | sumaUltimosDosDigitos a < sumaUltimosDosDigitos b = 1
