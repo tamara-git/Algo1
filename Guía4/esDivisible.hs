@@ -2,4 +2,4 @@
 
 
 esDivisible :: Integer -> Integer -> Bool
-esDivisible x y  | 
+esDivisible x y  | x  
