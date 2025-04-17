@@ -4,9 +4,7 @@
 }
 -}
 
-decena :: Integer -> Integer
-decena x = 10*x
-
 todosDigitosIguales :: Integer -> Bool
 todosDigitosIguales x  |  x < 10 = False 
-                       | otherwise == todosDigitosIguales (x - div (x 2)) + div x 2 = True
+                       | todosDigitosIguales (x- 1) 
+                       | otherwise = False
