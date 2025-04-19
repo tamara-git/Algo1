@@ -10,5 +10,5 @@ digitoUnidad x = mod x 10
 todosDigitosIguales :: Integer -> Bool
 todosDigitosIguales x  |  x < 10 = False 
                        | x == 11 = True
-                       | x == ((todosDigitosIguales (div x 10))*10 + digitoUnidad x) = True
+                       | ((todosDigitosIguales (div x 10)) = (div x 10)*10 + digitoUnidad x) = True
                        | otherwise = False
