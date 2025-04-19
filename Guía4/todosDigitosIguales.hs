@@ -4,15 +4,12 @@
 }
 -}
 
-CantDigitos :: 
 
-CantDigitos :: Integer -> Bool
-CantDigitos x =  
---todosDigitosIguales :: Integer -> Bool
+{-todosDigitosIguales :: Integer -> Bool
 todosDigitosIguales x  | x < 10 = True 
                        | x == 11 = True
                        | x == (div x 10)*10 + digitoUnidad x = (todosDigitosIguales (div x 10)) = True
-
+-}
 
 todosDigitosIguales2 :: Integer -> Bool
 todosDigitosIguales2 n
