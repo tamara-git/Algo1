@@ -4,11 +4,18 @@
 }
 -}
 
-digitoUnidad ::Integer -> Integer
-digitoUnidad x = mod x 10
+CantDigitos :: 
 
-todosDigitosIguales :: Integer -> Bool
-todosDigitosIguales x  |  x < 10 = False 
+CantDigitos :: Integer -> Bool
+CantDigitos x =  
+--todosDigitosIguales :: Integer -> Bool
+todosDigitosIguales x  | x < 10 = True 
                        | x == 11 = True
                        | x == (div x 10)*10 + digitoUnidad x = (todosDigitosIguales (div x 10)) = True
-                       | otherwise = False
+
+
+todosDigitosIguales2 :: Integer -> Bool
+todosDigitosIguales2 n
+  | n < 100 = True
+  | mod n 10 /= mod (div n 10) 10 = False
+  | otherwise = todosDigitosIguales2 (div n 10)
