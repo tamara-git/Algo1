@@ -14,6 +14,6 @@ todosDigitosIguales x  | x < 10 = True
 todosDigitosIguales2 :: Integer -> Bool
 todosDigitosIguales2 n
   | n < 100 && mod n 11== 0 = True
-  | si n < 10 = True
+  | n < 10 = True
   | mod n 10 /= mod (div n 10) 10 = False
   | otherwise = todosDigitosIguales2 (div n 10)
