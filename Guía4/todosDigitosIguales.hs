@@ -4,7 +4,11 @@
 }
 -}
 
+digitoUnidad ::Integer -> Integer
+digitoUnidad x = mod x 10
+
 todosDigitosIguales :: Integer -> Bool
 todosDigitosIguales x  |  x < 10 = False 
-                       | todosDigitosIguales (x- 1) 
+                       | x == 11 = True
+                       | todosDigitosIguales (div x 10)*10 + digitoUnidad x == x = True
                        | otherwise = False
