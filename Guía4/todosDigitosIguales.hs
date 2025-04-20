@@ -4,7 +4,8 @@
 }
 -}
 
-
+digitoUnidad :: Integer -> Integer
+digitoUnidad x = mod x 10
 todosDigitosIguales :: Integer -> Bool
 todosDigitosIguales x  | x < 10 = True 
                        | x == 11 = True
