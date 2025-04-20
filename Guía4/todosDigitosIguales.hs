@@ -14,7 +14,7 @@ cantDigitos x | x == 0 = 0
 
 todosDigitosIguales :: Integer -> Bool
 todosDigitosIguales x  | x < 10 = True 
-                       | x /= (div x 10) + (digitoUnidad (div x 10)) * 10**(cantDigitos (div x 10)) = False
+                       | x /= (div x 10) + (digitoUnidad (div x 10)) * 10^(cantDigitos (div x 10)) = False
                        | otherwise = todosDigitosIguales (div x 10)
 
 
