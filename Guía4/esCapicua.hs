@@ -1,5 +1,20 @@
+digitoUnidades :: Integer -> Integer
+digitoUnidades x = mod x 10
 
+cantidadDígitos :: Integer -> Integer
+cantidadDígitos x | x == 0 = 0
+              | x < 10 = 1
+              | otherwise = cantidadDígitos (div x 10) + 1
 
+sacarÚltimoDígito :: Integer -> Integer
+sacarÚltimoDígito n
+              | n < 0 = -sacarÚltimoDígito (-n)
+              | otherwise =  div n 10
 
-esCapicua :: Integer -> Bool
-esCapicua x  |  
+invertir :: Integer -> Integer
+invertir n | n < 0     = -invertir (-n)
+           | n < 10    = n
+           | otherwise = dígitoUnidades n * (10 ^ (cantidadDígitos n - 1)) + invertir (sacarÚltimoDígito n)
+
+esCapicúaBien :: Integer -> Bool
+esCapicúaBien n = n == invertir n
