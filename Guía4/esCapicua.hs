@@ -1,3 +1,5 @@
+--Hecho en clase.
+
 dígitoUnidades :: Integer -> Integer
 dígitoUnidades x = mod x 10
 
