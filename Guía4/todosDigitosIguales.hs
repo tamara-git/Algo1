@@ -6,11 +6,16 @@
 
 digitoUnidad :: Integer -> Integer
 digitoUnidad x = mod x 10
+
+cantDigitos :: Integer -> Integer
+cantDigitos x | x == 0 = 0
+              | x < 10 = 1
+              | otherwise = cantDigitos (div x 10) + 1
+
 todosDigitosIguales :: Integer -> Bool
 todosDigitosIguales x  | x < 10 = True 
-                       | x == 11 = True
-                       | x /= (div x 10)*10 + digitoUnidad x = False
-                       | otherwise = (todosDigitosIguales (div x 10))
+                       | x /= (div x 10) + (digitoUnidad (div x 10)) * 10**(cantDigitos (div x 10)) = False
+                       | otherwise = todosDigitosIguales (div x 10)
 
 
 todosDigitosIguales2 :: Integer -> Bool
