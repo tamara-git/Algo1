@@ -8,7 +8,8 @@
 {-todosDigitosIguales :: Integer -> Bool
 todosDigitosIguales x  | x < 10 = True 
                        | x == 11 = True
-                       | x == (div x 10)*10 + digitoUnidad x = (todosDigitosIguales (div x 10)) = True
+                       | x /= (div x 10)*10 + digitoUnidad x = False
+                       | otherwise = (todosDigitosIguales (div x 10))
 -}
 
 todosDigitosIguales2 :: Integer -> Bool
