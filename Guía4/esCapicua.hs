@@ -1,4 +1,4 @@
-digitoUnidades :: Integer -> Integer
+dígitoUnidades :: Integer -> Integer
 dígitoUnidades x = mod x 10
 
 cantidadDígitos :: Integer -> Integer
