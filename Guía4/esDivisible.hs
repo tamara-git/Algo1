@@ -3,4 +3,7 @@ que dados dos números naturales determina si el primero es divisible por el seg
 No está permitido utilizar las funciones mod ni div.-}
 
 esDivisible :: Integer -> Integer -> Bool
-esDivisible x y  | x  
+esDivisible x y | x < y = False
+                |  
+x = a*Y   
+                |  esDivisible () 
