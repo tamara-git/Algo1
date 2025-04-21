@@ -20,3 +20,16 @@ invertir n | n < 0     = -invertir (-n)
 
 esCapicúaBien :: Integer -> Bool
 esCapicúaBien n = n == invertir n
+
+--Clase 21/04
+cantidadDigitos :: Integer -> Integer
+cantidadDigitos x | x == 0 = 0
+              | x < 10 = 1
+              | otherwise = cantidadDigitos (div x 10) + 1
+
+iesimoDigito :: Integer -> Integer
+iesimoDigito n i = mod (div n 10^(cantidadDigitos (n)-i) 10)
+
+esCapicua :: Integer -> Bool
+esCapicua n | n < 10 = True
+            | esCapicua (div )
