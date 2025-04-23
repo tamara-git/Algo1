@@ -1,6 +1,8 @@
-sumatoriaqn :: Float -> Integer -> Float
-sumatoriaqn q n | n == 1 = q 
-                | otherwise = sumatoriaqn q (n-1) + q^n
+--esta sumatoria es la de sumatoriaq^i.hs pero comenzando desde i=0
+sumatoriaqn0 :: Float -> Integer -> Float
+sumatoriaqn0 q n | n == 0 = 1
+                 | n == 1 = q 
+                 | otherwise = sumatoriaqn q (n-1) + q^n
 
 sumatoria2_q2n :: Float -> Integer -> Float
 sumatoria2_q2n q n | n == 0 = 1
