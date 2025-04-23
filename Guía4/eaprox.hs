@@ -3,7 +3,7 @@ a partir de la siguiente sumatoria:
 eˆ(n) = sumatoria i=0 n  de 1/i!
 -}
 -- Intento hacer la recursión en 
-factorial :: Integer -> Float
+factorial :: Float -> Float
 factorial x | x == 0 = 1
             | otherwise = x * factorial (x-1)
 
