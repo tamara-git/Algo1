@@ -10,4 +10,4 @@ factorial x | x == 0 = 1
 e_aprox :: Integer -> Float
 e_aprox x  | x == 0 = 1
            | x == 1 = 2
-           | otherwise = div 1 (factorial x) + e_aprox (x-1)
+           | otherwise = 1/(factorial x) + e_aprox (x-1)
