@@ -5,7 +5,7 @@ eˆ(n) = sumatoria i=0 n  de 1/i!
 
 factorial :: Integer -> Integer
 factorial x | x == 0 = 1
-            | otherwise = n * factorial (n-1)
+            | otherwise = x * factorial (x-1)
 
 e_aprox :: Integer -> Float
 e_aprox x  | x == 0 = 1
