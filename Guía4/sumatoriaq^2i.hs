@@ -5,4 +5,4 @@ sumatoriaqn q n | n == 1 = q
 sumatoriaq2n :: Float -> Integer -> Float
 sumatoriaq2n q n | n == 0 = 0
                  | n == 1 = (q^2 + q^1)
-                 | otherwise = q^(2*n) + sumatoriaq2n q q^(2*n-1)
+                 | otherwise = q^(2*n) + sumatoriaq2n q (2*n-1)
