@@ -8,7 +8,7 @@ factorial x | x == 0 = 1
             | otherwise = x * factorial (x-1)
 
 e_aprox :: Integer -> Float
-e_aprox x  | x == 0 = 1
-           | x == 1 = 2
+e_aprox x  | x == 0 = 1.0
+           | x == 1 = 2.0
            | otherwise = (factorial x)^(-1) + e_aprox (x-1)
             
