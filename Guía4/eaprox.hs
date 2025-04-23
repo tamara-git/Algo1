@@ -5,4 +5,4 @@ eˆ(n) = sumatoria i=0 n  de 1/i!
 e_aprox :: Integer -> Float
 e_aprox x  | x == 0 = 1
            | x == 1 = 1
-           | otherwise = div 1 n! + e_aprox (x-1)
+           | otherwise = div 1 x! + e_aprox (x-1)
