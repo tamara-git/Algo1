@@ -14,8 +14,8 @@ e_aprox x  | x == 0 = 1
 
 {- b) Definir la constante e :: Float como la aproximación de e a partir de los primeros
 10 términos de la serie anterior.-}
---Obs: me conviene usar fromIntegral para convertir UNA FUNCIÓN Integer en Float y no simplemente un valor.
+--Obs final: me conviene usar fromIntegral para convertir UNA FUNCIÓN Integer en Float y no simplemente un valor.
 
 e :: Float 
-e = fromIntegral (e_aprox 10)
+e = e_aprox 10
             
