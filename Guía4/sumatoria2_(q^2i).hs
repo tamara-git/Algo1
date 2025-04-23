@@ -2,7 +2,7 @@
 sumatoriaqn0 :: Float -> Integer -> Float
 sumatoriaqn0 q n | n == 0 = 1
                  | n == 1 = 1 + q 
-                 | otherwise = sumatoriaqn q (n-1) + q^n
+                 | otherwise = sumatoriaqn0 q (n-1) + q^n
 
 sumatoriaq2n :: Float -> Integer -> Float
 sumatoriaq2n q n | n == 0 = 0
@@ -12,4 +12,4 @@ sumatoriaq2n q n | n == 0 = 0
 sumatoria2_q2n :: Float -> Integer -> Float
 sumatoria2_q2n q n | n == 0 = 1
                    | n == 1 == (q^2 + q^1)
-                   | otherwise = sumatoriaq2n q n - (sumatoriaqn q (n-1))              
+                   | otherwise = sumatoriaq2n q n - (sumatoriaqn0 q (n-1))              
