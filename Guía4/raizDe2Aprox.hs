@@ -15,7 +15,7 @@ raizDe2Aprox 3 ⇝ 1,4 -}
 sucesion_a :: Integer -> Float
 sucesion_a n | n == 1 = 2
              | n == 2 = 2.5
-             | otherwise = 2 + (1/sucesion_a (n-1)) - (2 + (1/(sucesion_a (n-2))))
+             | otherwise = (2 + 1/(n-1) + sucesion_a (n-1)) - (2 + sucesion_a (n-2))
             
 --uso la sucesión y le resto 1            
 raizDe2Aprox :: Integer -> Float
