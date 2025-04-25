@@ -21,4 +21,4 @@ sucesion_a n | n == 1 = 2
 raizDe2Aprox :: Integer -> Float
 raizDe2Aprox 1 = 1
 raizDe2Aprox 2 = 1.5
-raizDe2Aprox n = sucesion_a n - 1 
+raizDe2Aprox n = (sucesion_a n) - 1 
