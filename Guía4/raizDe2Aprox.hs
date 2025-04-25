@@ -12,13 +12,13 @@ raizDe2Aprox 3 ⇝ 1,4 -}
 -}
 
 --primero hago la recursión en la sucesion
-sucesion_a :: Integer -> Float
-sucesion_a n | n == 1 = 2
-             | n == 2 = 2.5
-             | otherwise = (2 + 1/(n-1) + sucesion_a (n-1)) - (2 + sucesion_a (n-2))
-            
+an :: Integer -> Float
+an n | n == 1 = 2
+     | n == 2 = 2.5
+     | otherwise = 2 + 1/an(n-1)
+
 --uso la sucesión y le resto 1            
 raizDe2Aprox :: Integer -> Float
 raizDe2Aprox 1 = 1
 raizDe2Aprox 2 = 1.5
-raizDe2Aprox n = (sucesion_a n) - 1 
+raizDe2Aprox n = an - 1
