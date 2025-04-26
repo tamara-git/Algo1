@@ -21,8 +21,8 @@ ultimo (_:xs) = ultimo (xs)
         asegura: { resultado = subseq(s, 0, |s| − 1) }
 }-}
 principio :: [t] -> [t]
-principio [x] = x
-principio (x:xs) = ultimo (reverso (x:xs))
+principio [x] = [x]
+principio (x:xs) = [ultimo (reverso (x:xs))]
 
 {- 4. reverso :: [t] -> [t] según la siguiente especificación:
 problema reverso (s: seq⟨T⟩) : seq⟨T⟩ {
