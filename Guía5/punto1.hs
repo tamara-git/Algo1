@@ -22,4 +22,15 @@ ultimo (_:xs) = ultimo (xs)
 }-}
 principio :: [t] -> [t]
 principio [x] = x
-principio (x:xs) = principio
+principio (x:xs) = ultimo (reverso (x:xs))
+
+{- 4. reverso :: [t] -> [t] según la siguiente especificación:
+problema reverso (s: seq⟨T⟩) : seq⟨T⟩ {
+requiere: { True }
+asegura: { resultado tiene los mismos elementos que s pero en orden inverso.}
+}
+-}
+reverso :: [t] -> [t]
+reverso [] = []
+reverso [x] = [x]
+reverso (x:xs) = reverso (xs) ++ [x]
