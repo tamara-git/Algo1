@@ -5,5 +5,5 @@ que dada una lista devuelve verdadero sí y solamente sí todos sus elementos so
 todosIguales :: (Eq t) => [t] -> Bool
 todosIguales [] = True
 todosIguales [x] = True
-todosIguales (x:xs) = todosIguales (xs) ++ [x] 
+todosIguales (x:xs) = x == todosIguales (xs) 
 
