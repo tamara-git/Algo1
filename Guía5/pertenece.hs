@@ -5,4 +5,6 @@ asegura: { resultado = true ↔ e ∈ s }
 }-}
 
 pertenece :: (Eq t) => t -> [t] -> Bool 
-pertenece E
+pertenece e (x:xs) | (x:xs) == [] = False
+                   | (x:xs) == [e] = True
+                   | pertenece 
