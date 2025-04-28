@@ -10,6 +10,6 @@ quitar x (xs) | xs == [x] = []
 
 quitarTodos :: (Eq t) => t -> [t] -> [t]
 quitarTodos x [] = []
-quitarTodos x xs | (xs) == [x] = []
-                 | head (xs) == x = quitarTodos x (head xs) ++ quitarTodos x (tail xs) 
-                 | otherwise = head [xs] ++ quitarTodos x (tail xs)
+quitarTodos x (y:xs) | (y:xs) == [x] = []
+                 | y == x = quitarTodos x y ++ quitarTodos x (xs)
+                 | otherwise = y ++ quitarTodos x (xs)
