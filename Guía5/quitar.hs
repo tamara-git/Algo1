@@ -3,7 +3,7 @@ aparición de x en la lista xs (de haberla).-}
 
 quitar :: (Eq t) => t -> [t] -> [t]
 quitar x [] = []
-quitar x (xs) | xs == [x] = []
-              | head (xs) == x = quitar x (head xs)
-              | otherwise = quitar x (tail xs) 
+quitar x (xs) | (xs) == [x] = []
+              | head xs == x = tail xs
+              | otherwise = quitar x (tail xs)
 
