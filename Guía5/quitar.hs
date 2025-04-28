@@ -18,5 +18,5 @@ quitarTodos :: (Eq t ) => t -> [t] -> [t]
 quitarTodos x [] = []
 quitarTodos x (xs) | (xs) == [x] = []
                    | head xs == x = tail xs
-                   | tail xs == (x:tail xs) = quitar x (xs) 
+                   | tail xs == (x:tail xs) = tail xs 
                    | otherwise = quitarTodos (x (quitar x (xs)))
