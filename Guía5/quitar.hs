@@ -9,5 +9,5 @@ quitar x (xs) | xs == [x] = []
 {-problema quitarTodos -}
 
 quitarTodos :: (Eq t) => t -> [t] -> [t]
-quitarTodos x xs | head (xs) == x = quitarTodos x (tail xs)
-                 | otherwise = head (xs) ++ quitarTodos x (tail xs)
+quitarTodos x xs | head [xs] == x = quitarTodos x (tail xs)
+                 | otherwise = head [xs] ++ quitarTodos x (tail xs)
