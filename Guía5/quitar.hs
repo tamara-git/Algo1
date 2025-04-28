@@ -16,7 +16,7 @@ asegura: { resultado es igual a s pero sin el elemento e. }
 
 quitarTodos :: (Eq t ) => t -> [t] -> [t]
 quitarTodos x [] = []
-quitarTodos x (xs) | (xs) == [x] = []
-                   | head xs == x = tail xs
-                   | tail xs == (x:tail xs) = tail xs 
-                   | otherwise = quitarTodos (x (quitar x (xs)))
+quitarTodos x (y:xs) | (y:xs) == [x] = []
+                     | y == x = xs
+                     | xs == (x:xs) = tail xs 
+                     | otherwise = (y:quitarTodos x (tail xs))
