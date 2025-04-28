@@ -22,7 +22,7 @@ ultimo (_:xs) = ultimo (xs)
 }-}
 principio :: [t] -> [t]
 principio [x] = []
-principio (x:y:xs) = x:principio  y:xs 
+principio (x:y:xs) = x:principio  (y:xs) 
     --[ultimo (reverso (x:xs))]
 
 {- 4. reverso :: [t] -> [t] según la siguiente especificación:
