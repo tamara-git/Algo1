@@ -12,4 +12,4 @@ quitarTodos :: (Eq t) => t -> [t] -> [t]
 quitarTodos x [] = []
 quitarTodos x (y:xs) | (y:xs) == [x] = []
                  | y == x = (xs) ++ quitarTodos x (xs)
-                 | otherwise = y ++ quitarTodos x (xs)
+                 | otherwise = [y] ++ quitarTodos x (xs)
