@@ -5,5 +5,5 @@ quitar :: (Eq t) => t -> [t] -> [t]
 quitar x [] = []
 quitar x (xs) | xs == [x] = []
               | head (xs) /= x = (xs)
-              | otherwise = quitar x (head xs: tail xs) 
+              | otherwise = quitar x (tail xs) 
 
