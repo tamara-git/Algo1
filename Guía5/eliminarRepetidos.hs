@@ -10,4 +10,4 @@ eliminarRepetidos :: (Eq t) => [t] -> [t]
 eliminarRepetidos [] = []
 eliminarRepetidos [x] = [x]
 eliminarRepetidos (x:xs) | pertenece x xs == True = eliminarRepetidos (xs)
-                         | otherwise = x:eliminarRepetidos(xs)        
+                         | otherwise = x:eliminarRepetidos(xs) 
