@@ -14,5 +14,4 @@ hayRepetidos (x:xs) | (x:xs) == [x] = True
 eliminarRepetidos :: (Eq t) => [t] -> [t]
 eliminarRepetidos [x] = [x]
 eliminarRepetidos (x:xs) | head xs == x = eliminarRepetidos (xs)
-                         | hayRepetidos (x:xs) == False = (x:xs)
                          | otherwise = x:eliminarRepetidos(xs)
