@@ -5,10 +5,8 @@ asegura: {resultado sólo tiene los elementos pares de s en el orden dado, respe
 }
 -}
 
-esPar :: Integer -> Integer
-esPar x = mod x 2 == 0
-
 pares :: [Integer] -> [Integer]
+pares [x] = 
 pares (x:xs) | x == esPar x = [x]
              | x /= esPar x = pares (xs)
              | otherwise = x:pares (xs) 
