@@ -12,5 +12,5 @@ pertenece e (x:xs)  | e == x = True
 todosDistintos :: (Eq t) => [t] -> Bool
 todosDistintos [] = True
 todosDistintos (x:xs) | (x:xs) == [x] = True
-                      | pertenece x xs = False
+                      |  pertenece x xs == True = False
                       | otherwise = todosDistintos (xs)
