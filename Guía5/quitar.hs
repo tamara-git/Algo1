@@ -3,6 +3,7 @@ aparición de x en la lista xs (de haberla).-}
 
 quitar :: (Eq t) => t -> [t] -> [t]
 quitar x [] = []
+<<<<<<< HEAD
 quitar x (xs) | (xs) == [x] = []
               | head xs == x = tail xs
               | otherwise = (head xs : quitar x (tail xs))
@@ -20,3 +21,15 @@ quitarTodos x (y:xs) | (y:xs) == [x] = []
                      | y == x = xs
                      | xs == (x:tail xs) = quitarTodos x (xs) 
                      | otherwise = (y:xs)
+=======
+quitar x (xs) | xs == [x] = []
+              | head (xs) /= x = (xs)
+              | otherwise = quitar x (tail xs) 
+{-problema quitarTodos -}
+
+quitarTodos :: (Eq t) => t -> [t] -> [t]
+quitarTodos x [] = []
+quitarTodos x (y:xs) | (y:xs) == [x] = []
+                     | y == x = quitarTodos x (xs) 
+                     | otherwise = y:quitarTodos x (xs)
+>>>>>>> e21bb6285cdac94b1b05a17b8fc43638ab082f91
