@@ -8,4 +8,4 @@ todosDistintos :: (Eq t) => [t] -> Bool
 todosDistintos [] = True
 todosDistintos (x:xs) | (x:xs) == [x] = True
                       | head xs == x = todosDistintos (xs)
-                      | otherwise = x:(todosDistintos (xs)) = True 
+                      | otherwise = x:(todosDistintos (xs)) == True 
