@@ -12,5 +12,5 @@ pertenece e (x:xs)  | e == x = True
 hayRepetidos :: (Eq t) => [t] -> Bool
 hayRepetidos [] = False 
 hayRepetidos (x:xs) | (x:xs) == [x] = False
-                    | pertenece x xs = hayRepetidos (x:xs)
+                    | pertenece x xs = hayRepetidos (xs)
                     | otherwise = False
