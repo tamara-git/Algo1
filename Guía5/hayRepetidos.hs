@@ -7,5 +7,5 @@ asegura: { resultado = true ↔ existen dos posiciones distintas de s con igual 
 hayRepetidos :: (Eq t) => [t] -> Bool
 hayRepetidos [] = False 
 hayRepetidos (x:xs) | (x:xs) == [x] = False
-                    | head xs /= x = hayRepetidos (xs)
-                    | otherwise = True 
+                    | 
+                    | otherwise = 
