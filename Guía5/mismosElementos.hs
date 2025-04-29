@@ -9,18 +9,15 @@ asegura: { resultado = true ↔ todo elemento de s pertenece r y viceversa }
  
 pertenece :: (Eq t) => t -> [t] -> Bool 
 pertenece e [] = False
-pertenece e (x:xs)  | e == x = True 
-                    | otherwise = pertenece e (xs)
+pertenece e (x:xs) = e == x || pertenece e (xs)
 
-eliminarRepetidos :: (Eq t) => [t] -> [t]
-eliminarRepetidos [] = []
-eliminarRepetidos [x] = [x]
-eliminarRepetidos (x:xs) | pertenece x xs == True = eliminarRepetidos (xs)
-                         | otherwise = x:eliminarRepetidos(xs) 
-
-
+quitarTodos :: (Eq t) => t -> [t] -> [t]
+quitarTodos x [] = []
+quitarTodos x (y:xs) | (y:xs) == [x] = []
+                     | y == x = quitarTodos x (xs) 
+                     | otherwise = y:quitarTodos x (xs)
 
 mismosElementos :: (Eq t) => [t] -> [t] -> Bool
 mismosElementos  [] []  = True
-mismosElementos (x:xs) (y:ys) | pertenece y (eliminarRepetidos (x:xs)) && pertenece x (eliminarRepetidos (y:ys)) = True
-                              | otherwise = False 
+mismosElementos (x:xs) (y:ys) | not (pertenece x (y:ys)) = False
+                              | otherwise = mismosElementos (quitarTodos x (x:xs)) (quitarTodos x (y:ys)) 
