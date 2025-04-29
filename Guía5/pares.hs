@@ -4,8 +4,11 @@ requiere: { True }
 asegura: {resultado sólo tiene los elementos pares de s en el orden dado, respetando las repeticiones}
 }
 -}
-par :: Integer -> Integer
-par x = 2*n
 
---pares :: [Integer] -> [Integer]
---pares (x:xs) | 
+esPar :: Integer -> Integer
+esPar x = mod x 2 == 0
+
+pares :: [Integer] -> [Integer]
+pares (x:xs) | x == esPar x = [x]
+             | x /= esPar x = pares (xs)
+             | otherwise = x:pares (xs) 
