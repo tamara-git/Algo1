@@ -13,7 +13,7 @@ pertenece e (x:xs)  | e == x = True
                     | otherwise = pertenece e (xs)
 
 
- mismosElementos :: (Eq t) => [t] -> [t] -> Bool
+mismosElementos :: (Eq t) => [t] -> [t] -> Bool
 mismosElementos [] [] = True
 mismosElementos (x:xs) (y:ys) | x == y && mismosElementos (xs) == mismosElementos (ys) = True
                               | otherwise = False
