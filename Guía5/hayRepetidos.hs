@@ -16,6 +16,11 @@ todosDistintos (x:xs) | (x:xs) == [x] = True
                       | otherwise = todosDistintos (xs)
 
 hayRepetidos :: (Eq t) => [t] -> Bool 
-hayRepetidos (x:xs) | (x:xs) == [x] = False
-                    | todosDistintos (x:xs) == True = False
-                    | otherwise = True 
+hayRepetidos (x:xs) | (x:xs) == [x] = True
+                    | pertenece x xs == True = True
+                    | otherwise = hayRepetidos (xs)
+
+--Otra forma pero sin recursión directa en hayRepetidos
+{-
+hayRepetidos xs = not (todosDistintos xs)
+-}
