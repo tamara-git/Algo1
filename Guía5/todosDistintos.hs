@@ -7,5 +7,5 @@ asegura: { resultado = false ↔ existen dos posiciones distintas de s con igual
 todosDistintos :: (Eq t) => [t] -> Bool
 todosDistintos [] = True
 todosDistintos (x:xs) | (x:xs) == [x] = True
-                      | head xs /= x = todosDistintos (xs) 
+                      | x /= todosDistintos (hs) = True 
                       | otherwise = False 
