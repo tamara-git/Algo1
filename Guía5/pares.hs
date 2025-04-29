@@ -7,5 +7,5 @@ asegura: {resultado sólo tiene los elementos pares de s en el orden dado, respe
 par :: Integer -> Integer
 par x = 2*n
 
-pares :: [Integer] -> [Integer]
-pares (x:xs) | 
+--pares :: [Integer] -> [Integer]
+--pares (x:xs) | 
