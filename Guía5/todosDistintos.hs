@@ -13,4 +13,4 @@ todosDistintos :: (Eq t) => [t] -> Bool
 todosDistintos [] = True
 todosDistintos (x:xs) | (x:xs) == [x] = True
                       | pertenece x xs = False
-                      | otherwise = todosDistintos xs              
+                      | otherwise = todosDistintos (xs)
