@@ -18,4 +18,4 @@ todosDistintos (x:xs) | (x:xs) == [x] = True
 hayRepetidos :: (Eq t) => [t] -> Bool 
 hayRepetidos (x:xs) | (x:xs) == [x] = False
                     | todosDistintos (x:xs) == True = False
-                    | otherwise = x:hayRepetidos (xs)
+                    | otherwise = True 
