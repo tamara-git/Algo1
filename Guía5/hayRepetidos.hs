@@ -9,8 +9,14 @@ pertenece e [] = False
 pertenece e (x:xs)  | e == x = True 
                     | otherwise = pertenece e (xs)
 
+todosDistintos :: (Eq t) => [t] -> Bool
+todosDistintos [] = True
+todosDistintos (x:xs) | (x:xs) == [x] = True
+                      |  pertenece x xs == True = False
+                      | otherwise = todosDistintos (xs)
+
 hayRepetidos :: (Eq t) => [t] -> Bool
 hayRepetidos [] = False 
 hayRepetidos (x:xs) | (x:xs) == [x] = False
-                    | not (pertenece x xs) = False
+                    | todosDistintos (x:xs) == True = False
                     | otherwise = hayRepetidos (xs)
