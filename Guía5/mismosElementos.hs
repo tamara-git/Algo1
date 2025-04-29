@@ -15,5 +15,5 @@ pertenece e (x:xs)  | e == x = True
 
 mismosElementos :: (Eq t) => [t] -> [t] -> Bool
 mismosElementos [] [] = True
-mismosElementos (x:xs) (y:ys) | x == y && mismosElementos (xs) == mismosElementos (ys) = True
+mismosElementos (x:xs) (y:ys) |(x == y) && (mismosElementos (xs) == mismosElementos (ys)) = True
                               | otherwise = False
