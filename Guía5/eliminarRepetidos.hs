@@ -3,9 +3,9 @@ eliminando las repeticiones adicionales.-}
 hayRepetidos :: (Eq t) => [t] -> Bool
 hayRepetidos [] = False 
 hayRepetidos (x:xs) | (x:xs) == [x] = False
-                    | head xs /= x = hayRepetidos (xs)
-                    | otherwise = True 
-                    
+                    | head xs == x = hayRepetidos (xs)
+                    | otherwise = False 
+                                        
 eliminarRepetidos :: (Eq t) => [t] -> [t]
 eliminarRepetidos [x] = [x]
 eliminarRepetidos (x:xs) | hayRepetidos (x:xs) == True = [x] ++ eliminarRepetidos (xs)

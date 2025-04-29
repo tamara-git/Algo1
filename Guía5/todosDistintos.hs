@@ -4,8 +4,14 @@ requiere: { True }
 asegura: { resultado = false ↔ existen dos posiciones distintas de s con igual valor }
 }-}
 
+todosIguales :: (Eq t) => [t] -> Bool
+todosIguales [] = True
+todosIguales (x:xs) | (x:xs) == [x] = True
+                    | head xs == x = todosIguales (xs)
+                    | otherwise = False 
+
 todosDistintos :: (Eq t) => [t] -> Bool
 todosDistintos [] = True
 todosDistintos (x:xs) | (x:xs) == [x] = True
-                      | head xs /= x = todosDistintos (xs)
-                      | otherwise = False
+                      | todosIguales (x:xs) == True = False
+                      | otherwise = True
