@@ -12,8 +12,15 @@ pertenece e [] = False
 pertenece e (x:xs)  | e == x = True 
                     | otherwise = pertenece e (xs)
 
+eliminarRepetidos :: (Eq t) => [t] -> [t]
+eliminarRepetidos [] = []
+eliminarRepetidos [x] = [x]
+eliminarRepetidos (x:xs) | pertenece x xs == True = eliminarRepetidos (xs)
+                         | otherwise = x:eliminarRepetidos(xs) 
+
+
 
 mismosElementos :: (Eq t) => [t] -> [t] -> Bool
-mismosElementos [] [] = True
-mismosElementos (x:xs) (y:ys) |(x == y) && (mismosElementos (xs) == mismosElementos (ys)) = True
-                              | otherwise = False
+mismosElementos  [] []  = True
+mismosElementos (x:xs) (y:ys) | pertenece y (eliminarRepetidos (x:xs)) && pertenece x (eliminarRepetidos (y:ys)) == True
+                              | otherwise = False 
