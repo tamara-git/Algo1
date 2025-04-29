@@ -6,12 +6,8 @@ pertenece e [] = False
 pertenece e (x:xs)  | e == x = True 
                     | otherwise = pertenece e (xs)
 
-hayRepetidos :: (Eq t) => [t] -> Bool 
-hayRepetidos (x:xs) | (x:xs) == [x] = True
-                    | pertenece x xs == True = True
-                    | otherwise = hayRepetidos (xs)
-
 eliminarRepetidos :: (Eq t) => [t] -> [t]
-eliminarRepetidos [x] = [x]
-eliminarRepetidos (x:xs) | head xs == x = eliminarRepetidos (xs)
-                         | otherwise = x:eliminarRepetidos(xs)
+eliminarRepetidos [] = []
+eliminarRepetidos [_] = [_]
+eliminarRepetidos (x:xs) =  pertenece x xs == True =  eliminarRepetidos (xs)
+                         
