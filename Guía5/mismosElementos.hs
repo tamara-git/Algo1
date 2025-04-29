@@ -22,5 +22,5 @@ eliminarRepetidos (x:xs) | pertenece x xs == True = eliminarRepetidos (xs)
 
 mismosElementos :: (Eq t) => [t] -> [t] -> Bool
 mismosElementos  [] []  = True
-mismosElementos (x:xs) (y:ys) | pertenece y (eliminarRepetidos (x:xs)) && pertenece x (eliminarRepetidos (y:ys)) == True
+mismosElementos (x:xs) (y:ys) | pertenece y (eliminarRepetidos (x:xs)) && pertenece x (eliminarRepetidos (y:ys)) = True
                               | otherwise = False 
