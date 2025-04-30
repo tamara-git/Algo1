@@ -14,8 +14,5 @@ sacarBlancosInicio [x] = [x]
 sacarBlancosInicio (x:xs) | x == ' ' = sacarBlancosInicio (xs)
                           | otherwise = (x:xs)
 
-sacarBlancosFinal :: [Char] -> [Char]
-sacarBlancosFinal [] = []
-sacarBlancosFinal [x] = []
-sacarBlancosFinal (x:xs) | ultimo (x:xs) == ' ' = x:sacarBlancosFinal (xs)
-                         | otherwise = (x:xs)
+sacarBlancoFinal :: [Char] -> [Char]
+sacarBlancoFinal (x:xs) = reverso (sacarBlancoPrincipio (reverso (x:xs)))
