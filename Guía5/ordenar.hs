@@ -10,5 +10,5 @@ minimo (x:xs) | x <= minimo xs = x
 ordenar :: [Integer] -> [Integer]
 ordenar [] = []
 ordenar [x] = [x]
-ordenar (x:xs) | x <= minimo (xs) = (x:minimo(xs))
+ordenar (x:xs) | x <= minimo (xs) = ordenar (x:minimo (xs))
                | otherwise = [minimo(xs)]
