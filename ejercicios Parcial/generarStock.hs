@@ -20,7 +20,7 @@ filtrarRepetidos (pal:xs) | pertenece pal xs == True = pal: quitar pal xs
 filtrarRepetidos :: String -> [String] -> [String]
 filtrarRepetidos palabra (x:[]) = [x] 
 filtrarRepetidos palabra (pal:xs) | palabra == pal = palabra: quitar palabra xs
-                                 | otherwise = pal: quitar palabra xs
+                                 | otherwise = pal: palabra : quitar palabra xs
 
 {-cantidadRepeticiones :: String -> [String] -> Int
 cantidadRepeticiones palabra (x:[]) = 0
