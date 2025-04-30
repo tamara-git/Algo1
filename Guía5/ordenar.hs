@@ -10,11 +10,12 @@ minimo (x:xs) | x <= minimo xs = x
 
 quitar :: (Eq t) => t -> [t] -> [t]
 quitar x [] = []
-quitar x (xs) | xs == [x] = []
+quitar x (xs) |  xs == [x] = []
               | head (xs) /= x = (xs)
               | otherwise = quitar x (tail xs) 
 
 ordenar :: [Integer] -> [Integer]
 ordenar [] = []
+ordenar (x:[]) 
 ordenar [x] = [x]
-ordenar (x:xs) = minimo (x:xs) : ordenar (quitar (minimo (x:xs)) (x:xs))
+ordenar (x:xs) = minimo (x:xs) : ordenar (quitar (minimo xs) xs)
