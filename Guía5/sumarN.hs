@@ -9,4 +9,4 @@ n }
 sumarN :: Integer -> [Integer] -> [Integer]
 sumarN n [] = [n]
 sumarN n [x] = [x + n]
-sumarN n (x:xs) = [x + n] ++ sumarN (xs)
+sumarN n (x:xs) = [x + n] ++ sumarN n (xs)
