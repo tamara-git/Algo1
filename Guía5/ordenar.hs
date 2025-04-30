@@ -7,8 +7,13 @@ minimo [x] = x
 minimo (x:xs) | x <= minimo xs = x
               | otherwise = minimo (xs)  
 
+quitar :: (Eq t) => t -> [t] -> [t]
+quitar x [] = []
+quitar x (xs) | xs == [x] = []
+              | head (xs) /= x = (xs)
+              | otherwise = quitar x (tail xs) 
+
 ordenar :: [Integer] -> [Integer]
 ordenar [] = []
 ordenar [x] = [x]
-ordenar (x:xs) | x <= minimo xs = x (x:minimo (xs):xs)
-               | otherwise = ordenar (xs)
+ordenar (x:xs) | minimo (x:xs) : ordenar (quitar (minimo (x:xs)) (x:xs))
