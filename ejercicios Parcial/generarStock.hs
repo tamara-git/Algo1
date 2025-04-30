@@ -24,4 +24,4 @@ cantidadRepeticiones (pal:xs) | pal == head xs = 1 + cantidadRepeticiones (xs)
                               
 generarStock :: [String] -> [(String, Int)]
 generarStock (x:[]) = [[x],0]
-generarStock (filtrarRepetidos (x:xs)) = [(palabra,cantidadRepeticiones (pal:xs))]
+generarStock (filtrarRepetidos (pal:xs)) = [(palabra,cantidadRepeticiones (pal:xs))]
