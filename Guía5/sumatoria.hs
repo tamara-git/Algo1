@@ -11,4 +11,5 @@ principio (x:xs) = x:principio  xs
 
 sumatoria :: [Integer] -> Integer
 sumatoria [] = 0
+sumatoria [x] = x
 sumatoria (x:xs) = sumatoria (principio (x:xs)) 
