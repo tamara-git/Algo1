@@ -11,5 +11,5 @@ sumarN n [x] = [x + n]
 sumarN n (x:xs) = [x + n] ++ sumarN n (xs)
 
 sumarElPrimero :: [Integer] -> [Integer]
-sumarElPrimero [x] = [x+1]
+sumarElPrimero [x] = [x+x]
 sumarElPrimero (x:xs) = sumarN x (x:xs)
