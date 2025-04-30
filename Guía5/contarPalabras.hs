@@ -1,6 +1,11 @@
 {- contarPalabras :: [Char] -> Integer, que dada una lista de caracteres devuelve la cantidad de palabras que
 tiene.-}
 
+reverso :: [t] -> [t]
+reverso [] = []
+reverso [x] = [x]
+reverso (x:xs) = reverso (xs) ++ [x]
+
 sacarBlancosRepetidos :: [Char] -> [Char]
 sacarBlancosRepetidos [] = []
 sacarBlancosRepetidos [x] = [x]
