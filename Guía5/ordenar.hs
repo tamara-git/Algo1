@@ -3,6 +3,7 @@ cómo pueden usar la función mínimo para que ayude a generar la lista ordenada
 -}
 
 minimo :: [Integer] -> Integer
+minimo [] = 0
 minimo [x] = x
 minimo (x:xs) | x <= minimo xs = x
               | otherwise = minimo (xs)  
