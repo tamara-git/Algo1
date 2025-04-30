@@ -16,6 +16,5 @@ quitar x (xs) |  xs == [x] = []
 
 ordenar :: [Integer] -> [Integer]
 ordenar [] = []
-ordenar (x:[]) 
 ordenar [x] = [x]
 ordenar (x:xs) = minimo (x:xs) : ordenar (quitar (minimo xs) xs)
