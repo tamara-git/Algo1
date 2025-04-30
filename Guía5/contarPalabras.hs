@@ -21,13 +21,10 @@ sacarBlancosInicio (x:xs) | x == ' ' = sacarBlancosInicio (xs)
 sacarBlancoFinal :: [Char] -> [Char]
 sacarBlancoFinal (x:xs) = reverso (sacarBlancosInicio(reverso (x:xs)))
 
-cantidadBlancos :: [Char] -> Integer
-cantidadBlancos [] = 0
-cantidadBlancos [x] = 0
-cantidadBlancos (x:xs) | x == ' ' = 1
-                       | otherwise = cantidadBlancos (xs)
-{-contarPalabras :: [Char] -> Integer
+
+contarPalabras :: [Char] -> Integer
 contarPalabras [] = 0
-contarPalabras (x:xs) | x == ' ' = contarPalabras (xs)
-                      | otherwise = 
-                    -}
+contarPalabras (x:xs) | (x == ' ' && y == y) = contarPalabras (y:xs)
+                      | (x == x && y == ' ') = 1 + contarPalabras (xs)
+                      | otherwise = contarPalabras (xs)
+                    
