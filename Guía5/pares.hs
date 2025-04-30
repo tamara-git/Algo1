@@ -6,7 +6,6 @@ asegura: {resultado sólo tiene los elementos pares de s en el orden dado, respe
 -}
 
 pares :: [Integer] -> [Integer]
-pares [x] = 
-pares (x:xs) | x == esPar x = [x]
-             | x /= esPar x = pares (xs)
-             | otherwise = x:pares (xs) 
+pares [] = []
+pares (x:xs) | x == (mod x 2==0 ) = x:pares (xs)
+             | otherwise = pares (xs)
