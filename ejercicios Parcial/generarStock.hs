@@ -22,10 +22,10 @@ filtrarRepetidos (x:[]) = [x]
 filtrarRepetidos palabra (pal:xs) | palabra == pal = palabra: quitar palabra xs
                                  | otherwise = pal: quitar palabra xs
 
-cantidadRepeticiones :: String -> [String] -> Int
+{-cantidadRepeticiones :: String -> [String] -> Int
 cantidadRepeticiones palabra (x:[]) = 0
 cantidadRepeticiones palabra (pal:xs) | palabra == pal = 1 + cantidadRepeticiones (xs)
-                                      | otherwise = cantidadRepeticiones (xs)
+                                      | otherwise = cantidadRepeticiones (xs)-}
  
 --generarStock :: [String] -> [(String, Int)]
 --generarStock (x:[]) = [[x],0]
