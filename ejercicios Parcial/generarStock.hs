@@ -12,16 +12,11 @@ quitar palabra (_:[]) = []
 quitar palabra (pal:xs) | palabra == pal = quitar palabra xs
                         | otherwise = pal: quitar palabra xs
 
-{-filtrarRepetidos :: [String] -> [String]
+filtrarRepetidos :: [String] -> [String]
 filtrarRepetidos (x:[]) = [x] 
 filtrarRepetidos (pal:xs) | pertenece pal xs == True = pal: quitar pal xs
-                          | otherwise = pal: filtrarRepetidos xs-}
+                          | otherwise = pal: filtrarRepetidos xs
                         
-filtrarRepetidos :: String -> [String] -> [String]
-filtrarRepetidos palabra (x:[]) = [x] 
-filtrarRepetidos palabra (pal:xs) | palabra == pal = palabra: quitar palabra xs
-                                 | otherwise = pal: palabra : quitar palabra xs
-
 {-cantidadRepeticiones :: String -> [String] -> Int
 cantidadRepeticiones palabra (x:[]) = 0
 cantidadRepeticiones palabra (pal:xs) | palabra == pal = 1 + cantidadRepeticiones (xs)
