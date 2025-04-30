@@ -24,6 +24,7 @@ sacarBlancoFinal (x:xs) = reverso (sacarBlancosInicio(reverso (x:xs)))
 
 contarPalabras :: [Char] -> Integer
 contarPalabras [] = 0
+contarPalabras [x] = 1
 contarPalabras (x:y:xs) | (x == ' ' && y == y) = contarPalabras (y:xs)
                       | (x == x && y == ' ') = 1 + contarPalabras (xs)
                       | otherwise = contarPalabras (xs)
