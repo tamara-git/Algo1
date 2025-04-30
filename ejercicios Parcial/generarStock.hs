@@ -18,7 +18,7 @@ filtrarRepetidos (pal:xs) | pertenece pal xs == True = pal: quitar pal xs
                           | otherwise = pal: filtrarRepetidos xs-}
                         
 filtrarRepetidos :: String -> [String] -> [String]
-filtrarRepetidos (x:[]) = [x] 
+filtrarRepetidos palabra (x:[]) = [x] 
 filtrarRepetidos palabra (pal:xs) | palabra == pal = palabra: quitar palabra xs
                                  | otherwise = pal: quitar palabra xs
 
