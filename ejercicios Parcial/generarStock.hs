@@ -17,11 +17,11 @@ filtrarRepetidos (x:[]) = [x]
 filtrarRepetidos (pal:xs) | pertenece pal xs == True = pal: quitar pal xs
                           | otherwise = pal: filtrarRepetidos xs
                         
-{-cantidadRepeticiones :: String -> [String] -> Int
-cantidadRepeticiones palabra (x:[]) = 0
-cantidadRepeticiones palabra (pal:xs) | palabra == pal = 1 + cantidadRepeticiones (xs)
-                                      | otherwise = cantidadRepeticiones (xs)-}
- 
---generarStock :: [String] -> [(String, Int)]
---generarStock (x:[]) = [[x],0]
---generarStock (x:xs) = [(filtrarRepetidos palabra (pal:xs), cantidadRepeticiones palabra (pal:xs))]
+cantidadRepeticiones :: [String] -> Int
+cantidadRepeticiones (x:[]) = 0
+cantidadRepeticiones (pal:xs) | pal == head xs = 1 + cantidadRepeticiones (xs) 
+                              | otherwise = cantidadRepeticiones (xs)
+                              
+generarStock :: [String] -> [(String, Int)]
+generarStock (x:[]) = [[x],0]
+generarStock (x:xs) = [(filtrarRepetidos (pal:xs), cantidadRepeticiones (pal:xs))]
