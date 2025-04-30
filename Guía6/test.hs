@@ -4,4 +4,4 @@ import TestFibo
 
 testFibonacci = test [
 "Positivo" ~: fib 5 ~?= 5
-]
+    ] 
