@@ -17,4 +17,4 @@ sumarN n (x:xs) = [x + n] ++ sumarN n (xs)
 
 sumarElUltimo :: [Integer] -> [Integer]
 sumarElUltimo [x] = [x+x]
-sumarElUltimo (x:xs) = sumarN ultimo (x:xs) (x:xs)
+sumarElUltimo (x:xs) = sumarN (ultimo (x:xs)) (x:xs)
