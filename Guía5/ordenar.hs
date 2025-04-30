@@ -11,7 +11,7 @@ minimo (x:xs) | x <= minimo xs = x
 quitar :: (Eq t) => t -> [t] -> [t]
 quitar x [] = []
 quitar x (xs) |  xs == [x] = []
-              | head (xs) == x = (xs)
+              | head (xs) == x = tail (xs)
               | otherwise = quitar x (tail xs) 
 
 ordenar :: [Integer] -> [Integer]
