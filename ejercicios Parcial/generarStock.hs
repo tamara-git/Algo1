@@ -29,10 +29,16 @@ cantidadApariciones y (x:xs) | y == x = 1 + cantidadApariciones y (xs)
 --generarStockAux [x] = [(x,1)]
 --generarStockAux (filtrarRepetidos (x:xs)) (x:xs) = crearTupla (x, cantidadApariciones x ())
 
+quitalo :: [(String, Int)] -> [(String, Int)]
+quitalo [(x,1)] = []
+quitalo [(palabra, cantidadApariciones palabra (x:xs))] = []
 
 --generarStock me devuelve la recursión de listas de palabras 
 generarStockAux :: [String] -> [(String, Int)]
 generarStockAux [x]= [(x,1)]
 generarStockAux (x:xs) = [(x,cantidadApariciones x (x:xs))] ++ generarStockAux xs
 
---generarStock :: [String] -> [(String, Int)]
+--agarrame el más grande
+--elMasGrande :: [(String, Int)] -> [(String, Int)] 
+--elMasGrande (x:xs) | (head xs == x) && (cantidadApariciones x (x:xs) > cantidadApariciones head xs (x:xs)) = quitarlo
+                  -- | otherwise =  
