@@ -23,6 +23,6 @@ cantidadApariciones y (x:xs) | y == head xs = 2 + cantidadApariciones x (tail xs
                              | otherwise = 1 + cantidadApariciones y (tail xs)
 
 --generarStock me devuelve la recursión de listas de palabras 
-generarStock :: [String] -> [(String, Int)]
+{-generarStock :: [String] -> [(String, Int)]
 generarStock (x:[]) = [x,0]
-generarStock (x:xs) = cantidadApariciones
+generarStock (x:xs) = cantidadApariciones -}
