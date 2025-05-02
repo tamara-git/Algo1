@@ -18,11 +18,11 @@ filtrarRepetidos (pal:xs) | pertenece pal xs == True = pal: quitar pal xs
                           | otherwise = pal: filtrarRepetidos xs
                         
 cantidadApariciones :: String -> [String] -> Int
-cantidadApariciones x [] = 0
-cantidadApariciones x (y:xs) | x == y = 1 + cantidadApariciones x (xs)
-                             | otherwise = cantidadApariciones x (xs)
+cantidadApariciones y [] = 0
+cantidadApariciones y (y:xs) | y == head xs = 2 + cantidadApariciones x (tail xs)
+                             | otherwise = cantidadApariciones y (xs)
 
 --generarStock me devuelve la recursión de listas de palabras 
-{-generarStock :: [String] -> [(String, Int)]
+generarStock :: [String] -> [(String, Int)]
 generarStock (x:[]) = [x,0]
-generarStock (pal:xs) | [(pal,cantidadRepeticiones)] ++ [()] -}
+generarStock (x:xs) = cantidadApariciones
