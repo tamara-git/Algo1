@@ -22,12 +22,14 @@ cantidadApariciones y [] = 0
 cantidadApariciones y (x:xs) | y == x = 1 + cantidadApariciones y (xs)
                              | otherwise = cantidadApariciones y (xs)
 
+crearTupla :: (String, [String]) -> (String, Int)
+crearTupla (x,(x:xs)) = (x, cantidadApariciones x (x:xs))
+
 generarStockAux :: [String] -> [String] -> [(String, Int)]
 generarStockAux [x] = [(x,1)]
-generarStockAux (x:xs) (y:ys) = [(y,cantidadApariciones (x:xs))] ++ generarStockAux (ys) 
-where (y:ys) = filtrarRepetidos (x:xs)
+generarStockAux (x:xs) (filtrarRepetidos (x:xs)) =  
 
 --generarStock me devuelve la recursión de listas de palabras 
 generarStock :: [String] -> [(String, Int)]
 generarStock [x]= [(x,1)]
-generarStock (x:xs)  = generarStockAux (x:xs) filtrarRepetidos (x:xs)
+generarStock (x:xs)  [(x,cantidadApariciones x (x:xs))] ++ generarStock xs
