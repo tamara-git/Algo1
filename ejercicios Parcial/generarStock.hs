@@ -25,9 +25,9 @@ cantidadApariciones y (x:xs) | y == x = 1 + cantidadApariciones y (xs)
 crearTupla :: (String, [String]) -> (String, Int)
 crearTupla (palabra,(x:xs)) = (palabra, cantidadApariciones palabra (x:xs))
 
-generarStockAux :: [String] -> [String] -> [(String, Int)]
+generarStockAux :: [String] -> [(String, Int)]
 generarStockAux [x] = [(x,1)]
-generarStockAux (filtrarRepetidos (x:xs)) (x:xs) = crearTupla (x, (x:xs)) ++ crearTupla (filtrarRepetidos(xs), (x:xs)) 
+generarStockAux (x:xs) = crearTupla (x, (x:xs)) ++ crearTupla (filtrarRepetidos(xs), (x:xs)) 
 
 {-quitalo :: [(String, Int)] -> [String]
 quitalo [(palabra,1)] = []
