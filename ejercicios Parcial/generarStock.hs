@@ -22,23 +22,24 @@ cantidadApariciones y [] = 0
 cantidadApariciones y (x:xs) | y == x = 1 + cantidadApariciones y (xs)
                              | otherwise = cantidadApariciones y (xs)
 
-crearTupla :: (String, [String]) -> (String, Int)
+{-crearTupla :: (String, [String]) -> (String, Int)
 crearTupla (palabra,(x:xs)) = (palabra, cantidadApariciones palabra (x:xs))
 
 generarStockAux :: [String] -> [(String, Int)]
 generarStockAux [x] = [(x,1)]
 generarStockAux (x:xs) = [crearTupla (x, (x:xs))] ++ [crearTupla (xs, (x:xs))] 
 
-{-quitalo :: [(String, Int)] -> [String]
+quitalo :: [(String, Int)] -> [String]
 quitalo [(palabra,1)] = []
-quitalo [(palabra,n)] = []
+quitalo [(palabra,n)] = [] 
+-}
 
 generarStock me devuelve la recursión de listas de palabras 
 generarStockAux :: [String] -> [(String, Int)]
 generarStockAux [x]= [(x,1)]
 generarStockAux (x:xs) = [(x,cantidadApariciones x (x:xs))] ++ generarStockAux xs
 
-
+{-
 igualesContiguos :: [String] -> [String]
 igualesContiguos (x:y:xs) | x == y = y:(x:xs)
                           | otherwise = igualesContiguos x:(y:xs)  
