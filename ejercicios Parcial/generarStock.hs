@@ -17,7 +17,7 @@ filtrarRepetidos (x:[]) = [x]
 filtrarRepetidos (pal:xs) | pertenece pal xs == True = pal: quitar pal xs
                           | otherwise = pal: filtrarRepetidos xs
                         
-cantidadRepeticiones :: [String] -> Int
+cantidadRepeticiones :: String -> [String] -> Int
 cantidadRepeticiones (x:[]) = 0
 cantidadRepeticiones pal (pal:xs) | pal == head xs = 1 + cantidadRepeticiones pal (tail xs)
                                   | otherwise = cantidadRepeticiones pal (tail xs)
