@@ -27,7 +27,7 @@ crearTupla (palabra,(x:xs)) = (palabra, cantidadApariciones palabra (x:xs))
 
 generarStockAux :: [String] -> [(String, Int)]
 generarStockAux [x] = [(x,1)]
-generarStockAux (x:xs) = crearTupla (x, (x:xs)) ++ crearTupla (xs, (x:xs)) 
+generarStockAux (x:xs) = [crearTupla (x, (x:xs))] ++ [crearTupla (xs, (x:xs))] 
 
 {-quitalo :: [(String, Int)] -> [String]
 quitalo [(palabra,1)] = []
