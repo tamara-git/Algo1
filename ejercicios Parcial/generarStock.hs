@@ -29,9 +29,9 @@ cantidadApariciones y (x:xs) | y == x = 1 + cantidadApariciones y (xs)
 --generarStockAux [x] = [(x,1)]
 --generarStockAux (filtrarRepetidos (x:xs)) (x:xs) = crearTupla (x, cantidadApariciones x ())
 
-quitalo :: [String] -> [(String, Int)] -> [String]
-quitalo [palabra] [(palabra,1)]  = []
-quitalo (palabra:xs) [(palabra, cantidadApariciones palabra (x:xs))] = []
+quitalo :: [(String, Int)] -> [String]
+quitalo [(palabra,1)] = []
+quitalo [(palabra,n)] = []
 
 --generarStock me devuelve la recursión de listas de palabras 
 generarStockAux :: [String] -> [(String, Int)]
