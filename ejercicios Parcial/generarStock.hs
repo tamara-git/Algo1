@@ -34,7 +34,7 @@ quitalo [(palabra,1)] = []
 quitalo [(palabra,n)] = [] 
 -}
 
-generarStock me devuelve la recursión de listas de palabras 
+--generarStock me devuelve la recursión de listas de palabras 
 generarStockAux :: [String] -> [(String, Int)]
 generarStockAux [x]= [(x,1)]
 generarStockAux (x:xs) = [(x,cantidadApariciones x (x:xs))] ++ generarStockAux xs
