@@ -22,23 +22,29 @@ cantidadApariciones y [] = 0
 cantidadApariciones y (x:xs) | y == x = 1 + cantidadApariciones y (xs)
                              | otherwise = cantidadApariciones y (xs)
 
---crearTupla :: (String, [String]) -> (String, Int)
---crearTupla (palabra,(x:xs)) = (palabra, cantidadApariciones palabra (x:xs))
+crearTupla :: (String, [String]) -> (String, Int)
+crearTupla (palabra,(x:xs)) = (palabra, cantidadApariciones palabra (x:xs))
 
---generarStockAux :: [String] -> [String] -> [(String, Int)]
---generarStockAux [x] = [(x,1)]
---generarStockAux (filtrarRepetidos (x:xs)) (x:xs) = crearTupla (x, cantidadApariciones x ())
+generarStockAux :: [String] -> [String] -> [(String, Int)]
+generarStockAux [x] = [(x,1)]
+generarStockAux (filtrarRepetidos (x:xs)) (x:xs) = crearTupla (x, (x:xs)) ++ crearTupla (filtrarRepetidos(xs), (x:xs)) 
 
-quitalo :: [(String, Int)] -> [String]
+{-quitalo :: [(String, Int)] -> [String]
 quitalo [(palabra,1)] = []
 quitalo [(palabra,n)] = []
 
---generarStock me devuelve la recursión de listas de palabras 
+generarStock me devuelve la recursión de listas de palabras 
 generarStockAux :: [String] -> [(String, Int)]
 generarStockAux [x]= [(x,1)]
 generarStockAux (x:xs) = [(x,cantidadApariciones x (x:xs))] ++ generarStockAux xs
 
+
+igualesContiguos :: [String] -> [String]
+igualesContiguos (x:y:xs) | x == y = y:(x:xs)
+                          | otherwise = igualesContiguos x:(y:xs)  
+
 --agarrame el más grande
---elMasGrande :: [(String, Int)] -> [(String, Int)] 
---elMasGrande (x:xs) | (head xs == x) && (cantidadApariciones x (x:xs) > cantidadApariciones head xs (x:xs)) = quitarlo
-                  -- | otherwise =  
+elMasGrande :: [String] -> [(String, Int)] -> [(String, Int)] 
+elMasGrande (x:xs) | (head xs == x) && (cantidadApariciones x (x:xs) > cantidadApariciones head xs (x:xs)) = quitalo [(head xs, cantidadApariciones head xs (x:xs))]
+                   | otherwise =  
+-}
