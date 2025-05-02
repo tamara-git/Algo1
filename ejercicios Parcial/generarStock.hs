@@ -5,12 +5,12 @@
 
 pertenece :: String -> [String] -> Bool
 pertenece _ [] = False
-pertenece palabra (pal : xs) = palabra == pal || pertenece palabra xs
+pertenece palabra (x : xs) = palabra == x || pertenece palabra xs
 
 quitar :: String -> [String] -> [String]
 quitar palabra (_:[]) = []
-quitar palabra (x:xs) | palabra == pal = quitar palabra xs
-                        | otherwise = pal: quitar palabra xs
+quitar palabra (x:xs) | palabra == x = quitar palabra xs
+                        | otherwise = x: quitar palabra xs
 
 filtrarRepetidos :: (Eq t) => [t] -> [t]
 filtrarRepetidos (x:[]) = [x] 
