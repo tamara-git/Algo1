@@ -22,9 +22,6 @@ cantidadApariciones y [] = 0
 cantidadApariciones y (x:xs) | y == x = 1 + cantidadApariciones y (xs)
                              | otherwise = cantidadApariciones y (xs)
 
-Tupla :: [String] -> String
-Tupla [x] = (x,1)
-Tupla (x:xs) = [(x,1)] ++ Tupla xs 
 --generarStock me devuelve la recursión de listas de palabras 
 generarStock :: [String] -> [(String, Int)]
 generarStock [x]= [(x,1)]
