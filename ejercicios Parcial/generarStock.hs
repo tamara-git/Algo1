@@ -27,4 +27,4 @@ cantidadApariciones y (x:xs) | y == x = 1 + cantidadApariciones y (xs)
 --generarStock me devuelve la recursión de listas de palabras 
 generarStock :: [String] -> [(String, Int)]
 generarStock [x]= [(x,1)]
-generarStock (filtrarRepetidos(x:xs)) = [(x,cantidadApariciones x (x:xs))] ++ generarStock xs
+generarStock (x:xs) = [(x,cantidadApariciones x (x:xs))] ++ generarStock xs
