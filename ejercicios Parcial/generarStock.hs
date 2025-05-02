@@ -14,7 +14,7 @@ quitar palabra (x:xs) | palabra == x = quitar palabra xs
 
 filtrarRepetidos :: [String] -> [String]
 filtrarRepetidos (x:[]) = [x] 
-filtrarRepetidos (x:xs) | pertenece x xs == True = x: quitar x xs, 
+filtrarRepetidos (x:xs) | pertenece x xs == True = x: quitar x xs 
                         | otherwise = x: filtrarRepetidos xs   
 
 cantidadApariciones :: String -> [String] -> Int
