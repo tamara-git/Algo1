@@ -23,7 +23,7 @@ cantidadApariciones y (x:xs) | y == x = 1 + cantidadApariciones y (xs)
                              | otherwise = cantidadApariciones y (xs)
 
 crearTupla :: (String, [String]) -> (String, Int)
-crearTupla (x,(x:xs)) = (x, cantidadApariciones x (x:xs))
+crearTupla (palabra ,(x:xs)) = (palabra, cantidadApariciones palabra (x:xs))
 
 --generarStockAux :: [String] -> [String] -> [(String, Int)]
 --generarStockAux [x] = [(x,1)]
