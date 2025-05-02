@@ -14,7 +14,7 @@ quitar palabra (x:xs) | palabra == x = quitar palabra xs
 
 filtrarRepetidos :: [String] -> [String]
 filtrarRepetidos (x:[]) = [x] 
-filtrarRepetidos (x:xs) | pertenece x xs == True = x: quitar x xs
+filtrarRepetidos (x:xs) | pertenece x xs == True = x: quitar x xs, 
                         | otherwise = x: filtrarRepetidos xs   
 
 cantidadApariciones :: String -> [String] -> Int
@@ -25,4 +25,5 @@ cantidadApariciones y (x:xs) | y == x = 1 + cantidadApariciones y (xs)
 --generarStock me devuelve la recursión de listas de palabras 
 generarStock :: [String] -> [(String, Int)]
 generarStock [x]= [(x,1)]
-generarStock (x:xs) = [(x,cantidadApariciones x (x:xs))] ++ generarStock xs
+generarStock (x:xs) | (x:xs) == filtrarRepetidos (x:xs) = [(x,cantidadApariciones x (x:xs))] ++ generarStock xs
+                    | otherwise =  [(x,cantidadApariciones x (x:xs))] ++ generarStock (filtrarRepetidos (x:xs))
