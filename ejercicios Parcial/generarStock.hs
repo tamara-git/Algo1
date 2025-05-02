@@ -12,7 +12,7 @@ quitar palabra (_:[]) = []
 quitar palabra (x:xs) | palabra == x = quitar palabra xs
                         | otherwise = x: quitar palabra xs
 
-filtrarRepetidos :: (Eq t) => [t] -> [t]
+filtrarRepetidos :: [String] -> [String]
 filtrarRepetidos (x:[]) = [x] 
 filtrarRepetidos (x:xs) | pertenece x xs == True = x: quitar x xs
                         | otherwise = x: filtrarRepetidos xs   
