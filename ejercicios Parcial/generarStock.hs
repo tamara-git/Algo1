@@ -38,7 +38,7 @@ generarStock (x:xs) | [(x,cantidadApariciones x (x:xs))] ++ generarStock (xs)
 
 --agarrame el de mayor cantidad
 elMasGrande :: String -> [String] -> [(String, Int)] 
-elMasGrande palabra (x:xs) | cantidadApariciones palabra (x:xs) > cantidadApariciones palabra (xs) = [(palabra,cantidadApariciones palabra (x:xs))]  
+elMasGrande palabra (x:xs) | pertenece palabra (x:xs) && cantidadApariciones palabra (x:xs) > cantidadApariciones palabra (xs) = [(palabra,cantidadApariciones palabra (x:xs))]  
                            | otherwise = [(palabra,cantidadApariciones palabra (xs))] 
 
 recursiónMasGrande :: [String] -> [(String,Int)]
