@@ -43,8 +43,6 @@ elMasGrande palabra [] = []
 elMasGrande palabra (x:xs) | cantidadApariciones palabra (x:xs) > cantidadApariciones palabra (xs) = [(palabra,cantidadApariciones palabra (x:xs))]  
                            | otherwise = [(palabra,cantidadApariciones palabra (xs))] 
 
-juntarRepetidos 
-
 recursionMasGrande :: [String] -> [String] -> [(String,Int)]
 recursionMasGrande [x] = [x,1]
 recursionMasGrande (x:xs) | (x:xs) == filtrarRepetidos (x:xs) = elMasGrande x (x:xs) ++ recursionMasGrande (xs)
