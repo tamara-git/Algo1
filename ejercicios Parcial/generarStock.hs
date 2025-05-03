@@ -45,6 +45,7 @@ elMasGrande palabra (x:xs) | cantidadApariciones palabra (x:xs) > cantidadAparic
 
 filtrarListaTupla :: [String] -> [(String,Int)]
 filtrarListaTupla [] = []
+filtrarListaTupla [x] = [(x,1)]
 filtrarListaTupla (x:xs) | head xs == x = elMasGrande x (x:xs) ++ filtrarListaTupla (tail xs)
                          | otherwise = elMasGrande x (x:xs) ++ filtrarListaTupla (xs) 
 
