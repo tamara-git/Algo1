@@ -40,4 +40,4 @@ generarStock (x:xs) = [(x,cantidadApariciones x (x:xs))] ++ generarStock (xs)
 elMasGrande ::[String] -> [(String, Int)] 
 elMasGrande [x] = [(x,1)]
 elMasGrande (x:xs) | (head xs == x) && (cantidadApariciones x (x:xs) > cantidadApariciones head xs (x:xs)) = [(x,cantidadApariciones x (x:xs))] 
-                   | otherwise = [(head xs, cantidadApariciones head xs (x:xs)]
+                   | otherwise = [(head xs, cantidadApariciones head xs (x:xs))]
