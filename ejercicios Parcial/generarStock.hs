@@ -42,6 +42,7 @@ quitalo [(palabra,1)] = []
 quitalo [(palabra,n)] = []
 
 --agarrame el de mayor cantidad
-elMasGrande ::[String] -> [(String, Int)] -> [(String, Int)] 
-elMasGrande (x:xs) [(palabra, cantidadApariciones palabra (x:xs))] | (cantidadApariciones palabra (x:xs) > cantidadApariciones palabra xs) = quitalo [(palabra, cantidadApariciones palabra (xs))]
+elMasGrande ::[String] -> [(String, Int)] 
+elMasGrande [x] [(x.1)] 
+elMasGrande (x:xs) | (cantidadApariciones palabra (x:xs) > cantidadApariciones palabra xs) = quitalo [(palabra, cantidadApariciones palabra (xs))]
                                                                    | otherwise =  [(palabra, cantidadApariciones palabra xs)]
