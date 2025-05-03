@@ -31,22 +31,22 @@ quitalo [(palabra,n)] = []
 -}
 
 --generarStock me devuelve la recursión de listas de palabras 
-generarStockAux :: [String] -> [String] -> [(String, Int)]
-generarStockAux [] _ = []
-generarStockAux (x:xs) yaContadas | pertenece x yaContadas = generarStockAux xs yaContadas
-                                  | otherwise = [(x,cantidadApariciones x (x:xs))]: generarStockAux xs yaContadas
+--generarStockAux :: [String] -> [String] -> [(String, Int)]
+--generarStockAux (x:xs) filtrados | pertece x filtrados = generarStock (xs) filtrados
+--                                 | otherwise = (x, 1 + cantidadApariciones x (xs)): generarStock (xs) filtrados 
+--where filtrados = filtrarRepetidos (x:xs)
 
 generarStock :: [String] -> [(String, Int)]
-generarStock [x] = [(x,1)]
-generarStock (x:xs) = generarStockAux (x:xs) []
+generarStock (x,[]) = [(x.1)] 
+generarStock (x:xs) = [(x,cantidadApariciones x (x:xs))] ++ generarStock (xs)
 
-{-
+
+
 igualesContiguos :: [String] -> [String]
 igualesContiguos (x:y:xs) | x == y = y:(x:xs)
-                          | otherwise = igualesContiguos x:(y:xs)  
+                          | otherwise = x:igualesContiguos (y:xs)  
 
 --agarrame el de mayor cantidad
-elMasGrande :: [String] -> [(String, Int)] -> [(String, Int)] 
-elMasGrande | (cantidadApariciones x (x:xs) > cantidadApariciones head xs (x:xs)) = quitalo [(head xs, cantidadApariciones head xs (x:xs))]
-                   | otherwise =  
--}
+--elMasGrande :: [String] -> [(String, Int)] -> [(String, Int)] 
+--elMasGrande | (cantidadApariciones x (x:xs) > cantidadApariciones head xs (x:xs)) = quitalo [(head xs, cantidadApariciones head xs (x:xs))]
+--                   | otherwise =  
