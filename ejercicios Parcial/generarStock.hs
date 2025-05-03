@@ -43,10 +43,13 @@ elMasGrande palabra [] = []
 elMasGrande palabra (x:xs) | cantidadApariciones palabra (x:xs) > cantidadApariciones palabra (xs) = [(palabra,cantidadApariciones palabra (x:xs))]  
                            | otherwise = [(palabra,cantidadApariciones palabra (xs))] 
 
+quitarListaTupla :: [(String,Int)] -> [(String,Int)]
+quitarListaTupla [(palabra,n)] = []
+
 filtrarListaTupla :: [String] -> [(String,Int)]
 filtrarListaTupla [] = []
 filtrarListaTupla [x] = [(x,1)]
-filtrarListaTupla (x:xs) | pertenece x xs == True = elMasGrande x (x:xs) ++ filtrarListaTupla (xs)
+filtrarListaTupla (x:xs) | pertenece x xs == True = elMasGrande x (x:xs)7
                          | otherwise = elMasGrande x (x:xs) ++ filtrarListaTupla (xs) 
 
 {-recursionMasGrande :: [String] -> [String] -> [(String,Int)]
