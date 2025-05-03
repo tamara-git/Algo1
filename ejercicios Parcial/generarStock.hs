@@ -33,7 +33,7 @@ crearTupla (palabra,(x:xs)) = (palabra, cantidadApariciones palabra (x:xs))
 --where filtrados = filtrarRepetidos (x:xs)
 
 generarStock :: [String] -> [(String, Int)]
-generarStock (x,[]) = [(x,1)] 
+generarStock (x:[]) = [(x,1)] 
 generarStock (x:xs) = [(x,cantidadApariciones x (x:xs))] ++ generarStock (xs)
 
 
