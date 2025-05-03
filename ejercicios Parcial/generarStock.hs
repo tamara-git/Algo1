@@ -42,4 +42,5 @@ elMasGrande palabra (x:xs) | cantidadApariciones palabra (x:xs) > cantidadAparic
                    | otherwise = [(palabra,cantidadApariciones palabra (xs))] 
 
 recursiónMasGrande :: [String] -> [(String,Int)]
+recursionMasGrande [x] = [x,1]
 recursiónMasGrande (x:xs) = elMasGrande x (x:xs) ++ recursiónMasGrande (xs)
