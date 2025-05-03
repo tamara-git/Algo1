@@ -36,13 +36,8 @@ generarStock :: [String] -> [(String, Int)]
 generarStock (x:[]) = [(x,1)] 
 generarStock (x:xs) = [(x,cantidadApariciones x (x:xs))] ++ generarStock (xs)
 
-
-quitalo :: [(String, Int)] -> [String]
-quitalo [(palabra,1)] = []
-quitalo [(palabra,n)] = []
-
 --agarrame el de mayor cantidad
 elMasGrande ::[String] -> [(String, Int)] 
 elMasGrande [x] = [(x,1)]
-elMasGrande (x:xs) | (cantidadApariciones x (x:xs) > cantidadApariciones x xs) = [(x,cantidadApariciones x (x:xs))]
-                                                                   | otherwise =  [(x, cantidadApariciones x xs)]
+elMasGrande (x:xs) | (head xs == x) && (cantidadApariciones x (x:xs) > cantidadApariciones head xs (x:xs)) = [(x,cantidadApariciones x (x:xs))] 
+                   | otherwise = [(head xs, cantidadApariciones head xs (x:xs)]
