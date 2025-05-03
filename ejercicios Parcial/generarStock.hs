@@ -39,5 +39,5 @@ generarStock (x:xs) = [(x,cantidadApariciones x (x:xs))] ++ generarStock (xs)
 --agarrame el de mayor cantidad
 elMasGrande ::[String] -> [(String, Int)] 
 elMasGrande [x] = [(x,1)]
-elMasGrande (x:xs) | pertenece x xs == [(x,cantidadApariciones x (x:xs))] 
+elMasGrande (x:xs) | pertenece x xs == True = [(x,cantidadApariciones x (x:xs))] 
                    | otherwise = [(x,cantidadApariciones x (x:xs))] ++ elMasGrande (xs)
