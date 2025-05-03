@@ -33,13 +33,12 @@ quitalo [(palabra,n)] = []
 --generarStock me devuelve la recursión de listas de palabras 
 generarStockAux :: [String] -> [String] -> [(String, Int)]
 generarStockAux [] _ = []
-generarStockAux (x:xs) yaContadas | pertenece x yaContadas = generarStockAux xs yaContadas
-                                  | otherwise = [(x,cantidadApariciones x (x:xs))]: generarStockAux xs yaContadas
+generarStockAux (x:xs) filtrarRepetidos (x:xs) | pertenece x filtrarRepetidos (x:xs) = generarStockAux xs 
+                                  | otherwise = [(x,cantidadApariciones x (x:xs))]: generarStockAux xs filtrarRepetidos (x:xs)
 
 generarStock :: [String] -> [(String, Int)]
 generarStock [x] = [(x,1)]
 generarStock (x:xs) = generarStockAux (x:xs) []
-
 
 {-
 igualesContiguos :: [String] -> [String]
