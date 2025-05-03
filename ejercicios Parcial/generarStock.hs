@@ -24,10 +24,6 @@ cantidadApariciones y (x:xs) | y == x = 1 + cantidadApariciones y (xs)
 
 {-crearTupla :: (String, [String]) -> (String, Int)
 crearTupla (palabra,(x:xs)) = (palabra, cantidadApariciones palabra (x:xs))
-
-quitalo :: [(String, Int)] -> [String]
-quitalo [(palabra,1)] = []
-quitalo [(palabra,n)] = [] 
 -}
 
 --generarStock me devuelve la recursión de listas de palabras 
@@ -41,12 +37,11 @@ generarStock (x,[]) = [(x.1)]
 generarStock (x:xs) = [(x,cantidadApariciones x (x:xs))] ++ generarStock (xs)
 
 
-
-igualesContiguos :: [String] -> [String]
-igualesContiguos (x:y:xs) | x == y = y:(x:xs)
-                          | otherwise = x:igualesContiguos (y:xs)  
+quitalo :: [(String, Int)] -> [String]
+quitalo [(palabra,1)] = []
+quitalo [(palabra,n)] = []
 
 --agarrame el de mayor cantidad
---elMasGrande :: [String] -> [(String, Int)] -> [(String, Int)] 
---elMasGrande | (cantidadApariciones x (x:xs) > cantidadApariciones head xs (x:xs)) = quitalo [(head xs, cantidadApariciones head xs (x:xs))]
---                   | otherwise =  
+elMasGrande ::[String] -> [(String, Int)] -> [(String, Int)] 
+elMasGrande (x:xs) [(palabra, cantidadApariciones palabra (x:xs))] | (cantidadApariciones palabra (x:xs) > cantidadApariciones palabra xs) = quitalo [(palabra, cantidadApariciones palabra (xs))]
+                                                                   | otherwise =  [(palabra, cantidadApariciones palabra xs)]
