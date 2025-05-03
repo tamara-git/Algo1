@@ -43,6 +43,6 @@ elMasGrande palabra [] = []
 elMasGrande palabra (x:xs) | cantidadApariciones palabra (x:xs) > cantidadApariciones palabra (xs) = [(palabra,cantidadApariciones palabra (x:xs))]  
                            | otherwise = [(palabra,cantidadApariciones palabra (xs))] 
 
-recursiónMasGrande :: [String] -> [(String,Int)]
+recursiónMasGrande :: [String] -> [String] -> [(String,Int)]
 recursionMasGrande [x] = [x,1]
-recursiónMasGrande (x:xs) = elMasGrande x (x:xs) ++ elMasGrande head xs (x:xs) ++ recursiónMasGrande (tail xs)
+recursiónMasGrande (x:xs) listaFiltrada = elMasGrande x (x:xs) + recursionMasGrande (listaFiltrada(xs))
