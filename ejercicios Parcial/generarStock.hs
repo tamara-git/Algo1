@@ -47,7 +47,7 @@ filtrarListaTupla :: [String] -> [(String,Int)]
 filtrarListaTupla (x:xs) | head xs == x = elMasGrande x (x:xs) : filtrarListaTupla (tail xs)
                          | otherwise = elMasGrande x (x:xs) : filtrarListaTupla (xs) 
 
-recursionMasGrande :: [String] -> [String] -> [(String,Int)]
+{-recursionMasGrande :: [String] -> [String] -> [(String,Int)]
 recursionMasGrande [x] = [x,1]
 recursionMasGrande (x:xs) | (x:xs) == filtrarRepetidos (x:xs) = elMasGrande x (x:xs) ++ recursionMasGrande (xs)
-                          | otherwise = elMasGrande x (x:xs): recursionMasGrande (xs)
+                          | otherwise = elMasGrande x (x:xs): recursionMasGrande (xs)-}
