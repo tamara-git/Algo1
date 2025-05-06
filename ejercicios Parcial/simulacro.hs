@@ -26,7 +26,6 @@ vecesQueApareceCEnFrase c (x:xs) | c == x = 1
                                  | otherwise = 1 + vecesQueApareceCEnFrase c (xs)
 
 cuantasVecesHayQueCodificar :: Char -> [Char] -> [(Char,Char)] -> Int 
-cuantasVecesHayQueCodificar c frase 
 cuantasVecesHayQueCodificar c frase mapeo | hayQueCodificar c mapeo == False = 0
                                            | otherwise = vecesQueApareceCEnFrase c frase 
 
