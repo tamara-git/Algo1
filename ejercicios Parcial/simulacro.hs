@@ -69,7 +69,7 @@ codificarUnCaracter y (x:xs) | (hayQueCodificar y (x:xs) == True) && (y == fst x
 
 codificarCaracteres :: [Char] -> [(Char,Char)] -> [Char]
 codificarCaracteres (x:[]) (y:ys) | hayQueCodificar x (y:ys) == True = [codificarUnCaracter x (y:ys)]
-                                  | otherwise = [X]
+                                  | otherwise = [x]
 codificarCaracteres (x:xs) (y:ys) | hayQueCodificar x (y:ys) == False = x:codificarCaracteres (xs) (y:ys)
                                   | otherwise = codificarUnCaracter x (y:ys):codificarCaracteres (xs) (y:ys)
 
