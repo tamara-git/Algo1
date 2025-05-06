@@ -27,7 +27,7 @@ crearTupla (palabra,(x:xs)) = (palabra, cantidadApariciones palabra (x:xs))
 
 generarStockAux :: [String] -> [String] -> [(String, Int)]
 generarStockAux (x:[]) listaSucia = [crearTupla (x, listaSucia)]  
-generarStockAux (x:listaFiltrada) listaSucia = [crearTupla (x, listaSucia)]: generarStockAux listaFiltrada listaSucia
+generarStockAux (x:listaFiltrada) listaSucia = crearTupla (x, listaSucia): generarStockAux listaFiltrada listaSucia
 
 generarStock :: [String] -> [(String, Int)]
 generarStock (x:xs) = generarStockAux (filtrarRepetidos(x:xs)) (x:xs)
