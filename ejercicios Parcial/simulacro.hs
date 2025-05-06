@@ -40,7 +40,7 @@ cuantasVecesHayQueCodificar c frase mapeo | hayQueCodificar c mapeo == False = 0
 maximoDeLaFrase :: [Char] -> [(Char,Char)] -> Char
 maximoDeLaFrase (x:[]) mapeo = x 
 maximoDeLaFrase (x:xs) mapeo | cuantasVecesHayQueCodificar x (x:xs) mapeo >= cuantasVecesHayQueCodificar (head xs) (x:xs) mapeo = x
-                             | otherwise = maximoDeLaFrase (xs) 
+                             | otherwise = maximoDeLaFrase (xs) mapeo
 
 laQueMasHayQueCodificar :: [Char] -> [(Char,Char)] -> Char
 laQueMasHayQueCodificar frase mapeo = maximoDeLaFrase frase mapeo
