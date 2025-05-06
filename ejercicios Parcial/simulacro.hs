@@ -69,7 +69,7 @@ codificarCaracteres (x:[]) (y:ys) | hayQueCodificar x (y:ys) == True = codificar
                                   | otherwise = [x]
 codificarCaracteres (x:xs) (y:ys) | hayQueCodificar x (y:ys) = False = x:codificarCaracteres (xs) (y:ys)
                                   | otherwise = codificarCaracteres (xs) (y:ys)
-
+-}
 --codificarFrase :: [Char] -> [(Char,Char)] -> [Char]
 --codificarFrase frase mapeo | hayQueCodificar c mapeo == True = codificarCaracteres
 --                           | otherwise = 
