@@ -5,8 +5,6 @@
 }
 -}
 
-module SolucionT2 where
-
 hayQueCodificar :: Char -> [(Char,Char)] -> Bool
 hayQueCodificar y (x:[]) | y == fst x = True
                          | otherwise = False
@@ -41,7 +39,7 @@ cuantasVecesHayQueCodificar c frase mapeo | hayQueCodificar c mapeo == False = 0
   asegura: {Si existen más de un caracter c que cumple la condición anterior, devuelve el que aparece primero en frase }-}
 
 
-           (x:xs) | vecesQueApareceCEnFrase x (x:xs)  
+--           (x:xs) | vecesQueApareceCEnFrase x (x:xs)  
 
 --laQueMasHayQueCodificar :: [Char] -> [(Char,Char)] -> Char
 --laQueMasHayQueCodificar frase mapeo | 
