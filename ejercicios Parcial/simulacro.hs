@@ -20,14 +20,14 @@ hayQueCodificar y (x:xs) | y == fst x = True
 }
 -}
 
-vecesQueApareceCEnFrase :: Char -> [Char] -> Int
-vecesQueApareceCEnFrase c [] = 0
-vecesQueApareceCEnFrase c (x:xs) | c /= x = vecesQueApareceCEnFrase c xs
-                                 | otherwise = 1 + vecesQueApareceCEnFrase c xs
+vecesQueApareceEnFrase :: Char -> [Char] -> Int
+vecesQueApareceEnFrase c [] = 0
+vecesQueApareceEnFrase c (x:xs) | c /= x = vecesQueApareceEnFrase c xs
+                                 | otherwise = 1 + vecesQueApareceEnFrase c xs
 
 cuantasVecesHayQueCodificar :: Char -> [Char] -> [(Char,Char)] -> Int 
 cuantasVecesHayQueCodificar c frase mapeo | hayQueCodificar c mapeo == False = 0
-                                          | otherwise = vecesQueApareceCEnFrase c frase 
+                                          | otherwise = vecesQueApareceEnFrase c frase 
 
 {-problema laQueMasHayQueCodificar (frase: seq⟨Char⟩, mapeo: seq⟨Char x Char⟩ ) : Char {
   requiere: {No hay elementos repetidos entre las primeras componentes de mapeo}
@@ -37,8 +37,11 @@ cuantasVecesHayQueCodificar c frase mapeo | hayQueCodificar c mapeo == False = 0
   asegura: {res = c donde c es el caracter tal que cuantasVecesHayQueCodificar(c, frase, mapeo) es mayor a cualquier otro caracter perteneciente a frase}
   asegura: {Si existen más de un caracter c que cumple la condición anterior, devuelve el que aparece primero en frase }-}
 
-
-vecesQueApareceCEnFrase  
+maximo :: Int -> 
+maximoDeLaFrase :: [Char] -> Int -> Char
+maximoDeLaFrase (x:[])  vecesQueApareceEnFrase = 
+maximoDeLaFrase (x:xs) | vecesQueApareceEnFrase x (x:xs) > vecesQueApareceEnFrase head xs (x:xs) = xs
+                       | otherwise = maximoDeLaFrase (tail xs) 
 
 laQueMasHayQueCodificar :: [Char] -> [(Char,Char)] -> Char
 laQueMasHayQueCodificar frase mapeo | 
