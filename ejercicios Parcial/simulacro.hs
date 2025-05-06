@@ -29,8 +29,8 @@ vecesQueApareceCEnFrase c (x:xs) | c == x = 1
 
 cuantasVecesHayQueCodificar :: Char -> [Char] -> [(Char,Char)] -> Int 
 cuantasVecesHayQueCodificar c frase 
-cuantasVecesHayQueCodificar c frase (x:xs) | hayQueCodificar c (x:xs) == False = 0
-                                           | otherwise =  vecesQueApareceCEnFrase c frase 
+cuantasVecesHayQueCodificar c frase mapeo | hayQueCodificar c mapeo == False = 0
+                                           | otherwise = vecesQueApareceCEnFrase c frase 
 
 {-problema laQueMasHayQueCodificar (frase: seq⟨Char⟩, mapeo: seq⟨Char x Char⟩ ) : Char {
   requiere: {No hay elementos repetidos entre las primeras componentes de mapeo}
@@ -41,9 +41,10 @@ cuantasVecesHayQueCodificar c frase (x:xs) | hayQueCodificar c (x:xs) == False =
   asegura: {Si existen más de un caracter c que cumple la condición anterior, devuelve el que aparece primero en frase }-}
 
 
+           (x:xs) | vecesQueApareceCEnFrase x (x:xs)  
 
-laQueMasHayQueCodificar :: [Char] -> [(Char,Char)] -> Char
-laQueMasHayQueCodificar frase mapeo | 
+--laQueMasHayQueCodificar :: [Char] -> [(Char,Char)] -> Char
+--laQueMasHayQueCodificar frase mapeo | 
 {-problema codificarFrase (frase: seq⟨Char⟩, mapeo: seq⟨Char x Char⟩ ) : seq ⟨Char⟩ {
   requiere: {No hay elementos repetidos entre las primeras componentes de mapeo}
   requiere: {No hay elementos repetidos entre las segundas componentes de mapeo}
@@ -53,6 +54,6 @@ laQueMasHayQueCodificar frase mapeo |
   asegura: { Para todo 0 <= i < |frase| si hayQueCodificar(frase[i], mapeo) = false entonces res[i]= frase[i]}
 } -}
 
-codificarFrase :: [Char] -> [(Char,Char)] -> [Char]
-codificarFrase frase mapeo 
+--codificarFrase :: [Char] -> [(Char,Char)] -> [Char]
+--codificarFrase frase mapeo 
 

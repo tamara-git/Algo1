@@ -49,7 +49,7 @@ quitarListaTupla [(palabra,n)] = []
 filtrarListaTupla :: [String] -> [(String,Int)]
 filtrarListaTupla [] = []
 filtrarListaTupla [x] = [(x,1)]
-filtrarListaTupla (x:xs) | pertenece x xs == True = elMasGrande x (x:xs)7
+filtrarListaTupla (x:xs) | pertenece x xs == True = elMasGrande x (x:xs)
                          | otherwise = elMasGrande x (x:xs) ++ filtrarListaTupla (xs) 
 
 {-recursionMasGrande :: [String] -> [String] -> [(String,Int)]
