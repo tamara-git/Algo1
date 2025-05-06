@@ -31,4 +31,3 @@ generarStockAux (x:listaFiltrada) listaSucia = [crearTupla (x, listaSucia)]: gen
 
 generarStock :: [String] -> [(String, Int)]
 generarStock (x:xs) = generarStockAux (filtrarRepetidos(x:xs)) (x:xs)
-
