@@ -5,7 +5,7 @@ componentesDistintas [] = True
 componentesDistintas (x:[]) | fst x == snd x = False
                             | otherwise = True
 componentesDistintas (x:xs) | fst x == snd x = componentesDistintas (xs)
-
+                            | otherwise = True
 {-tuplasNoRepetidas :: [(String,String)] -> [(String,String)] -> Bool
 tuplasNoRepetidas [] [] = True
 tuplasNoRepetidas [(a,b)] [(c,d)] | tuplasNoRepetidas
