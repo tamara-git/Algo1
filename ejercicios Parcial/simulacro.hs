@@ -59,8 +59,9 @@ laQueMasHayQueCodificar frase mapeo = maximoACodificar frase mapeo
 -- ejemplo: de "hola" quiero ver si cada caracter es codificable o no  
 --quiero correr la lista caracter por caracter
 
-codificarCaracteres :: [Char] -> [(Char,Char)]
-codificarCaracteres (x:xs) mapeo = hayQueCodificar x mapeo : codificarCaracteres (xs) mapeo
+codificarCaracteres :: [Char] -> [(Char,Char)] -> [Char]
+codificarCaracteres (x:xs) mapeo | hayQueCodificar x mapeo == True = hayQueCodificar x mapeo : codificarCaracteres (xs) mapeo
+                                 | otherwise = x:codificarCaracteres (xs) mapeo
 
 --codificarFrase :: [Char] -> [(Char,Char)] -> [Char]
 --codificarFrase frase mapeo | hayQueCodificar c mapeo == True = 
