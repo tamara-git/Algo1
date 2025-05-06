@@ -62,7 +62,7 @@ laQueMasHayQueCodificar frase mapeo = maximoACodificar frase mapeo
 codificarCaracteres :: [Char] -> [(Char,Char)] -> [Char]
 codificarCaracteres (x:[]) (y:ys) | hayQueCodificar x (y:ys) == True = [fst y]
                                   | otherwise = [x]
-codificarCaracteres (x:xs) (y:ys) | hayQueCodificar x (y:ys) == True =  fst y:codificarCaracteres (xs) (y:ys)
+codificarCaracteres (x:xs) (y:ys) | hayQueCodificar x (y:ys) == True =  snd y:codificarCaracteres (xs) (y:ys)
                                   | otherwise = x:codificarCaracteres (xs) (y:ys)
 
 --codificarFrase :: [Char] -> [(Char,Char)] -> [Char]
