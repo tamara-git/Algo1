@@ -60,8 +60,9 @@ laQueMasHayQueCodificar frase mapeo = maximoACodificar frase mapeo
 --quiero correr la lista caracter por caracter
 
 codificarUnCaracter :: Char -> [(Char,Char)] -> Char
-codificarUnCaracter y (x:[]) | y == fst x = snd x
-codificarUnCaracter y (x:xs) | y == fst x = snd x
+codificarUnCaracter y (x:[]) | (hayQueCodificar y (x:[])== True) && (y == fst x ) = snd x
+codificarUnCaracter y (x:xs) | (hayQueCodificar y (x:xs) == True) && (y == fst x) = snd x
+                             | hayQueCodificar y (x:sx) == False = y 
                              | otherwise = codificarUnCaracter y (xs)
 
 {-codificarCaracteres :: [Char] -> [(Char,Char)] -> [Char]
