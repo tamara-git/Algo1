@@ -22,12 +22,12 @@ hayQueCodificar y (x:xs) | y == fst x = True
 
 vecesQueApareceCEnFrase :: Char -> [Char] -> Int
 vecesQueApareceCEnFrase c [] = 0
-vecesQueApareceCEnFrase c (x:xs) | c == x = 1
+vecesQueApareceCEnFrase c (x:xs) | c /= x = 1
                                  | otherwise = 1 + vecesQueApareceCEnFrase c (xs)
 
 cuantasVecesHayQueCodificar :: Char -> [Char] -> [(Char,Char)] -> Int 
 cuantasVecesHayQueCodificar c frase mapeo | hayQueCodificar c mapeo == False = 0
-                                           | otherwise = vecesQueApareceCEnFrase c frase 
+                                          | otherwise = vecesQueApareceCEnFrase c frase 
 
 {-problema laQueMasHayQueCodificar (frase: seq⟨Char⟩, mapeo: seq⟨Char x Char⟩ ) : Char {
   requiere: {No hay elementos repetidos entre las primeras componentes de mapeo}
