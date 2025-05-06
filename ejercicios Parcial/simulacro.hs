@@ -38,6 +38,7 @@ cuantasVecesHayQueCodificar c frase mapeo | hayQueCodificar c mapeo == False = 0
   asegura: {Si existen más de un caracter c que cumple la condición anterior, devuelve el que aparece primero en frase }-}
  
 maximoDeLaFrase :: [Char] -> Char
+maximoDeLaFrase (x:[]) = x
 maximoDeLaFrase (x:xs) | vecesQueApareceEnFrase x (x:xs) >= vecesQueApareceEnFrase head xs (x:xs) =  x
                        | otherwise = maximoDeLaFrase (xs) 
 
