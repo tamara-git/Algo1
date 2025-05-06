@@ -1,15 +1,17 @@
-type Relaciones = [(String,String)]
+ 
 
-componentesDistintas :: Relaciones -> Bool
+componentesDistintas :: [(String,String)] -> Bool
 componentesDistintas [] = True
-componentesDistintas [(palabra1,palabra2)] | palabra1 == palabra2 = False
-                                           | otherwise = True
+componentesDistintas (x:[]) | fst x == snd x = False
+                            | otherwise = True
+componentesDistintas (x:xs) | fst x /= snd x = True 
+                            | otherwise = componentesDistintas (xs)
 
-tuplasNoRepetidas :: Relaciones -> Relaciones -> Bool
+{-tuplasNoRepetidas :: [(String,String)] -> [(String,String)] -> Bool
 tuplasNoRepetidas [] [] = True
 tuplasNoRepetidas [(a,b)] [(c,d)] | tuplasNoRepetidas
-                                  | otherwise = 
-
+                               | otherwise = 
+-}
 {-relacionesValidas :: Relaciones -> Bool
 relacionesValidas [(palabra1,palabra2)] | componentesDistintas == True  && tuplasNoRepetidas == True = True
                                     | otherwise = False
