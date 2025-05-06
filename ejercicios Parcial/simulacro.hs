@@ -6,6 +6,7 @@
 -}
 
 hayQueCodificar :: Char -> [(Char,Char)] -> Bool
+hayQueCodificar y [] = True
 hayQueCodificar y (x:[]) | y == fst x = True
                          | otherwise = False
 hayQueCodificar y (x:xs) | y == fst x = True 
@@ -38,8 +39,8 @@ cuantasVecesHayQueCodificar c frase mapeo | hayQueCodificar c mapeo == False = 0
   asegura: {Si existen más de un caracter c que cumple la condición anterior, devuelve el que aparece primero en frase }-}
  
 maximoDeLaFrase :: [Char] -> [(Char,Char)] -> Char
-maximoDeLaFrase (x:[]) mapeo = x 
-maximoDeLaFrase (x:xs) mapeo | cuantasVecesHayQueCodificar x (x:xs) mapeo >= cuantasVecesHayQueCodificar (head xs) (x:xs) mapeo = x
+maximoACodificarDeLaFrase (x:[]) mapeo = x 
+maximoDeLaFrase (x:xs) mapeo | cuantasVecesHayQueCodificar x (x:xs) mapeo >= cuantasVecesHayQueCodificar maximoDeLaFrase (xs) mapeo = x
                              | otherwise = maximoDeLaFrase (xs) mapeo
 
 laQueMasHayQueCodificar :: [Char] -> [(Char,Char)] -> Char
