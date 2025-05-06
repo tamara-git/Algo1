@@ -22,8 +22,8 @@ hayQueCodificar y (x:xs) | y == fst x = True
 
 vecesQueApareceCEnFrase :: Char -> [Char] -> Int
 vecesQueApareceCEnFrase c [] = 0
-vecesQueApareceCEnFrase c (x:xs) | c /= x = 1
-                                 | otherwise = 1 + vecesQueApareceCEnFrase c (xs)
+vecesQueApareceCEnFrase c (x:xs) | c /= x = vecesQueApareceCEnFrase c xs
+                                 | otherwise = 1 + vecesQueApareceCEnFrase c xs
 
 cuantasVecesHayQueCodificar :: Char -> [Char] -> [(Char,Char)] -> Int 
 cuantasVecesHayQueCodificar c frase mapeo | hayQueCodificar c mapeo == False = 0
