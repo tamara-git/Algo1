@@ -65,12 +65,9 @@ codificarUnCaracter y (x:xs) | (hayQueCodificar y (x:xs) == True) && (y == fst x
                              | hayQueCodificar y (x:xs) == False = y 
                              | otherwise = codificarUnCaracter y (xs)
 
-codificarCaracteres :: [Char] -> [(Char,Char)] -> [Char]
-codificarCaracteres (x:[]) (y:ys) | hayQueCodificar x (y:ys) == True = [codificarUnCaracter x (y:ys)]
-                                  | otherwise = [x]
-codificarCaracteres (x:xs) (y:ys) | hayQueCodificar x (y:ys) == False = x:codificarCaracteres (xs) (y:ys)
-                                  | otherwise = codificarUnCaracter x (y:ys):codificarCaracteres (xs) (y:ys)
+codificarFrase :: [Char] -> [(Char,Char)] -> [Char]
+codificarFrase (x:[]) (y:ys) | hayQueCodificar x (y:ys) == True = [codificarUnCaracter x (y:ys)]
+                             | otherwise = [x]
+codificarFrase (x:xs) (y:ys) | hayQueCodificar x (y:ys) == False = x:codificarFrase (xs) (y:ys)
+                             | otherwise = codificarUnCaracter x (y:ys):codificarFrase (xs) (y:ys)
 
---codificarFrase :: [Char] -> [(Char,Char)] -> [Char]
---codificarFrase frase mapeo | hayQueCodificar c mapeo == True = codificarCaracteres
---                           | otherwise = 
