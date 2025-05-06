@@ -43,7 +43,6 @@ maximoACodificar (x:[]) mapeo = x
 maximoACodificar (x:xs) mapeo | cuantasVecesHayQueCodificar x (x:xs) mapeo >= cuantasVecesHayQueCodificar (maximoACodificar (xs) mapeo) (x:xs) mapeo = x
                               | otherwise = maximoACodificar (xs) mapeo
 
-
 laQueMasHayQueCodificar :: [Char] -> [(Char,Char)] -> Char
 laQueMasHayQueCodificar frase mapeo = maximoACodificar frase mapeo
 
@@ -51,11 +50,18 @@ laQueMasHayQueCodificar frase mapeo = maximoACodificar frase mapeo
   requiere: {No hay elementos repetidos entre las primeras componentes de mapeo}
   requiere: {No hay elementos repetidos entre las segundas componentes de mapeo}
   requiere: {|frase| > 0 }
-  asegura: {|res| = | frase|}
-  asegura: { Para todo 0 <= i < |frase| si hayQueCodificar(frase[i], mapeo) = true entonces res[i]= (mapeo[j])1, para un j tal que 0 <= j < |mapeo| y mapeo[j])0=frase[i]}
+  asegura: {|res| = |frase|}
+  asegura: { Para todo 0 <= i < |frase| si hayQueCodificar(frase[i], mapeo) = true
+   entonces res[i]= (mapeo[j])1, para un j tal que 0 <= j < |mapeo| y mapeo[j])0 = frase[i] }
   asegura: { Para todo 0 <= i < |frase| si hayQueCodificar(frase[i], mapeo) = false entonces res[i]= frase[i]}
 } -}
 
---codificarFrase :: [Char] -> [(Char,Char)] -> [Char]
---codificarFrase frase mapeo 
+-- ejemplo: de "hola" quiero ver si cada caracter es codificable o no  
+--quiero correr la lista caracter por caracter
 
+codificarCaracteres :: [Char] -> [(Char,Char)]
+codificarCaracteres (x:xs) mapeo = hayQueCodificar x mapeo : codificarCaracteres (xs) mapeo
+
+--codificarFrase :: [Char] -> [(Char,Char)] -> [Char]
+--codificarFrase frase mapeo | hayQueCodificar c mapeo == True = 
+--                           | otherwise = 
