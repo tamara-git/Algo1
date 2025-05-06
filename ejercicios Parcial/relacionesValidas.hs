@@ -9,9 +9,8 @@ componentesDistintas (x:xs) | fst x /= snd x = componentesDistintas (xs)
 tuplasNoRepetidas :: [(String,String)] -> Bool
 tuplasNoRepetidas [] = True
 tuplasNoRepetidas (x:[]) = True
-tuplasNoRepetidas (x:xs) | x /= head xs = tuplasNoRepetidas (xs) 
+tuplasNoRepetidas (x:xs) | x /= head xs tuplasNoRepetidas (tail xs) 
                          | otherwise = False
-
 
 {-relacionesValidas :: Relaciones -> Bool
 relacionesValidas [(palabra1,palabra2)] | componentesDistintas == True  && tuplasNoRepetidas == True = True
