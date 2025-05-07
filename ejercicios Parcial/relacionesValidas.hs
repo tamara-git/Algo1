@@ -8,7 +8,6 @@ componentesDistintas (x:xs) | fst x /= snd x = componentesDistintas (xs)
 
 
 eliminartuplasRepetidas :: [(String,String)] -> [(String,String)]
-eliminartuplasRepetidas [] = []
 eliminartuplasRepetidas (x:[]) = [x]
 eliminartuplasRepetidas | x == head xs = eliminartuplasRepetidas (xs) 
                         | otherwise = x:eliminartuplasRepetidas (xs)
