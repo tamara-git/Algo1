@@ -15,7 +15,7 @@ sinTuplasRepetidas ::  [(String,String)] -> Bool
 sinTuplasRepetidas [] = True
 sinTuplasRepetidas (x:[]) = True
 sinTuplasRepetidas (x:xs) | pertenece x xs == True = False
-                          | otherwise = sinTuplasRepetidas (xs)
+                          | otherwise = True
     
 relacionesValidas :: [(String,String)] -> Bool
 relacionesValidas (x:xs) | (sinTuplasRepetidas (x:xs) == True) && (componentesDistintas (x:xs) == True) = True
