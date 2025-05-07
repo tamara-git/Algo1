@@ -14,7 +14,7 @@ tuplasIguales (a,b) (c,d) | a == c && b == d = True
 sinTuplasRepetidas ::  [(String,String)] -> Bool
 sinTuplasRepetidas [] = True
 sinTuplasRepetidas (x:[]) = True
-sinTuplasRepetidas (x:xs) | tuplasIguales x head xs == False = sinTuplasRepetidas (xs)
+sinTuplasRepetidas (x:xs) | tuplasIguales x (head xs) == False = sinTuplasRepetidas (xs)
                           | otherwise = False
 
 {-relacionesValidas :: [(String,String)] -> Bool
