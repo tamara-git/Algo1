@@ -14,7 +14,7 @@ pertenece y (x:xs) | x == y = True
 sinTuplasRepetidas ::  [(String,String)] -> Bool 
 sinTuplasRepetidas [] = True
 sinTuplasRepetidas (x:[]) = True
-sinTuplasRepetidas (x:xs) | pertenece x xs == False = True
+sinTuplasRepetidas (x:xs) | pertenece x xs == True = False
                           | otherwise = sinTuplasRepetidas (xs)
     
 relacionesValidas :: [(String,String)] -> Bool
