@@ -9,8 +9,8 @@ componentesDistintas (x:xs) | fst x /= snd x = componentesDistintas (xs)
 
 eliminarTuplasRepetidas :: [(String,String)] -> [(String,String)]
 eliminarTuplasRepetidas (x:[]) = (x:[])
-eliminarTuplasRepetidas (x:xs) | x == head xs = eliminarTuplasRepetidas (xs) 
-                               | otherwise = x:eliminarTuplasRepetidas (xs)
+eliminarTuplasRepetidas (x:y:xs) | x == y = eliminarTuplasRepetidas (y:xs) 
+                               | otherwise = x:eliminarTuplasRepetidas (y:xs)
 
 {-relacionesValidas :: [(String,String)] -> Bool
 relacionesValidas [| componentesDistintas == True  && tuplasNoRepetidas == True = True
