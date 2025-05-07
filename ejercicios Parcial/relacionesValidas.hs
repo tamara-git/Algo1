@@ -7,7 +7,7 @@ componentesDistintas (x:xs) | fst x /= snd x = componentesDistintas (xs)
                             | otherwise = False
 
 pertenece :: (String,String) -> [(String,String)] -> Bool
-pertenece y [] = True
+pertenece y [] = False
 pertenece y (x:xs) | x == y = True
                    | otherwise = pertenece y (xs)
 
