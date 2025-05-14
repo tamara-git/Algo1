@@ -72,6 +72,6 @@ class test_es_primo(unittest.TestCase):
         self.assertTrue(es_primo(-964))
         self.assertTrue(es_primo(-4))
 
-        
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)
