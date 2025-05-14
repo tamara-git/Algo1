@@ -9,3 +9,7 @@ class Test_Suma(unittest.TestCase):
 
     def test_suma_negativos(self):
         self.assertEqual(suma(-4,-2),-6)
+
+
+if __name__ == ’ main ’:
+    unittest.main(verbosity=2)
