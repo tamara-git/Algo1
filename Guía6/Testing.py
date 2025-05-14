@@ -71,6 +71,24 @@ class test_es_primo(unittest.TestCase):
         self.assertTrue(es_primo(-964))
         self.assertTrue(es_primo(-4))
 
+from cuantos_primos_en_rango import cuantos_primos_en_rango
+class test_cuantos_primos_en_rango(unittest.TestCase):
+    def test_n_menor_m(self):
+        self.assertEqual(cuantos_primos_en_rango(2,7),4)
+
+    def test_n_igual_m(self):
+        self.assertEqual(cuantos_primos_en_rango(5,5),1)
+        self.assertEqual(cuantos_primos_en_rango(4,4),0)
+
+    def test_n_mayor_m(self):
+        self.assertEqual(cuantos_primos_en_rango(7,2),4)
+
+    def test_n_positivo_m_negativo(self):
+        self.assertEqual(cuantos_primos_en_rango(-3,3),4)
+
+    def test_m_positivo_n_negativo(self):
+        self.assertEqual(cuantos_primos_en_rango(3,-3),4)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
