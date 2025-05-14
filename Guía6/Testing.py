@@ -11,5 +11,5 @@ class Test_Suma(unittest.TestCase):
         self.assertEqual(suma(-4,-2),-6)
 
 
-if __name__ == ’ main ’:
+if __name__ == '__main__':
     unittest.main(verbosity=2)
