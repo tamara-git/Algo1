@@ -35,7 +35,6 @@ from devolver_el_doble_si_es_par import devolver_el_doble_si_es_par
 class test_devolver_el_doble_si_es_par(unittest.TestCase):
     def test_devolver_el_doble_cero_uno(self):
         self.assertEqual(devolver_el_doble_si_es_par(0),1)
-        self.assertEqual(devolver_el_doble_si_es_par(),)
         self.assertEqual(devolver_el_doble_si_es_par(1),1)
 
     def test_devolver_el_doble_numero_par(self):
@@ -51,7 +50,7 @@ class test_farenheit_a_celcius(unittest.TestCase):
     def test_1(self):
         self.assertAlmostEqual(farenheit_a_celcius((140.0),60.0))
         self.assertAlmostEqual(farenheit_a_celcius((140.0),60.5))
-        
+
 from es_primo import es_primo                              
 class test_es_primo(unittest.TestCase):
     def test_uno_y_cero(self):
