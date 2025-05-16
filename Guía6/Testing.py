@@ -45,7 +45,7 @@ class test_devolver_el_doble_si_es_par(unittest.TestCase):
         self.assertEqual(devolver_el_doble_si_es_par((3),3))
         self.assertEqual(devolver_el_doble_si_es_par((11),11))
 
-from farenheit_a_celcius import farenheit_a_celcius
+from Guía6.fahrenheit_a_celsius import farenheit_a_celcius
 class test_farenheit_a_celcius(unittest.TestCase):
     def test_1(self):
         self.assertAlmostEqual(farenheit_a_celcius((140.0),60.0))
