@@ -4,6 +4,6 @@
 #}
 
 def imprimir_saludo (nombre: str) -> None:
-    return ("Hola" + nombre)
+    return ("Hola " + nombre)
 
-print(imprimir_saludo(" Pablo"))
+print(imprimir_saludo("Pablo"))

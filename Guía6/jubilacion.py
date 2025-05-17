@@ -11,6 +11,6 @@ def jubilacion(sexo:str,edad:int) -> str:
     else:
         return("Andá de vacaciones") 
     
-print(jubilacion("F",70))
+print(jubilacion("F",30))
 print(jubilacion("M",10))
 print(jubilacion("F",18))
