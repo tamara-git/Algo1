@@ -4,11 +4,9 @@
 # realice un salto de año.
 
 def viaje_en_el_tiempo(año_de_partida:int,año_de_llegada:int) -> str:
-    i = año_de_partida - 1
-    while i != año_de_llegada -1:
-        print(i)
-        i -= 1
-        print("Viajó un año al pasado, estamos en el año:", i + 1 ) 
+    while año_de_partida != año_de_llegada:
+        año_de_partida -= 1
+        print("Viajó un año al pasado, estamos en el año:", año_de_partida ) 
 
 viaje_en_el_tiempo(1990,1980)
 
