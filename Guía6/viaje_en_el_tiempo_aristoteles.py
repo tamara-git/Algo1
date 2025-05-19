@@ -6,6 +6,6 @@ def viaje_en_el_tiempo_aristoteles(año_de_partida:int,año_de_llegada:int) -> s
     while i != año_de_llegada - 20:
         print(i)
         i -= 20
-        print("Viajó un año al pasado, estamos en el año:", i - 20 ) 
+        print("Viajó 20 años al pasado, estamos en el año:", i - 20 ) 
 
 viaje_en_el_tiempo_aristoteles(400, 384)
