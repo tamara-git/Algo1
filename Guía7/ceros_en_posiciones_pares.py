@@ -6,6 +6,8 @@ es par, entonces s[i] = 0) }
 }'''
 
 def CerosEnPosicionesPares(lista:list[int]) -> None:
+    for elemento in lista:
+        if elemento 
     for indice in range(len(lista)):
         if indice % 2 == 0:
             lista[indice] = 0

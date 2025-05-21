@@ -6,9 +6,15 @@ asegura: { res = al mayor de todos los números que aparece en s }
 def maximo(lista:list[int]) -> int:
     for indice in range(len(lista)):
         if indice >= lista[indice]:
-            return (indice)
+            return indice
         else:
             lista[indice]
-    
 
-print (maximo([1,2,3,4,5,6,7]))
+def maximo(lista:list[int]) -> int:
+    maximo : int = lista[0]
+    for elemento in lista:
+        if elemento >= maximo:   
+            maximo = elemento
+    return elemento
+        
+print(maximo([1,2,33,4,5,6]))
