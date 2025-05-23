@@ -33,9 +33,8 @@ def sinRepeticion(lista: list[str]) -> bool:
 
 print(sinRepeticion(['h','l','a','a','o']))
 
-
-
-
+def vocales_distintas(lista:list[str]) -> bool:
+    vocales_distintas(lista) = sinRepeticion(lista)
 
 
 
