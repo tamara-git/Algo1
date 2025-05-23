@@ -4,6 +4,18 @@ problema es palindroma (in s:seq⟨Char⟩) : Bool {
 requiere: { T rue }
 asegura: { (res = true) ↔ (s es igual a su reverso) }'''
 
-def es_palindroma(lista:list[str]) -> bool:
-    for indice in range(len(list)):
-        if lista[indice] ==
+def reverso(lista:list[str]) -> list[str]:
+    reverso : list = []
+    for indice in range(len(lista)-1,-1,-1):
+        reverso.append(lista[indice])
+    return reverso
+
+print(reverso(['h','o','l','a']))
+
+def es_palindromo(lista:list[str]) -> bool:
+        if lista == reverso(lista):
+            return True
+        else:
+            return False
+        
+print(es_palindromo(['s','o','m','e','t','e','m','o','s']))
