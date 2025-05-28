@@ -7,7 +7,8 @@ asegura: { res es la subsecuencia de s que se obtiene al quitarle las vocales a 
 Nota: Una subsecuencia de una cadena es una nueva secuencia'''
 
 def sin_vocales(lista:list[str]) -> list[str]:
-    vocales = ['a','e','i','o','u']
+    lista = lista.copy()
+    vocales = ['A','a','E','e','I','i','O','o','U','u']
     sin_vocales : list[str] = []
     for indice in range(len(lista)):
         if not(lista[indice] in vocales):
