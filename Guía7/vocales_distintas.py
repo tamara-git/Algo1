@@ -22,7 +22,7 @@ def sinRepeticion(lista: list[str]) -> bool:
     if len((lista)) < 3:
         return False
     else:
-        for indice in range(len(lista)-1): 
+        for indice in range(len(lista)): 
             for indice2 in range(indice + 1,len(lista)):
                 if not(lista[indice] == lista [indice2]):
                     vocales_diferentes += 1
