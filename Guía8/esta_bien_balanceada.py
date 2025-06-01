@@ -44,7 +44,8 @@ def esta_bien_balanceada(pila:Pila[str]) -> bool:
     cantidad_apertura: int = 0 
     cantidad_cierre: int = 0
     ultimo_elemento: str = pila_copia.get()
-    operaciones_basicas: list[str] = ['+', '−', '∗', '/']
+    operaciones_basicas: list[str] = ['+', '−', '∗', '/','=']
+    espacios: str = ' '
 
     # Miro el primer elemento, si es '(' o una operación básica es False, si es ')' o un numero, sigo recorriendo
 
@@ -58,10 +59,10 @@ def esta_bien_balanceada(pila:Pila[str]) -> bool:
             if elemento == ')':
                 cantidad_cierre += 1
                 
-            elif elemento == str(int) or elemento in operaciones_basicas:
+            elif elemento == str(int) or elemento in operaciones_basicas or elemento == espacios:
                 continue
             elif elemento == '(' and cantidad_cierre: 
-                cantidad_apertura += 1
+                cantidad_apertura == cantidad_cierre
             
         if cantidad_cierre == cantidad_apertura:
             return True
