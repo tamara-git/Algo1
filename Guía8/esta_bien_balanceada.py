@@ -64,5 +64,5 @@ def esta_bien_balanceada(pila:Pila[str]) -> bool:
             else:
                 return False
     
-        if cantidad_cierre == cantidad_apertura
+        if cantidad_cierre == cantidad_apertura:
             return True
