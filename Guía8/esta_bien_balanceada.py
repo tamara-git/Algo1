@@ -53,15 +53,16 @@ def esta_bien_balanceada(pila:Pila[str]) -> bool:
         return False
     
     else:
-
+        # OJO, tengo que volver a agregar el último_momento
+        pila_copia.put(ultimo_elemento)
         while not pila_copia.empty():
             elemento: str = pila_copia.get()
             if elemento == ')':
                 cantidad_cierre += 1        
-            elif elemento == str(int) or elemento in operaciones_basicas or elemento == espacio:
+            elif elemento != '(' :
                 continue
-            elif elemento == '(' and cantidad_cierre >= 1: 
-                cantidad_apertura += 1
+            elif elemento == '(' and cantidad_cierre >=1: 
+                cantidad_apertura +=1
             else: 
                 return False
             
