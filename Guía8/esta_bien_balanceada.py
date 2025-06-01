@@ -57,12 +57,13 @@ def esta_bien_balanceada(pila:Pila[str]) -> bool:
             elemento: str = pila_copia.get()
             if elemento == ')':
                 cantidad_cierre += 1
-                if elemento == '(':
-                    cantidad_apertura += 1
+                
             elif elemento == str(int) or elemento in operaciones_basicas:
                 continue
-            else:
-                return False
-    
+            elif elemento == '(' and cantidad_cierre: 
+                cantidad_apertura += 1
+            
         if cantidad_cierre == cantidad_apertura:
             return True
+        else:
+            return False
