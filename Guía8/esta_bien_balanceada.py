@@ -41,27 +41,28 @@ def copiar_pila(pila:Pila[str]) -> Pila[str]:
 
 def esta_bien_balanceada(pila:Pila[str]) -> bool:
     pila_copia: Pila[str] = copiar_pila(pila)
-    parentesis_apertura: str = '('
-    parentesis_cierre: str = ')'
     cantidad_apertura: int = 0 
     cantidad_cierre: int = 0
-    
-    while not pila_copia.empty():
-        elemento: str = pila_copia.get()
-        if elemento == parentesis_apertura:
-            cantidad_apertura += 1
-        if elemento == parentesis_cierre:
-            cantidad_cierre += 1
-        else:
-            continue
+    ultimo_elemento: str = pila_copia.get()
+    operaciones_basicas: list[str] = ['+', '−', '∗', '/']
 
-    if cantidad_apertura == cantidad_cierre:
-        return True
-    else:
+    # Miro el primer elemento, si es '(' o una operación básica es False, si es ')' o un numero, sigo recorriendo
+
+    if ultimo_elemento in operaciones_basicas or ultimo_elemento == '(':
         return False
-   
+    
+    else:
 
-
-
-
-     
+        while not pila_copia.empty():
+            elemento: str = pila_copia.get()
+            if elemento == ')':
+                cantidad_cierre += 1
+                if elemento == '(':
+                    cantidad_apertura += 1
+            elif elemento == str(int) or elemento in operaciones_basicas:
+                continue
+            else:
+                return False
+    
+        if cantidad_cierre == cantidad_apertura
+            return True
