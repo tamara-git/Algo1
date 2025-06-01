@@ -16,7 +16,7 @@ class Test_esta_bien_balanceada(unittest.TestCase):
         self.assertTrue(esta_bien_balanceada(pila))
 
     def test_True_2(self):
-        pila_2 : Pila[str] = Pila(
+        pila_2 : Pila[str] = Pila()
         pila_2.put('1')
         pila_2.put('')
         pila_2.put('+')
@@ -44,7 +44,7 @@ class Test_esta_bien_balanceada(unittest.TestCase):
         pila_2.put(')')
         pila_2.put('')
         pila_2.put(')')
-        )
+        
         #1 + ( 2 x 3 = ( 2 0 / 5 ) )
 
         self.assertTrue(esta_bien_balanceada(pila_2))
