@@ -5,7 +5,7 @@ asegura: { (|res| ≤ |s|) ∧ (para todo i ∈ Z si 0 ≤ i < |s| → pertenece
 }'''
     
 
-def cantidad_apariciones(elemento: str, lista: list[str]) -> int:
+'''def cantidad_apariciones(elemento: str, lista: list[str]) -> int:
     apariciones: list[str] = []
     for indice in range(0,len(lista)):
         if lista[indice] == elemento:
@@ -23,5 +23,18 @@ def eliminar_repetidos(lista:list[str]) -> list[str]:
            sin_repetidos = sin_repetidos + [elemento]
 
     return sin_repetidos + repetido
-print(eliminar_repetidos(['t','a','m','a','r','a']))
+print(eliminar_repetidos(['t','a','m','a','r','a']))'''
 
+
+'''otra implementación más directa
+
+'''
+
+def eliminar_repetidos(lista:list[str]) -> list[str]:
+    sin_repetidos: list[str] = []
+    for elemento in lista:
+        if elemento not in sin_repetidos:
+            sin_repetidos.append(elemento)
+    return sin_repetidos
+
+print(eliminar_repetidos(['t','a','m','a','r','a']))
