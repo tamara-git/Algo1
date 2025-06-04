@@ -13,13 +13,11 @@ camas ocupadas del piso i dividido el total de camas del piso i).}
 def nivel_de_ocupacion(camas_por_piso: list[list[bool]]) -> list[float]:
 
     camas_ocupadas: int = 0
-    camas_desocupadas: int = 0
+    camas_totales : int = len(camas_totales[0])
     res: list[float] = []
     for fila in range(len(camas_por_piso)):
         for columna in range(len(camas_por_piso[0])):
             if camas_por_piso[fila][columna] == True:
                 camas_ocupadas += 1
-            elif camas_por_piso[fila][columna] == False:
-                camas_desocupadas += 1
-        res.append(camas_ocupadas/(camas_ocupadas + camas_desocupadas))
+        res.append(camas_ocupadas/camas_totales)
     return res
