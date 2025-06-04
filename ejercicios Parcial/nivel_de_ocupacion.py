@@ -15,9 +15,9 @@ def nivel_de_ocupacion(camas_por_piso: list[list[bool]]) -> list[float]:
     camas_ocupadas: int = 0
     camas_desocupadas: int = 0
     res: list[float] = []
-    for fila in range(camas_por_piso):
-        for columna in range(camas_por_piso):
-            if camas_por_piso[fila][columna] == True:
+    for i in range(0,camas_por_piso):
+        for j in range(0,camas_por_piso):
+            if camas_por_piso[i][j] == True:
                 camas_ocupadas += 1
             else:
                 camas_desocupadas += 1
