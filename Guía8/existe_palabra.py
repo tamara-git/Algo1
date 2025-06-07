@@ -14,16 +14,17 @@ def cadena_a_lista_palabras(linea: str) -> list[str]:
         if caracter in linea != ' ':
             palabra = palabra + caracter
         elif caracter in linea == ' ':
-            lista_de_palabras += [palabra]
+            lista_de_palabras = lista_de_palabras + [palabra]
     
     return lista_de_palabras
 
+print(cadena_a_lista_palabras("hola como estas"))
 
 def existe_palabra(nombre_archivo: str, palabra: str) -> bool:
     archivo: TextIO = open(nombre_archivo, "r", encoding = "utf-8")
 
     lista_lineas: list[str] =  archivo.readlines()
-    while len(archivo.readlines()) != 0:
+    while len(lista_lineas) != 0:
         linea: str = lista_lineas.pop(0)
         if palabra in cadena_a_lista_palabras(linea):
             archivo.close()
