@@ -1,4 +1,4 @@
-import unittest
+import unittest, os
 
 from existe_palabra import cadena_a_lista_palabras, existe_palabra
 
@@ -9,9 +9,16 @@ class Test_cadena_a_lista_palabras(unittest.TestCase):
 
 
 class Test_existe_palabra(unittest.TestCase):
-    def test_una_linea(self):
-        self.assertTrue(existe_palabra("linea.txt", "estas"))
-        self.assertFalse(existe_palabra("linea.txt", "bien"))
+    def test_dos_lineas(self):
+
+      
+        ruta_directorio = "Guía8"
+        ruta_linea = os.path.join(ruta_directorio, "linea.txt")
+        linea = open(ruta_linea, "r", encoding="utf-8")
+        contenido = linea.readlines()
+  
+        self.assertTrue(existe_palabra(contenido, "estas"))
+        self.assertFalse(existe_palabra(contenido, "bien"))
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
