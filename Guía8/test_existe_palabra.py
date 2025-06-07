@@ -13,8 +13,7 @@ class Test_existe_palabra(unittest.TestCase):
 
       
         ruta_directorio = "Guía8"
-        ruta_linea = os.path.join(ruta_directorio, "linea.txt")
-        linea = open(ruta_linea, "r", encoding="utf-8")
+        linea = open(ruta_directorio, "r", encoding="utf-8")
         contenido = linea.readlines()
   
         self.assertTrue(existe_palabra(contenido, "estas"))
