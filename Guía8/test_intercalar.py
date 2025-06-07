@@ -3,17 +3,11 @@ import unittest
 from intercalar import intercalar, Cola
 
 def copiar_cola(cola: Cola) -> Cola:
-        cola_auxiliar: Cola = Cola()
         cola_copia: Cola = Cola()
 
-        # Desencolo los elementos e invierto el orden en cola_auxiliar.
+        # Desencolo los elementos, hago la copia y restauro la cola
         while not cola.empty():
             elemento = cola.get()
-            cola_auxiliar.put(elemento)
-
-        # Hago la copia y restauro la cola.
-        while not cola_auxiliar.empty():
-            elemento = cola_auxiliar.get()
             cola_copia.put(elemento)
             cola.put(elemento)
 
@@ -34,7 +28,7 @@ def son_colas_iguales(c1: Cola, c2: Cola):
             lista_c2.append(elemento_c2)
 
         if lista_c1 == lista_c2 and len(lista_c1) == len(lista_c2):
-             return True
+            return True
         return False
 
 class Test_intercalar(unittest.TestCase):

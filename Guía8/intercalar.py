@@ -8,21 +8,16 @@ asegura: {El tamaño de res es igual al doble del tamaño de c1}
 from queue import Queue as Cola
 
 def copiar_cola(cola: Cola) -> Cola:
-    cola_auxiliar: Cola = Cola()
-    cola_copia: Cola = Cola()
+        cola_copia: Cola = Cola()
 
-    # Desencolo los elementos e invierto el orden en cola_auxiliar.
-    while not cola.empty():
-        elemento = cola.get()
-        cola_auxiliar.put(elemento)
+        # Desencolo los elementos, hago la copia y restauro la cola
+        while not cola.empty():
+            elemento = cola.get()
+            cola_copia.put(elemento)
+            cola.put(elemento)
 
-    # Hago la copia y restauro la cola.
-    while not cola_auxiliar.empty():
-        elemento = cola_auxiliar.get()
-        cola_copia.put(elemento)
-        cola.put(elemento)
+        return cola_copia
 
-    return cola_copia
 
 
 def intercalar(c1: Cola, c2: Cola) -> Cola:
