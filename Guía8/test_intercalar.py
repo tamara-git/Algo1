@@ -24,3 +24,6 @@ class Test_intercalar(unittest.TestCase):
         res.put(15)
 
         self.assertEqual(intercalar(c1,c2),res)
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
