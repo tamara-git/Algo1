@@ -12,12 +12,12 @@ def copiar_cola(cola: Cola) -> Cola:
     cola_copia: Cola = Cola()
 
     # Desencolo los elementos e invierto el orden en cola_auxiliar.
-    while len(cola) != 0:
+    while not cola.empty():
         elemento = cola.get()
         cola_auxiliar.put(elemento)
 
     # Hago la copia y restauro la cola.
-    while len(cola_auxiliar) != 0:
+    while not cola_auxiliar.empty():
         elemento = cola_auxiliar.get()
         cola_copia.put(elemento)
         cola.put(elemento)
@@ -29,11 +29,12 @@ def intercalar(c1: Cola, c2: Cola) -> Cola:
     c1_copia: Cola = copiar_cola(c1)
     c2_copia: Cola = copiar_cola(c2)
     res: Cola = Cola()
-    for elemento in c1, c2:
-        c1_copia.get(elemento)
-        res.put(elemento)
-        c2_copia.get(elemento)
-        res.put(elemento)
+    for elemento_c1 in c1:
+        c1_copia.get(elemento_c1)
+        res.put(elemento_c1)
+        for elemento_c2 in c2:
+            c2_copia.get(elemento_c2)
+            res.put(elemento_c2)
         
     return res
 
