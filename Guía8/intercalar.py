@@ -42,19 +42,20 @@ def son_colas_iguales(c1: Cola, c2: Cola) -> bool:
         if lista_c1 == lista_c2:
             return True
         return False
-    
+            
 
 def intercalar(c1: Cola, c2: Cola) -> Cola:
     c1_copia: Cola = copiar_cola(c1)
     c2_copia: Cola = copiar_cola(c2)
     res: Cola = Cola()
-    for elemento_c1 in c1:
-        c1_copia.get(elemento_c1)
+    while not c1_copia.empty():
+        elemento_c1 = c1_copia.get()
         res.put(elemento_c1)
-        for elemento_c2 in c2:
-            c2_copia.get(elemento_c2)
+        while not c2_copia.empty():
+            elemento_c2 = c2_copia.get()
             res.put(elemento_c2)
-        
+            break
+
     return res
 
     
