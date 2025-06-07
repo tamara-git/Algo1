@@ -3,7 +3,7 @@ import unittest
 from intercalar import intercalar, Cola
 
 class Test_intercalar(unittest.TestCase):
-    def cola_corta(self):
+    def test_cola_corta(self):
 
         c1: Cola = Cola()
         c1.put(1)
