@@ -10,10 +10,7 @@ class Test_cadena_a_lista_palabras(unittest.TestCase):
 
 class Test_existe_palabra(unittest.TestCase):
     def test_dos_lineas(self):
-
-      
-        ruta_directorio = "Guía8"
-        linea = open(ruta_directorio, "r", encoding="utf-8")
+        linea = open("linea.txt", "r", encoding="utf-8")
         contenido = linea.readlines()
   
         self.assertTrue(existe_palabra(contenido, "estas"))
