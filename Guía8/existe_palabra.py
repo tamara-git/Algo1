@@ -11,15 +11,13 @@ def cadena_a_lista_palabras(linea: str) -> list[str]:
     lista_de_palabras: list[str] = []   
     palabra: str = ""
     for caracter in linea:
-        if caracter != ' ' or caracter != "\n":
+        if caracter != ' ' and caracter != "\n":
             palabra = palabra + caracter
         else:
             lista_de_palabras = lista_de_palabras + [palabra]
             palabra = "" 
 
     return lista_de_palabras
-
-print(cadena_a_lista_palabras("hola como estas"))
 
 def existe_palabra(nombre_archivo: str, palabra: str) -> bool:
     archivo: TextIO = open(nombre_archivo, "r", encoding = "utf-8")
