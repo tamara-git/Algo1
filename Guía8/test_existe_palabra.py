@@ -10,9 +10,9 @@ class Test_cadena_a_lista_palabras(unittest.TestCase):
 
 class Test_existe_palabra(unittest.TestCase):
     def test_dos_lineas(self):
-        linea = open("linea.txt", "r", encoding="utf-8")
-        contenido = linea.readlines()
-  
+        archivo = open("linea.txt", "r", encoding="utf-8")
+        contenido = archivo.readlines()
+        archivo.close()
         self.assertTrue(existe_palabra(contenido, "estas"))
         self.assertFalse(existe_palabra(contenido, "bien"))
 
