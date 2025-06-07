@@ -1,7 +1,7 @@
-'''problema existe palabra (in nombre archivo: seq⟨Char⟩, in palabra: seq⟨Char⟩) : Bool {
+'''problema cantidad de apariciones (in nombre archivo: seq⟨Char⟩, in palabra: seq⟨Char⟩) : Z {
 requiere: {nombre archivo es el path con el nombre de un archivo existente y accesible}
-requiere: {palabra no es vacía}
-asegura: {res es verdadero si y solo si palabra aparece al menos una vez en el archivo indicado por nombre archivo}
+requiere: {palabra no es vac´ıa}
+asegura: {res es la cantidad de veces que palabra aparece en el archivo indicado por nombre archivo}
 }'''
 
 from typing import TextIO
@@ -19,13 +19,18 @@ def cadena_a_lista_palabras(linea: str) -> list[str]:
 
     return lista_de_palabras
 
-def existe_palabra(nombre_archivo: str, palabra: str) -> bool:
-    archivo: TextIO = open(nombre_archivo, "r", encoding = "utf-8")
 
-    lista_lineas: list[str] =  archivo.readlines()
+def cantidad_de_apariciones(nombre_archivo: str, palabra:str) -> int:
+    archivo = open(nombre_archivo, "r", encoding= "utf-8")
+    lista_lineas: list[str] = archivo.readlines()
+    
     while len(lista_lineas) != 0:
         linea: str = lista_lineas.pop(0)
         if palabra in cadena_a_lista_palabras(linea):
+            cantidad_apariciones += 1
             archivo.close()
-            return True
-    return False
+    return cantidad_apariciones
+
+
+    
+
