@@ -6,16 +6,17 @@ asegura: {res es verdadero si y solo si palabra aparece al menos una vez en el a
 
 from typing import TextIO
 
-#["hola como estas","yo bien y vos?"]
+#["hola como estas","yo bien y vos"]
 def cadena_a_lista_palabras(linea: str) -> list[str]:
-    lista_de_palabras: list[str] = []
+    lista_de_palabras: list[str] = []   
     palabra: str = ""
     for caracter in linea:
-        if caracter in linea != ' ':
+        if caracter != ' ' or caracter != "\n":
             palabra = palabra + caracter
-        elif caracter in linea == ' ':
+        else:
             lista_de_palabras = lista_de_palabras + [palabra]
-    
+            palabra = "" 
+
     return lista_de_palabras
 
 print(cadena_a_lista_palabras("hola como estas"))
@@ -30,5 +31,3 @@ def existe_palabra(nombre_archivo: str, palabra: str) -> bool:
             archivo.close()
             return True
         return False
-        
-    
