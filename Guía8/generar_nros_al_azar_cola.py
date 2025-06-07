@@ -2,7 +2,7 @@
 problema generar nros al azar (in cantidad: Z, in desde: Z, in hasta: Z) : Cola[Z] {
 requiere: {cantidad ≥ 0}
 requiere: {desde ≤ hasta}
-asegura: {El tama˜no de res es igual a cantidad}
+asegura: {El tamaño de res es igual a cantidad}
 asegura: {Todos los elementos de res son valores entre desde y hasta (ambos inclusive), seleccionados aleatoriamente
 con probabilidad uniforme}
 }
@@ -16,5 +16,15 @@ elemento = c . get () # desencolo
 c . empty () # devuelve true si y solo si la cola está vacía'''
 
 from queue import Queue as Cola
+import random 
+
 def generar_nros_al_azar(cantidad:int, desde:int, hasta:int) -> Cola[int]:
+    cola: Cola[int] = Cola()
+
+    while len(cola) != cantidad:
+        elemento: int = random.randint(desde,hasta)
+        cola.put(elemento)
+
+    return cola
+   
     
