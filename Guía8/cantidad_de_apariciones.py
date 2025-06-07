@@ -23,7 +23,7 @@ def cadena_a_lista_palabras(linea: str) -> list[str]:
 def cantidad_de_apariciones(nombre_archivo: str, palabra:str) -> int:
     archivo = open(nombre_archivo, "r", encoding= "utf-8")
     lista_lineas: list[str] = archivo.readlines()
-    
+    cantidad_apariciones: int = 0
     while len(lista_lineas) != 0:
         linea: str = lista_lineas.pop(0)
         if palabra in cadena_a_lista_palabras(linea):
