@@ -15,3 +15,7 @@ class Test_cantidad_de_apariciones(unittest.TestCase):
         archivo_2.close()
 
         self.assertEqual(cantidad_de_apariciones("otro_archivo.txt","hermosa"), 1)
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
