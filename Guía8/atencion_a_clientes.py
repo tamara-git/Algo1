@@ -49,6 +49,7 @@ def atencion_a_clientes(c: Cola[tuple[str, int, bool, bool]]) ->  Cola[tuple[str
                 break
             if (indice == 2 or indice == 3) and (datos[indice] == False):
                 cola_comun.put(datos)
+                break
         
     while not cola_prioridad.empty():
         datos: tuple[str, int, bool, bool] = cola_prioridad.get()
