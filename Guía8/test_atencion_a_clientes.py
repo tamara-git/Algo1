@@ -1,9 +1,31 @@
 import unittest
 
-from atencion_a_clientes import atencion_a_clientes, Cola, son_colas_iguales
+from atencion_a_clientes import atencion_a_clientes, Cola, copiar_cola
+
+def son_colas_iguales(c1: Cola[tuple[str, int, bool, bool]], c2: Cola[tuple[str, int, bool, bool]]) -> bool:
+    c1_copia: Cola[tuple[str, int, bool, bool]] = copiar_cola(c1)
+    c2_copia: Cola[tuple[str, int, bool, bool]] = copiar_cola(c2)
+    lista_c1: list[tuple[str, int, bool, bool]] = []
+    lista_c2: list[tuple[str, int, bool, bool]] = []
+
+    while not c1_copia.empty():
+        datos_c1: tuple[str, int, bool, bool] = c1_copia.get()
+        lista_c1 = lista_c1.append(datos_c1)
+        
+    while not c2_copia.empty():
+        datos_c2: tuple[str, int, bool, bool] = c2_copia.get()
+        lista_c2 = lista_c2.append(datos_c2)
+
+    
+    for indice in range(len(lista_c1)):
+        if lista_c1[indice] != lista_c2[indice] and len(lista_c1) != len(lista_c2):
+            return False
+    return True
+
+
 
 class Test_atencion_a_clientes(unittest.TestCase):
-    def con_una_prioridad(self):
+    def test_con_una_prioridad(self):
         cola: Cola[tuple[str,int,bool,bool]] = Cola()
         cola.put(("Pablo",47344554,False,True))
         cola.put(("Brunilda", 94256891, False, True))
