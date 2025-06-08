@@ -27,9 +27,9 @@ def son_colas_iguales(c1: Cola[tuple[str, int, bool, bool]], c2: Cola[tuple[str,
 class Test_atencion_a_clientes(unittest.TestCase):
     def test_con_una_prioridad(self):
         cola: Cola[tuple[str,int,bool,bool]] = Cola()
-        cola.put(("Pablo",47344554,False,True))
-        cola.put(("Brunilda", 94256891, False, True))
-        cola.put(("Kiara", 10245697, True, False))
+        cola.put(("Pablo",47344554,True,False))
+        cola.put(("Brunilda", 94256891, True, False))
+        cola.put(("Kiara", 10245697, False, True))
         cola.put(("Tamara", 46683766, False, False))
 
         cola_ordenada: Cola[tuple[str,int,bool,bool]] = Cola()
