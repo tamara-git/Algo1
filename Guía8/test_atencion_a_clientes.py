@@ -16,7 +16,7 @@ def son_colas_iguales(c1: Cola[tuple[str, int, bool, bool]], c2: Cola[tuple[str,
         datos_c2: tuple[str, int, bool, bool] = c2_copia.get()
         lista_c2 = lista_c2.append(datos_c2)
 
-    if len(lista_c1) != len(lista_c2)
+    if len(lista_c1) != len(lista_c2):
         return False
     return True
     
