@@ -1,6 +1,6 @@
 import unittest
 
-from atencion_a_clientes import atencion_a_clientes, Cola,
+from atencion_a_clientes import atencion_a_clientes, Cola, son_colas_iguales
 
 class Test_atencion_a_clientes(unittest.TestCase):
     def con_una_prioridad(self):
