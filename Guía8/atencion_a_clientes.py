@@ -27,7 +27,37 @@ def copiar_cola(cola: Cola[tuple[str, int, bool, bool]]) -> Cola[tuple[str, int,
 
     return cola_copia
 
-def atencion_a_clientes(c: Cola[tuple[str, int, bool, bool]]) -> Cola[tuple[str, int, bool, bool]]:
-    c_copia: Cola[tuple[str, int, bool, bool]] = copiar_cola(c)
-    c_copia
 
+# Voy a crear tres colas, una de prioridad, una de cuenta preferencial y otra normal.
+# Se respeta el orden de llegada.
+# Luego pongo todo en una sola cola.
+def atencion_a_clientes(c: Cola[tuple[str, int, bool, bool]]) ->  Cola[tuple[str, int, bool, bool]]:
+    c_copia: Cola[tuple[str, int, bool, bool]] = copiar_cola(c)
+    cola_prioridad: Cola[tuple[str, int, bool, bool]] = Cola()
+    cola_preferencial: Cola[tuple[str, int, bool, bool]] = Cola()
+    cola_comun: Cola[tuple[str, int, bool, bool]] = Cola()
+    cola_ordenada: Cola[tuple[str, int, bool, bool]] = Cola()
+    
+    while not c_copia.empty():
+        datos: tuple[str, int, bool, bool] = c_copia.get()
+        for indice in range(len(datos)):
+            if indice == 2 and datos[indice] == True:
+                cola_prioridad.put(datos)
+            if indice == 3 and datos[indice] == True:
+                cola_preferencial.put(datos)
+            else:
+                cola_comun.put(datos)
+        
+    while not cola_prioridad.empty():
+        datos: tuple[str, int, bool, bool] = cola_prioridad.get()
+        cola_ordenada.put(datos)
+
+    while not cola_preferencial.empty():
+        datos: tuple[str, int, bool, bool] = cola_preferencial.get()
+        cola_ordenada.put(datos)
+
+    while not cola_comun.empty():
+        datos: tuple[str, int, bool, bool] = cola_comun.get()
+        cola_ordenada.put(datos)
+
+    return cola_ordenada
