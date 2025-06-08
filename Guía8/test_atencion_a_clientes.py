@@ -33,9 +33,9 @@ class Test_atencion_a_clientes(unittest.TestCase):
         cola.put(("Tamara", 46683766, False, False))
 
         cola_ordenada: Cola[tuple[str,int,bool,bool]] = Cola()
-        cola_ordenada.put(("Kiara", 10245697, True, False))
-        cola_ordenada.put(("Pablo", 47344554,False,True))
-        cola_ordenada.put(("Brunilda", 94256891, False, True))
+        cola_ordenada.put(("Kiara", 10245697, False, True))
+        cola_ordenada.put(("Pablo", 47344554,True,False))
+        cola_ordenada.put(("Brunilda", 94256891, True, False))
         cola_ordenada.put(("Tamara", 46683766, False, False))
 
         self.assertTrue(son_colas_iguales(atencion_a_clientes(cola), cola_ordenada))
