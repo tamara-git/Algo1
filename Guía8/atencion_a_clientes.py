@@ -43,9 +43,11 @@ def atencion_a_clientes(c: Cola[tuple[str, int, bool, bool]]) ->  Cola[tuple[str
         for indice in range(len(datos)):
             if indice == 2 and datos[indice] == True:
                 cola_prioridad.put(datos)
+            elif indice == 2 and datos[indice] == False:
+                cola_comun.put(datos)
             if indice == 3 and datos[indice] == True:
                 cola_preferencial.put(datos)
-            else:
+            elif indice == 3 and datos[indice] == False:
                 cola_comun.put(datos)
         
     while not cola_prioridad.empty():
