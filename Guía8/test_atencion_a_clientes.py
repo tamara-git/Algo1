@@ -16,14 +16,12 @@ def son_colas_iguales(c1: Cola[tuple[str, int, bool, bool]], c2: Cola[tuple[str,
         datos_c2: tuple[str, int, bool, bool] = c2_copia.get()
         lista_c2 = lista_c2.append(datos_c2)
 
-    if len(lista_c1) != len(lista_c2):
-        return False
-    return True
     
     for indice in range(len(lista_c1)):
-        if lista_c1[indice] != lista_c2[indice]:
+        if lista_c1[indice] != lista_c2[indice] and len(lista_c1) != len(lista_c2):
             return False
     return True
+
 
 class Test_atencion_a_clientes(unittest.TestCase):
     def con_una_prioridad(self):
