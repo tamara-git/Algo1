@@ -18,7 +18,7 @@ def son_colas_iguales(c1: Cola[tuple[str, int, bool, bool]], c2: Cola[tuple[str,
 
     
     for indice in range(len(lista_c1)):
-        if lista_c1[indice] != lista_c2[indice] or len(lista_c1) != len(lista_c2):
+        if lista_c1[indice] != lista_c2[indice] and len(lista_c1) != len(lista_c2):
             return False
     return True
 
