@@ -10,11 +10,11 @@ def son_colas_iguales(c1: Cola[tuple[str, int, bool, bool]], c2: Cola[tuple[str,
 
     while not c1_copia.empty():
         datos_c1: tuple[str, int, bool, bool] = c1_copia.get()
-        lista_c1 = lista_c1.append(datos_c1)
+        lista_c1.append(datos_c1)
         
     while not c2_copia.empty():
         datos_c2: tuple[str, int, bool, bool] = c2_copia.get()
-        lista_c2 = lista_c2.append(datos_c2)
+        lista_c2.append(datos_c2)
 
     
     for indice in range(len(lista_c1)):
