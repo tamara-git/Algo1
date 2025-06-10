@@ -33,7 +33,7 @@ def pacientes_urgentes(c: Cola[tuple[int,str,str]]) -> int:
     while not c_copia.empty():
         datos: tuple[int,str,str] = c_copia.get()
         for indice in range(len(datos)):
-            if indice == 0 and indice < 4:
+            if indice == 0 and datos[indice] < 4:
                 contador += 1
 
     return contador
