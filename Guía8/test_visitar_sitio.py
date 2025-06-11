@@ -3,7 +3,7 @@ import unittest
 from visitar_sitio import visitar_sitio
 from queue import LifoQueue as Pila
 
-class Test_visitar_sitio(unittest.Testcase):
+class Test_visitar_sitio(unittest.TestCase):
     def test_un_usuario(self):
 
         historiales_inicio: dict[str,Pila[str]] = {}
