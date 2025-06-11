@@ -9,7 +9,7 @@ class Test_visitar_sitio(unittest.TestCase):
         historiales_inicio: dict[str,Pila[str]] = {}
 
         historial_kiara: Pila[str] = Pila()
-        historial_kiara.put("google.com")
+        historial_kiara.put("pinterest.com")
     
         historiales: dict[str,Pila[str]] = {
             "Kiara": historial_kiara
