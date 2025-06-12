@@ -17,9 +17,11 @@ class Test_actualizar_stock(unittest.TestCase):
             "remera": {"precio": 10000, "cantidad": 6} 
         }
 
-        actualizar_stock(inventario, "remera", 4)
+        inventario_resultado: dict[str, dict[str, float | int]] = {
+            "remera": {"precio": 10000, "cantidad": 4} 
+        }
+        actualizar_stock(inventario, "remera", 4) == inventario_resultado
 
-if __name__ == "__main__":
-    unittest.main(verbosity=2)
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

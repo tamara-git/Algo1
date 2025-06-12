@@ -13,7 +13,6 @@ cantidad}
 
 def actualizar_stock(inventario: dict[str, dict[str, float | int]], nombre: str, cantidad: float) -> None:
     
-    if nombre in inventario.keys():
-        inventario[nombre] = {
-        "cantidad": cantidad
-        }
+    if nombre in inventario.keys(): 
+        inventario[nombre]["cantidad"] = cantidad  
+        
