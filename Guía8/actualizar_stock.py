@@ -11,7 +11,7 @@ asegura: {En inventario, el valor asociado a la clave nombre, tendrá el mismo p
 cantidad}
 }'''
 
-def actualizar_stock(inventario: dict[str, dict[str, float | int]], nombre: str, cantidad: float):
+def actualizar_stock(inventario: dict[str, dict[str, float | int]], nombre: str, cantidad: float) -> None:
     
     if nombre in inventario.keys():
         inventario[nombre] = {
