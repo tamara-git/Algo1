@@ -24,9 +24,9 @@ def siete_y_medio() -> None:
             sumar += numero
             lista_numeros += [numero]
 
-            if sumar > 7.5:
+            if sumar > 7.5 or sumar == 7.5:
                 break
-            
+
         if respuesta == "no":
             break
         
