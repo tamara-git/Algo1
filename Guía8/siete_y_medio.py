@@ -13,7 +13,7 @@ def siete_y_medio() -> None:
     lista_numeros: list[int] = []
 
     while True:
-        respuesta = input("¿Otra carta? (escribe 'no' para terminar)")
+        respuesta = input("Tomar carta? (escribe 'si' para sacar, 'no' para plantarse)")
         if respuesta == "si":
             numero: int = random.randint(1,12)
             while numero in [8,9]:
