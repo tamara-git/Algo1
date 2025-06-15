@@ -27,7 +27,7 @@ grilla horaria son iguales entre sí.}
 
 # |res| = 7
 #res = (bool,bool),... x7
-def responsable_por_turno(grilla_horaria: list[list[str]]) -> list[tuple[bool, bool]]:
+def un_responsable_por_turno(grilla_horaria: list[list[str]]) -> list[tuple[bool, bool]]:
     res: list[tuple[bool, bool]] = []         
     tupla: tuple[bool,bool] = ()
     turno_mañana: bool = False
@@ -50,6 +50,7 @@ def responsable_por_turno(grilla_horaria: list[list[str]]) -> list[tuple[bool, b
             turno_tarde = True    
         tupla = (turno_mañana, turno_tarde)
         res.append(tupla)
+
     return res
 
 
