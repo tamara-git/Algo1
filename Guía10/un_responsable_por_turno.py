@@ -54,6 +54,6 @@ def un_responsable_por_turno(grilla_horaria: list[list[str]]) -> list[tuple[bool
     return res
 
 
-print(responsable_por_turno([["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"]]))
+#print(un_responsable_por_turno([["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"]]))
 #grilla_horaria = [["a","b","c"],["a", "b","c"], ["a", "b","c"], ["a","b","c"], ["n", "b","c"], ["n", "b","c"], ["n", "b","c"], ["n", "b","c"]]
 #print(len(grilla_horaria))
