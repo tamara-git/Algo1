@@ -1,6 +1,6 @@
 import unittest
 
-from promedio_de_salidas import promedios_de_salidas, calcular_promedio
+from promedio_de_salidas import calcular_promedio
 
 class Test_promedio_de_salidas(unittest.TestCase):
     def un_participante(self):

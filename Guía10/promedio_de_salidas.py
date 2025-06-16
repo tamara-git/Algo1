@@ -1,4 +1,4 @@
-'''. Sala de Escape - Promedio de salidas
+'''Sala de Escape - Promedio de salidas
 Un grupo de amigos apasionados por las salas de escape, llevan un registro meticuloso de todas las salas de escape que hay en Capital.
  Este registro indica si han visitado una sala y si pudieron o no salir de ella. 
  Un 0 significa que no fueron, un 61 que no lograron salir a tiempo,
@@ -34,4 +34,4 @@ def calcular_promedio(registro: dict[str,list[int]]) -> float:
             cantidad_valores += 1
     return (sumar/cantidad_valores)
 
-def promedio_de_salidas(registro: dict[str,list[int]]) -> dict[str, tuple[int,float]]:
+#def promedio_de_salidas(registro: dict[str,list[int]]) -> dict[str, tuple[int,float]]:
