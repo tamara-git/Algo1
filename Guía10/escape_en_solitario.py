@@ -21,21 +21,18 @@ el tercer valor es distinto de 0.}
 
 """
 
-
 def escape_en_solitario(amigos_por_salas: list[list[int]]) -> list[int]:
+   
     filas: int = len(amigos_por_salas)   #
-    columnas: int = len(amigos_por_salas[0]) #4
-
     lista_solitario: list[int] = []
+    res: bool = False
 
     for fila in range(filas):
-        for columna in range(columnas):
-            if columna in [0,1,3]:
-                if amigos_por_salas[fila][columna] == 0:
-                    lista_solitario.append(amigos_por_salas[fila][columna])
-            else:
-                lista_solitario.append(amigos_por_salas[fila][columna])
+        for columna in [0,1,3]:
+                if amigos_por_salas[fila][columna] != 0:
+                    break
+        if amigos_por_salas[fila][columna] == 0:   
+            lista_solitario.append(fila)
+ 
     return lista_solitario
-    
-            
                     
