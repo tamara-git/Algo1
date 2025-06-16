@@ -25,13 +25,15 @@ es 0.0.}
 
 
 def calcular_promedio(registro: dict[str,list[int]]) -> float:
-    valores: float = registro.values()
+    lista_valores: float = registro.values()
     sumar: float = 0.0
     cantidad_valores: int = 0
-    for indice in range(len(valores)):
-        if valores[indice] < 61:
-            sumar += valores[indice]
-            cantidad_valores += 1
+
+    for valores in lista_valores:
+        for valor in valores:
+            if valor < 61:
+                sumar += valor[0][cantidad_valores]
+                cantidad_valores += 1
     return (sumar/cantidad_valores)
 
 #def promedio_de_salidas(registro: dict[str,list[int]]) -> dict[str, tuple[int,float]]:

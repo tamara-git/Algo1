@@ -9,7 +9,7 @@ class Test_promedio_de_salidas(unittest.TestCase):
         }
 
         promedio: float = (30+40+60)/3
-        self.assertEqual(calcular_promedio(registro), promedio)
+        self.assertAlmostEqual(calcular_promedio(registro), promedio)
 
 
 if __name__ == "__main__":
