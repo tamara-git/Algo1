@@ -24,16 +24,33 @@ es 0.0.}
 #promedio de los tiempos de salida con 60min 
 
 
-def calcular_promedio(registro: dict[str,list[int]]) -> float:
-    lista_valores: float = registro.values()
+def calcular_promedio(registro: dict[str,list[int]]) -> list[float]:
+    lista_lista_valores: float = registro.values()
     sumar: float = 0.0
     cantidad_valores: int = 0
+    lista_promedios: list[float] = []
 
-    for valores in lista_valores:
-        for valor in valores:
-            if valor < 61:
-                sumar += valor[0][cantidad_valores]
+    for lista_valores in lista_lista_valores:
+        for valor in lista_valores:
+            if valor <= 60.0:
+                sumar += valor
                 cantidad_valores += 1
-    return (sumar/cantidad_valores)
+        lista_promedios.append(sumar/cantidad_valores)
+    return lista_promedios
 
-#def promedio_de_salidas(registro: dict[str,list[int]]) -> dict[str, tuple[int,float]]:
+#acá tengo que crear un nuevo diccionario con clave "nombre" y valor (len(valor_diccionario_anterior),promedio)
+def promedio_de_salidas(registro: dict[str,list[int]]) -> dict[str, tuple[int,float]]:
+
+    lista_lista_valores: float = registro.values()
+    lista_nombres: list[str] = registro.keys()
+    
+    nuevo_diccionario: dict[str,tuple[int,float]] = {}
+
+    for personas in registro.keys():
+        participante: str = lista_nombres[personas]
+        for valores_persona in registro.values():
+            valores: list[float] = lista_lista_valores[valores_persona]
+            nuevo_diccionario[participante] = (len(valores), calcular_promedio(valores))
+           
+   
+  
