@@ -25,25 +25,34 @@ es 0.0.}
 
 
 def calcular_promedio(lista_valores: list[int]) -> float:
-    sumar: float = 0.0
+    sumar: int = 0
     cantidad_valores_validos: int = 0
 
     for valor in lista_valores:
-            if valor <= 60:
-                sumar += valor
-                cantidad_valores_validos += 1
+        if valor < 61:
+            sumar += valor
+            cantidad_valores_validos += 1
     return (sumar/cantidad_valores_validos)
+
+def calcular_salas_validas(lista_valores: list[int]) -> int:
+    cantidad_valores_validos: int = 0
+
+    for valor in lista_valores:
+        if valor < 61:
+            cantidad_valores_validos += 1
+    return cantidad_valores_validos
 
 #acá tengo que crear un nuevo diccionario con clave "nombre" y valor (len(valor_diccionario_anterior),promedio)
 def promedio_de_salidas(registro: dict[str,list[int]]) -> dict[str, tuple[int,float]]:
 
-    lista_lista_valores: list[list[float]] = registro.values()
-    lista_nombres: list[str] = registro.keys()
+    lista_lista_valores: list[list[float]] = list(registro.values())
+    lista_nombres: list[str] = list(registro.keys())
     nuevo_diccionario: dict[str,tuple[int,float]] = {}
 
-    for persona in lista_nombres:
-        for valores_persona in lista_lista_valores:
-                nuevo_diccionario[persona] = (len(valores_persona), calcular_promedio(valores_persona))
-           
-   
+    for indice in range(len(lista_nombres)):
+        for indice_2 in range(len(lista_lista_valores)):
+            if indice_2 == indice:
+                nuevo_diccionario[lista_nombres[indice]] = (
+                    calcular_salas_validas(lista_lista_valores[indice_2]), calcular_promedio(lista_lista_valores[indice_2])
+                )
     return nuevo_diccionario

@@ -5,7 +5,7 @@ from promedio_de_salidas import calcular_promedio, promedio_de_salidas
 class Test_promedio_de_salidas(unittest.TestCase):
     def test_tres_participante(self):
         registro: dict[str,list[int]] = {
-            "carla": [30,40,60,61,60],
+            "carla": [30,40,60,61],
             "marta": [5,40,20],
             "julia": [10,38]
         }
@@ -19,7 +19,7 @@ class Test_promedio_de_salidas(unittest.TestCase):
         self.assertEqual(promedio_de_salidas(registro), res)
 
     def test__promedio_un_participante(self):
-        lista: list[int] = [30,40,60,61,60]
+        lista: list[int] = [30,40,60,61]
         promedio: float = (30+40+60)/3
 
         self.assertAlmostEqual(calcular_promedio(lista), promedio)
