@@ -38,10 +38,10 @@ class Test_responsable_por_turno(unittest.TestCase):
         
         self.assertEqual(un_responsable_por_turno(grilla_horaria), [(True,True),(True,True),(True,True),(True,True),(True,True),(True,True),(True,True)])
 
-    def test_con_false(self):
+    def test_con_false_turno_mañana(self):
        
         grilla_horaria: list[list[str]] = [["a","b","c","d","e","f","g"],
-                                           ["a","b","c","n","e","f","g"],
+                                           ["f","b","c","d","e","f","g"],
                                            ["a","b","c","d","e","f","g"],
                                            ["a","b","c","d","e","f","g"],
                                            ["n","x","h","m","z","u","y"],
@@ -49,7 +49,19 @@ class Test_responsable_por_turno(unittest.TestCase):
                                            ["n","x","h","m","z","u","y"],
                                            ["n","x","h","m","z","u","y"]]
         
-        self.assertEqual(un_responsable_por_turno(grilla_horaria), [(True,True),(True,True),(True,True),(False,True),(True,True),(True,True),(True,True)])
+        self.assertEqual(un_responsable_por_turno(grilla_horaria), [(False,True),(True,True),(True,True),(True,True),(True,True),(True,True),(True,True)])
 
+    def test_con_false_turno_tarde(self):
+       
+        grilla_horaria: list[list[str]] = [["a","b","c","d","e","f","g"],
+                                           ["a","b","c","d","e","f","g"],
+                                           ["a","b","c","d","e","f","g"],
+                                           ["a","b","c","d","e","f","g"],
+                                           ["n","x","h","m","z","u","y"],
+                                           ["n","x","ñ","m","z","u","y"],
+                                           ["n","x","h","m","z","u","y"],
+                                           ["n","x","h","m","z","u","y"]]
+        
+        self.assertEqual(un_responsable_por_turno(grilla_horaria), [(True,True),(True,True),(True,False),(True,True),(True,True),(True,True),(True,True)])
 if __name__ == "__main__":
     unittest.main(verbosity=2)
