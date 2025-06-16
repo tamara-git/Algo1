@@ -17,12 +17,24 @@ asegura: {Si hay dos o m´as subsecuencias de salidas exitosas de mayor longitud
 de ellas.}
 }'''
 
+def borrar_primera_aparicion(lista:list[tuple[int,int]]) -> list[tuple[int,int]]:
+    lista_sin_aparicion: list[tuple[int,int]] = []
+
+    for indice in range(len(lista)-1):
+        if lista[indice][0] != lista[indice + 1][0]:
+            lista_sin_aparicion.append(lista[indice])
+        else:
+            lista_sin_aparicion.append(lista[indice + 1])
+
+    return lista_sin_aparicion
+
 def racha_mas_larga(tiempos: list[int]) -> tuple[int,int]:
     contador: int = 1
-    contador_maximo: int = 1
+    contador_maximo: int = 0
     lista_tiempos: list[int] = []
     primer_posicion: int = 0
     segunda_posicion: int = 0
+    lista_posiciones: list[tuple[int,int]] = []
 
     for indice in range(len(tiempos)-1):
         if tiempos[indice] not in [0,61] and tiempos[indice + 1] not in [0,61]:
@@ -31,10 +43,19 @@ def racha_mas_larga(tiempos: list[int]) -> tuple[int,int]:
             primer_posicion = lista_tiempos[0]
             lista_tiempos.append(indice + 1)
             segunda_posicion = lista_tiempos.pop()
+            lista_posiciones.append((primer_posicion, segunda_posicion))
+            #si el primer elemento de las tuplas se repite, borrar la primera aparicion
+            for indice in range(len(lista_posiciones)-1):
+                if lista_posiciones[indice][0] == lista_posiciones[indice + 1][0]: 
+                    lista_posiciones = borrar_primera_aparicion(lista_posiciones)
         else:
-            if contador > contador_maximo:
+            if contador != 1 and contador > contador_maximo:
                 contador_maximo = contador
                 lista_tiempos = []
+                contador = 1
 
-    return (primer_posicion, segunda_posicion)
+        if contador == contador_maximo:
+            lista_posiciones.pop()
+        
+    return lista_posiciones.pop()
             
