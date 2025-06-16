@@ -19,7 +19,7 @@ de ellas.}
 
 def racha_mas_larga(tiempos: list[int]) -> tuple[int,int]:
     contador: int = 1
-    contador_maximo: int = 0
+    contador_maximo: int = 1
     lista_tiempos: list[int] = []
     primer_posicion: int = 0
     segunda_posicion: int = 0
@@ -27,13 +27,14 @@ def racha_mas_larga(tiempos: list[int]) -> tuple[int,int]:
     for indice in range(len(tiempos)-1):
         if tiempos[indice] not in [0,61] and tiempos[indice + 1] not in [0,61]:
             contador += 1
-            if indice <= primer_posicion:
-                lista_tiempos.append(indice)
-                primer_posicion = lista_tiempos.pop()
+            lista_tiempos.append(indice)
+            primer_posicion = lista_tiempos[0]
             lista_tiempos.append(indice + 1)
             segunda_posicion = lista_tiempos.pop()
         else:
             if contador > contador_maximo:
-                break
+                contador_maximo = contador
+                lista_tiempos = []
+
     return (primer_posicion, segunda_posicion)
             
