@@ -14,6 +14,18 @@ class Test_responsable_por_turno(unittest.TestCase):
                                            ["a","a","a","a","a","a","a"]]
         self.assertEqual(un_responsable_por_turno(grilla_horaria), [(True,True),(True,True),(True,True),(True,True),(True,True),(True,True),(True,True)])
 
+    def test_2_responsables_por_dia(self):
+        grilla_horaria: list[list[str]] = [["a","b","c","d","e","f","g"],
+                                           ["a","b","c","d","e","f","g"],
+                                           ["a","b","c","d","e","f","g"],
+                                           ["a","b","c","d","e","f","g"],
+                                           ["n","x","h","m","z","u","y"],
+                                           ["n","x","h","m","z","u","y"],
+                                           ["n","x","h","m","z","u","y"],
+                                           ["n","x","h","m","z","u","y"]]
+        
+        self.assertEqual(un_responsable_por_turno(grilla_horaria), [(True,True),(True,True),(True,True),(True,True),(True,True),(True,True),(True,True)])
+
     def test_2_responsables(self):
         grilla_horaria: list[list[str]] = [["a","b","c","d","e","f","g"],
                                            ["a","b","c","d","e","f","g"],
@@ -25,6 +37,19 @@ class Test_responsable_por_turno(unittest.TestCase):
                                            ["n","x","h","m","z","u","y"]]
         
         self.assertEqual(un_responsable_por_turno(grilla_horaria), [(True,True),(True,True),(True,True),(True,True),(True,True),(True,True),(True,True)])
+
+    def test_con_false(self):
+       
+        grilla_horaria: list[list[str]] = [["a","b","c","d","e","f","g"],
+                                           ["a","b","c","n","e","f","g"],
+                                           ["a","b","c","d","e","f","g"],
+                                           ["a","b","c","d","e","f","g"],
+                                           ["n","x","h","m","z","u","y"],
+                                           ["n","x","h","m","z","u","y"],
+                                           ["n","x","h","m","z","u","y"],
+                                           ["n","x","h","m","z","u","y"]]
+        
+        self.assertEqual(un_responsable_por_turno(grilla_horaria), [(True,True),(True,True),(True,True),(False,True),(True,True),(True,True),(True,True)])
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

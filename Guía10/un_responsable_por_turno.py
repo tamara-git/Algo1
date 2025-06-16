@@ -32,19 +32,21 @@ def un_responsable_por_turno(grilla_horaria: list[list[str]]) -> list[tuple[bool
     tupla: tuple[bool,bool] = ()
     turno_mañana: bool = False
     turno_tarde: bool = False
-    responsable_mañana: str = grilla_horaria[0][0]
-    responsable_tarde: str = grilla_horaria[4][0]
+    
+    
     filas: int = len(grilla_horaria)
     columnas: int = len(grilla_horaria[0])
 
 
     for columna in range(columnas):
         for fila in range(filas-4):
+            responsable_mañana: str = grilla_horaria[0][columna]
             if grilla_horaria[fila][columna] != responsable_mañana:
                 return turno_mañana
             turno_mañana = True
         
         for fila in range(filas-4, filas):
+            responsable_tarde: str = grilla_horaria[4][columna]
             if grilla_horaria[fila][columna] != responsable_tarde:
                 return turno_tarde     
             turno_tarde = True    
@@ -52,8 +54,3 @@ def un_responsable_por_turno(grilla_horaria: list[list[str]]) -> list[tuple[bool
         res.append(tupla)
 
     return res
-
-
-#print(un_responsable_por_turno([["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"],["a","b","c","d","e","f","g"]]))
-#grilla_horaria = [["a","b","c"],["a", "b","c"], ["a", "b","c"], ["a","b","c"], ["n", "b","c"], ["n", "b","c"], ["n", "b","c"], ["n", "b","c"]]
-#print(len(grilla_horaria))
