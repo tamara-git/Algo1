@@ -17,7 +17,7 @@ class Test_escape_en_solitario(unittest.TestCase):
                                               [0,0, 60, 0],
                                               [0,0, 61, 0]
                                               ]
-        res: list[int] = [1]
+        res: list[int] = [1,3,4]
         self.assertEqual(escape_en_solitario(amigos_por_salas), res )
 
 
