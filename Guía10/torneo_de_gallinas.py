@@ -23,19 +23,22 @@ def torneo_de_gallinas(estrategias: dict[str,str]) -> dict[str,int]:
 
     for jugador in estrategias.keys():
         if estrategias[jugador] == "me desvío siempre":
-            for valor in estrategias.values() and valor != estrategias[jugador]:
-                if valor == "me desvío siempre":
-                    sumar += (-10)
+            for valor in estrategias.values(): 
+                if valor != estrategias[jugador]:
+                    if valor == "me desvío siempre":
+                        sumar += (-10)
             
                 if valor == "me la banco y no me devío":
-                    sumar += (-15)
+                     sumar += (-15)
+        puntaje_final[jugador] = sumar
 
         if estrategias[jugador] == "me la banco y no me devío":
-            for valor in estrategias.values() and valor != estrategias[jugador]:
-                if valor == "me desvío siempre":
-                    sumar += 10
-                if valor == "me la banco y no me devío":
-                    sumar += 5
+            for valor in estrategias.values(): 
+                if valor != estrategias[jugador]:
+                    if valor == "me desvío siempre":
+                        sumar += 10
+                    if valor == "me la banco y no me devío":
+                        sumar += 5
         puntaje_final[jugador] = sumar
 
     return puntaje_final
