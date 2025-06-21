@@ -19,7 +19,8 @@ perteneceTablero e (x:xs) | pertenece e x = True
                           | otherwise = perteneceTablero e xs
 
 cantidadDeApariciones :: Int -> Fila -> Int
-cantidadApariciones e [x] | e == x = 1
+cantidadDeApariciones e [] = 0
+cantidadDeApariciones e [x] | e == x = 1
                           | otherwise = 0
 cantidadDeApariciones e (x:xs) |  e == x  = 1 + cantidadDeApariciones e xs
                                | otherwise = cantidadDeApariciones e xs 
