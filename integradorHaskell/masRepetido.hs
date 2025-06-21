@@ -32,8 +32,8 @@ cantidadAparicionesTablero e (x:xs) | cantidadDeApariciones e x > 0 = cantidadDe
 ignorarRepetidos :: [(Int,Int)] -> [(Int,Int)]
 ignorarRepetidos [] = []
 ignorarRepetidos [x] = [x]
-ignorarRepetidos (x:y:xs) | fst x == fst y = x:ignorarRepetidos(xs)
-                        | otherwise = x:ignorarRepetidos(y:xs)
+ignorarRepetidos (x:y:xs) | fst x == fst y = ignorarRepetidos(x:xs)
+                          | otherwise = ignorarRepetidos(xs)
 
 tuplasNumeroConAparicion :: Fila -> [(Int, Int)] 
 tuplasNumeroConAparicion [x] = [(x, 1)]
