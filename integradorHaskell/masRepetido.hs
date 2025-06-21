@@ -12,8 +12,8 @@ type Tablero = [Fila]
 
 
 cantidadDeApariciones :: Int -> Fila -> Int
-cantidadDeApariciones e (x:xs) | x == e = 1 + cantidadDeApariciones xs
-                               | otherwise = cantidadDeApariciones xs
+cantidadDeApariciones e (x:xs) | x == e = 1 + cantidadDeApariciones e xs
+                               | otherwise = cantidadDeApariciones e xs
 
 cantidadDeAparicionesTablero :: Int -> Tablero -> Int
 cantidadDeAparicionesTablero e (x:xs) | cantidadDeApariciones e x > 0 == cantidadDeApariciones e x + cantidadDeAparicionesTablero e xs
