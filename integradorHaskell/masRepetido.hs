@@ -36,8 +36,8 @@ tuplasNumeroConAparicion (x:xs) | cantidadDeApariciones x xs == 0 = [(x,1)] ++ t
                                 | otherwise = eliminarRepetidos([(x, 1 + cantidadDeApariciones x xs)] ++ tuplasNumeroConAparicion xs)
 
 
-eliminarRepetidos ::  (Int,Int) -> [(Int,Int)] -> [(Int,Int)]
-eliminarRepetidos (a,_) [] = []
-eliminarRepetidos (a,_) [x] = [x]
-eliminarRepetidos (a,_) (x:xs) | fst x == a = eliminarRepetidos (a,_) xs
-                               | otherwise = x:eliminarRepetidos (a,_) xs
+eliminarRepetidos ::  Int -> [(Int,Int)] -> [(Int,Int)]
+eliminarRepetidos a [] = []
+eliminarRepetidos a [x] = [x]
+eliminarRepetidos a (x:xs) | fst x == a = eliminarRepetidos a xs
+                               | otherwise = x:eliminarRepetidos a xs
