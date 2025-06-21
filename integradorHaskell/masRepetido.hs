@@ -28,7 +28,8 @@ mayorCantidadDeApariciones [x] = 1
 mayorCantidadDeApariciones (x:xs) | cantidadDeApariciones x (x:xs) == 1 = mayorCantidadDeApariciones (head xs) xs 
                                   | otherwise = 1 + mayorCantidadDeApariciones x xs
 
-masRepetido :: Tablero -> Int
+{-masRepetido :: Tablero -> Int
 masRepetido [x] | cantidadDeApariciones (head x) > cantida
 masRepetido (x:xs) | cantidadDeAparicionesTablero e (x:xs) > cantidadDeAparicionesTablero y (x:xs) = e
                    | otherwise = y
+-}
