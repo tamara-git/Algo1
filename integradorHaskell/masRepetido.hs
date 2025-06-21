@@ -38,5 +38,3 @@ tuplasNumeroConAparicion [x] = [(x, 1)]
 tuplasNumeroConAparicion (x:xs) | cantidadDeApariciones x xs == 0 = [(x,1)] ++ tuplasNumeroConAparicion xs
                                 | otherwise = [(x, 1 + cantidadDeApariciones x xs)] ++ tuplasNumeroConAparicion xs
 
-NroConAparicionSinRepetidos :: Fila -> [(Int,Int)]
-NroConAparicionSinRepetidos (x:xs) | 
