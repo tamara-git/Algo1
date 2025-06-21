@@ -29,14 +29,15 @@ cantidadAparicionesTablero :: Int -> Tablero -> Int
 cantidadAparicionesTablero e (x:xs) | cantidadDeApariciones e x > 0 = cantidadDeApariciones e x + cantidadAparicionesTablero e xs
                                     | otherwise = cantidadAparicionesTablero e xs
 
-ignorarRepetidos :: [(Int,Int)] -> [(Int,Int)]
-ignorarRepetidos [] = []
-ignorarRepetidos [x] = [x]
-ignorarRepetidos (x:y:xs) | fst x == fst y = ignorarRepetidos(x:xs)
-                          | otherwise = x:y:ignorarRepetidos(xs)
 
 tuplasNumeroConAparicion :: Fila -> [(Int, Int)] 
 tuplasNumeroConAparicion [x] = [(x, 1)]
 tuplasNumeroConAparicion (x:xs) | cantidadDeApariciones x xs == 0 = [(x,1)] ++ tuplasNumeroConAparicion xs
-                                | otherwise = [(x, 1 + cantidadDeApariciones x xs)] ++ tuplasNumeroConAparicion xs
+                                | otherwise = eliminarRepetidos([(x, 1 + cantidadDeApariciones x xs)] ++ tuplasNumeroConAparicion)
 
+
+eliminarRepetidos ::  [(Int,Int)] -> [(Int,Int)]
+eliminarRepetidos [] = []
+eliminarRepetidos [x] = [x]
+eliminarRepetidos (x:y:xs) | fst x == fst y = eliminarRepetidos (x:xs)
+                           | otherwise = x:eliminarRepetidos(y:xs)
