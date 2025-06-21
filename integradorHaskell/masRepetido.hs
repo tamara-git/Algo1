@@ -30,6 +30,6 @@ cantidadAparicionesTablero e (x:xs) | cantidadApariciones e x > 0 = cantidadApar
 
 tuplasNumeroConAparicion :: Fila -> [(Int, Int)] 
 tuplasNumeroConAparicion [x] = (x, cantidadApariciones x [x])
-tuplasNumeroConAparicion (x:xs) | cantidadApariciones x xs == 0 = (x,1)
-                                | otherwise = (x, 1 + cantidadApariciones xs)
+tuplasNumeroConAparicion (x:xs) | cantidadApariciones x xs == 0 = [(x,1)]
+                                | otherwise = [(x, 1 + cantidadApariciones xs)]
 
