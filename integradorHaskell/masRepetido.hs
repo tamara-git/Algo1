@@ -9,28 +9,27 @@ asegura: {res es igual al n´umero que m´as veces aparece en un tablero t. Si h
 
 type Fila = [Int]
 type Tablero = [Fila]
-type Tupla = (Int,Int)
+
+pertenece :: Int -> Fila -> Bool
+pertenece e (x:xs) | e == x = True
+                   | otherwise = pertenece e xs
+
+perteneceTablero :: Int -> Tablero -> Bool
+perteneceTablero e (x:xs) | pertenece e x = True
+                          | otherwise = perteneceTablero e xs
 
 cantidadDeApariciones :: Int -> Fila -> Int
-cantidadDeApariciones e [x] | e == x = 1
-                            | otherwise = 0
-cantidadDeApariciones e (x:xs) | x == e = 1 + cantidadDeApariciones e xs
-                               | otherwise = cantidadDeApariciones e xs
+cantidadApariciones e [x] | e == x = 1
+                          | otherwise = 0
+cantidadDeApariciones e (x:xs) |  e == x  = 1 + cantidadDeApariciones e xs
+                               | otherwise = cantidadDeApariciones e xs 
 
-cantidadDeAparicionesTablero :: Int -> Tablero -> Tupla
-cantidadDeAparicionesTablero e [x] | cantidadDeApariciones e x == 0 = ()
-cantidadDeAparicionesTablero e (x:xs) | cantidadDeApariciones e x > 0 = (e,cantidadDeApariciones e x + cantidadDeAparicionesTablero e xs)
-                                      | otherwise = (e,cantidadDeAparicionesTablero e xs)
+cantidadAparicionesTablero :: Int -> Tablero -> Int
+cantidadAparicionesTablero e (x:xs) | cantidadApariciones e x > 0 = cantidadApariciones e x + cantidadAparicionesTablero e xs
+                                    | otherwise = cantidadAparicionesTablero e xs
 
+tuplasNumeroConAparicion :: Fila -> [(Int, Int)] 
+tuplasNumeroConAparicion [x] = (x, cantidadApariciones x [x])
+tuplasNumeroConAparicion (x:xs) | cantidadApariciones x xs == 0 = (x,1)
+                                | otherwise = (x, 1 + cantidadApariciones xs)
 
-
-{-mayorCantidadDeApariciones :: Fila -> Int
-mayorCantidadDeApariciones [x] = 1
-mayorCantidadDeApariciones (x:xs) | cantidadDeApariciones 
-                                  | otherwise = 1 + mayorCantidadDeApariciones xs-}
-
-{-masRepetido :: Tablero -> Int
-masRepetido [x] | cantidadDeApariciones (head x) > cantida
-masRepetido (x:xs) | cantidadDeAparicionesTablero e (x:xs) > cantidadDeAparicionesTablero y (x:xs) = e
-                   | otherwise = y
--}
