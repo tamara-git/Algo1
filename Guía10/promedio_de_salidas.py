@@ -21,7 +21,7 @@ asegura: {El segundo elemento de la tupla de res para un integrante, si la canti
 es 0.0.}
 }'''
 # de la lista de los tiempos, len(lista) es la cantidad de salas
-#promedio de los tiempos de salida con 60min 
+#promedio de los tiempos de salida con 60min. 
 
 
 def calcular_promedio(lista_valores: list[int]) -> float:
