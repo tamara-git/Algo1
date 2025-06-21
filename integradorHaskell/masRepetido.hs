@@ -33,7 +33,7 @@ ignorarRepetidos :: [(Int,Int)] -> [(Int,Int)]
 ignorarRepetidos [] = []
 ignorarRepetidos [x] = [x]
 ignorarRepetidos (x:y:xs) | fst x == fst y = ignorarRepetidos(x:xs)
-                          | otherwise = ignorarRepetidos(xs)
+                          | otherwise = x:y:ignorarRepetidos(xs)
 
 tuplasNumeroConAparicion :: Fila -> [(Int, Int)] 
 tuplasNumeroConAparicion [x] = [(x, 1)]
