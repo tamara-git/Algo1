@@ -18,8 +18,8 @@ type Tablero = [Fila]
 
 maximoFila :: Fila -> Int
 maximoFila [x] = x
-maximoFila (x:xs) | x > maximo xs = x
-                  | otherwise = maximo xs
+maximoFila (x:xs) | x > maximoFila xs = x
+                  | otherwise = maximoFila xs
 
 maximo :: Tablero -> Int
 maximo (x:xs) | maximoFila x > maximoFila xs = maximoFila x
