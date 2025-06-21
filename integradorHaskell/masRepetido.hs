@@ -33,7 +33,7 @@ cantidadAparicionesTablero e (x:xs) | cantidadDeApariciones e x > 0 = cantidadDe
 tuplasNumeroConAparicion :: Fila -> [(Int, Int)] 
 tuplasNumeroConAparicion [x] = [(x, 1)]
 tuplasNumeroConAparicion (x:xs) | cantidadDeApariciones x xs == 0 = [(x,1)] ++ tuplasNumeroConAparicion xs
-                                | otherwise = eliminarRepetidos(x , [(x, 1 + cantidadDeApariciones x xs)] ++ tuplasNumeroConAparicion xs)
+                                | otherwise = eliminarRepetidos(x , ([(x, 1 + cantidadDeApariciones x xs)] ++ tuplasNumeroConAparicion xs))
 
 
 eliminarRepetidos ::  Int -> [(Int,Int)] -> [(Int,Int)]
