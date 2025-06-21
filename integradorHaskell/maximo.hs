@@ -22,7 +22,7 @@ maximoFila (x:xs) | x > maximoFila xs = x
                   | otherwise = maximoFila xs
 
 maximo :: Tablero -> Int
-maximo (x:xs) | maximoFila x > maximoFila xs = maximoFila x
+maximo (x:xs) | maximoFila x > maximo xs = maximoFila x
               | otherwise = maximo xs
 
               
