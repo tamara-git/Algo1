@@ -9,7 +9,7 @@ asegura: {res es igual al n´umero que m´as veces aparece en un tablero t. Si h
 
 type Fila = [Int]
 type Tablero = [Fila]
-
+type ListaTupla = [(Int,Int)] 
 
 cantidadDeApariciones :: Int -> Fila -> Int
 cantidadDeApariciones e [x] | e == x = 1
@@ -17,16 +17,17 @@ cantidadDeApariciones e [x] | e == x = 1
 cantidadDeApariciones e (x:xs) | x == e = 1 + cantidadDeApariciones e xs
                                | otherwise = cantidadDeApariciones e xs
 
-cantidadDeAparicionesTablero :: Int -> Tablero -> Int
-cantidadDeAparicionesTablero e [x] | cantidadDeApariciones e x == 0 = 0
-                                   | otherwise = cantidadDeApariciones e x
-cantidadDeAparicionesTablero e (x:xs) | cantidadDeApariciones e x > 0 = cantidadDeApariciones e x + cantidadDeAparicionesTablero e xs
-                                      | otherwise = cantidadDeAparicionesTablero e xs
+cantidadDeAparicionesTablero :: Int -> Tablero -> Tupla
+cantidadDeAparicionesTablero e [x] | cantidadDeApariciones e x == 0 = ()
+cantidadDeAparicionesTablero e (x:xs) | cantidadDeApariciones e x > 0 = (e,cantidadDeApariciones e x + cantidadDeAparicionesTablero e xs)
+                                      | otherwise = (e,cantidadDeAparicionesTablero e xs)
 
-mayorCantidadDeApariciones :: Fila -> Int
+
+
+{-mayorCantidadDeApariciones :: Fila -> Int
 mayorCantidadDeApariciones [x] = 1
-mayorCantidadDeApariciones (x:xs) | cantidadDeApariciones x (x:xs) == 1 = mayorCantidadDeApariciones (head xs) xs 
-                                  | otherwise = 1 + mayorCantidadDeApariciones x xs
+mayorCantidadDeApariciones (x:xs) | cantidadDeApariciones 
+                                  | otherwise = 1 + mayorCantidadDeApariciones xs-}
 
 {-masRepetido :: Tablero -> Int
 masRepetido [x] | cantidadDeApariciones (head x) > cantida
