@@ -16,8 +16,8 @@ cantidadDeApariciones e (x:xs) | x == e = 1 + cantidadDeApariciones xs
                                | otherwise = cantidadDeApariciones xs
 
 cantidadDeAparicionesTablero :: Int -> Tablero -> Int
-cantidadDeAparicionesTablero e (x:xs) | cantidadDeApariciones x e > 0 == cantidadDeApariciones x e + cantidadDeAparicionesTablero xs e
-                                      | otherwise = cantidadDeAparicionesTablero xs e
+cantidadDeAparicionesTablero e (x:xs) | cantidadDeApariciones e x > 0 == cantidadDeApariciones e x + cantidadDeAparicionesTablero e xs
+                                      | otherwise = cantidadDeAparicionesTablero e xs
 
 
 masRepetido :: Tablero -> Int
