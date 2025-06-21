@@ -23,16 +23,12 @@ cantidadDeAparicionesTablero e [x] | cantidadDeApariciones e x == 0 = 0
 cantidadDeAparicionesTablero e (x:xs) | cantidadDeApariciones e x > 0 = cantidadDeApariciones e x + cantidadDeAparicionesTablero e xs
                                       | otherwise = cantidadDeAparicionesTablero e xs
 
+mayorCantidadDeApariciones :: Fila -> Int
+mayorCantidadDeApariciones [x] = 1
+mayorCantidadDeApariciones (x:xs) | cantidadDeApariciones x (x:xs) == 1 = mayorCantidadDeApariciones (head xs) xs 
+                                  | otherwise = 1 + mayorCantidadDeApariciones x xs
 
-mayorCantidadDeApariciones :: Int -> Int -> Tablero -> Int
-mayorCantidadDeApariciones e y [x] | (cantidadDeApariciones e x > cantidadDeApariciones y x) = e
-                                   | otherwise = y
-mayorCantidadDeApariciones e y (x:xs) | cantidadDeAparicionesTablero e (x:xs) > cantidadDeAparicionesTablero y (x:xs) = e
-                                      | otherwise = y
-
-
-{-masRepetido :: Tablero -> Int
-masRepetido [x] | (cantidadDeApariciones e x > cantidadDeApariciones y x) = e
-                | otherwise = y
+masRepetido :: Tablero -> Int
+masRepetido [x] | cantidadDeApariciones (head x) > cantida
 masRepetido (x:xs) | cantidadDeAparicionesTablero e (x:xs) > cantidadDeAparicionesTablero y (x:xs) = e
-                   | otherwise = y-}
+                   | otherwise = y
