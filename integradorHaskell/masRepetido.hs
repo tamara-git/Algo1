@@ -29,8 +29,14 @@ cantidadAparicionesTablero :: Int -> Tablero -> Int
 cantidadAparicionesTablero e (x:xs) | cantidadDeApariciones e x > 0 = cantidadDeApariciones e x + cantidadAparicionesTablero e xs
                                     | otherwise = cantidadAparicionesTablero e xs
 
+ignorarRepetidos :: [(Int,Int)] -> [(Int,Int)]
+ignorarRepetidos (x:y:xs) | fst x == fst y = x:ignorarRepetidos(xs)
+                        | otherwise = x:y:ignorarRepetidos(xs)
+
 tuplasNumeroConAparicion :: Fila -> [(Int, Int)] 
 tuplasNumeroConAparicion [x] = [(x, 1)]
 tuplasNumeroConAparicion (x:xs) | cantidadDeApariciones x xs == 0 = [(x,1)] ++ tuplasNumeroConAparicion xs
                                 | otherwise = [(x, 1 + cantidadDeApariciones x xs)] ++ tuplasNumeroConAparicion xs
 
+NroConAparicionSinRepetidos :: Fila -> [(Int,Int)]
+NroConAparicionSinRepetidos (x:xs) | 
