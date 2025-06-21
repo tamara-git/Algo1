@@ -24,7 +24,7 @@ cantidadDeAparicionesTablero e (x:xs) | cantidadDeApariciones e x > 0 = cantidad
                                       | otherwise = cantidadDeAparicionesTablero e xs
 
 
-mayorCantidadDeAparicicones :: Int -> Int -> Tablero -> Int
+mayorCantidadDeApariciones :: Int -> Int -> Tablero -> Int
 mayorCantidadDeApariciones e y [x] | (cantidadDeApariciones e x > cantidadDeApariciones y x) = e
                                    | otherwise = y
 mayorCantidadDeApariciones e y (x:xs) | cantidadDeAparicionesTablero e (x:xs) > cantidadDeAparicionesTablero y (x:xs) = e
