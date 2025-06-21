@@ -26,7 +26,7 @@ cantidadDeApariciones e (x:xs) |  e == x  = 1 + cantidadDeApariciones e xs
                                | otherwise = cantidadDeApariciones e xs 
 
 cantidadAparicionesTablero :: Int -> Tablero -> Int
-cantidadAparicionesTablero e (x:xs) | cantidadApariciones e x > 0 = cantidadApariciones e x + cantidadAparicionesTablero e xs
+cantidadAparicionesTablero e (x:xs) | cantidadDeApariciones e x > 0 = cantidadDeApariciones e x + cantidadAparicionesTablero e xs
                                     | otherwise = cantidadAparicionesTablero e xs
 
 tuplasNumeroConAparicion :: Fila -> [(Int, Int)] 
