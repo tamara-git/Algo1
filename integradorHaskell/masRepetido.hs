@@ -9,7 +9,7 @@ asegura: {res es igual al n´umero que m´as veces aparece en un tablero t. Si h
 
 type Fila = [Int]
 type Tablero = [Fila]
-type ListaTupla = [(Int,Int)] 
+type Tupla = (Int,Int)
 
 cantidadDeApariciones :: Int -> Fila -> Int
 cantidadDeApariciones e [x] | e == x = 1
@@ -17,7 +17,7 @@ cantidadDeApariciones e [x] | e == x = 1
 cantidadDeApariciones e (x:xs) | x == e = 1 + cantidadDeApariciones e xs
                                | otherwise = cantidadDeApariciones e xs
 
-cantidadDeAparicionesTablero :: Int -> Tablero -> Tupla
+cantidadDeAparicionesTablero :: Int -> Tablero -> [Tupla]
 cantidadDeAparicionesTablero e [x] | cantidadDeApariciones e x == 0 = ()
 cantidadDeAparicionesTablero e (x:xs) | cantidadDeApariciones e x > 0 = (e,cantidadDeApariciones e x + cantidadDeAparicionesTablero e xs)
                                       | otherwise = (e,cantidadDeAparicionesTablero e xs)
