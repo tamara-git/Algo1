@@ -37,6 +37,8 @@ tuplasNumeroConAparicion (x:xs) | cantidadDeApariciones x xs == 0 = [(x,1)] ++ t
 -}
 
 perteneceFst :: Int ->  [(Int,Int)] -> Bool
+perteneceFst a [x] | fst x == a = True 
+                   | otherwise = False
 perteneceFst a (x:xs) | fst x == a = True 
                       | otherwise = perteneceFst a xs
 
