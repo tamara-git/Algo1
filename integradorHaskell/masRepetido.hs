@@ -43,6 +43,8 @@ tuplasNumeroConAparicionSinRepetidos (x:xs) = eliminarTuplasConFstRepetidas (tup
 
 tuplasNumeroConAparicionTablero :: Tablero -> [(Int, Int)] 
 tuplasNumeroConAparicionTablero [x] = tuplasNumeroConAparicionSinRepetidos x
+tuplasNumeroConAparicionTablero (x:xs) = tuplasNumeroConAparicionSinRepetidos x ++ tuplasNumeroConAparicionTablero xs
+
 
 
 perteneceFst :: Int ->  [(Int,Int)] -> Bool
