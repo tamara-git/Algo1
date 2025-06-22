@@ -37,8 +37,11 @@ tuplasNumeroConAparicion [x] = [(x, 1)]
 tuplasNumeroConAparicion (x:xs) | cantidadDeApariciones x xs == 0 = [(x,1)] ++ tuplasNumeroConAparicion xs
                                 | otherwise = [(x, cantidadDeApariciones x xs)] ++ tuplasNumeroConAparicion xs
 
+tuplasNumeroConAparicionSinRepetidos :: Fila -> [(Int, Int)]
+tuplasNumeroConAparicionSinRepetidos (x:xs) = eliminarTuplasConFstRepetidas (x:xs)
+
 tuplasNumeroConAparicionTablero :: Tablero -> [(Int, Int)] 
-tuplasNumeroConAparicionTablero [x] = tuplasNumeroConAparicion x
+tuplasNumeroConAparicionTablero [x] = tuplasNumeroConAparicionSinRepetidos x
 
 
 perteneceFst :: Int ->  [(Int,Int)] -> Bool
