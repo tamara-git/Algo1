@@ -49,7 +49,7 @@ masRepetidoAux (x:xs) | cantidadDeApariciones x (x:xs) > cantidadDeApariciones x
 
 
 
-pertenece :: Int -> Fila -> Bool
+{-pertenece :: Int -> Fila -> Bool
 pertenece e (x:xs) | e == x = True
                    | otherwise = pertenece e xs
 
@@ -94,4 +94,4 @@ eliminarTuplasConFstRepetidas :: [(Int,Int)] -> [(Int,Int)]
 eliminarTuplasConFstRepetidas [] = []
 eliminarTuplasConFstRepetidas [x] = [x]
 eliminarTuplasConFstRepetidas (x:xs) | perteneceFst (fst x) xs == True = [x] ++ eliminarTuplasConFstRepetidas (eliminarTupla (fst x) xs)
-                                     | otherwise =  [x] ++ eliminarTuplasConFstRepetidas xs
+                                     | otherwise =  [x] ++ eliminarTuplasConFstRepetidas xs-}
