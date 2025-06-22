@@ -18,7 +18,6 @@ aplanar (x:xs) = x ++ aplanar xs
 
 
 cantidadDeApariciones :: Int -> Fila -> Int
-cantidadDeApariciones e [] = 0
 cantidadDeApariciones e [x] | e == x = 1
                             | otherwise = 0
 cantidadDeApariciones e (x:xs) |  e == x  = 1 + cantidadDeApariciones e xs
@@ -26,17 +25,8 @@ cantidadDeApariciones e (x:xs) |  e == x  = 1 + cantidadDeApariciones e xs
 
 masRepetidoAux :: Fila -> Int
 masRepetidoAux [x] = x
-masRepetidoAux (x:xs) | cantidadDeApariciones x (x:xs) > cantidadDeApariciones xs (x:xs) = x
+masRepetidoAux (x:xs) | cantidadDeApariciones x (x:xs) > masRepetidoAux xs = x
                       | otherwise = masRepetidoAux xs
-
-
-
-
-
-
-
-
-
 
 
 
