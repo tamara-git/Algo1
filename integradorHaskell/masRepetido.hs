@@ -49,4 +49,4 @@ eliminarTupla a (x:xs) | fst x == a = eliminarTupla a xs
 eliminarTuplasConFstRepetidas :: [(Int,Int)] -> [(Int,Int)]
 eliminarTuplasConFstRepetidas [x] = [x]
 eliminarTuplasConFstRepetidas (x:xs) | perteneceFst (fst x) xs == True = [x] ++ eliminarTupla (fst x) xs
-                                     | otherwise =  [x]:eliminarTuplasConFstRepetidas xs
+                                     | otherwise =  [x] + eliminarTuplasConFstRepetidas xs
