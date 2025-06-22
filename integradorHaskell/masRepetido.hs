@@ -10,26 +10,48 @@ asegura: {res es igual al n´umero que m´as veces aparece en un tablero t. Si h
 type Fila = [Int]
 type Tablero = [Fila]
 
-pertenece :: Int -> Fila -> Bool
-pertenece e (x:xs) | e == x = True
-                   | otherwise = pertenece e xs
-
-perteneceTablero :: Int -> Tablero -> Bool
-perteneceTablero e (x:xs) | pertenece e x = True
-                          | otherwise = perteneceTablero e xs
-
+--Aplano el tablero a una sola lista con todos sus elementos.
+aplanar :: Tablero -> Fila
+aplanar [] = []
+aplanar [x] = x
+aplanar (x:xs) = x ++ aplanar xs
 
 
 cantidadDeApariciones :: Int -> Fila -> Int
 cantidadDeApariciones e [] = 0
 cantidadDeApariciones e [x] | e == x = 1
-                          | otherwise = 0
+                            | otherwise = 0
 cantidadDeApariciones e (x:xs) |  e == x  = 1 + cantidadDeApariciones e xs
                                | otherwise = cantidadDeApariciones e xs 
 
-cantidadAparicionesTablero :: Int -> Tablero -> Int
-cantidadAparicionesTablero e (x:xs) | cantidadDeApariciones e x > 0 = cantidadDeApariciones e x + cantidadAparicionesTablero e xs
-                                    | otherwise = cantidadAparicionesTablero e xs
+masRepetidoAux :: Fila -> Int
+masRepetidoAux [x] = x
+masRepetidoAux (x:xs) | cantidadDeApariciones x (x:xs) > cantidadDeApariciones xs (x:xs) = x
+                      | otherwise = masRepetidoAux xs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pertenece :: Int -> Fila -> Bool
+pertenece e (x:xs) | e == x = True
+                   | otherwise = pertenece e xs
 
 
 tuplasNumeroConAparicion :: Fila -> [(Int, Int)] 
@@ -43,9 +65,18 @@ tuplasNumeroConAparicionSinRepetidos (x:xs) = eliminarTuplasConFstRepetidas (tup
 
 tuplasNumeroConAparicionTablero :: Tablero -> [(Int, Int)] 
 tuplasNumeroConAparicionTablero [x] = tuplasNumeroConAparicionSinRepetidos x
-tuplasNumeroConAparicionTablero (x:xs) = tuplasNumeroConAparicionSinRepetidos x ++ tuplasNumeroConAparicionTablero xs
+tuplasNumeroConAparicionTablero (x:xs)  |  tuplasNumeroConAparicionSinRepetidos x ++ tuplasNumeroConAparicionTablero xs
+
+tuplasNroConAparicionTableroSinRepe :: [(Int,Int)] -> [(Int,Int)]
+tuplasNroConAparicionTableroSinRepe [x] = tuplasNumeroConAparicionTablero [x]
+tuplasNroConAparicionTableroSinRepe (x:xs) | sumarSndDeTuplasIgualFst 
 
 
+
+
+sumarSndDeTuplasIgualFst :: [(Int, Int)] -> [(Int,Int)]
+sumarSndDeTuplasIgualFst [x]
+sumarSndDeTuplasIgualFst (x:xs) | 
 
 perteneceFst :: Int ->  [(Int,Int)] -> Bool
 perteneceFst a [x] | fst x == a = True 
