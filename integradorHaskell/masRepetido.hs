@@ -33,11 +33,19 @@ cantidadAparicionesTablero e (x:xs) | cantidadDeApariciones e x > 0 = cantidadDe
 tuplasNumeroConAparicion :: Fila -> [(Int, Int)] 
 tuplasNumeroConAparicion [x] = [(x, 1)]
 tuplasNumeroConAparicion (x:xs) | cantidadDeApariciones x xs == 0 = [(x,1)] ++ tuplasNumeroConAparicion xs
-                                | otherwise = eliminarRepetidos (x, [(x, 1 + cantidadDeApariciones x xs)] ++ tuplasNumeroConAparicion xs)
+                                | otherwise = (x, [(x, 1 + cantidadDeApariciones x xs)] ++ tuplasNumeroConAparicion xs)
 
 
-eliminarRepetidos ::  Int -> [(Int,Int)] -> [(Int,Int)]
-eliminarRepetidos a [] = []
-eliminarRepetidos a [x] = [x]
-eliminarRepetidos a (x:xs) | fst x == a = eliminarRepetidos a xs
-                           | otherwise = x:eliminarRepetidos a xs
+perteneceFst :: Int ->  [(Int,Int)] -> Bool
+perteneceFst a (x:xs) | fst x == a = True 
+                      | otherwise = perteneceFst a xs
+
+eliminarTupla :: Int -> [(Int,Int)] -> [(Int,Int)]
+eliminarTupla a [] = []
+eliminarTupla a [x] | fst x == a = []
+eliminarTupla a (x:xs) | fst x == a = eliminarTupla a xs
+                       | otherwise = x: eliminarTupla a xs 
+
+eliminarTuplasConFstRepetidas :: [(Int,Int)] -> [(Int,Int)]
+eliminarTuplasConFstRepetidas (x,xs) | perteneceFst a xs == True = eliminarTupla x xs
+                                     | otherwise = x:eliminarTuplasConFstRepetidas xs
