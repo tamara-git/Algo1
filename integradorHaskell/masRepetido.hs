@@ -30,11 +30,11 @@ cantidadAparicionesTablero e (x:xs) | cantidadDeApariciones e x > 0 = cantidadDe
                                     | otherwise = cantidadAparicionesTablero e xs
 
 
-tuplasNumeroConAparicion :: Fila -> [(Int, Int)] 
+{-tuplasNumeroConAparicion :: Fila -> [(Int, Int)] 
 tuplasNumeroConAparicion [x] = [(x, 1)]
 tuplasNumeroConAparicion (x:xs) | cantidadDeApariciones x xs == 0 = [(x,1)] ++ tuplasNumeroConAparicion xs
                                 | otherwise = (x, [(x, 1 + cantidadDeApariciones x xs)] ++ tuplasNumeroConAparicion xs)
-
+-}
 
 perteneceFst :: Int ->  [(Int,Int)] -> Bool
 perteneceFst a (x:xs) | fst x == a = True 
