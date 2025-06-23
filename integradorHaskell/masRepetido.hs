@@ -28,11 +28,8 @@ masRepetidoAux [x] = x
 masRepetidoAux (x:xs) | cantidadDeApariciones x (x:xs) > masRepetidoAux xs = x
                       | otherwise = masRepetidoAux xs
 
-
-
-
-
-
+masRepetido :: Tablero -> Int
+masRepetido (x:xs) = masRepetidoAux (aplanar(x:xs)) 
 
 
 
@@ -60,7 +57,6 @@ tuplasNumeroConAparicionTablero (x:xs)  |  tuplasNumeroConAparicionSinRepetidos 
 tuplasNroConAparicionTableroSinRepe :: [(Int,Int)] -> [(Int,Int)]
 tuplasNroConAparicionTableroSinRepe [x] = tuplasNumeroConAparicionTablero [x]
 tuplasNroConAparicionTableroSinRepe (x:xs) | sumarSndDeTuplasIgualFst 
-
 
 
 
