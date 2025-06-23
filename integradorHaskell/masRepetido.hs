@@ -25,7 +25,7 @@ cantidadDeApariciones e (x:xs) |  e == x  = 1 + cantidadDeApariciones e xs
 
 masRepetidoAux :: Fila -> Int
 masRepetidoAux [x] = x
-masRepetidoAux (x:xs) | cantidadDeApariciones x (x:xs) > cantidadDeApariciones (masRepetidoAux xs) = x
+masRepetidoAux (x:xs) | cantidadDeApariciones x (x:xs) > cantidadDeApariciones (masRepetidoAux xs) (x:xs) = x
                       | otherwise = masRepetidoAux xs
 
 
