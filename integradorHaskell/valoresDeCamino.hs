@@ -51,9 +51,6 @@ posicionDevuelveNumero (x:xs) (a,b) | (a,b) ==  = head (aplanar [x])
 --Me devuelve qué fila del tablero es
 
 
-sumarUnoNVeces :: Int -> Int
-sumarUnoNveces a n = n*a
-
 pertenece :: [Int] -> Tablero -> Bool
 pertenece [y] [x]  | [y] == x = True
                    | otherwise = False
