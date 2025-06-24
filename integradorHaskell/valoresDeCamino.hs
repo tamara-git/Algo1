@@ -49,9 +49,22 @@ posicionDevuelveNumero (x:xs) (a,b) | (a,b) ==  = head (aplanar [x])
                                     | otherwise = 
 -}
 --Me devuelve qué fila del tablero es
-devuelveFila :: Tablero -> Int
-devuelveFila [x] =  1   
-devuelveFila (x:xs) = 1 + devuelveFila xs 
+
+
+sumarUno :: Int -> Int
+sumarUno a = a+1
+
+pertenece :: [Int] -> Tablero -> Bool
+pertenece [y] [x]  | [y] == x = True
+                   | otherwise = False
+pertenece (y:ys) (x:xs) | (y:ys) == x = True
+                        | otherwise = pertenece (y:ys) xs
+
+devuelveFila :: Tablero -> Fila -> Int
+devuelveFila [x] [y]  | pertenece [y] x == True = 1
+                      | otherwise = 0
+devuelveFila (x:xs) (y:ys) | pertenece (y:ys) x == True = sumarUno 0
+                           | otherwise = devuelveFila xs (y:ys)  
 
 {-valoresDeCamino :: Tablero -> Camino -> [Int]
 valoresDeCamino [x] = crearCaminos (aplanar [x])
