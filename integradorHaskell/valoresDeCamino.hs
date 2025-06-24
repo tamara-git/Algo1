@@ -27,6 +27,7 @@ sumarTuplas :: (Int,Int) -> (Int,Int) -> (Int,Int)
 sumarTuplas (a,b) (c,d) = (a+c, b+d)
 
 
+
 --Cantidad de filas que tiene el tablero. Devuelve algo del tipo (filas,0)
 filas :: Tablero -> (Int,Int)
 filas [x] = (1,0)
@@ -75,24 +76,16 @@ armarListaColumna :: Tablero -> [Int]
 armarListaColumna [x] = [head x]
 armarListaColumna (x:xs) = [head x] ++ armarListaColumna xs
 
-perteneceColumnaATablero :: [Int] -> Tablero -> Bool
-perteneceColumnaATablero [] [] = False
-perteneceColumnaATablero [y] [] = False
-perteneceColumnaATablero [] [x] = False
-perteneceColumnaATablero (y:ys) [] = False
-perteneceColumnaATablero [] (x:xs) = False
-perteneceColumnaATablero [y] [x]  | head x == y = True
-                                  | otherwise = False
-perteneceColumnaATablero (y:ys) (x:xs) | head x == y = perteneceColumnaATablero ys xs
-                                       | otherwise = False
+perteneceYDevuelvePosicion :: Int -> [Int] -> Int 
+perteneceYDevuelvePosicion e [x] | e == x = True
+                | otherwise = False
+perteneceYDevuelvePosicion e (x:xs) | e == x = 1
+                   | otherwise = 1 + perteneceYDevuelvePosicion e xs
 
+devuelveColumna :: Tablero -> Int -> Int
+devuelveColumna [x] e = perteneceYDevuelvePosicion e armarListaColumna [x] 
+--devuelveColumna (x:xs) e 
 
-{-devuelveColumna :: Tablero -> [Int] -> Int
-devuelveColumna [x] y | perteneceColumnaATablero [y] [x] == True = 1
-                        | otherwise = 0
-devuelveColumna [x] y:ys | perteneceColumnaATablero [x] (y:ys) == True = 
-                           | otherwise = 0
--}
 
 {-posicion ::  Tablero -> Int -> Int
 posicion [x] e = devuelveFila [x] x
