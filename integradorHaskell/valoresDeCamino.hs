@@ -50,47 +50,38 @@ todosElementosIguales [x] [y] | x == y = True
 todosElementosIguales (x:xs) (y:ys) | x == y = todosElementosIguales xs ys
                                     | otherwise = False
 
-perteneceListaATablero :: [Int] -> Tablero -> Bool
-perteneceListaATablero [] [] = False
-perteneceListaATablero [y] [] = False
-perteneceListaATablero [] [x] = False
-perteneceListaATablero [y] [x]  | todosElementosIguales [y] x == True = True 
-                                | otherwise = False
-perteneceListaATablero (y:ys) [] = False
-perteneceListaATablero [] (x:xs) = False
-perteneceListaATablero [y] (x:xs) | todosElementosIguales [y] x == True = True
-                                  | otherwise = perteneceListaATablero [y] xs
-perteneceListaATablero (y:ys) (x:xs) | todosElementosIguales (y:ys) x == True = True
-                                     | otherwise = perteneceListaATablero (y:ys) xs
+perteneceYDevuelvePosicion :: Int -> [Int] -> Int 
+perteneceYDevuelvePosicion e [x] | e == x = 1
+                                 | otherwise = 0
+perteneceYDevuelvePosicion e (x:xs) | e == x = 1
+                                    | otherwise = 1 + perteneceYDevuelvePosicion e xs
 
 
-devuelveFila :: Tablero -> Fila -> Int
-devuelveFila [x] [y]  | perteneceListaATablero [y] [x] == True = 1
-                      | otherwise = 0
-devuelveFila (x:xs) [y] | perteneceListaATablero [y] [x] == True = 1
-                        | otherwise = 1 + devuelveFila xs [y]
-devuelveFila (x:xs) (y:ys) | perteneceListaATablero (y:ys) [x] == True =  1
-                           | otherwise = 1 + devuelveFila xs (y:ys)
+filasDelTablero :: Tablero -> [Int] -> Int
+filasDelTablero [x] = x
+filasDelTablero (x:xs) 
+
+
+devuelveFila :: Tablero -> Int -> Int
+devuelveFila [x] e = perteneceYDevuelvePosicion e x
+devuelveFila (x:xs) e | perteneceYDevuelvePosicion e x 
+                      | otherwise = devuelveFila xs e
+
 
 armarListaColumna :: Tablero -> [Int]
 armarListaColumna [x] = [head x]
 armarListaColumna (x:xs) = [head x] ++ armarListaColumna xs
 
-perteneceYDevuelvePosicion :: Int -> [Int] -> Int 
-perteneceYDevuelvePosicion e [x] | e == x = 1
-                                 | otherwise = 0
-perteneceYDevuelvePosicion e (x:xs) | e == x = 1
-                   | otherwise = 1 + perteneceYDevuelvePosicion e xs
 
 devuelveColumna :: Tablero -> Int -> Int
 devuelveColumna [x] e = perteneceYDevuelvePosicion e (armarListaColumna [x])
 devuelveColumna (x:xs) e = perteneceYDevuelvePosicion e (armarListaColumna (x:xs))
 
 
-{-posicion ::  Tablero -> Int -> Int
-posicion [x] e = devuelveFila [x] x
+posicion ::  Tablero -> Int -> [(Int,Int)]
+posicion [x] e = (devuelveFila, devuelveColumna  )
 posicion [x] 
---posicion (x:xs) e | (devuelveFila (x:xs) , devuelveColumna)
+posicion (x:xs) e | (devuelveFila (x:xs) , devuelveColumna)
 
 -}
 {-valoresDeCamino :: Tablero -> Camino -> [Int]
