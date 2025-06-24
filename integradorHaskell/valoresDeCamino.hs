@@ -74,7 +74,7 @@ devuelveFila (x:xs) (y:ys) | perteneceListaATablero (y:ys) [x] == True =  1
 devuelveColumna :: Tablero -> Fila -> Int
 devuelveColumna [x] [y] | head x == y = 1
 devuelveColumna [x] (y:ys) | head x == y = 1 + devuelveColumna [x] ys 
-                           | otherwise = False
+                           | otherwise = 0
 
 
 {-posicion ::  Tablero -> Int -> Int
