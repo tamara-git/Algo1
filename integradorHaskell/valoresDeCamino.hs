@@ -63,10 +63,10 @@ perteneceListaATablero [y] [] = False
 perteneceListaATablero [] [x] = False
 perteneceListaATablero [y] [x]  | todosElementosIguales [y] x == True = True 
                                 | otherwise = False
-perteneceListaATablero [y] (x:xs) | todosElementosIguales [y] x == True = True
-                                  | otherwise = perteneceListaATablero [y] xs
-perteneceListaATablero (y:ys) (x:xs) | todosElementosIguales (y:ys) x == True = True
-                                     | otherwise = perteneceListaATablero (y:ys) xs
+perteneceListaATablero [y] (x:xs) | todosElementosIguales [y] x == True = perteneceListaATablero [y] xs
+                                  | otherwise = False
+perteneceListaATablero (y:ys) (x:xs) | todosElementosIguales (y:ys) x == True = perteneceListaATablero (y:ys) xs
+                                     | otherwise = False
 
 
 {-devuelveFila :: Tablero -> Fila -> Int
