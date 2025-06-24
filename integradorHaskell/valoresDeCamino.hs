@@ -63,7 +63,7 @@ pertenece (y:ys) (x:xs) | (y:ys) == x = True
 devuelveFila :: Tablero -> Fila -> Int
 devuelveFila [x] [y]  | pertenece [y] x == True = 1
                       | otherwise = 0
-devuelveFila (x:xs) (y:ys) | pertenece (y:ys) x == True = sumarUno 0
+devuelveFila (x:xs) (y:ys) | pertenece (y:ys) [x] == True = sumarUno 0
                            | otherwise = devuelveFila xs (y:ys)  
 
 {-valoresDeCamino :: Tablero -> Camino -> [Int]
