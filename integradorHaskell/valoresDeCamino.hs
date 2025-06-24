@@ -77,12 +77,12 @@ devuelveColumna [x] (y:ys) | head x == y = 1 + devuelveColumna [x] ys
                            | otherwise = False
 
 
-posicion ::  Tablero -> Int -> Int
+{-posicion ::  Tablero -> Int -> Int
 posicion [x] e = devuelveFila [x] x
 posicion [x] 
 --posicion (x:xs) e | (devuelveFila (x:xs) , devuelveColumna)
 
-
+-}
 {-valoresDeCamino :: Tablero -> Camino -> [Int]
 valoresDeCamino [x] [(a,b)] = devuelveFila (x:xs)
 valoresDeCamino (x:xs) [(a,b)] -}
