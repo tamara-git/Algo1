@@ -51,14 +51,18 @@ posicionDevuelveNumero (x:xs) (a,b) | (a,b) ==  = head (aplanar [x])
 --Me devuelve qué fila del tablero es
 
 
-pertenece :: [Int] -> Tablero -> Bool
-pertenece [y] [] = False
-pertenece [y] [x]  | [y] == x = True
+todosElementosIguales :: [Int] -> [Int] -> Bool
+todosElementosIguales (x:xs) (y:ys) | x != y = False
+                                    | otherwise = todosElementosIguales xs (y:ys)
+
+perteneceListaATablero :: [Int] -> Tablero -> Bool
+perteneceListaATablero [y] [] = False
+perteneceListaATablero [y] [x]  | [y] == x = True
                    | otherwise = False
-pertenece [y] (x:xs) | [y] == x = True
-                     | otherwise = pertenece [y] xs
-pertenece (y:ys) (x:xs) | (y:ys) == x = True
-                        | otherwise = pertenece (y:ys) xs
+perteneceListaATablero [y] (x:xs) | [y] == x = True
+                     | otherwise = perteneceListaATablero [y] xs
+perteneceListaATablero (y:ys) (x:xs) | (y:ys) == x = True
+                        | otherwise = perteneceListaATablero (y:ys) xs
 
 
 devuelveFila :: Tablero -> Fila -> Int
