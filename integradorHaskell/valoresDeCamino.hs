@@ -22,15 +22,17 @@ aplanar :: Tablero -> [Int]
 aplanar [x] = x
 aplanar (x:xs) = x ++ aplanar xs 
 
+sumarTuplas :: (Int,Int) -> (Int,Int) -> (Int,Int)
+sumarTuplas (a,b) (c,d) = (a+b, c+d)
 
 filas :: Tablero -> (Int,Int)
 filas [x] = (1,0)
-filas (x:xs) = (1,0) ++ filas xs
+filas (x:xs) = sumarTuplas ((1,0) filas xs)
 
 columnas :: [Int] -> (Int,Int)
 columnas [x] = (0,1)
---columnas (x:xs) = (0,1) 
-(0,1) + (0,2)
+columnas (x:xs) = sumarTuplas((0,1) columnas xs) 
+
 
 {-posicion :: Tablero -> (Int,Int)
 posicion 
