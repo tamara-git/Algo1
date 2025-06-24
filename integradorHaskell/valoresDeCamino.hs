@@ -52,9 +52,8 @@ posicionDevuelveNumero (x:xs) (a,b) | (a,b) ==  = head (aplanar [x])
 
 
 todosElementosIguales :: [Int] -> [Int] -> Bool
-todosElementosIguales (x:xs) (y:ys) | x == y = True
-                                    | otherwise = todosElementosIguales xs ys
-
+todosElementosIguales (x:xs) (y:ys) | x == y = todosElementosIguales xs ys
+                                    | otherwise = False
 
 perteneceListaATablero :: [Int] -> Tablero -> Bool
 perteneceListaATablero [y] [] = False
