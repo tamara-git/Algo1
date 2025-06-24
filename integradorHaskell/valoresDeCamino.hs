@@ -59,12 +59,12 @@ todosElementosIguales (x:xs) (y:ys) | x == y = todosElementosIguales xs ys
 
 perteneceListaATablero :: [Int] -> Tablero -> Bool
 perteneceListaATablero [y] [] = False
-perteneceListaATablero [y] [x]  | [y] == x = True
-                   | otherwise = False
-perteneceListaATablero [y] (x:xs) | [y] == x = True
-                     | otherwise = perteneceListaATablero [y] xs
-perteneceListaATablero (y:ys) (x:xs) | (y:ys) == x = True
-                        | otherwise = perteneceListaATablero (y:ys) xs
+perteneceListaATablero [y] [x]  | todosElementosIguales [y] x == True = True 
+                                | otherwise = False
+perteneceListaATablero [y] (x:xs) | todosElementosIguales [y] x == True = True
+                                  | otherwise = perteneceListaATablero [y] xs
+perteneceListaATablero (y:ys) (x:xs) | todosElementosIguales (y:ys) x == True = True
+                                     | otherwise = perteneceListaATablero (y:ys) xs
 
 
 {-devuelveFila :: Tablero -> Fila -> Int
