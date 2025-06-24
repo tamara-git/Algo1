@@ -53,7 +53,7 @@ posicionDevuelveNumero (x:xs) (a,b) | (a,b) ==  = head (aplanar [x])
 
 todosElementosIguales :: [Int] -> [Int] -> Bool
 todosElementosIguales (x:xs) (y:ys) | x == y = True
-                                    | otherwise = todosElementosIguales xs (y:ys)
+                                    | otherwise = todosElementosIguales xs ys
 
 
 perteneceListaATablero :: [Int] -> Tablero -> Bool
