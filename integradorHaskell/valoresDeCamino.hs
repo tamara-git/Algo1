@@ -87,12 +87,12 @@ perteneceColumnaATablero (y:ys) (x:xs) | head x == y = perteneceColumnaATablero 
                                        | otherwise = False
 
 
-devuelveColumna :: Tablero -> [Int] -> Int
+{-devuelveColumna :: Tablero -> [Int] -> Int
 devuelveColumna [x] y | perteneceColumnaATablero [y] [x] == True = 1
                         | otherwise = 0
 devuelveColumna [x] y:ys | perteneceColumnaATablero [x] (y:ys) == True = 
                            | otherwise = 0
-
+-}
 
 {-posicion ::  Tablero -> Int -> Int
 posicion [x] e = devuelveFila [x] x
