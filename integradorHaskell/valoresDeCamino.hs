@@ -82,7 +82,7 @@ devuelveColumna [x] e = perteneceYDevuelvePosicion e (armarListaColumna [x])
 devuelveColumna (x:xs) e = perteneceYDevuelvePosicion e (armarListaColumna (x:xs))
 
 
-posicion ::  Tablero -> Int -> [(Int,Int)]
+posicion ::  Tablero -> Int -> (Int,Int)
 posicion [x] e = (devuelveFila [x] e, devuelveColumna [x] e)
 posicion (x:xs) e = (devuelveFila (x:xs) e, devuelveColumna (x:xs) e)
 
