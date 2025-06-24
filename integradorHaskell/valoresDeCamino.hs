@@ -43,8 +43,8 @@ limiteMatriz (x:xs) = sumarTuplas (filas (x:xs)) (columnas x)
 
 
 posicionDevuelveNumero :: Tablero -> Int
-posicionDevuelveNumero [x] = head x
---posicionDevuelveNumero (x:xs) (y:ys) 
+posicionDevuelveNumero [x] (1,1) = head (aplanar [x])
+--posicionDevuelveNumero (x:xs) (a,b) |   
 
 
 {-valoresDeCamino :: Tablero -> Camino -> [Int]
