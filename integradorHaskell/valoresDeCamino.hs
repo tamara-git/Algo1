@@ -54,6 +54,8 @@ posicionDevuelveNumero (x:xs) (a,b) | (a,b) ==  = head (aplanar [x])
 pertenece :: [Int] -> Tablero -> Bool
 pertenece [y] [x]  | [y] == x = True
                    | otherwise = False
+pertenece [y] (x:xs) | [y] == x = True
+                     | otherwise = pertenece [y] xs
 pertenece (y:ys) (x:xs) | (y:ys) == x = True
                         | otherwise = pertenece (y:ys) xs
 
