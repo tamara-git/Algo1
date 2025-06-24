@@ -50,6 +50,14 @@ todosElementosIguales [x] [y] | x == y = True
 todosElementosIguales (x:xs) (y:ys) | x == y = todosElementosIguales xs ys
                                     | otherwise = False
 
+
+pertenece :: Int -> [Int] -> Bool 
+pertenece e [x] | e == x = True
+                | otherwise = False
+pertenece e (x:xs) | e == x = True
+                   | otherwise = pertenece e xs
+                   
+
 perteneceYDevuelvePosicion :: Int -> [Int] -> Int 
 perteneceYDevuelvePosicion e [x] | e == x = 1
                                  | otherwise = 0
