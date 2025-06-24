@@ -27,11 +27,11 @@ sumarTuplas (a,b) (c,d) = (a+b, c+d)
 
 filas :: Tablero -> (Int,Int)
 filas [x] = (1,0)
-filas (x:xs) = sumarTuplas ((1,0) filas xs)
+filas (x:xs) = sumarTuplas (1,0) (filas xs)
 
 columnas :: [Int] -> (Int,Int)
 columnas [x] = (0,1)
-columnas (x:xs) = sumarTuplas((0,1) columnas xs) 
+columnas (x:xs) = sumarTuplas (0,1) (columnas xs)
 
 
 {-posicion :: Tablero -> (Int,Int)
