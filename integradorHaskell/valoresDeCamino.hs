@@ -77,8 +77,8 @@ armarListaColumna [x] = [head x]
 armarListaColumna (x:xs) = [head x] ++ armarListaColumna xs
 
 perteneceYDevuelvePosicion :: Int -> [Int] -> Int 
-perteneceYDevuelvePosicion e [x] | e == x = True
-                | otherwise = False
+perteneceYDevuelvePosicion e [x] | e == x = 1
+                                 | otherwise = 0
 perteneceYDevuelvePosicion e (x:xs) | e == x = 1
                    | otherwise = 1 + perteneceYDevuelvePosicion e xs
 
