@@ -1,4 +1,4 @@
-{-Implementar la funci´on valoresDeCamino :: Tablero ->Camino ->[Int]
+{-Implementar la funci´on valoresDeCamino :: Tablero -> Camino ->[Int]
 problema valoresDeCamino (t: Tablero, c: Camino) : seq⟨Z⟩ {
 requiere: {El tablero t es un tablero bien formado, es decir, la longitud de todas las filas es la misma, y tienen al
 menos un elemento}
@@ -42,14 +42,6 @@ columnas (x:xs) = sumarTuplas (0,1) (columnas xs)
 limiteMatriz :: Tablero -> (Int,Int)
 limiteMatriz (x:xs) = sumarTuplas (filas (x:xs)) (columnas x)
 
-{-
-posicionDevuelveNumero :: Tablero -> (Int, Int) -> (Int,Int) -> Int
-posicionDevuelveNumero [x] (1,1) = head (aplanar [x])
-posicionDevuelveNumero (x:xs) (a,b) | (a,b) ==  = head (aplanar [x])
-                                    | otherwise = 
--}
---Me devuelve qué fila del tablero es
-
 
 todosElementosIguales :: [Int] -> [Int] -> Bool
 todosElementosIguales [x] [y] | x == y = True
@@ -79,7 +71,15 @@ devuelveFila (x:xs) [y] | perteneceListaATablero [y] [x] == True = 1
 devuelveFila (x:xs) (y:ys) | perteneceListaATablero (y:ys) [x] == True =  1
                            | otherwise = 1 + devuelveFila xs (y:ys)
 
+devuelveColumna :: Tablero -> Fila -> Int
+devuelveColumna [x] [y] |
+
+
+posicion ::  Tablero -> Int
+posicion [x] e = devuelveFila (x:xs) x
+--posicion (x:xs) e | (devuelveFila (x:xs) , devuelveColumna)
+
 
 {-valoresDeCamino :: Tablero -> Camino -> [Int]
-valoresDeCamino [x] = crearCaminos (aplanar [x])
-valoresDeCamino (x:xs) -}
+valoresDeCamino [x] [(a,b)] = devuelveFila (x:xs)
+valoresDeCamino (x:xs) [(a,b)] -}
