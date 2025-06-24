@@ -72,7 +72,7 @@ devuelveFila (x:xs) (y:ys) | perteneceListaATablero (y:ys) [x] == True =  1
                            | otherwise = 1 + devuelveFila xs (y:ys)
 
 armarListaColumna :: Tablero -> [Int]
-armarListaColumna [x] = head x
+armarListaColumna [x] = [head x]
 armarListaColumna (x:xs) = [head x] + armarListaColumna xs
 
 perteneceColumnaATablero :: [Int] -> Tablero -> Bool
