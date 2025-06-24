@@ -23,7 +23,7 @@ aplanar [x] = x
 aplanar (x:xs) = x ++ aplanar xs 
 
 sumarTuplas :: (Int,Int) -> (Int,Int) -> (Int,Int)
-sumarTuplas (a,b) (c,d) = (a+b, c+d)
+sumarTuplas (a,b) (c,d) = (a+c, b+d)
 
 filas :: Tablero -> (Int,Int)
 filas [x] = (1,0)
