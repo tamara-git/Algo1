@@ -61,7 +61,7 @@ pertenece (y:ys) (x:xs) | (y:ys) == x = True
                         | otherwise = pertenece (y:ys) xs
 
 devuelveFila :: Tablero -> Fila -> Int
-devuelveFila [x] [y]  | pertenece [y] x == True = 1
+devuelveFila [x] [y]  | pertenece [y] [x] == True = 1
                       | otherwise = 0
 devuelveFila (x:xs) (y:ys) | pertenece (y:ys) [x] == True = sumarUno 0
                            | otherwise = devuelveFila xs (y:ys)  
