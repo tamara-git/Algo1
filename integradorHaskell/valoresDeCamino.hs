@@ -83,7 +83,7 @@ perteneceYDevuelvePosicion e (x:xs) | e == x = 1
                    | otherwise = 1 + perteneceYDevuelvePosicion e xs
 
 devuelveColumna :: Tablero -> Int -> Int
-devuelveColumna [x] e = perteneceYDevuelvePosicion e armarListaColumna [x] 
+devuelveColumna [x] e = perteneceYDevuelvePosicion e (armarListaColumna [x]) 
 --devuelveColumna (x:xs) e 
 
 
