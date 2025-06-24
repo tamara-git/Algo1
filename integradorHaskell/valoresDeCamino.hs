@@ -71,6 +71,22 @@ devuelveFila (x:xs) [y] | perteneceListaATablero [y] [x] == True = 1
 devuelveFila (x:xs) (y:ys) | perteneceListaATablero (y:ys) [x] == True =  1
                            | otherwise = 1 + devuelveFila xs (y:ys)
 
+
+
+perteneceColumnaATablero :: [Int] -> Tablero -> Bool
+perteneceColumnaATablero [] [] = False
+perteneceColumnaATablero [y] [] = False
+perteneceColumnaATablero [] [x] = False
+perteneceColumnaATablero (y:ys) [] = False
+perteneceColumnaATablero [] (x:xs) = False
+perteneceColumnaATablero [y] [x]  | head x == y = True
+                                  | otherwise = False
+perteneceColumnaATablero [y] (x:xs) | head x == y =  True
+                                    | otherwise = perteneceColumnaATablero [y] xs
+perteneceColumnaATablero (y:ys) (x:xs) | head x == y = True
+                                     | otherwise = perteneceColumnaATablero (y:ys) xs
+
+
 devuelveColumna :: Tablero -> Fila -> Int
 devuelveColumna [x] [y] | head x == y = 1
                         | otherwise = 0
