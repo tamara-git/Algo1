@@ -42,8 +42,8 @@ limiteMatriz :: Tablero -> (Int,Int)
 limiteMatriz (x:xs) = sumarTuplas (filas (x:xs)) (columnas x)
 
 
-posicionDevuelveNumero :: Tablero -> (Int,Int) -> Int
-posicionDevuelveNumero [x] (1,1) = head x
+posicionDevuelveNumero :: Tablero -> Int
+posicionDevuelveNumero [x] = head x
 --posicionDevuelveNumero (x:xs) (y:ys) 
 
 
