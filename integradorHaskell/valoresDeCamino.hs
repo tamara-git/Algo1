@@ -29,8 +29,8 @@ filas (x:xs) = (1,0) ++ filas xs
 
 columnas :: [Int] -> (Int,Int)
 columnas [x] = (0,1)
-columnas (x:xs) = (0,1) ++ columnas xs
-
+--columnas (x:xs) = (0,1) 
+(0,1) + (0,2)
 
 {-posicion :: Tablero -> (Int,Int)
 posicion 
