@@ -76,7 +76,7 @@ devuelveColumna [x] [y] |
 -}
 
 posicion ::  Tablero -> Int -> Int
-posicion [x] e = devuelveFila (x:xs) x
+posicion [x] e = devuelveFila [x] x
 --posicion (x:xs) e | (devuelveFila (x:xs) , devuelveColumna)
 
 
