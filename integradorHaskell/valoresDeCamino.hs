@@ -71,7 +71,9 @@ devuelveFila (x:xs) [y] | perteneceListaATablero [y] [x] == True = 1
 devuelveFila (x:xs) (y:ys) | perteneceListaATablero (y:ys) [x] == True =  1
                            | otherwise = 1 + devuelveFila xs (y:ys)
 
-
+armarListaColumna :: Tablero -> [Int]
+armarListaColumna [x] = head x
+armarListaColumna (x:xs) = [head x] + armarListaColumna xs
 
 perteneceColumnaATablero :: [Int] -> Tablero -> Bool
 perteneceColumnaATablero [] [] = False
@@ -85,10 +87,10 @@ perteneceColumnaATablero (y:ys) (x:xs) | head x == y = perteneceColumnaATablero 
                                        | otherwise = False
 
 
-devuelveColumna :: Tablero -> Fila -> Int
-devuelveColumna [x] [y] | head x == y = 1
+devuelveColumna :: Tablero -> [Int] -> Int
+devuelveColumna [x] y | perteneceColumnaATablero [y] [x] == True = 1
                         | otherwise = 0
-devuelveColumna [x] (y:ys) | head x == y = 1 + devuelveColumna [x] ys 
+devuelveColumna [x] y:ys | perteneceColumnaATablero [x] (y:ys) == True = 
                            | otherwise = 0
 
 
