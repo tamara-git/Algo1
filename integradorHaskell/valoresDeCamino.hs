@@ -81,8 +81,8 @@ perteneceColumnaATablero (y:ys) [] = False
 perteneceColumnaATablero [] (x:xs) = False
 perteneceColumnaATablero [y] [x]  | head x == y = True
                                   | otherwise = False
-perteneceColumnaATablero (y:ys) (x:xs) | head x == y = True
-                                       | otherwise = perteneceColumnaATablero ys xs
+perteneceColumnaATablero (y:ys) (x:xs) | head x == y = perteneceColumnaATablero ys xs
+                                       | otherwise = False
 
 
 devuelveColumna :: Tablero -> Fila -> Int
