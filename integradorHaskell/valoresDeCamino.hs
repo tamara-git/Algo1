@@ -65,7 +65,7 @@ perteneceListaATablero (y:ys) (x:xs) | (y:ys) == x = True
                         | otherwise = perteneceListaATablero (y:ys) xs
 
 
-devuelveFila :: Tablero -> Fila -> Int
+{-devuelveFila :: Tablero -> Fila -> Int
 devuelveFila [x] [y]  | pertenece [y] [x] == True = 1
                       | otherwise = 0
 devuelveFila (x:xs) [y] | pertenece [y] [x] == True = 1
@@ -73,7 +73,7 @@ devuelveFila (x:xs) [y] | pertenece [y] [x] == True = 1
 devuelveFila (x:xs) (y:ys) | pertenece (y:ys) [x] == True =  1
                            | otherwise = 1 + devuelveFila xs (y:ys)
 
-
+-}
 {-valoresDeCamino :: Tablero -> Camino -> [Int]
 valoresDeCamino [x] = crearCaminos (aplanar [x])
 valoresDeCamino (x:xs) -}
