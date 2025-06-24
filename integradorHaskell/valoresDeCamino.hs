@@ -35,7 +35,7 @@ columnas (x:xs) = sumarTuplas (0,1) (columnas xs)
 
 
 longitudMatriz :: Tablero -> (Int,Int)
-longitudMatriz (x:xs) = sumarTuplas (filas (x,xs)) (columnas x)
+longitudMatriz (x:xs) = sumarTuplas (filas (x:xs)) (columnas x)
 
 
 {-crearCaminos :: [Int] -> [(Int, Int)]
