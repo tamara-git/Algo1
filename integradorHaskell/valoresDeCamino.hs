@@ -60,6 +60,7 @@ todosElementosIguales (x:xs) (y:ys) | x == y = todosElementosIguales xs ys
 perteneceListaATablero :: [Int] -> Tablero -> Bool
 perteneceListaATablero [] [] = False
 perteneceListaATablero [y] [] = False
+perteneceListaATablero [] [x] = False
 perteneceListaATablero [y] [x]  | todosElementosIguales [y] x == True = True 
                                 | otherwise = False
 perteneceListaATablero [y] (x:xs) | todosElementosIguales [y] x == True = True
