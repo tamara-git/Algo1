@@ -82,11 +82,10 @@ devuelveColumna [x] e = perteneceYDevuelvePosicion e (armarListaColumna [x])
 devuelveColumna (x:xs) e = perteneceYDevuelvePosicion e (armarListaColumna (x:xs))
 
 
-{-posicion ::  Tablero -> Int -> [(Int,Int)]
-posicion [x] e = (devuelveFila, devuelveColumna  )
-posicion [x] 
-posicion (x:xs) e | (devuelveFila (x:xs) , devuelveColumna)
--}
+posicion ::  Tablero -> Int -> [(Int,Int)]
+posicion [x] e = (devuelveFila [x] e, devuelveColumna [x] e)
+posicion (x:xs) e = (devuelveFila (x:xs) e, devuelveColumna (x:xs) e)
+
 
 {-valoresDeCamino :: Tablero -> Camino -> [Int]
 valoresDeCamino [x] [(a,b)] = devuelveFila (x:xs)
