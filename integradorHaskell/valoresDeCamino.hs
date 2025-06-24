@@ -15,6 +15,7 @@ Tablero = seq⟨F ila⟩
 Posicion = Z × Z – Observaci´on: las posiciones son: (fila, columna)
 Camino = seq⟨Posicion⟩-}
 
+type Fila = [Int]
 type Tablero = [[Int]]
 type Camino = [(Int,Int)]
 
@@ -41,11 +42,16 @@ columnas (x:xs) = sumarTuplas (0,1) (columnas xs)
 limiteMatriz :: Tablero -> (Int,Int)
 limiteMatriz (x:xs) = sumarTuplas (filas (x:xs)) (columnas x)
 
-
-posicionDevuelveNumero :: Tablero -> (Int, Int) -> Int
+{-
+posicionDevuelveNumero :: Tablero -> (Int, Int) -> (Int,Int) -> Int
 posicionDevuelveNumero [x] (1,1) = head (aplanar [x])
---posicionDevuelveNumero (x:xs) (a,b) |   
-
+posicionDevuelveNumero (x:xs) (a,b) | (a,b) ==  = head (aplanar [x])
+                                    | otherwise = 
+-}
+--Me devuelve qué fila del tablero es
+devuelveFila :: Tablero -> Int
+devuelveFila [x] =  1   
+devuelveFila (x:xs) = 1 + devuelveFila xs 
 
 {-valoresDeCamino :: Tablero -> Camino -> [Int]
 valoresDeCamino [x] = crearCaminos (aplanar [x])
