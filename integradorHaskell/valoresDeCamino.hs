@@ -71,12 +71,15 @@ devuelveFila (x:xs) [y] | perteneceListaATablero [y] [x] == True = 1
 devuelveFila (x:xs) (y:ys) | perteneceListaATablero (y:ys) [x] == True =  1
                            | otherwise = 1 + devuelveFila xs (y:ys)
 
-{-devuelveColumna :: Tablero -> Fila -> Int
-devuelveColumna [x] [y] |
--}
+devuelveColumna :: Tablero -> Fila -> Int
+devuelveColumna [x] [y] | head x == y = 1
+devuelveColumna [x] (y:ys) | head x == y = 1 + devuelveColumna [x] ys 
+                           | otherwise = False
+
 
 posicion ::  Tablero -> Int -> Int
 posicion [x] e = devuelveFila [x] x
+posicion [x] 
 --posicion (x:xs) e | (devuelveFila (x:xs) , devuelveColumna)
 
 
