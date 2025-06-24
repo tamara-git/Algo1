@@ -75,7 +75,7 @@ devuelveFila (x:xs) (y:ys) | perteneceListaATablero (y:ys) [x] == True =  1
 devuelveColumna [x] [y] |
 -}
 
-posicion ::  Tablero -> Int
+posicion ::  Tablero -> Int -> Int
 posicion [x] e = devuelveFila (x:xs) x
 --posicion (x:xs) e | (devuelveFila (x:xs) , devuelveColumna)
 
