@@ -25,27 +25,28 @@ aplanar (x:xs) = x ++ aplanar xs
 sumarTuplas :: (Int,Int) -> (Int,Int) -> (Int,Int)
 sumarTuplas (a,b) (c,d) = (a+c, b+d)
 
+
+--Cantidad de filas que tiene el tablero. Devuelve algo del tipo (filas,0)
 filas :: Tablero -> (Int,Int)
 filas [x] = (1,0)
 filas (x:xs) = sumarTuplas (1,0) (filas xs)
 
+--Cantidad de columnas que tiene el tabler. Devuelve algo del tipo (0,columnas)
 columnas :: [Int] -> (Int,Int)
 columnas [x] = (0,1)
 columnas (x:xs) = sumarTuplas (0,1) (columnas xs)
 
 
-longitudMatriz :: Tablero -> (Int,Int)
-longitudMatriz (x:xs) = sumarTuplas (filas (x:xs)) (columnas x)
+--Ultima posicion del tablero. Devuelve algo del tipo (filas,columnas)
+limiteMatriz :: Tablero -> (Int,Int)
+limiteMatriz (x:xs) = sumarTuplas (filas (x:xs)) (columnas x)
 
 
-{-crearCaminos :: [Int] -> [(Int, Int)]
-crearCaminos [x] = [(1,1)]
-crearCaminos (x:xs) 
+posicionDevuelveNumero :: Tablero -> [(Int,Int)] -> Int
+posicionDevuelveNumero [x] [(1,1)] = head x
+--posicionDevuelveNumero (x:xs) (y:ys) 
 
 
-valoresDeCamino :: Tablero -> Camino -> [Int]
+{-valoresDeCamino :: Tablero -> Camino -> [Int]
 valoresDeCamino [x] = crearCaminos (aplanar [x])
-valoresDeCamino (x:xs) 
-
-
--}
+valoresDeCamino (x:xs) -}
