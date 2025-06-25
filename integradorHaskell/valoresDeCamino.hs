@@ -80,7 +80,7 @@ armarListaColumna (x:xs) = [head x] ++ armarListaColumna xs
 devuelveColumna :: Tablero -> Int -> Int
 devuelveColumna [x] e = perteneceYDevuelvePosicion e (armarListaColumna [x])
 devuelveColumna (x:xs) e | pertenece e (armarListaColumna[x]) = perteneceYDevuelvePosicion e (armarListaColumna (x:xs))
-                         | otherwise = perteneceYDevuelvePosicion e (armarListaColumna xs)
+                         | otherwise = devuelveColumna xs e
 
 
 posicion ::  Tablero -> Int -> (Int,Int)
