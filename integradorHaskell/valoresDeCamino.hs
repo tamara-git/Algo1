@@ -47,6 +47,6 @@ sucesionHasta n =  sucesionHasta (n-1) ++ [n]
 
 sumarColumnas :: [Int] -> [(Int,Int)]
 sumarColumnas [x] = [(1, 0 + head (sucesionHasta (columnas [x])))]
-sumarColumnas (x:xs) = [(1, 0 + head (sucesionHasta (columnas(x:xs))))] ++ sumarColumnas xs
+sumarColumnas (x:xs) = [(1, 0 + head (sucesionHasta (columnas(xs))))] ++ sumarColumnas xs
 
 
