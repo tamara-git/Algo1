@@ -79,7 +79,7 @@ armarListaColumna (x:xs) = [head x] ++ armarListaColumna xs
 quitarColumna :: Tablero -> [Int]
 quitarColumna [x] = tail(aplanar [x])
 
-devuelveColumna :: Tablero -> Int -> Int
+{-devuelveColumna :: Tablero -> Int -> Int
 devuelveColumna [x] e = perteneceYDevuelvePosicion e (armarListaColumna [x])
 devuelveColumna (x:xs) e | pertenece e (armarListaColumna (x:xs)) = perteneceYDevuelvePosicion e (armarListaColumna (x:xs))
                          | otherwise =
@@ -88,7 +88,7 @@ devuelveColumna (x:xs) e | pertenece e (armarListaColumna (x:xs)) = perteneceYDe
 posicion ::  Tablero -> Int -> (Int,Int)
 posicion [x] e = (devuelveFila [x] e, devuelveColumna [x] e)
 posicion (x:xs) e = (devuelveFila (x:xs) e, devuelveColumna (x:xs) e)
-
+-}
 
 {-valoresDeCamino :: Tablero -> Camino -> [Int]
 valoresDeCamino [x] [(a,b)] = devuelveFila (x:xs)
