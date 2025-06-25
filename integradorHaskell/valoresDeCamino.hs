@@ -27,57 +27,13 @@ sumarTuplas :: (Int,Int) -> (Int,Int) -> (Int,Int)
 sumarTuplas (a,b) (c,d) = (a+c, b+d)
 
 
-
---Cantidad de filas que tiene el tablero. Devuelve algo del tipo (filas,0)
+--Cantidad de filas que tiene el tablero. 
 filas :: Tablero -> Int
 filas [x] = 1
 filas (x:xs) = 1 + (filas xs)
 
 
-todosElementosIguales :: [Int] -> [Int] -> Bool
-todosElementosIguales [x] [y] | x == y = True
-                              | otherwise = False 
-todosElementosIguales (x:xs) (y:ys) | x == y = todosElementosIguales xs ys
-                                    | otherwise = False
-
-
-pertenece :: Int -> [Int] -> Bool 
-pertenece e [x] | e == x = True
-                | otherwise = False
-pertenece e (x:xs) | e == x = True
-                   | otherwise = pertenece e xs
-                   
-
-perteneceYDevuelvePosicion :: Int -> [Int] -> Int 
-perteneceYDevuelvePosicion e [x] | e == x = 1
-                                 | otherwise = 0
-perteneceYDevuelvePosicion e (x:xs) | e == x = 1
-                                    | otherwise = 1 + perteneceYDevuelvePosicion e xs
-
-
-devuelveFila :: Tablero -> Int -> Int
-devuelveFila [x] e = 1
-devuelveFila (x:xs) e | pertenece e x == True = 1
-                      | otherwise =  1 + (devuelveFila (xs) e)
-
-{-devuelveColumna :: Tablero -> Int -> Int
-devuelveColumna [x] e =  | perteneceYDevuelvePosicion e (armarListaColumna [x]) = 1
-                         | otherwise = 1 + devuelveColumna head[tail x] e  
-devuelveColumna (x:xs) e | pertenece e (armarListaColumna (x:xs)) = 1
-                       | otherwise = 1 + devuelveColumna (quitarColumna (x:xs)) e
--}
-
---posicion ::  Tablero -> Int -> (Int,Int)
---posicion [x] e = (devuelveFila [x] e, devuelveColumna [x] e)
---posicion (x:xs) e = (devuelveFila (x:xs) e, devuelveColumna (x:xs) e)
-
-{-valoresDeCamino :: Tablero -> Camino -> [Int]
-valoresDeCamino [x] [(a,b)] | posicion [x] (head(aplanar[x])) == (a,b) = [head x]
-                            | otherwise = valoresDeCamino [(tail(aplanar[x]))] [(a,b)]
-valoresDeCamino (x:xs) [(a,b)] | posicion (x:xs) (head(aplanar [x])) == (a,b)
--}
-
---Cantidad de columnas que tiene el tabler. Devuelve algo del tipo (0,columnas)
+--Cantidad de columnas que tiene el tablero.
 columnas :: [Int] -> Int 
 columnas [x] = 1
 columnas (x:xs) = 1 + (columnas xs)
@@ -89,12 +45,8 @@ sucesionHasta 2 = [1,2]
 sucesionHasta n =  sucesionHasta (n-1) ++ [n]
 
 
-sumarColumnas :: [Int] -> [Int] -> Int -> [(Int,Int)]
-sumarColumnas [x] [y] n = [(n, 0 + y)]
-sumarColumnas (x:xs) (y:ys) n = [(n, 0 + y)] ++ sumarColumnas xs ys n
+sumarColumnas :: [Int] -> [(Int,Int)]
+sumarColumnas [x] = [(1, 0 + head (sucesionHasta (columnas [x])))]
+--sumarColumnas (x:xs) n = [(n, 0 + y)] ++ sumarColumnas xs ys n
 
 
-posicion :: Tablero -> [Int] -> Int -> [(Int,Int)]
-posicion [] [] = []
-posicion [x] [y] = sumarColumnas x [y] (filas [x])
-posicion (x:xs) (y:ys) = sumarColumnas x [y] (filas [x]) ++ posicion xs ys 
