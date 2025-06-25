@@ -99,9 +99,15 @@ valoresDeCamino (x:xs) [(a,b)] | posicion (x:xs) (head(aplanar [x])) == (a,b)
 -}
 
 
+sucesionHasta :: Int -> [Int]
+sucesionHasta 1 = [1]
+sucesionHasta 2 = [1,2]
+sucesionHasta n =  (x:xs)
+
+
 sumarColumnas :: [Int] -> [Int] -> [(Int,Int)]
 sumarColumnas [x] [y] = [(1,0 + y)]
-sumarColumnas (x:xs) (y:ys)= [(1,0 + y)] ++ sumarColumnas xs ys
+sumarColumnas (x:xs) (y:ys) = [(1,0 + y)] ++ sumarColumnas xs ys
 
 
 {-posicionIdea :: Tablero -> [(Int,Int)]
