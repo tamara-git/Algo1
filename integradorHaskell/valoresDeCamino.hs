@@ -81,12 +81,12 @@ quitarColumna [x] = [tail(aplanar [x])]
 quitarColumna (x:xs) = [tail (aplanar [x])] ++ quitarColumna xs
 
 
-devuelveColumna :: Tablero -> Int -> Int
+{-devuelveColumna :: Tablero -> Int -> Int
 devuelveColumna [x] e =  | perteneceYDevuelvePosicion e (armarListaColumna [x]) = 1
                          | otherwise = 1 + devuelveColumna head[tail x] e  
 devuelveColumna (x:xs) e | pertenece e (armarListaColumna (x:xs)) = 1
-                         | otherwise = 1 + devuelveColumna (quitarColumna (x:xs)) e
-
+                       | otherwise = 1 + devuelveColumna (quitarColumna (x:xs)) e
+-}
 
 posicion ::  Tablero -> Int -> (Int,Int)
 posicion [x] e = (devuelveFila [x] e, devuelveColumna [x] e)
