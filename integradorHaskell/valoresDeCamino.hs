@@ -64,15 +64,11 @@ perteneceYDevuelvePosicion e [x] | e == x = 1
 perteneceYDevuelvePosicion e (x:xs) | e == x = 1
                                     | otherwise = 1 + perteneceYDevuelvePosicion e xs
 
-quitarFila :: Tablero -> [[Int]]
-quitarFila [x] = []
-quitarFila (x:xs) = xs
-
 
 devuelveFila :: Tablero -> Int -> Int
 devuelveFila [x] e = perteneceYDevuelvePosicion e x
 devuelveFila (x:xs) e | pertenece e x == True = perteneceYDevuelvePosicion e x 
-                      | otherwise = 1 + devuelveFila xs e
+                      | otherwise =  2 * (devuelveFila (xs) e)
 
 
 armarListaColumna :: Tablero -> [Int]
