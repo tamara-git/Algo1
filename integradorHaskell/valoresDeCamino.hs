@@ -88,9 +88,9 @@ devuelveColumna (x:xs) e | pertenece e (armarListaColumna (x:xs)) = 1
                        | otherwise = 1 + devuelveColumna (quitarColumna (x:xs)) e
 -}
 
-posicion ::  Tablero -> Int -> (Int,Int)
-posicion [x] e = (devuelveFila [x] e, devuelveColumna [x] e)
-posicion (x:xs) e = (devuelveFila (x:xs) e, devuelveColumna (x:xs) e)
+--posicion ::  Tablero -> Int -> (Int,Int)
+--posicion [x] e = (devuelveFila [x] e, devuelveColumna [x] e)
+--posicion (x:xs) e = (devuelveFila (x:xs) e, devuelveColumna (x:xs) e)
 
 {-valoresDeCamino :: Tablero -> Camino -> [Int]
 valoresDeCamino [x] [(a,b)] | posicion [x] (head(aplanar[x])) == (a,b) = [head x]
