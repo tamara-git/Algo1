@@ -99,7 +99,7 @@ valoresDeCamino (x:xs) [(a,b)] | posicion (x:xs) (head(aplanar [x])) == (a,b)
 -}
 
 
-sumarColumnas :: [Int] -> [(Int,Int)]
+sumarColumnas :: [Int] -> [Int] -> [(Int,Int)]
 sumarColumnas [x] [y] = [(1,0 + y)]
 sumarColumnas (x:xs) (y:ys)= [(1,0 + y)] ++ sumarColumnas xs ys
 
