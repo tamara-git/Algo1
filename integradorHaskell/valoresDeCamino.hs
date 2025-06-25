@@ -34,9 +34,9 @@ filas [x] = (1,0)
 filas (x:xs) = sumarTuplas (1,0) (filas xs)
 
 --Cantidad de columnas que tiene el tabler. Devuelve algo del tipo (0,columnas)
-columnas :: [Int] -> (Int,Int)
-columnas [x] = (0,1)
-columnas (x:xs) = sumarTuplas (0,1) (columnas xs)
+columnas :: [Int] -> Int 
+columnas [x] = 1
+columnas (x:xs) = 1 + (columnas xs)
 
 
 --Ultima posicion del tablero. Devuelve algo del tipo (filas,columnas)
