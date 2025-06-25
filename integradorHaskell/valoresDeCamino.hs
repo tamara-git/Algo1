@@ -89,7 +89,7 @@ sucesionHasta 2 = [1,2]
 sucesionHasta n =  sucesionHasta (n-1) ++ [n]
 
 
-sumarColumnas :: [Int] -> [Int] -> Int -> [(Int,Int)]
+sumarColumnas :: [Int] -> [Int] -> [(Int,Int)]
 sumarColumnas [x] [y] = [(1, 0 + y)]
 sumarColumnas (x:xs) (y:ys) = [(1, 0 + y)] ++ sumarColumnas xs ys
 
