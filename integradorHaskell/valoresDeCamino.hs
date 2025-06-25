@@ -76,9 +76,9 @@ armarListaColumna :: Tablero -> [Int]
 armarListaColumna [x] = [head x]
 armarListaColumna (x:xs) = [head x] ++ armarListaColumna xs
 
-quitarColumna :: Tablero -> [Int]
-quitarColumna [x] = tail(aplanar [x])
-quitarColumna (x:xs) = tail (aplanar [x]) ++ quitarColumna xs
+quitarColumna :: Tablero -> [[Int]]
+quitarColumna [x] = [tail(aplanar [x])]
+quitarColumna (x:xs) = [tail (aplanar [x])] ++ [quitarColumna xs]
 
 
 {-devuelveColumna :: Tablero -> Int -> Int
