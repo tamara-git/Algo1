@@ -64,6 +64,9 @@ perteneceYDevuelvePosicion e [x] | e == x = 1
 perteneceYDevuelvePosicion e (x:xs) | e == x = 1
                                     | otherwise = 1 + perteneceYDevuelvePosicion e xs
 
+quitarFila :: Tablero -> [[Int]]
+quitarFila [x] = []
+quitarFila (x:xs) = xs
 
 
 devuelveFila :: Tablero -> Int -> Int
