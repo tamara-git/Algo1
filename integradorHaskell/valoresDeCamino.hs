@@ -92,11 +92,11 @@ posicion ::  Tablero -> Int -> (Int,Int)
 posicion [x] e = (devuelveFila [x] e, devuelveColumna [x] e)
 posicion (x:xs) e = (devuelveFila (x:xs) e, devuelveColumna (x:xs) e)
 
-valoresDeCamino :: Tablero -> Camino -> [Int]
+{-valoresDeCamino :: Tablero -> Camino -> [Int]
 valoresDeCamino [x] [(a,b)] | posicion [x] (head(aplanar[x])) == (a,b) = [head x]
                             | otherwise = valoresDeCamino [(tail(aplanar[x]))] [(a,b)]
 valoresDeCamino (x:xs) [(a,b)] | posicion (x:xs) (head(aplanar [x])) == (a,b)
-
+-}
 
 sumarSndTupla :: (Int,Int) -> (Int,Int) -> (Int,Int)
 sumarSndTupla (a,b) (c,d) = (a, b+d)
