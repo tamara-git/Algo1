@@ -66,7 +66,7 @@ perteneceYDevuelvePosicion e (x:xs) | e == x = 1
 
 
 devuelveFila :: Tablero -> Int -> Int
-devuelveFila [x] e = perteneceYDevuelvePosicion e x
+devuelveFila [x] e = 1
 devuelveFila (x:xs) e | pertenece e x == True = 1
                       | otherwise =  1 + (devuelveFila (xs) e)
 
