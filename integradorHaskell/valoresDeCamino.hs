@@ -33,11 +33,6 @@ filas :: Tablero -> (Int,Int)
 filas [x] = (1,0)
 filas (x:xs) = sumarTuplas (1,0) (filas xs)
 
---Cantidad de columnas que tiene el tabler. Devuelve algo del tipo (0,columnas)
-columnas :: [Int] -> Int 
-columnas [x] = 1
-columnas (x:xs) = 1 + (columnas xs)
-
 
 todosElementosIguales :: [Int] -> [Int] -> Bool
 todosElementosIguales [x] [y] | x == y = True
@@ -82,6 +77,11 @@ valoresDeCamino [x] [(a,b)] | posicion [x] (head(aplanar[x])) == (a,b) = [head x
 valoresDeCamino (x:xs) [(a,b)] | posicion (x:xs) (head(aplanar [x])) == (a,b)
 -}
 
+--Cantidad de columnas que tiene el tabler. Devuelve algo del tipo (0,columnas)
+columnas :: [Int] -> Int 
+columnas [x] = 1
+columnas (x:xs) = 1 + (columnas xs)
+
 
 sucesionHasta :: Int -> [Int]
 sucesionHasta 1 = [1]
@@ -91,7 +91,7 @@ sucesionHasta n =  sucesionHasta (n-1) ++ [n]
 
 sumarColumnas :: [Int] -> [Int] -> [(Int,Int)]
 sumarColumnas [x] (sucesionHasta (columnas [x])) = [(1, 0 + head ((sucesionHasta (columnas [x]))))]
-sumarColumnas (x:xs) (sucesionHasta (columnas (x:xs))) = [(1,0 + head (sucesionHasta (columnas (x:xs))))] ++ sumarColumnas xs (tail((sucesionHasta (columnas (x:xs)))))
+sumarColumnas (x:xs) (sucesionHasta (columnas (x:xs))) = [(1,0 + head (sucesionHasta (columnas (x:xs))))] ++ sumarColumnas xs (head (sucesionHasta (columnas xs)))
 
 {-posicionIdea :: Tablero -> [(Int,Int)]
 posicionIdea [x] = [(1,1)] ++ [sumarTuplas (1,1) (filas (x:xs))]
