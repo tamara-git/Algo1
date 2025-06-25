@@ -102,7 +102,7 @@ valoresDeCamino (x:xs) [(a,b)] | posicion (x:xs) (head(aplanar [x])) == (a,b)
 sucesionHasta :: Int -> [Int]
 sucesionHasta 1 = [1]
 sucesionHasta 2 = [1,2]
-sucesionHasta n =  sucesionHasta n-1 ++ [n]
+sucesionHasta n =  sucesionHasta (n-1) ++ [n]
 
 
 sumarColumnas :: [Int] -> [Int] -> [(Int,Int)]
