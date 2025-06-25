@@ -89,10 +89,9 @@ sucesionHasta 2 = [1,2]
 sucesionHasta n =  sucesionHasta (n-1) ++ [n]
 
 
-{-sumarColumnas :: [Int] -> [Int] -> [(Int,Int)]
-sumarColumnas [x] (sucesionHasta snd columnas [x]) = [(1,0 + head (sucesion(sucesionHasta snd columnas [x])))]
-sumarColumnas (x:xs) (sucesionHasta snd(columnas (x:xs))) = [(1,0 + head (sucesionHasta snd(columnas (x:xs))))] ++ sumarColumnas xs (tail((sucesionHasta snd(columnas (x:xs)))))
--}
+sumarColumnas :: [Int] -> [Int] -> [(Int,Int)]
+sumarColumnas [x] (sucesionHasta (columnas [x])) = [(1, 0 + head ((sucesionHasta (columnas [x]))))]
+sumarColumnas (x:xs) (sucesionHasta (columnas (x:xs))) = [(1,0 + head (sucesionHasta (columnas (x:xs))))] ++ sumarColumnas xs (tail((sucesionHasta (columnas (x:xs)))))
 
 {-posicionIdea :: Tablero -> [(Int,Int)]
 posicionIdea [x] = [(1,1)] ++ [sumarTuplas (1,1) (filas (x:xs))]
