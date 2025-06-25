@@ -11,7 +11,7 @@ asegura: {res es igual a la secuencia de n´umeros que est´an en el camino c, o
 las posiciones correspondientes en el camino.}
 }-}
 {-Fila = seq⟨Z⟩
-Tablero = seq⟨F ila⟩
+Tablero = seq⟨Fila⟩
 Posicion = Z × Z – Observaci´on: las posiciones son: (fila, columna)
 Camino = seq⟨Posicion⟩-}
 
@@ -75,6 +75,7 @@ armarListaColumna :: Tablero -> [Int]
 armarListaColumna [x] = [head x] 
 armarListaColumna (x:xs) = [head x] ++ armarListaColumna xs
 
+
 quitarColumna :: Tablero -> [[Int]]
 quitarColumna [x] = [tail(aplanar [x])]
 quitarColumna (x:xs) = [tail (aplanar [x])] ++ quitarColumna xs
@@ -91,8 +92,22 @@ posicion ::  Tablero -> Int -> (Int,Int)
 posicion [x] e = (devuelveFila [x] e, devuelveColumna [x] e)
 posicion (x:xs) e = (devuelveFila (x:xs) e, devuelveColumna (x:xs) e)
 
-
 valoresDeCamino :: Tablero -> Camino -> [Int]
 valoresDeCamino [x] [(a,b)] | posicion [x] (head(aplanar[x])) == (a,b) = [head x]
                             | otherwise = valoresDeCamino [(tail(aplanar[x]))] [(a,b)]
 valoresDeCamino (x:xs) [(a,b)] | posicion (x:xs) (head(aplanar [x])) == (a,b)
+
+
+sumarSndTupla :: (Int,Int) -> (Int,Int) -> (Int,Int)
+sumarSndTupla (a,b) (c,d) = (a, b+d)
+
+sumarColumnas :: [Int] -> [(Int,Int)]
+sumarColumnas [x] = [(1,1)] 
+sumarColumnas (x:xs) = [sumarSndTupla (1,0) (0,1)] ++ sumarFilas xs 
+
+
+{-posicionIdea :: Tablero -> [(Int,Int)]
+posicionIdea [x] = [(1,1)] ++ [sumarTuplas (1,1) (filas (x:xs))]
+posicionIdea (x:xs) e | 
+
+-}
