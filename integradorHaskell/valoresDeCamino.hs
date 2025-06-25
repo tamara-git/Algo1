@@ -103,7 +103,7 @@ sumarSndTupla (a,b) (c,d) = (a, b+d)
 
 sumarColumnas :: [Int] -> Int -> [(Int,Int)]
 sumarColumnas [x] n = [(1,1)] 
-sumarColumnas (x:xs) n = [sumarSndTupla (1,0) (0,n)] ++ sumarColumnas xs  n+1
+sumarColumnas (x:xs) n = [sumarSndTupla (1,0) (0,n)] ++ sumarColumnas xs (n+1)
 
 
 {-posicionIdea :: Tablero -> [(Int,Int)]
