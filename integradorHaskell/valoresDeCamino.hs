@@ -100,8 +100,8 @@ valoresDeCamino (x:xs) [(a,b)] | posicion (x:xs) (head(aplanar [x])) == (a,b)
 
 
 sumarColumnas :: [Int] -> [(Int,Int)]
-sumarColumnas [x] = [(1,1)]
-sumarColumnas (x:xs) (y:ys)= [(1,1 + y)] ++ sumarColumnas xs ys
+sumarColumnas [x] [y] = [(1,0 + y)]
+sumarColumnas (x:xs) (y:ys)= [(1,0 + y)] ++ sumarColumnas xs ys
 
 
 {-posicionIdea :: Tablero -> [(Int,Int)]
