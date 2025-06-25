@@ -39,11 +39,6 @@ columnas [x] = 1
 columnas (x:xs) = 1 + (columnas xs)
 
 
---Ultima posicion del tablero. Devuelve algo del tipo (filas,columnas)
-limiteMatriz :: Tablero -> (Int,Int)
-limiteMatriz (x:xs) = sumarTuplas (filas (x:xs)) (columnas x)
-
-
 todosElementosIguales :: [Int] -> [Int] -> Bool
 todosElementosIguales [x] [y] | x == y = True
                               | otherwise = False 
@@ -69,17 +64,6 @@ devuelveFila :: Tablero -> Int -> Int
 devuelveFila [x] e = 1
 devuelveFila (x:xs) e | pertenece e x == True = 1
                       | otherwise =  1 + (devuelveFila (xs) e)
-
-
-armarListaColumna :: Tablero -> [Int]
-armarListaColumna [x] = [head x] 
-armarListaColumna (x:xs) = [head x] ++ armarListaColumna xs
-
-
-quitarColumna :: Tablero -> [[Int]]
-quitarColumna [x] = [tail(aplanar [x])]
-quitarColumna (x:xs) = [tail (aplanar [x])] ++ quitarColumna xs
-
 
 {-devuelveColumna :: Tablero -> Int -> Int
 devuelveColumna [x] e =  | perteneceYDevuelvePosicion e (armarListaColumna [x]) = 1
