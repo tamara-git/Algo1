@@ -72,7 +72,7 @@ devuelveFila (x:xs) e | pertenece e x == True = 1
 
 
 armarListaColumna :: Tablero -> [Int]
-armarListaColumna [x] = [head x]
+armarListaColumna [x] = [head x] 
 armarListaColumna (x:xs) = [head x] ++ armarListaColumna xs
 
 quitarColumna :: Tablero -> [[Int]]
@@ -81,7 +81,8 @@ quitarColumna (x:xs) = [tail (aplanar [x])] ++ quitarColumna xs
 
 
 devuelveColumna :: Tablero -> Int -> Int
-devuelveColumna [x] e = perteneceYDevuelvePosicion e (armarListaColumna [x])
+devuelveColumna [x] e =  | perteneceYDevuelvePosicion e (armarListaColumna [x]) = 1
+                         | otherwise = 1 + devuelveColumna head[tail x] e  
 devuelveColumna (x:xs) e | pertenece e (armarListaColumna (x:xs)) = 1
                          | otherwise = 1 + devuelveColumna (quitarColumna (x:xs)) e
 
@@ -94,3 +95,4 @@ posicion (x:xs) e = (devuelveFila (x:xs) e, devuelveColumna (x:xs) e)
 valoresDeCamino :: Tablero -> Camino -> [Int]
 valoresDeCamino [x] [(a,b)] | posicion [x] (head(aplanar[x])) == (a,b) = [head x]
                             | otherwise = valoresDeCamino [(tail(aplanar[x]))] [(a,b)]
+valoresDeCamino (x:xs) [(a,b)] | posicion (x:xs) (head(aplanar [x])) == (a,b)
