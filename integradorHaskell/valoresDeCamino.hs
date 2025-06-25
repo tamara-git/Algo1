@@ -93,6 +93,6 @@ sumarColumnas :: [Int] -> [Int] -> Int -> [(Int,Int)]
 sumarColumnas [x] [y] n = [(n, 0 + head (sucesionHasta (columnas [x])))]
 sumarColumnas (x:xs) (y:ys) n = [(n, 0 + y)] ++ sumarColumnas xs ys
 
-posicion :: Tablero -> [Int] -> [(Int,Int)]
+posicion :: Tablero -> [Int] -> Int -> [(Int,Int)]
 posicion [x] [y] n = sumarColumnas x [y] (filas [x])
 posicion (x:xs) (y:ys) n = sumarColumnas x [y] (filas [x]) ++ posicion xs ys (filas xs)
