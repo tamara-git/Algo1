@@ -107,7 +107,7 @@ sucesionHasta n =  sucesionHasta (n-1) ++ [n]
 
 sumarColumnas :: [Int] -> [Int] -> [(Int,Int)]
 sumarColumnas [x] (sucesionHasta snd(columnas [x])) = [(1,0 + head (sucesion(sucesionHasta snd(columnas [x]))))]
-sumarColumnas (x:xs) (sucesionHasta snd(columnas [x])) = [(1,0 + head (sucesionHasta n))] ++ sumarColumnas xs (tail((sucesionHasta snd(columnas [x]))))
+sumarColumnas (x:xs) (sucesionHasta snd(columnas (x:xs))) = [(1,0 + head (sucesionHasta n))] ++ sumarColumnas xs (tail((sucesionHasta snd(columnas (x:xs)))))
 
 
 {-posicionIdea :: Tablero -> [(Int,Int)]
