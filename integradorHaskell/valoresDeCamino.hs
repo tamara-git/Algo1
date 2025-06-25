@@ -101,9 +101,9 @@ valoresDeCamino (x:xs) [(a,b)] | posicion (x:xs) (head(aplanar [x])) == (a,b)
 sumarSndTupla :: (Int,Int) -> (Int,Int) -> (Int,Int)
 sumarSndTupla (a,b) (c,d) = (a, b+d)
 
-sumarColumnas :: [Int] -> [(Int,Int)]
-sumarColumnas [x] = [(1,1)] 
-sumarColumnas (x:xs) = [sumarSndTupla (1,0) (0,1)] ++ sumarColumnas xs 
+sumarColumnas :: [Int] -> Int -> [(Int,Int)]
+sumarColumnas [x] n = [(1,1)] 
+sumarColumnas (x:xs) n = [sumarSndTupla (1,0) (0,n)] ++ sumarColumnas xs 
 
 
 {-posicionIdea :: Tablero -> [(Int,Int)]
