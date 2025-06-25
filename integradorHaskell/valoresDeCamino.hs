@@ -76,11 +76,13 @@ armarListaColumna :: Tablero -> [Int]
 armarListaColumna [x] = [head x]
 armarListaColumna (x:xs) = [head x] ++ armarListaColumna xs
 
+quitarColumna :: Tablero -> [Int]
+quitarColumna [x] = tail(aplanar [x])
 
 devuelveColumna :: Tablero -> Int -> Int
 devuelveColumna [x] e = perteneceYDevuelvePosicion e (armarListaColumna [x])
 devuelveColumna (x:xs) e | pertenece e (armarListaColumna (x:xs)) = perteneceYDevuelvePosicion e (armarListaColumna (x:xs))
-                         | otherwise = devuelveColumna xs e
+                         | otherwise =
 
 
 posicion ::  Tablero -> Int -> (Int,Int)
