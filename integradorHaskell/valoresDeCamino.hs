@@ -102,7 +102,7 @@ sucesion :: [Int] -> [Int]
 sucesion [x] = [x, x+1]
 sucesion (x:xs) = [x, x+1] ++ sucesion xs
 
-sumarColumnas :: [Int] -> Int -> [(Int,Int)]
+sumarColumnas :: [Int] -> [(Int,Int)]
 sumarColumnas [x] = [(1,1)]
 sumarColumnas (x:xs) = [(1,1)] ++ sumarColumnas xs
 
