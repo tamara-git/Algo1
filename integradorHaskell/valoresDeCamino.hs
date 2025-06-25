@@ -92,5 +92,5 @@ posicion (x:xs) e = (devuelveFila (x:xs) e, devuelveColumna (x:xs) e)
 
 
 valoresDeCamino :: Tablero -> Camino -> [Int]
-valoresDeCamino [x] [(a,b)] | posicion [x] head(aplanar[x]) == (a,b) = [head x]
+valoresDeCamino [x] [(a,b)] | posicion [x] (head(aplanar[x])) == (a,b) = [head x]
                             | otherwise = valoresDeCamino [(tail(aplanar[x]))] [(a,b)]
