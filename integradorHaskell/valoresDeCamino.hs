@@ -46,5 +46,5 @@ sucesionHasta n =  sucesionHasta (n-1) ++ [n]
 
 
 posicion :: Tablero -> Int -> [(Int,Int)]
-posicion [x] = [(fila [x], 0 + head(sucesionHasta (columnas x)))]
+posicion [x] = [(filas [x], 0 + head(sucesionHasta (columnas x)))]
 
