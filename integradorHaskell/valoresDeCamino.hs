@@ -4,7 +4,7 @@ requiere: {El tablero t es un tablero bien formado, es decir, la longitud de tod
 menos un elemento}
 requiere: {Existe al menos una columna en el tablero t }
 requiere: {El tablero t no es vac´ıo, todos los n´umeros del tablero son positivos, mayores estrictos a 0}
-requiere: {El camino c es un camino v´alido, es decir, secuencia de posiciones adyacentes en la que solo es posible
+requiere: {El camino c es un camino válido, es decir, secuencia de posiciones adyacentes en la que solo es posible
 desplazarse hacia la posici´on de la derecha o hacia abajo y todas las posiciones est´an dentro de los limites del tablero
 t}
 asegura: {res es igual a la secuencia de n´umeros que est´an en el camino c, ordenados de la misma forma que aparecen
@@ -43,11 +43,15 @@ posicionFila [x] n m = [(n, 0+m)]
 posicionFila (x:xs) n m = [(n, 0+m)] ++ posicionFila xs n (m+1)
 
 
-posicionTablero :: Tablero -> Int -> [(Int,Int)]
+posicionTablero :: Tablero -> Int -> [[(Int,Int)]]
 posicionTablero [x] n = posicionFila x n 1 
-posicionTablero (x:xs) n = posicionFila x n 1 ++ posicionTablero xs (n+1)    
+posicionTablero (x:xs) n = [posicionFila x n 1] ++ posicionTablero xs (n+1)    
 
 
-matrizPosiciones :: Tablero -> [(Int,Int)]
+matrizPosiciones :: Tablero -> [[(Int,Int)]]
 matrizPosiciones [x] = posicionTablero [x] 1
 matrizPosiciones (x:xs) = posicionTablero (x:xs) 1
+
+
+valoresDeCamino :: Tablero -> Camino -> [Int]
+valoresDeCamino [x] [(a,b)] | matrizPosiciones [x] == [(a,b)] =  
