@@ -50,6 +50,7 @@ posicion :: [Int] -> Int
 posicion [x] = 1
 posicion (x:xs) = 1 + posicion xs  
 
-posicionTablero ::  Tablero  -> [(Int,Int)]
-posicionTablero [x] n = [(n, posicion x)] ++ posicionTablero xs
+posicionFila ::  Filas -> [(Int,Int)]
+posicionFila [x] n = [(n, posicion x)] 
+posicionFila (x:xs) n = [(n, posicion x)] ++ posicionFila xs n
 
