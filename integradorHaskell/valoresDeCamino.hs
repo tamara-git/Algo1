@@ -19,13 +19,6 @@ type Fila = [Int]
 type Tablero = [[Int]]
 type Camino = [(Int,Int)]
 
-aplanar :: Tablero -> [Int]
-aplanar [x] = x
-aplanar (x:xs) = x ++ aplanar xs 
-
-sumarTuplas :: (Int,Int) -> (Int,Int) -> (Int,Int)
-sumarTuplas (a,b) (c,d) = (a+c, b+d)
-
 
 --Cantidad de filas que tiene el tablero. 
 filas :: Tablero -> Int
@@ -39,17 +32,11 @@ columnas [x] = 1
 columnas (x:xs) = 1 + (columnas xs)
 
 
-sucesionHasta :: Int -> [Int]
-sucesionHasta 1 = [1]
-sucesionHasta 2 = [1,2]
-sucesionHasta n =  sucesionHasta (n-1) ++ [n]
-
-
-
 posicion :: Int -> [Int] -> Int
 posicion e [x] | e == x = 1
 posicion e (x:xs) | e == x = 1 
                   | otherwise = 1 + posicion e xs
+
 
 posicionFila ::  Fila -> Int -> Int -> [(Int,Int)]
 posicionFila [x] n m = [(n, 0+m)] 
@@ -59,3 +46,8 @@ posicionFila (x:xs) n m = [(n, 0+m)] ++ posicionFila xs n (m+1)
 posicionTablero :: Tablero -> Int -> [(Int,Int)]
 posicionTablero [x] n = posicionFila x n 1 
 posicionTablero (x:xs) n = posicionFila x n 1 ++ posicionTablero xs (n+1)    
+
+
+matrizPosiciones :: Tablero -> [(Int,Int)]
+matrizPosiciones [x] = posicionTablero [x] 1
+matrizPosiciones (x:xs) = posicionTablero (x:xs) 1
