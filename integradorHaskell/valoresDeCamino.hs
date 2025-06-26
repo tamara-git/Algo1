@@ -45,8 +45,6 @@ sucesionHasta 2 = [1,2]
 sucesionHasta n =  sucesionHasta (n-1) ++ [n]
 
 
-sumarColumnas :: [Int] -> [(Int,Int)]
-sumarColumnas [x] = [(1, 0 + head (sucesionHasta (columnas [x])))]
-sumarColumnas (x:xs) = [(1, 0 + head (sucesionHasta (columnas(xs))))] ++ sumarColumnas xs
-
+posicion :: Tablero -> Int -> [(Int,Int)]
+posicion [x] = [(fila [x], 0 + head(sucesionHasta (columnas x)))]
 
