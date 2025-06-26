@@ -53,7 +53,7 @@ eliminarPrimerElemento (x:xs) = xs
 
 {-valoresDeCaminoAux :: Tablero -> Camino -> [Int]
 valoresDeCaminoAux [x] [y] | head (posicionFila x 1 1) 
-.}
+-}
 
 
 
