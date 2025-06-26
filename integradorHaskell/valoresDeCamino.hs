@@ -53,9 +53,7 @@ matrizPosiciones :: Tablero -> [(Int,Int)]
 matrizPosiciones [x] = posicionTablero [x] 1
 matrizPosiciones (x:xs) = posicionTablero (x:xs) 1
                 
-                
-posicion :: Int -> Fila -> Int -> Int -> [(Int,Int)]
-posicion e [x] n m | e == x = [(n, 0+m)]
-                   | otherwise = []
-posicion e (x:xs) n m | e == x = [(n, 0+m)] 
-                      | otherwise = posicion e xs n (m+1)
+
+asignarPosicion :: Tablero -> [(Int,Int)]
+asignarPosicion [x] = matrizPosiciones [x]
+asignarPosicion (x:xs) = matrizPosiciones (x:xs)
