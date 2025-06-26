@@ -52,10 +52,4 @@ matrizPosiciones :: Tablero -> [(Int,Int)]
 matrizPosiciones [x] = posicionTablero [x] 1
 matrizPosiciones (x:xs) = posicionTablero (x:xs) 1
 
-
-valoresDeCamino :: Tablero -> Camino -> [Int]
-valoresDeCamino [x] [(a,b)] | (a,b) == head matrizPosiciones [x] == head (aplanar [x])
-                            | otherwise = valoresDeCamino [tail x] [(a,b)]
-
-
                             
