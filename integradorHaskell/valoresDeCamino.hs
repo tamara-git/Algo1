@@ -51,6 +51,6 @@ posicion [x] = 1
 posicion (x:xs) = 1 + posicion xs  
 
 posicionFila ::  Fila -> [(Int,Int)]
-posicionFila [x] n = [(n, posicion x)] 
-posicionFila (x:xs) n = [(n, posicion x)] ++ posicionFila xs n
+posicionFila [x] n = [(n, posicion [x])] 
+posicionFila (x:xs) n = [(n, posicion [x])] ++ posicionFila xs n
 
