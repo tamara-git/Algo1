@@ -51,10 +51,10 @@ eliminarPrimerElemento :: [Int] -> [Int]
 eliminarPrimerElemento [x] = []
 eliminarPrimerElemento (x:xs) = xs 
 
-{-valoresDeCaminoAux :: Tablero -> Camino -> [Int]
-valoresDeCaminoAux [x] [y] | head (posicionFila x 1 1) 
--}
-
+valoresDeCaminoAux :: Tablero -> Camino -> [Int]
+valoresDeCaminoAux [x] [y] | head (posicionFila x 1 1) == y = head (aplanar [x])
+                           | otherwise = valoresDeCaminoAux [tail x] [y]
+ 
 
 
 
