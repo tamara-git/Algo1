@@ -46,11 +46,12 @@ sucesionHasta n =  sucesionHasta (n-1) ++ [n]
 
 
 
-posicion :: [Int] -> Int
-posicion [x] = 1
-posicion (x:xs) = 1 + posicion xs  
+posicion :: Int -> [Int] -> Int
+posicion e [x] | e == x = 1
+posicion e (x:xs) | e == x = 1 
+                  | otherwise = 1 + posicion e xs
 
 posicionFila ::  Fila -> [(Int,Int)]
-posicionFila [x] n = [(n, posicion [x])] 
-posicionFila (x:xs) n = [(n, posicion [x])] ++ posicionFila xs n
+posicionFila [x] n = [(n, posicion x [x])] 
+posicionFila (x:xs) n = [(n, posicion x (x:xs))] ++ posicionFila xs n
 
