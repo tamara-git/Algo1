@@ -54,4 +54,4 @@ matrizPosiciones (x:xs) = posicionTablero (x:xs) 1
 
 
 valoresDeCamino :: Tablero -> Camino -> [Int]
-valoresDeCamino [x] [(a,b)] | matrizPosiciones [x] == [(a,b)] =  
+--valoresDeCamino [x] [(a,b)] | matrizPosiciones [x] == [(a,b)] = 
