@@ -56,4 +56,6 @@ posicionFila [x] n m = [(m, 0+n)]
 posicionFila (x:xs) n m = [(m, 0+n)] ++ posicionFila xs (n+1) m
 
 
+posicionTablero :: Tablero -> [(Int,Int)]
+posicionTablero [x] = posicionFila x 1 1 
 
