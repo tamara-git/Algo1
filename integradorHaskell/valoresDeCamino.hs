@@ -54,7 +54,7 @@ eliminarPrimerElemento (x:xs) = xs
 
 eliminarPrimerElementoTablero :: Tablero -> [[Int]]
 eliminarPrimerElementoTablero [x] = [eliminarPrimerElemento x]
-eliminarPrimerElementoTablero (x:xs) = [eliminarPrimerElemento x] + eliminarPrimerElementoTablero xs
+eliminarPrimerElementoTablero (x:xs) = [eliminarPrimerElemento x] ++ eliminarPrimerElementoTablero xs
 
 
 valoresDeCaminoAux :: Tablero -> Camino -> [Int]
