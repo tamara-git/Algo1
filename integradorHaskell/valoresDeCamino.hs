@@ -57,12 +57,14 @@ eliminarPrimerElementoTablero :: Tablero -> [[Int]]
 eliminarPrimerElementoTablero [x] = [eliminarPrimerElemento x]
 eliminarPrimerElementoTablero (x:xs) = [eliminarPrimerElemento x] ++ eliminarPrimerElementoTablero xs
 
-devolver1erElemFila :: [Int] -> Int
-devolver1erElemFila [x] = x
-devolver1erElemFila (x:xs) = x 
+  
+
+devolver1erElemFila1Tablero :: Tablero -> Int 
+devolver1erElemFila1Tablero [x] = head x
+devolver1erElemFila1Tablero (x:xs) = head x
 
 valoresDeCaminoAux :: Tablero -> Camino -> [Int]
-valoresDeCaminoAux [x] [y] | head (posicionFila x 1 1) == y = devolver1erElemFila x
+valoresDeCaminoAux [x] [y] | head (posicionFila x 1 1) == y = devolver1erElemFila1Tablero [x]
                            | otherwise = valoresDeCaminoAux (eliminarPrimerElementoTablero [x]) [y]
  
 
