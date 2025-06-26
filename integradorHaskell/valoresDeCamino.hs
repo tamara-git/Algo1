@@ -51,9 +51,15 @@ eliminarPrimerElemento :: [Int] -> [Int]
 eliminarPrimerElemento [x] = []
 eliminarPrimerElemento (x:xs) = xs 
 
+
+eliminarPrimerElementoTablero :: Tablero -> [[Int]]
+eliminarPrimerElementoTablero [x] = [eliminarPrimerElemento x]
+eliminarPrimerElementoTablero (x:xs) = [eliminarPrimerElemento x] + eliminarPrimerElementoTablero xs
+
+
 valoresDeCaminoAux :: Tablero -> Camino -> [Int]
 valoresDeCaminoAux [x] [y] | head (posicionFila x 1 1) == y = [head x]
-                           | otherwise = valoresDeCaminoAux [eliminarPrimerElemento x] [y]
+                           | otherwise = valoresDeCaminoAux [elo] [y]
  
 
 
