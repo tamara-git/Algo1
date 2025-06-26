@@ -45,7 +45,11 @@ sucesionHasta 2 = [1,2]
 sucesionHasta n =  sucesionHasta (n-1) ++ [n]
 
 
-posicion ::  Fila -> [(Int,Int)]
-posicion [x] = [(1, 0 + head(sucesionHasta (columnas [x])))]  
 
+posicion :: [Int] -> Int
+posicion [x] = 1
+posicion (x:xs) = 1 + posicion xs  
+
+posicionTablero ::  Tablero  -> [(Int,Int)]
+posicionTablero [x] n = [(n, posicion x)] ++ posicionTablero xs
 
