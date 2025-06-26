@@ -54,7 +54,7 @@ matrizPosiciones (x:xs) = posicionTablero (x:xs) 1
 
 
 valoresDeCaminoAux :: Tablero -> Camino -> [Int]
-valoresDeCamino [x] [(a,b)] | (a,b) == head matrizPosiciones [x] == head x
+valoresDeCamino [x] [(a,b)] | (a,b) == head matrizPosiciones [x] == head (aplanar [x])
                             | otherwise = valoresDeCamino [tail x] [(a,b)]
 
 
