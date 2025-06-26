@@ -48,54 +48,8 @@ posicionFila [] 1 1 = []
 posicionFila [x] n m = [(n, 0+m)] 
 posicionFila (x:xs) n m = [(n, 0+m)] ++ posicionFila xs n (m+1)
 
-eliminarPrimerElemento :: [Int] -> [Int]
-eliminarPrimerElemento [x] = []
-eliminarPrimerElemento (x:xs) = xs 
 
-
-eliminarPrimerElementoTablero :: Tablero -> [[Int]]
-eliminarPrimerElementoTablero [x] = [eliminarPrimerElemento x]
-eliminarPrimerElementoTablero (x:xs) = [eliminarPrimerElemento x] ++ eliminarPrimerElementoTablero xs
-
-devolver1erElemFila :: [Int] -> Int
-devolver1erElemFila [x] = x
-devolver1erElemFila (x:xs) = x 
-
-devolver1erElemFila1Tablero :: Tablero -> Int 
-devolver1erElemFila1Tablero [x] = devolver1erElemFila x
-devolver1erElemFila1Tablero (x:xs) = devolver1erElemFila x
-
-valoresDeCaminoAux :: Tablero -> Camino -> [Int]
-valoresDeCaminoAux [x] [y] | head (posicionFila x 1 1) == y = devolver1erElemFila1Tablero [x]
-                           | otherwise = valoresDeCaminoAux (eliminarPrimerElementoTablero [x]) [y]
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{-posicionTablero :: Tablero -> Int -> [(Int,Int)]
+posicionTablero :: Tablero -> Int -> [(Int,Int)]
 posicionTablero [x] n = posicionFila x n 1
 posicionTablero (x:xs) n = posicionFila x n 1 ++ posicionTablero xs (n+1)    
 
@@ -103,5 +57,4 @@ posicionTablero (x:xs) n = posicionFila x n 1 ++ posicionTablero xs (n+1)
 matrizPosiciones :: Tablero -> [(Int,Int)]
 matrizPosiciones [x] = posicionTablero [x] 1
 matrizPosiciones (x:xs) = posicionTablero (x:xs) 1
-
-      -}                      
+                   
