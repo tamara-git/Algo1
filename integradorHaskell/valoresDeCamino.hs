@@ -47,13 +47,13 @@ posicionFila ::  Fila -> Int -> Int -> [(Int,Int)]
 posicionFila [x] n m = [(n, 0+m)] 
 posicionFila (x:xs) n m = [(n, 0+m)] ++ posicionFila xs n (m+1)
 
+eliminarPrimerElemento :: [Int] -> [Int]
+eliminarPrimerElemento [x] = []
+eliminarPrimerElemento (x:xs) = xs 
 
-
-valoresDeCaminoAux :: Tablero -> Camino -> [Int]
-valoresDeCaminoAux [x] [y] | head (posicionFila x 1 1) == y = head (aplanar [x])
-                           | otherwise = valoresDeCaminoAux [tail x] [y]
-
-
+{-valoresDeCaminoAux :: Tablero -> Camino -> [Int]
+valoresDeCaminoAux [x] [y] | head (posicionFila x 1 1) 
+.}
 
 
 
