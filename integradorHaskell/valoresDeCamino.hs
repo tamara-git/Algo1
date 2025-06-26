@@ -52,8 +52,8 @@ posicion e (x:xs) | e == x = 1
                   | otherwise = 1 + posicion e xs
 
 posicionFila ::  Fila -> Int -> Int -> [(Int,Int)]
-posicionFila [x] n m = [(m, 0+n)] 
-posicionFila (x:xs) n m = [(m, 0+n)] ++ posicionFila xs (n+1) m
+posicionFila [x] n m = [(n, 0+m)] 
+posicionFila (x:xs) n m = [(n, 0+m)] ++ posicionFila xs n m+1
 
 
 posicionTablero :: Tablero -> Int -> [(Int,Int)]
