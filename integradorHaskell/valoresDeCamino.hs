@@ -22,7 +22,7 @@ type Camino = [(Int,Int)]
 
 aplanar :: Tablero -> [Int]
 aplanar [x] = x
-aplanar (x:xs) = x + aplanar xs
+aplanar (x:xs) = x ++ aplanar xs
 
 
 --Cantidad de filas que tiene el tablero. 
