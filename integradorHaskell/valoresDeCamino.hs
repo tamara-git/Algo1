@@ -20,6 +20,11 @@ type Tablero = [[Int]]
 type Camino = [(Int,Int)]
 
 
+aplanar :: Tablero -> [Int]
+aplanar [x] = x
+aplanar (x:xs) = x + aplanar xs
+
+
 --Cantidad de filas que tiene el tablero. 
 filas :: Tablero -> Int
 filas [x] = 1
@@ -43,7 +48,40 @@ posicionFila [x] n m = [(n, 0+m)]
 posicionFila (x:xs) n m = [(n, 0+m)] ++ posicionFila xs n (m+1)
 
 
-posicionTablero :: Tablero -> Int -> [(Int,Int)]
+
+valoresDeCaminoAux :: Tablero -> Camino -> [Int]
+valoresDeCaminoAux [x] [y] | head (posicionFila x 1 1) == y = head (aplanar [x])
+                           | otherwise = valoresDeCaminoAux [tail x] [y]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{-posicionTablero :: Tablero -> Int -> [(Int,Int)]
 posicionTablero [x] n = posicionFila x n 1
 posicionTablero (x:xs) n = posicionFila x n 1 ++ posicionTablero xs (n+1)    
 
@@ -52,4 +90,4 @@ matrizPosiciones :: Tablero -> [(Int,Int)]
 matrizPosiciones [x] = posicionTablero [x] 1
 matrizPosiciones (x:xs) = posicionTablero (x:xs) 1
 
-                            
+      -}                      
