@@ -43,15 +43,18 @@ posicionFila [x] n m = [(n, 0+m)]
 posicionFila (x:xs) n m = [(n, 0+m)] ++ posicionFila xs n (m+1)
 
 
-posicionTablero :: Tablero -> Int -> [[(Int,Int)]]
-posicionTablero [x] n = [posicionFila x n 1]
-posicionTablero (x:xs) n = [posicionFila x n 1] ++ posicionTablero xs (n+1)    
+posicionTablero :: Tablero -> Int -> [(Int,Int)]
+posicionTablero [x] n = posicionFila x n 1
+posicionTablero (x:xs) n = posicionFila x n 1 ++ posicionTablero xs (n+1)    
 
 
-matrizPosiciones :: Tablero -> [[(Int,Int)]]
+matrizPosiciones :: Tablero -> [(Int,Int)]
 matrizPosiciones [x] = posicionTablero [x] 1
 matrizPosiciones (x:xs) = posicionTablero (x:xs) 1
 
 
 valoresDeCamino :: Tablero -> Camino -> [Int]
-valoresDeCamino [x] [(a,b)] | matrizPosiciones [x] == [(a,b)] = 
+valoresDeCamino [x] [(a,b)] | (a,b) == head matrizPosiciones [x] == head x 
+
+
+                            
