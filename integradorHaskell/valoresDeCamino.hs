@@ -62,7 +62,7 @@ devolver1erElemFila [x] = x
 devolver1erElemFila (x:xs) = x 
 
 valoresDeCaminoAux :: Tablero -> Camino -> [Int]
-valoresDeCaminoAux [x] [y] | head (posicionFila x 1 1) == y = 
+valoresDeCaminoAux [x] [y] | head (posicionFila x 1 1) == y = devolver1erElemFila x
                            | otherwise = valoresDeCaminoAux (eliminarPrimerElementoTablero [x]) [y]
  
 
