@@ -53,7 +53,7 @@ posicion e (x:xs) | e == x = 1
 
 posicionFila ::  Fila -> Int -> Int -> [(Int,Int)]
 posicionFila [x] n m = [(n, 0+m)] 
-posicionFila (x:xs) n m = [(n, 0+m)] ++ posicionFila xs n m+1
+posicionFila (x:xs) n m = [(n, 0+m)] ++ posicionFila xs n (m+1)
 
 
 posicionTablero :: Tablero -> Int -> [(Int,Int)]
