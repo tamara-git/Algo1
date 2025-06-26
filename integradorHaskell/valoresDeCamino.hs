@@ -51,7 +51,7 @@ posicion e [x] | e == x = 1
 posicion e (x:xs) | e == x = 1 
                   | otherwise = 1 + posicion e xs
 
-posicionFila ::  Fila -> [(Int,Int)]
+posicionFila ::  Fila -> Int -> [(Int,Int)]
 posicionFila [x] n = [(n, posicion x [x])] 
 posicionFila (x:xs) n = [(n, posicion (head(x:xs)) (x:xs))] ++ posicionFila xs n
 
