@@ -37,11 +37,6 @@ columnas [x] = 1
 columnas (x:xs) = 1 + (columnas xs)
 
 
-posicion :: Int -> [Int] -> Int
-posicion e [x] | e == x = 1
-posicion e (x:xs) | e == x = 1 
-                  | otherwise = 1 + posicion e xs
-
 
 posicionFila ::  Fila -> Int -> Int -> [(Int,Int)]
 posicionFila [] 1 1 = [] 
@@ -57,4 +52,10 @@ posicionTablero (x:xs) n = posicionFila x n 1 ++ posicionTablero xs (n+1)
 matrizPosiciones :: Tablero -> [(Int,Int)]
 matrizPosiciones [x] = posicionTablero [x] 1
 matrizPosiciones (x:xs) = posicionTablero (x:xs) 1
-                   
+                
+                
+posicion :: Int -> Fila -> Int -> Int -> [(Int,Int)]
+posicion e [x] n m | e == x = [(n, 0+m)]
+                   | otherwise = []
+posicion e (x:xs) n m | e == x = [(n, 0+m)] 
+                      | otherwise = posicion e xs n (m+1)
