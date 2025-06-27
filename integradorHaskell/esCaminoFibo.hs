@@ -13,10 +13,9 @@ esCaminoFibo (valoresDeCamino tablero [(3,2), (4, 2), (4,3)]) 3, siendo tablero 
 True.
 -}
 
-fibonacci :: Int -> [Int]
-fibonacci 0 = [0]
-fibonacci 1 = [0,1]
-fibonacci 2 = [0,1,1]
+fibonacci :: Int -> Int
+fibonacci 0 = 0
+fibonacci 1 = 1
 fibonacci n = fibonacci (n-1) ++ fibonacci (n-2)
 
 accederElem :: [Int] -> Int -> Int
