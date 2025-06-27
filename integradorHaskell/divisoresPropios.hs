@@ -7,21 +7,19 @@ asegura: {res no contiene a ning´un elemento que no sea un divisor propio de n}
 }
 -}
 
-esDivisor :: Int -> Int -> Bool
-esDivisor n i | (i <= n) && (mod n i == 0) = True
-              | otherwise = False 
+esDivisor :: Int -> Int -> Int
+esDivisor n i | (i <= n) && (mod n i == 0) = i
+              | otherwise = 0 
 
 divisoresDeN :: Int -> Int -> [Int]
 divisoresDeN n i | i > n = []
-                 | esDivisor n i == False = []
-                 | otherwise = [i] ++ divisoresDeN n (i+1)
+                 | otherwise = [esDivisor n i] ++ divisoresDeN n (i+1)
 
 eliminarCeros :: [Int] -> [Int]
-eliminarCeros [] = []
 eliminarCeros [x] | x == 0 = []
 eliminarCeros (x:xs) | x == 0 = eliminarCeros xs
                      | otherwise = x:eliminarCeros xs
 
 divisoresPropios :: Int -> [Int]
-divisoresPropios n = divisoresDeN n 1
+divisoresPropios n = eliminarCeros (divisoresDeN n 1)
 
