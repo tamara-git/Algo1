@@ -31,5 +31,5 @@ fibonacciDesdeHasta i n | i <= n = [fibonacci i] ++ fibonacciDesdeHasta (i+1) n
 esCaminoFibo :: [Int] -> Int -> Bool
 esCaminoFibo [x] i | [x] == fibonacciDesdeHasta i (longitud [x]) = True
                    | otherwise = False
-esCaminoFibo (x:xs) i | (x:xs) == fibonacciDesdeHasta i (i + longitud (x:xs)) = True
+esCaminoFibo (x:xs) i | (x:xs) == fibonacciDesdeHasta i ((i-1) + longitud (x:xs)) = True
                       | otherwise = False
