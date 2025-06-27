@@ -20,40 +20,27 @@ type Tablero = [[Int]]
 type Camino = [(Int,Int)]
 
 
-aplanar :: Tablero -> [Int]
-aplanar [x] = x
-aplanar (x:xs) = x ++ aplanar xs
+indiceColumna :: Fila -> Int -> Int
+indice [x] e | e == x = 1 
+indice (x:xs) e | e == x = 1
+                | otherwise = 1 + indice xs e
 
 
---Cantidad de filas que tiene el tablero. 
-filas :: Tablero -> Int
-filas [x] = 1
-filas (x:xs) = 1 + (filas xs)
+indiceFila :: Tablero -> [Int] -> Int
+indiceFila [x] fila | fila == x = 1
+                    | otherwise = 0
+indiceFila (x:xs) fila | fila == x = 1
+                       | otherwise = 1 + indiceFila xs fila
 
 
---Cantidad de columnas que tiene el tablero.
-columnas :: [Int] -> Int 
-columnas [x] = 1
-columnas (x:xs) = 1 + (columnas xs)
+perteneceAFila :: Int -> [Int] -> Bool
+perteneceAFila e [x] | e == x = True
+                     | otherwise = False
+perteneceAFila e (x:xs) | e == x = True
+                        | otherwise = perteneceAFila e xs
 
 
-
-posicionFila ::  Fila -> Int -> Int -> [(Int,Int)]
-posicionFila [] 1 1 = [] 
-posicionFila [x] n m = [(n, 0+m)] 
-posicionFila (x:xs) n m = [(n, 0+m)] ++ posicionFila xs n (m+1)
-
-
-posicionTablero :: Tablero -> Int -> [(Int,Int)]
-posicionTablero [x] n = posicionFila x n 1
-posicionTablero (x:xs) n = posicionFila x n 1 ++ posicionTablero xs (n+1)    
-
-
-matrizPosiciones :: Tablero -> [(Int,Int)]
-matrizPosiciones [x] = posicionTablero [x] 1
-matrizPosiciones (x:xs) = posicionTablero (x:xs) 1
-                
-
-asignarPosicion :: Tablero -> [(Int,Int)]
-asignarPosicion [x] = matrizPosiciones [x]
-asignarPosicion (x:xs) = matrizPosiciones (x:xs)
+posicionElemento :: Tablero -> Int -> (Int,Int)
+posicionElemento [x] e =  (indiceFila [x] x, indiceColumna x e)
+posicionElemento (x:xs) e | perteneceAFila e x == True = (indiceFila (x:xs) x, indiceColumna x e)
+                          | otherwise = posicionElemento xs e
