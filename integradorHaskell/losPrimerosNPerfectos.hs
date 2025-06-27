@@ -15,15 +15,14 @@ divisoresPropios n = divisoresDeN n 1
                          | otherwise = divisoresDeN n (i+1)
 
 accederAElem :: [Int] -> Int -> Int
-accederAElem [] i = 0
+accederAElem [] i = 0 
 accederAElem [x] 1 = x
 accederAElem (x:xs) 1 = x
 accederAElem (x:xs) i = accederAElem xs (i-1)
 
 sumarElementos :: [Int] -> Int -> Int
 sumarElementos [x] i = x
-sumarElementos (x:xs) i n | i <= n = accederAElem (x:xs) i + sumarElementos (x:xs) (i+1)
-                          | otherwise = 0
+sumarElementos (x:xs) i = accederAElem (x:xs) i + sumarElementos (x:xs) (i+1)
 
 {-losPrimerosNPerfectos :: Int -> [Int]
 losPrimerosNPerfectos n | -}
