@@ -21,9 +21,9 @@ type Camino = [(Int,Int)]
 
 
 indiceColumna :: Fila -> Int -> Int
-indice [x] e | e == x = 1 
-indice (x:xs) e | e == x = 1
-                | otherwise = 1 + indice xs e
+indiceColumna [x] e | e == x = 1 
+indiceColumna (x:xs) e | e == x = 1
+                | otherwise = 1 + indiceColumna xs e
 
 
 indiceFila :: Tablero -> [Int] -> Int
