@@ -14,7 +14,7 @@ divisoresPropios n = divisoresDeN n 1
         divisoresDeN n i | mod n i == 0 = i:divisoresDeN n (i+1)
                          | otherwise = divisoresDeN n (i+1)
 
-accederAElem :: [Int] -> Int
+accederAElem :: [Int] -> Int -> Int
 accederAElem [x] 1 = x
 accederAElem (x:xs) 1 = x
 accederAElem (x:xs) i = accederAElem xs (i-1)
