@@ -38,5 +38,5 @@ fibonacciDesdeHasta i n = eliminarDesdeHasta (fibonacci n) 0 (i-1)
 -}
 
 fibonacciHastaN :: Int -> Int -> [Int]
-fibonacciHastaN i n | i <= n = [fibonacci i] ++ fibonacciHastaN (i+1) fibonacciHastaN
+fibonacciHastaN i n | i <= n = [fibonacci i] ++ fibonacciHastaN (i+1) n
                     | otherwise = []
