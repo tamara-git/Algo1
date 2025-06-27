@@ -31,6 +31,6 @@ eliminarDesdeHasta (x:xs) i j = eliminarDesdeHasta xs i (j-1)
 
 
 fibonnaciDesdeHasta :: Int -> Int -> [Int] 
-fibonnaciDesde 0 n = fibonnaci n
-fibonnaciDesde 1 n = eliminarDesdeHasta (fibonacci n) 0 0
-fibonnaciDesde i n = eliminarDesdeHasta (fibonacci n) 0 (i-1)
+fibonnaciDesdeHasta 0 n = fibonnaci n
+fibonnaciDesdeHasta 1 n = eliminarDesdeHasta (fibonacci n) 0 0
+fibonnaciDesdeHasta i n = eliminarDesdeHasta (fibonacci n) 0 (i-1)
