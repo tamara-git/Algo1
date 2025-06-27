@@ -33,5 +33,5 @@ nPerfectosDesde i n | (i <= n) && ((sumarElementos (divisoresPropios i) 1) == i)
                     | otherwise = nPerfectosDesde (i+1) n
 
 
-{-losPrimerosNPerfectos :: Int -> [Int]
-losPrimerosNPerfectos 4 | sumarElementos (divisoresPropios n) == n = -}
+losPrimerosNPerfectos :: Int -> [Int]
+losPrimerosNPerfectos n = nPerfectosDesde 1 n 
