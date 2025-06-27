@@ -24,7 +24,7 @@ accederAElem (x:xs) i = accederAElem xs (i-1)
 sumarElementos :: [Int] -> Int -> Int
 sumarElementos [] i = 0
 sumarElementos [x] 1 = x
-sumarElementos (x:xs) i = accederAElem (x:xs) i + sumarElementos (x:xs) (i+1)
+sumarElementos (x:xs) i = accederAElem (x:xs) i + sumarElementos xs i
 
 
 nPerfectosDesde :: Int -> Int -> [Int]
