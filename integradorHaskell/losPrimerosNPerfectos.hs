@@ -27,7 +27,7 @@ sumarElementos (x:xs) i = accederAElem (x:xs) i + sumarElementos xs i
 
 nPerfectosDesde :: Int -> Int -> [Int]
 nPerfectosDesde i n | i > n = []
-nPerfectosDesde i n | (i <= n) && (sumarElementos (divisoresPropios i) == i) = [i] ++ nPerfectosDesde (i+1) n 
+nPerfectosDesde i n | (i <= n) && (sumarElementos (divisoresPropios i) 1 == i) = [i] ++ nPerfectosDesde (i+1) n 
                     | otherwise = nPerfectosDesde (i+1) n
 
 
