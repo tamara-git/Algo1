@@ -7,9 +7,9 @@ asegura: {res no contiene a ning´un elemento que no sea un divisor propio de n}
 }
 -}
 
-divisordeN :: Int -> Int -> [Int]
-divisordeN n i | (i <= n) && (mod n i == 0) = i
-               | otherwise = 0
+esDivisor :: Int -> Int -> Bool
+esDivisor n i | mod n i == 0 = True
+              | otherwise = False 
 
 {-divisoresPropios :: Int -> [Int]
 divisoresPropios n =-}
