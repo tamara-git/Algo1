@@ -17,5 +17,5 @@ accederAElem [x] 1 = x
 accederAElem (x:xs) 1 = x
 accederAElem (x:xs) i = accederAElem xs (i-1)
 
-losPrimerosNPerfectos :: Int -> [Int]
-losPrimerosNPerfectos n | 
+{-losPrimerosNPerfectos :: Int -> [Int]
+losPrimerosNPerfectos n | -}
