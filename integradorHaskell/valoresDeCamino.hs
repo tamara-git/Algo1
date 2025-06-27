@@ -23,4 +23,4 @@ type Camino = [(Int,Int)]
 accederAElemento :: Fila -> Int -> Int 
 accederAElemento [x] 1 = x 
 accederAElemento (x:xs) 1 = x 
-accederAElemento (x:xs) n = accederAElemento xs (n)
+accederAElemento (x:xs) n = accederAElemento xs (n-1)
