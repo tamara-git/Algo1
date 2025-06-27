@@ -31,7 +31,7 @@ fila (x:xs) 1 = x
 fila (x:xs) n = fila xs (n-1)
 
 
-posicionTablero :: Tablero -> (Int,Int) -> Int -> Int
+posicionTablero :: Tablero -> (Int,Int) -> Int
 posicionTablero [x] (a,b) = accederAElementoPorIndice (fila [x] a) b
 posicionTablero (x:xs) (a,b) = accederAElementoPorIndice (fila (x:xs) a) b
                           
