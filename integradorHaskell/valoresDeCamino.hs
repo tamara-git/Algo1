@@ -37,6 +37,7 @@ posicionTablero (x:xs) (a,b) = accederAElementoPorIndice (fila (x:xs) a) b
                           
 
 valoresDeCamino :: Tablero -> Camino -> [Int]
+valoresDeCamino [] [] = []
 valoresDeCamino [x] [y] = [posicionTablero [x] y]
 valoresDeCamino [x] (y:ys) = [posicionTablero [x] y] ++ valoresDeCamino [x] ys  
 valoresDeCamino (x:xs) (y:ys) = [posicionTablero (x:xs) y] ++ valoresDeCamino (x:xs) ys
