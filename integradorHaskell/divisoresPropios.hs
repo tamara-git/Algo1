@@ -12,7 +12,7 @@ esDivisor n i | (i <= n) && (mod n i == 0) = i
               | otherwise = 0 
 
 divisoresDeN :: Int -> Int -> [Int]
-divisores n i | i > n = []
+divisoresDeN n i | i > n = []
               | otherwise = [esDivisor n i] ++ divisoresDeN n (i+1)
 
 {-divisoresPropios :: Int -> [Int]
