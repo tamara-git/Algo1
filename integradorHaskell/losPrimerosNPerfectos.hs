@@ -22,7 +22,12 @@ accederAElem (x:xs) i = accederAElem xs (i-1)
 
 sumarElementos :: [Int] -> Int -> Int
 sumarElementos [x] 1 = x
-sumarElementos (x:xs) i = accederAElem (x:xs) i + sumarElementos xs (i)
+sumarElementos (x:xs) i = accederAElem (x:xs) i + sumarElementos xs i
+
+nPerfectosDesde :: Int -> Int
+nPerfectosDesde i n | (i <= n) && (sumarElementos (divisoresPropios i) == i) = i
+                    | otherwise = nPerfectosDesde (i+1) n
+
 
 {-losPrimerosNPerfectos :: Int -> [Int]
-losPrimerosNPerfectos n | -}
+losPrimerosNPerfectos 4 | sumarElementos (divisoresPropios n) == n = -}
