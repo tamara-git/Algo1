@@ -18,6 +18,9 @@ fibonacci 0 = 0
 fibonacci 1 = 1
 fibonacci n = fibonacci (n-1) + fibonacci (n-2)
 
+listaFibonacci :: Int -> [Int]
+listaFibonacci n = [fibonacci n ] ++ listaFibonacci (n+1)
+
 accederElem :: [Int] -> Int -> Int
 accederElem [x] 1 = x
 accederElem (x:xs) 1 = x 
