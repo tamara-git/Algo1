@@ -32,6 +32,6 @@ fila (x:xs) n = fila xs (n-1)
 
 
 posicionTablero :: Tablero -> (Int,Int) -> Int -> Int
-posicionTablero [x] (a,b) n | a == n = accederAElementoPorIndice (fila [x] n) b
-posicionTablero (x:xs) (a,b) n | a == n = accederAElementoPorIndice (fila (x:xs) n) b
+posicionTablero [x] (a,b) = accederAElementoPorIndice (fila [x] a) b
+posicionTablero (x:xs) (a,b) = accederAElementoPorIndice (fila (x:xs) a) b
                           
