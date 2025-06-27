@@ -30,7 +30,8 @@ eliminarDesdeHasta (x:xs) 1 1 = xs
 eliminarDesdeHasta (x:xs) i j = eliminarDesdeHasta xs i (j-1)     
 
 
-fibonacciDesdeHasta :: Int -> Int -> [Int] 
+{-fibonacciDesdeHasta :: Int -> Int -> [Int] 
 fibonacciDesdeHasta 0 n = fibonacci n
 fibonacciDesdeHasta 1 n = eliminarDesdeHasta (fibonacci n) 0 0
 fibonacciDesdeHasta i n = eliminarDesdeHasta (fibonacci n) 0 (i-1)
+-}
