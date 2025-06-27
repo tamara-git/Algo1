@@ -13,7 +13,8 @@ esDivisor n i | (i <= n) && (mod n i == 0) = i
 
 divisoresDeN :: Int -> Int -> [Int]
 divisoresDeN n i | i > n = []
-                 | otherwise = [esDivisor n i] ++ divisoresDeN n (i+1)
+                 | esDivisor n i == False = []
+                 | otherwise = [i] ++ divisoresDeN n (i+1)
 
 eliminarCeros :: [Int] -> [Int]
 eliminarCeros [] = []
@@ -22,5 +23,5 @@ eliminarCeros (x:xs) | x == 0 = eliminarCeros xs
                      | otherwise = x:eliminarCeros xs
 
 divisoresPropios :: Int -> [Int]
-divisoresPropios n = eliminarCeros(divisoresDeN n 1)
+divisoresPropios n = divisoresDeN n 1
 
