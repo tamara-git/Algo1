@@ -33,5 +33,5 @@ fila (x:xs) f | otherwise = 1 + fila xs f
 
 
 posicionTablero :: Tablero -> (Int,Int) -> Int
-posicionTablero [x] (a,b) | a == fila [x] x = accederAElementoPorIndice b
+posicionTablero [x] (a,b) | a == fila [x] x = accederAElementoPorIndice [x] b
                           
