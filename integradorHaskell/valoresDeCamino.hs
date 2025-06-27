@@ -25,15 +25,13 @@ accederAElementoPorIndice [x] 1 = x
 accederAElementoPorIndice (x:xs) 1 = x 
 accederAElementoPorIndice (x:xs) n = accederAElementoPorIndice xs (n-1)
 
-fila :: Tablero -> Fila -> Int 
-fila [x] f | f == x = 1
-           | otherwise = 0
-fila (x:xs) f | f == x =  1
-fila (x:xs) f | otherwise = 1 + fila xs f
+fila :: Tablero -> Int -> Fila 
+fila [x] 1 = x
+fila (x:xs) 1 = x
+fila (x:xs) n = fila xs (n-1)
 
 
-posicionTablero :: Tablero -> (Int,Int) -> Int
-posicionTablero [x] (a,b) | a == fila [x] x = accederAElementoPorIndice x b
-posicionTablero (x:xs) (a,b) | a == fila (x:xs) (head (x:xs)) = accederAElementoPorIndice (head (x:xs)) b
-                             | otherwise = posicionTablero xs (a,b)
+posicionTablero :: Tablero -> (Int,Int) -> Int -> Int
+posicionTablero [x] (a,b) n | a == n = accederAElementoPorIndice (fila [x] n) b
+posicionTablero (x:xs) (a,b) n | a == n = accederAElementoPorIndice (fila (x:xs) n) b
                           
