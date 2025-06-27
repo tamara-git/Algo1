@@ -11,5 +11,5 @@ divisordeN :: Int -> Int -> [Int]
 divisordeN i n | mod i n == 0 = [i] ++ divisordeN (i+1) n
                | otherwise = divisordeN (i+1) n 
 
-divisoresPropios :: Int -> [Int]
-divisoresPropios
+{-divisoresPropios :: Int -> [Int]
+divisoresPropios-}
