@@ -16,6 +16,7 @@ divisoresDeN n i | i > n = []
                  | otherwise = [esDivisor n i] ++ divisoresDeN n (i+1)
 
 eliminarCeros :: [Int] -> [Int]
+eliminarCeros [] = []
 eliminarCeros [x] | x == 0 = []
 eliminarCeros (x:xs) | x == 0 = eliminarCeros xs
                      | otherwise = x:eliminarCeros xs
