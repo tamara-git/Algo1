@@ -9,9 +9,10 @@ Por cuestiones de tiempos de ejecuci´on, no les recomendamos que prueben este e
 
 divisoresPropios :: Int -> [Int]
 divisoresPropios n = divisoresDeN n 1 
-where divisoresDeN :: Int -> Int -> [Int]
-divisoresDeN n i | mod n i == 0 = i:divisoresDeN n (i+1)
-                       | otherwise = divisoresDeN n (i+1)
+    where 
+        divisoresDeN :: Int -> Int -> [Int]
+        divisoresDeN n i | mod n i == 0 = i:divisoresDeN n (i+1)
+                         | otherwise = divisoresDeN n (i+1)
 
 accederAElem :: [Int] -> Int
 accederAElem [x] 1 = x
