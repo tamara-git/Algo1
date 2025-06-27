@@ -20,7 +20,12 @@ type Tablero = [[Int]]
 type Camino = [(Int,Int)]
 
 
-accederAElemento :: Fila -> Int -> Int 
-accederAElemento [x] 1 = x 
-accederAElemento (x:xs) 1 = x 
-accederAElemento (x:xs) n = accederAElemento xs (n-1)
+accederAElementoPorIndice :: Fila -> Int -> Int 
+accederAElementoPorIndice [x] 1 = x 
+accederAElementoPorIndice (x:xs) 1 = x 
+accederAElementoPorIndice (x:xs) n = accederAElementoPorIndice xs (n-1)
+
+fila :: Tablero -> Fila -> Int 
+fila [x] = 1
+fila (x:xs) f | f == x =  1
+fila (x:xs) f | otherwise = 1 + fila xs f
