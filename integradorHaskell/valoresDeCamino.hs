@@ -26,7 +26,7 @@ accederAElementoPorIndice (x:xs) 1 = x
 accederAElementoPorIndice (x:xs) n = accederAElementoPorIndice xs (n-1)
 
 fila :: Tablero -> Fila -> Int 
-fila [x] x | f == x = 1
+fila [x] f | f == x = 1
            | otherwise = 0
 fila (x:xs) f | f == x =  1
 fila (x:xs) f | otherwise = 1 + fila xs f
