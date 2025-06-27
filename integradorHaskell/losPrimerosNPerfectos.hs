@@ -11,7 +11,7 @@ divisoresPropios :: Int -> [Int]
 divisoresPropios n = divisoresDeN n 1 
     where 
         divisoresDeN :: Int -> Int -> [Int]
-        divisoresDeN n i | i > n = []
+        divisoresDeN n i | i >= n = []
                          | mod n i == 0 = i:divisoresDeN n (i+1)
                          | otherwise = divisoresDeN n (i+1)
 
