@@ -13,10 +13,10 @@ esCaminoFibo (valoresDeCamino tablero [(3,2), (4, 2), (4,3)]) 3, siendo tablero 
 True.
 -}
 
-fibonnaci :: Int -> [Int]
-fibonnaci 0 = [0]
-fibonnaci 1 = [0,1]
-fibonnaci n = fibonnaci (n-1) ++ fibonacci (n-2)
+fibonacci :: Int -> [Int]
+fibonacci 0 = [0]
+fibonacci 1 = [0,1]
+fibonacci n = fibonacci (n-1) ++ fibonacci (n-2)
 
 accederElem :: [Int] -> Int -> Int
 accederElem [x] 1 = x
@@ -30,7 +30,7 @@ eliminarDesdeHasta (x:xs) 1 1 = xs
 eliminarDesdeHasta (x:xs) i j = eliminarDesdeHasta xs i (j-1)     
 
 
-fibonnaciDesdeHasta :: Int -> Int -> [Int] 
-fibonnaciDesdeHasta 0 n = fibonnaci n
-fibonnaciDesdeHasta 1 n = eliminarDesdeHasta (fibonacci n) 0 0
-fibonnaciDesdeHasta i n = eliminarDesdeHasta (fibonacci n) 0 (i-1)
+fibonacciDesdeHasta :: Int -> Int -> [Int] 
+fibonacciDesdeHasta 0 n = fibonacci n
+fibonacciDesdeHasta 1 n = eliminarDesdeHasta (fibonacci n) 0 0
+fibonacciDesdeHasta i n = eliminarDesdeHasta (fibonacci n) 0 (i-1)
