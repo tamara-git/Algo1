@@ -13,30 +13,23 @@ esCaminoFibo (valoresDeCamino tablero [(3,2), (4, 2), (4,3)]) 3, siendo tablero 
 True.
 -}
 
+longitud :: [Int] -> Int
+longitud [x] = 1
+longitud (x:xs) = 1 + longitud xs
+
+
 fibonacci :: Int -> Int
 fibonacci 0 = 0
 fibonacci 1 = 1
 fibonacci n = fibonacci (n-1) + fibonacci (n-2)
 
 
-accederElem :: [Int] -> Int -> Int
-accederElem [x] 1 = x
-accederElem (x:xs) 1 = x 
-accederElem (x:xs) n = accederElem xs (n-1)
+fibonacciDesdeHasta :: Int -> Int -> [Int]
+fibonacciDesdeHasta i n | i <= n = [fibonacci i] ++ fibonacciDesdeHasta (i+1) n
+                        | otherwise = []
 
-
-eliminarDesdeHasta :: [Int] -> Int -> Int -> [Int]
-eliminarDesdeHasta [x] 1 1 = []
-eliminarDesdeHasta (x:xs) 1 1 = xs 
-eliminarDesdeHasta (x:xs) i j = eliminarDesdeHasta xs i (j-1)     
-
-
-{-fibonacciDesdeHasta :: Int -> Int -> [Int] 
-fibonacciDesdeHasta 0 n = [fibonacci n] ++
-fibonacciDesdeHasta 1 n = eliminarDesdeHasta (fibonacci n) 0 0
-fibonacciDesdeHasta i n = eliminarDesdeHasta (fibonacci n) 0 (i-1)
--}
-
-fibonacciHastaN :: Int -> Int -> [Int]
-fibonacciHastaN i n | i <= n = [fibonacci i] ++ fibonacciHastaN (i+1) n
-                    | otherwise = []
+esCaminoFibo :: [Int] -> Int -> Bool
+esCaminoFibo [x] i | [x] == fibonacciDesdeHasta i (longitud [x]) = True
+                   | otherwise = False
+esCaminoFibo (x:xs) i | (x:xs) == fibonacciDesdeHasta i (longitud (x:xs)) = True
+                      | otherwise = False
