@@ -20,8 +20,8 @@ accederAElem (x:xs) 1 = x
 accederAElem (x:xs) i = accederAElem xs (i-1)
 
 sumarElementos :: [Int] -> Int -> Int
-sumarElementos [x] 1 = x
-sumarElementos (x:xs) 1 = x
+sumarElementos [x] i = x
+sumarElementos (x:xs) i = x
 sumarElementos (x:xs) i = accederAElem (x:xs) i + sumarElementos (x:xs) (i+1)
 
 {-losPrimerosNPerfectos :: Int -> [Int]
