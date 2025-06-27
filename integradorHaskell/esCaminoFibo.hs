@@ -16,7 +16,7 @@ True.
 fibonnaci :: Int -> [Int]
 fibonnaci 0 = [0]
 fibonnaci 1 = [0,1]
-fibonnaci n = fibonnaci (n-1) ++ [n]
+fibonnaci n = fibonnaci (n-1) ++ fibonacci (n-2)
 
 accederElem :: [Int] -> Int -> Int
 accederElem [x] 1 = x
