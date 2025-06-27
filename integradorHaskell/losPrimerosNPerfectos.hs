@@ -22,7 +22,8 @@ accederAElem (x:xs) i = accederAElem xs (i-1)
 
 sumarElementos :: [Int] -> Int -> Int
 sumarElementos [x] i = x
-sumarElementos (x:xs) i n = | i <= n = accederAElem (x:xs) i + sumarElementos (x:xs) (i+1)
+sumarElementos (x:xs) i n | i <= n = accederAElem (x:xs) i + sumarElementos (x:xs) (i+1)
+                          | otherwise = 0
 
 {-losPrimerosNPerfectos :: Int -> [Int]
 losPrimerosNPerfectos n | -}
