@@ -19,5 +19,9 @@ accederAElem [x] 1 = x
 accederAElem (x:xs) 1 = x
 accederAElem (x:xs) i = accederAElem xs (i-1)
 
+sumarElementos :: [Int] -> Int -> Int
+sumarElementos [x] = x
+sumarElementos (x:xs) i = accederAElem (x:xs) i + sumarElementos xs (i+1)
+
 {-losPrimerosNPerfectos :: Int -> [Int]
 losPrimerosNPerfectos n | -}
