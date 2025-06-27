@@ -20,27 +20,6 @@ type Tablero = [[Int]]
 type Camino = [(Int,Int)]
 
 
-indiceColumna :: Fila -> Int -> Int
-indiceColumna [x] e | e == x = 1 
-indiceColumna (x:xs) e | e == x = 1
-                | otherwise = 1 + indiceColumna xs e
-
-
-indiceFila :: Tablero -> [Int] -> Int
-indiceFila [x] fila | fila == x = 1
-                    | otherwise = 0
-indiceFila (x:xs) fila | fila == x = 1
-                       | otherwise = 1 + indiceFila xs fila
-
-
-perteneceAFila :: Int -> [Int] -> Bool
-perteneceAFila e [x] | e == x = True
-                     | otherwise = False
-perteneceAFila e (x:xs) | e == x = True
-                        | otherwise = perteneceAFila e xs
-
-
-posicionElemento :: Tablero -> Int -> (Int,Int)
-posicionElemento [x] e =  (indiceFila [x] x, indiceColumna x e)
-posicionElemento (x:xs) e | perteneceAFila e x == True = (indiceFila (x:xs) x, indiceColumna x e)
-                          | otherwise = posicionElemento xs e
+accederAElemento :: Fila -> Int -> Int 
+accederAElemento [x] 1 = x 
+accederAElemento (x:xs) n = 1 + accederAElemento xs (n-1)
