@@ -8,8 +8,8 @@ asegura: {res no contiene a ning´un elemento que no sea un divisor propio de n}
 -}
 
 divisordeN :: Int -> Int -> [Int]
-divisordeN i n | (i <= n) && (mod n i == 0) = [i] ++ divisordeN (i+1) n
-               | otherwise = []
+divisordeN n i | (i <= n) && (mod n i == 0) = [i] + divisordeN n (i+1)
+               | otherwise = [0]
 
-{-divisoresPropios :: Int -> [Int]
-divisoresPropios-}
+divisoresPropios :: Int -> [Int]
+divisoresPropios n =
