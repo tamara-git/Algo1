@@ -15,6 +15,7 @@ divisoresPropios n = divisoresDeN n 1
                          | otherwise = divisoresDeN n (i+1)
 
 accederAElem :: [Int] -> Int -> Int
+accederAElem [] i = 0
 accederAElem [x] 1 = x
 accederAElem (x:xs) 1 = x
 accederAElem (x:xs) i = accederAElem xs (i-1)
