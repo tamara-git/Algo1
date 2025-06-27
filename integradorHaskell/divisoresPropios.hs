@@ -11,5 +11,9 @@ esDivisor :: Int -> Int -> Bool
 esDivisor n i | mod n i == 0 = True
               | otherwise = False 
 
+divisoresDeN :: Int -> Int -> [Int]
+divisoresDeN n i | esDivisor n i == True = [i] ++ divisoresDeN n (i+1)
+                 | otherwise = divisoresDeN n (i+1)
+
 {-divisoresPropios :: Int -> [Int]
 divisoresPropios n =-}
