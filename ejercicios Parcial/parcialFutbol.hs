@@ -49,12 +49,12 @@ golesDeNoGoleadores (x:xs) goles totalGoles | sumarElementos goles 1 == totalGol
 --    asegura: {(res = True) <-> goleadoresPorEquipo no contiene nombres de clubes repetidos, ni goleadores repetidos, ni jugadores con nombre de club}
 --}
 
-pertenece :: [(Char)] -> [([Char],[Char])] -> Bool
+pertenece :: [Char] -> [([Char],[Char])] -> Bool
 pertenece [x] [] = False
 pertenece (x:xs) [] = False 
 pertenece [x] [y] | ([x] == fst y) || ([x] == snd y) = True 
                   | otherwise = False
-pertenece (x:xs) [y] | ((x:xs) == fst y) || ((x:xs)  == snd y) = True 
+pertenece (x:xs) [y] | ((x:xs) == fst y) || ((x:xs) == snd y) = True 
                      | otherwise = False
 pertenece (x:xs) (y:ys) | ((x:xs) == fst y) || ((x:xs) == snd y) = True 
                         | otherwise = pertenece (x:xs) ys 
@@ -63,8 +63,8 @@ pertenece (x:xs) (y:ys) | ((x:xs) == fst y) || ((x:xs) == snd y) = True
 hayRepetidos :: [([Char],[Char])] -> Bool
 hayRepetidos [] = False
 hayRepetidos [x] = False
-hayRepetidos (x:xs) | fst x /= fst (head xs) = hayRepetidos xs        
-                    | otherwise = True
+hayRepetidos (x:xs) | pertenece (fst x) (x:xs) || pertenece (snd x) (x:xs) == True = True      
+                    | otherwise = hayRepetidos xs
 
 
 --equiposValidos :: [([Char],[Char])] -> Bool
