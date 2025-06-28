@@ -37,7 +37,7 @@ golesDeNoGoleadores :: [([Char],[Char])] -> [Int] -> Int -> Int
 golesDeNoGoleadores [x] [] totalGoles | sumarElementos [] 1 == totalGoles = 0
                                       | otherwise = totalGoles - (sumarElementos [] 1)
 golesDeNoGoleadores [x] [y] totalGoles | sumarElementos [y] 1 == totalGoles = 0
-                                         | otherwise = totalGoles - (sumarElementos goles 1)
+                                         | otherwise = totalGoles - (sumarElementos [y] 1)
 golesDeNoGoleadores (x:xs) goles totalGoles | sumarElementos goles 1 == totalGoles = 0 
                                             | otherwise = totalGoles - (sumarElementos goles 1)
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
