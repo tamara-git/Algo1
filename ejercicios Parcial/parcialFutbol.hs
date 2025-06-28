@@ -71,7 +71,7 @@ hayRepetidos :: [([Char],[Char])] -> Bool
 hayRepetidos [] = False
 hayRepetidos [x] | posicionesTuplaIguales [x] == True = True
                  | otherwise = False
-hayRepetidos (x:xs) | ((pertenece (fst x) xs || pertenece (snd x) xs) == True) && (posicionesTuplaIguales (x:xs) == True) = True      
+hayRepetidos (x:xs) | ((pertenece (fst x) xs || pertenece (snd x) xs) == True) || (posicionesTuplaIguales (x:xs) == True) = True      
                     | otherwise = hayRepetidos xs
 
 
