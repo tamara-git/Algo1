@@ -34,12 +34,7 @@ sumarElementos (x:xs) i = accederAElem (x:xs) i + sumarElementos xs i
 
 
 golesDeNoGoleadores :: [([Char],[Char])] -> [Int] -> Int -> Int
-golesDeNoGoleadores [x] [] totalGoles | sumarElementos [] 1 == totalGoles = 0
-                                      | otherwise = totalGoles - (sumarElementos [] 1)
-golesDeNoGoleadores [x] [y] totalGoles | sumarElementos [y] 1 == totalGoles = 0
-                                         | otherwise = totalGoles - (sumarElementos [y] 1)
-golesDeNoGoleadores (x:xs) goles totalGoles | sumarElementos goles 1 == totalGoles = 0 
-                                            | otherwise = totalGoles - (sumarElementos goles 1)
+golesDeNoGoleadores _ goles totalGoles = totalGoles - (sumarElementos goles 1)
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --2) Equipos Válidos [3 puntos]
