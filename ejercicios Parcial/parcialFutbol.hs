@@ -63,7 +63,7 @@ pertenece (x:xs) (y:ys) | ((x:xs) == fst y) || ((x:xs) == snd y) = True
 hayRepetidos :: [([Char],[Char])] -> Bool
 hayRepetidos [] = False
 hayRepetidos [x] = False
-hayRepetidos (x:xs) | pertenece (fst x) (x:xs) || pertenece (snd x) (x:xs) == True = True      
+hayRepetidos (x:xs) | pertenece (fst x) xs || pertenece (snd x) xs == True = True      
                     | otherwise = hayRepetidos xs
 
 
