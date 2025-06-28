@@ -106,10 +106,11 @@ accederAElemPorIndice (x:xs) i = accederAElemPorIndice xs (i-1)
 
 
 indiceGoleador :: [Char] -> [([Char],[Char])] -> Int -> Int
+indiceGoleador 
 indiceGoleador goleador [x] 1 | goleador == snd (accederAElemPorIndice [x] 1) = 1
                               | otherwise = 0
 indiceGoleador goleador (x:xs) i | goleador == snd (accederAElemPorIndice (x:xs) i) = i
-                                 | otherwise = indiceGoleador goleador xs (i+1)
+                                 | otherwise = indiceGoleador goleador xs (i)
 
 --porcentajeDeGoles :: [Char] -> [([Char],[Char])] -> [Int] -> Float
 --porcentajeDeGoles 
