@@ -105,14 +105,25 @@ accederAElemPorIndice (x:xs) 1 = x
 accederAElemPorIndice (x:xs) i = accederAElemPorIndice xs (i-1)
 
 
+accederAElem :: [Int] -> Int -> Int
+accederAElem [] i = 0
+accederAElem [x] 1 = x
+accederAElem (x:xs) 1 = x
+accederAElem (x:xs) i = accederAElemPorIndice xs (i-1)
+
+
 indiceGoleador :: [Char] -> [([Char],[Char])] -> Int -> Int 
 indiceGoleador goleador [x] 1 | goleador == snd (accederAElemPorIndice [x] 1) = 1
                               | otherwise = 0
 indiceGoleador goleador (x:xs) i | goleador == snd (accederAElemPorIndice (x:xs) i) = i
                                  | otherwise = indiceGoleador goleador (x:xs) (i+1)
 
---porcentajeDeGoles :: [Char] -> [([Char],[Char])] -> [Int] -> Float
---porcentajeDeGoles 
+sumarElementos :: [Int] -> Int
+sumarElementos [x] 1 = x
+sumarElementos (x:xs) i = accederAElem (x:xs) i + sumarElementos xs i
+
+porcentajeDeGoles :: [Char] -> [([Char],[Char])] -> [Int] -> Float
+porcentajeDeGoles goleador [x] goles = division (accederAElem goles (indiceGoleador goleador [x] 1)) /   
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --4) Botín de Oro [3 puntos]
