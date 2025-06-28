@@ -94,9 +94,24 @@ equiposValidos (x:xs) | hayRepetidos (x:xs) == True = False
 --}
 
 --Para resolver este ejercicio pueden utilizar la siguiente función que devuelve como Float la división entre dos numeros de tipo Int:
---division :: Int -> Int -> Float
---division a b = (fromIntegral a) / (fromIntegral b)
+division :: Int -> Int -> Float
+division a b = (fromIntegral a) / (fromIntegral b)
 
+
+accederAElemPorIndice :: [([Char],[Char])] -> Int -> ([Char],[Char])
+accederAElemPorIndice [x] 1 = x
+accederAElemPorIndice (x:xs) 1 = x
+accederAElemPorIndice (x:xs) i = accederAElemPorIndice xs (i-1)
+
+
+indiceGoleador :: ([Char],[Char]) -> [([Char],[Char])] -> Int
+indiceGoleador goleador [x] 1 | goleador == fst x = accederAElemPorIndice [x] 1
+                              | otherwise = 0
+indiceGoleador goleador (x:xs) i | goleador == fst x = accederAElemPorIndice [x] i
+                                 | otherwise = indiceGoleador xs (i+1)
+
+porcentajeDeGoles :: [Char] -> [([Char],[Char])] -> [Int] -> Float
+porcentajeDeGoles 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --4) Botín de Oro [3 puntos]
