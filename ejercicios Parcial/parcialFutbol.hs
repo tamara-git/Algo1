@@ -110,8 +110,8 @@ indiceGoleador goleador [x] 1 | goleador == fst x = accederAElemPorIndice [x] 1
 indiceGoleador goleador (x:xs) i | goleador == fst x = accederAElemPorIndice [x] i
                                  | otherwise = indiceGoleador xs (i+1)
 
-porcentajeDeGoles :: [Char] -> [([Char],[Char])] -> [Int] -> Float
-porcentajeDeGoles 
+--porcentajeDeGoles :: [Char] -> [([Char],[Char])] -> [Int] -> Float
+--porcentajeDeGoles 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --4) Botín de Oro [3 puntos]
