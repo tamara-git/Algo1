@@ -99,7 +99,7 @@ division a b = (fromIntegral a) / (fromIntegral b)
 
 
 accederAElemPorIndice :: [([Char],[Char])] -> Int -> ([Char],[Char])
-accederAElemPorIndice [] i = ()
+accederAElemPorIndice [] i = ([],[])
 accederAElemPorIndice [x] 1 = x
 accederAElemPorIndice (x:xs) 1 = x
 accederAElemPorIndice (x:xs) i = accederAElemPorIndice xs (i-1)
