@@ -123,7 +123,7 @@ sumarElementos [x] 1 = x
 sumarElementos (x:xs) i = accederAElem (x:xs) i + sumarElementos xs i
 
 porcentajeDeGoles :: [Char] -> [([Char],[Char])] -> [Int] -> Float
-porcentajeDeGoles goleador [x] goles = division (accederAElem goles (indiceGoleador goleador [x] 1)) /   
+porcentajeDeGoles goleador [x] goles = division (accederAElem goles (indiceGoleador goleador [x] 1)) (sumarElementos(goles) 1)  
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --4) Botín de Oro [3 puntos]
