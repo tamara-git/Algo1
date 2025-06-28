@@ -118,7 +118,7 @@ indiceGoleador goleador [x] 1 | goleador == snd (accederAElemPorIndice [x] 1) = 
 indiceGoleador goleador (x:xs) i | goleador == snd (accederAElemPorIndice (x:xs) i) = i
                                  | otherwise = indiceGoleador goleador (x:xs) (i+1)
 
-sumarElementos :: [Int] -> Int
+sumarElementos :: [Int] -> Int -> Int
 sumarElementos [x] 1 = x
 sumarElementos (x:xs) i = accederAElem (x:xs) i + sumarElementos xs i
 
