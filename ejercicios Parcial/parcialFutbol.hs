@@ -130,11 +130,11 @@ porcentajeDeGoles goleador (x:xs) goles = division (accederAElem goles (indiceGo
 
 mayorElemento :: [Int] -> Int
 mayorElemento [x] = x
-mayorElemento (x:xs)  | x >= mayorElemento xs = x
-                      | otherwise = mayorElemento xs 
+mayorElemento (x:xs) | x >= mayorElemento xs = x
+                     | otherwise = mayorElemento xs 
 
-indiceMayorElemento :: [Int] -> Int
-indiceMayorElemento [x] = 1
+indiceMayorElemento :: [Int] -> Int -> Int
+indiceMayorElemento [x] 1 = 1
 indiceMayorElemento (x:xs) i | mayorElemento (x:xs) == x = i
                              | otherwise = indiceMayorElemento (i+1)
 
