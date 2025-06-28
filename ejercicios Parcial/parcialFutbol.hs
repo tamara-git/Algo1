@@ -75,8 +75,11 @@ hayRepetidos (x:xs) | ((pertenece (fst x) xs || pertenece (snd x) xs) == True) |
                     | otherwise = hayRepetidos xs
 
 
---equiposValidos :: [([Char],[Char])] -> Bool
---equiposValidos [x] 
+equiposValidos :: [([Char],[Char])] -> Bool
+equiposValidos [x] | hayRepetidos [x] == True = False
+                   | otherwise = True  
+equiposValidos (x:xs) | hayRepetidos (x:xs) == True = False
+                      | otherwise = True
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --3) Porcentaje de Goles [3 puntos]
