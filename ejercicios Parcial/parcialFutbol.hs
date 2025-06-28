@@ -141,4 +141,4 @@ indiceMayorElemento (x:xs) i | mayorElemento (x:xs) == x = i
 
 botinDeOro :: [([Char],[Char])] -> [Int] -> [Char]
 botinDeOro [x] goles = snd x
-botinDeOro (x:xs) goles | snd (accederAElemPorIndice (x:xs) (indiceMayorElemento goles 1))
+botinDeOro (x:xs) goles = snd (accederAElemPorIndice (x:xs) (indiceMayorElemento goles 1))
