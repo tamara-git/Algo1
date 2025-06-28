@@ -49,14 +49,14 @@ golesDeNoGoleadores (x:xs) goles totalGoles | sumarElementos goles 1 == totalGol
 --    asegura: {(res = True) <-> goleadoresPorEquipo no contiene nombres de clubes repetidos, ni goleadores repetidos, ni jugadores con nombre de club}
 --}
 
-pertenece :: [(char)] -> [([Char],[Char])] -> Bool
+pertenece :: [(Char)] -> [([Char],[Char])] -> Bool
 pertenece [x] [] = False
 pertenece (x:xs) [] = False 
 pertenece [x] [y] | ([x] == fst y) || ([x] == snd y) = True 
                   | otherwise = False
 pertenece (x:xs) [y] | ((x:xs) == fst y) || ((x:xs)  == snd y) = True 
                      | otherwise = False
-pertenece (x:xs) (y:ys) | ((x:xs) == fst y) || ((x:xs)  == snd y) = True 
+pertenece (x:xs) (y:ys) | ((x:xs) == fst y) || ((x:xs) == snd y) = True 
                         | otherwise = pertenece (x:xs) ys 
                         
 
