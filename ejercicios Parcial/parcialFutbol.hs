@@ -128,8 +128,8 @@ porcentajeDeGoles goleador (x:xs) goles = division (accederAElem goles (indiceGo
 --    asegura: {res es alguno de los goleadores de goleadoresPorEquipo que más tantos convirtió de acuerdo a goles}
 --}
 
-indiceDelMayorElem :: [Int] -> Int
-indiceDelMayorElem [x] = x
+indiceDelMayorElem :: [Int] -> Int -> Int
+indiceDelMayorElem [x] 1 = 1
 indiceDelMayorElem (x:xs) i | x >= indiceDelMayorElem xs = i
                        | otherwise = indiceDelMayorElem xs (i+1)
 
