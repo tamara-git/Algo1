@@ -99,15 +99,16 @@ division a b = (fromIntegral a) / (fromIntegral b)
 
 
 accederAElemPorIndice :: [([Char],[Char])] -> Int -> ([Char],[Char])
+accederAElemPorIndice [] i = ()
 accederAElemPorIndice [x] 1 = x
 accederAElemPorIndice (x:xs) 1 = x
 accederAElemPorIndice (x:xs) i = accederAElemPorIndice xs (i-1)
 
 
 indiceGoleador :: [Char] -> [([Char],[Char])] -> Int -> Int
-indiceGoleador goleador [x] 1 | goleador == fst (accederAElemPorIndice [x] 1) = 1
+indiceGoleador goleador [x] 1 | goleador == snd (accederAElemPorIndice [x] 1) = 1
                               | otherwise = 0
-indiceGoleador goleador (x:xs) i | goleador == fst (accederAElemPorIndice (x:xs) i) = i
+indiceGoleador goleador (x:xs) i | goleador == snd (accederAElemPorIndice (x:xs) i) = i
                                  | otherwise = indiceGoleador goleador xs (i+1)
 
 --porcentajeDeGoles :: [Char] -> [([Char],[Char])] -> [Int] -> Float
