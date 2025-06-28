@@ -27,7 +27,7 @@ accederAElem (x:xs) 1 = x
 accederAElem (x:xs) i = accederAElem xs (i-1)
 
 
-sumarElementos :: [Int] -> Int
+sumarElementos :: [Int] -> Int -> Int
 sumarElementos [] 1 = 0
 sumarElementos [x] 1 = x
 sumarElementos (x:xs) i = accederAElem (x:xs) i + sumarElementos xs i
