@@ -58,7 +58,14 @@ pertenece (x:xs) [y] | ((x:xs) == fst y) || ((x:xs) == snd y) = True
                      | otherwise = False
 pertenece (x:xs) (y:ys) | ((x:xs) == fst y) || ((x:xs) == snd y) = True 
                         | otherwise = pertenece (x:xs) ys 
-                        
+
+
+posicionesTuplaIguales :: [([Char],[Char])] -> Bool
+posicionesTuplaIguales [] = False
+posicionesTuplaIguales [x] | fst x == snd x = True 
+                           | otherwise = False
+posicionesTuplaIguales (x:xs) | fst x == snd x = True 
+                              | otherwise = posicionesTuplaIguales xs         
 
 hayRepetidos :: [([Char],[Char])] -> Bool
 hayRepetidos [] = False
