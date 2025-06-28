@@ -136,7 +136,7 @@ mayorElemento (x:xs) | x >= mayorElemento xs = x
 indiceMayorElemento :: [Int] -> Int -> Int
 indiceMayorElemento [x] 1 = 1
 indiceMayorElemento (x:xs) i | mayorElemento (x:xs) == x = i
-                             | otherwise = indiceMayorElemento (i+1)
+                             | otherwise = indiceMayorElemento (x:xs) (i+1)
 
 
 {-botinDeOro :: [([Char],[Char])] -> [Int] -> [Char]
