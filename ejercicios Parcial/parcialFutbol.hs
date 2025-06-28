@@ -49,6 +49,16 @@ golesDeNoGoleadores (x:xs) goles totalGoles | sumarElementos goles 1 == totalGol
 --    asegura: {(res = True) <-> goleadoresPorEquipo no contiene nombres de clubes repetidos, ni goleadores repetidos, ni jugadores con nombre de club}
 --}
 
+
+hayRepetidos :: [([Char],[Char])] -> Bool
+hayRepetidos [] = False
+hayRepetidos [x] = False
+hayRepetidos (x:xs) | fst x /= fst (head xs) = hayRepetidos xs        
+                    | otherwise = True
+
+
+--equiposValidos :: [([Char],[Char])] -> Bool
+--equiposValidos [x] 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --3) Porcentaje de Goles [3 puntos]
