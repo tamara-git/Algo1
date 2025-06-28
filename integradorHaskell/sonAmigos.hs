@@ -28,5 +28,5 @@ sumarDivisores [x] 1 = x
 sumarDivisores (x:xs) i = accederAElem (x:xs) i + sumarDivisores xs i
 
 sonAmigos :: Int -> Int -> Bool
-sonAmigos n m | (n == (sumarDivisores (divisoresPropios m) 1)) and (m == (sumarDivisores (divisoresPropios m) 1))  = True
+sonAmigos n m | (n == (sumarDivisores (divisoresPropios m) 1)) && (m == (sumarDivisores (divisoresPropios m) 1)) = True
               | otherwise = False
