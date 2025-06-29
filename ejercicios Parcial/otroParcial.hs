@@ -31,3 +31,7 @@ promedio :: [Int] -> Float
 promedio [x] = fromIntegral x / fromIntegral (len [x])
 promedio (x:xs) = fromIntegral (sumarElementos (x:xs)) / fromIntegral (len (x:xs))  
 
+
+mediaMovilN :: [Int] -> Int -> Float 
+mediaMovilN [x] 1 = x
+mediaMovilN (x:xs) n = promedio (listaDesdeN n (len (x:xs)))
