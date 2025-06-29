@@ -55,6 +55,12 @@ accederAElemPorIndice [x] 1 = x
 accederAElemPorIndice (x:xs) 1 = x
 accederAElemPorIndice (x:xs) i = accederAElemPorIndice xs (i-1)
 
+fstTrupla :: ([Char], Int, Int) -> Int 
+fstTrupla (a,b,c) = a
+
+sndTrupla :: ([Char], Int, Int) -> Int 
+sndTrupla (a,b,c) = a
+
 third :: ([Char], Int, Int) -> Int 
 third (a,b,c) = c 
 
@@ -62,7 +68,7 @@ third (a,b,c) = c
 cursadasVencidas :: [([Char], Int, Int)] -> Int -> [[Char]]
 cursadasVencidas [x] 1 | (snd x) < 2021 = [fst (accederAElemPorIndice [x] 1)]
                        | otherwise = []
-{-cursadasVencidas (x:xs) i | snd x < 2021 = [fst (accederAElemPorIndice (x:xs) i)] ++ cursadasVencidas (x:xs) (i+1)
+cursadasVencidas (x:xs) i | snd x < 2021 = [fst (accederAElemPorIndice (x:xs) i)] ++ cursadasVencidas (x:xs) (i+1)
                           | otherwise = cursadasVencidas (x:xs) (i+1)
                           | (snd x == 2021) && (third x == 1) = [fst (accederAElemPorIndice (x:xs) i)] ++ cursadasVencidas (x:xs) (i+1)
-                          | otherwise = cursadasVencidas (x:xs) (i+1)-}
+                          | otherwise = cursadasVencidas (x:xs) (i+1)
