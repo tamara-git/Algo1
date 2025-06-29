@@ -68,8 +68,8 @@ third (a,b,c) = c
 cursadasVencidas :: [([Char], Int, Int)] -> Int -> [[Char]]
 cursadasVencidas [x] 1 | (sndTrupla x) < 2021 = [fstTrupla (accederAElemPorIndice [x] 1)]
                        | otherwise = []
-cursadasVencidas (x:xs) i | sndTrupla x > 2021 = [] ++ cursadasVencidas xs i 
-                          | sndTrupla x < 2021 = [fstTrupla (accederAElemPorIndice (x:xs) i)] ++ cursadasVencidas xs i
-                          | otherwise = cursadasVencidas xs i
-                          | (sndTrupla x == 2021) && (third x == 1) = [fstTrupla (accederAElemPorIndice (x:xs) i)] ++ cursadasVencidas xs i
-                          | otherwise = cursadasVencidas xs i
+cursadasVencidas (x:xs) i | sndTrupla x > 2021 = [] ++ cursadasVencidas xs (i+1) 
+                          | sndTrupla x < 2021 = [fstTrupla (accederAElemPorIndice (x:xs) i)] ++ cursadasVencidas xs (i+1)
+                          | otherwise = cursadasVencidas xs (i+1)
+                          | (sndTrupla x == 2021) && (third x == 1) = [fstTrupla (accederAElemPorIndice (x:xs) i)] ++ cursadasVencidas xs (i+1)
+                          | otherwise = cursadasVencidas xs (i+1)
