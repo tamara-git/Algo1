@@ -61,7 +61,7 @@ primo n | esPrimo n == True = n
 
 factoresPrimos :: Int -> Int -> [Int]
 factoresPrimos n i | (i > n) = []
-                   | (i <= n) && (mod n (primo i)) == 0 = i:factoresPrimos n (i+1)
+                   | (i <= n) && (mod n (primo i)) == 0 = primo i:factoresPrimos n (i+1)
                    | otherwise = factoresPrimos n (i+1)
 
 {-esAtractivo :: Int -> Bool
