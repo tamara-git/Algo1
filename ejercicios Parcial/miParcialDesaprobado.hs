@@ -98,9 +98,11 @@ crearColumna :: [[Int]] -> Int -> [Int]
 crearColumna [x] columna  = [elementoEnIndice x columna]
 crearColumna (x:xs) columna = [elementoEnIndice x columna ] ++ crearColumna xs columna
 
+cantidadPares :: [Int] -> Int 
+cantidadPares [x] | mod x 2 == 0 = 1
+                  | otherwise = 0
+cantidadPares (x:xs) | mod x 2 == 0 = 1 + cantidadPares xs  
+                     | otherwise = cantidadPares xs
 
-
-{-cantidadParesColumna :: [[Int]] -> Int -> Int
-cantidadParesColumna [x] col 
-
--}
+cantidadParesColumna :: [[Int]] -> Int -> Int
+cantidadParesColumna _ col = cantidadPares(crearColumna _ col)
