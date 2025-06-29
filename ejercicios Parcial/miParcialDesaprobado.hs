@@ -11,7 +11,7 @@ problema cantidadNumerosAbundantes (d: Z,h: Z) : Z {
 
 
 
-divisoresPropios :: Int -> Int -> [int]
+divisoresPropios :: Int -> Int -> [Int]
 divisoresPropios n d | d >= n = []
                      | (d < n) && (mod n d == 0) = [d] ++ [divisoresPropios n (d+1)]
                      | otherwise = [divisoresPropios n (d+1)]
