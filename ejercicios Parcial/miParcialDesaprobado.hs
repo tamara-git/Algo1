@@ -14,8 +14,9 @@ esDivisor n i | i >= n = []
               | (i < n) && (mod n i == 0) = [i] ++ [esDivisor n (i+1)]
               | otherwise = [esDivisor n (i+1)]
 
-divisoresPropios :: Int -> [Int]
+{-divisoresPropios :: Int -> [Int]
 divisoresPropios n = e
 cantidadNumerosAbundantes :: Int -> Int -> Int 
 cantidadNumerosAbundantes d h 
 
+-}
