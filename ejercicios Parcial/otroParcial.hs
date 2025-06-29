@@ -62,5 +62,5 @@ primo n | esPrimo n == True = n
 factoresPrimos :: Int -> Int -> [Int]
 factoresPrimos n i | mod n (primo i) == 0 = i:factoresPrimos n (i+1)   
 
-esAtractivo :: Int -> Bool
+{-esAtractivo :: Int -> Bool
 esAtractivo n |-}
