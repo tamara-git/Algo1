@@ -5,8 +5,6 @@
 --   asegura: {res es el promedio de los últimos n elementos de lista}
 -- }
 
-
-
 len :: [Int] -> Int
 len [x] = 1
 len (x:xs) = 1 + len xs 
@@ -35,3 +33,21 @@ promedio (x:xs) = fromIntegral (sumarElementos (x:xs)) / fromIntegral (len (x:xs
 mediaMovilN :: [Int] -> Int -> Float 
 mediaMovilN [x] 1 = fromIntegral x 
 mediaMovilN (x:xs) n = promedio (listaDesdeN (x:xs) n (len (x:xs)))
+
+{--- EJERCICIO 2 (2 puntos)    n>0
+-- problema esAtractivo (n: Z) : Bool {
+--   requiere: {n > 0}
+--   asegura: {res = true <=> la cantidad de factores primos de n (distintos o no) es también un número primo.}
+-- }
+-- Aclaración: los factores primos de 30 son [5,3,2]. Los factores primos de 9 son [3,3]. -}
+
+minimoDivisor :: Int -> Int -> Int
+minimoDivisor n desde | (mod n desde == 0) = desde
+                      | otherwise = minimoDivisor n (desde + 1)
+
+esPrimo :: Int -> Bool
+esPrimo n | minimoDivisor n 2 == n = True
+          | otherwise = False 
+
+esAtractivo :: Int -> Bool
+esAtractivo n | 
