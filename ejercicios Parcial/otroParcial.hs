@@ -20,6 +20,6 @@ elementoEnIndice (x:xs) i = elementoEnIndice xs (i-1)
 
 listaDesdeN :: [Int] -> Int -> Int -> [Int]
 listaDesdeN [x] 1 1 = [x]
-listaDesdeN (x:xs) desde hasta | (hasta <= len (x:xs)) = (elementoEnIndice (x:xs) desde): listaDesdeN xs (desde) hasta
+listaDesdeN (x:xs) desde hasta | (hasta <= len (x:xs)) = (elementoEnIndice (x:xs) desde): listaDesdeN (x:xs) (desde + 1) hasta
                                | otherwise = []
 
