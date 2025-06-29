@@ -1,0 +1,25 @@
+-- EJERCICIO 1 (2 puntos)
+-- problema mediaMovilN (lista: seq⟨Z⟩, n: Z) : Float {
+--   requiere: {|lista| > 0}
+--   requiere: {n > 0 ∧ n ≤ |lista|}
+--   asegura: {res es el promedio de los últimos n elementos de lista}
+-- }
+
+
+
+len :: [Int] -> Int
+len [x] = 1
+len (x:xs) = 1 + len xs 
+
+elementoEnIndice :: [Int] -> Int -> Int
+elementoEnIndice [] i = 0
+elementoEnIndice [x] 1 = x
+elementoEnIndice (x:xs) 1 = x 
+elementoEnIndice (x:xs) i = elementoEnIndice xs (i-1)
+
+promedio 
+listaDesdeN :: [Int] -> Int -> Int -> [Int]
+listaDesdeN [x] 1 1 = [x]
+listaDesdeN (x:xs) desde hasta | (hasta <= len (x:xs)) = (elementoEnIndice (x:xs) desde): listaDesdeN xs (desde) hasta
+                               | otherwise = []
+

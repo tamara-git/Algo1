@@ -83,9 +83,7 @@ cursadasVencidas (x:xs) i | sndTrupla x > 2021 = [] ++ cursadasVencidas xs i
   asegura: {res es la cantidad de números pares de los elementos matriz[i][col-1] para todo i tal que 0 ≤ i < |matriz| }
 }
 
-  Ejemplo: cantidadParesColumna [[-9,8,2,3],
-                                 [2,7,-5,3],
-                                 [-1,0,5,6]] 2 debe devolver 2-}
+  Ejemplo: cantidadParesColumna [[-9,8,2,3],[2,7,-5,3],[-1,0,5,6]] 2 debe devolver 2-}
 
 elementoEnIndice :: [Int] -> Int -> Int
 elementoEnIndice [] i = 0
