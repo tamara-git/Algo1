@@ -51,6 +51,7 @@ problema cursadasVencidas (s: seq⟨String x Z x Z⟩) :seq⟨String⟩ {
 
 
 accederAElemPorIndice :: [([Char], Int, Int)] -> Int -> ([Char], Int, Int)
+accederAElemPorIndice [] i = x-x
 accederAElemPorIndice [x] 1 = x 
 accederAElemPorIndice (x:xs) 1 = x
 accederAElemPorIndice (x:xs) i = accederAElemPorIndice xs (i-1)
