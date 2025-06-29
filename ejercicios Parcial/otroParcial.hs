@@ -29,5 +29,5 @@ sumarElementos (x:xs) = x + sumarElementos xs
 
 promedio :: [Int] -> Float
 promedio [x] = fromIntegral x / fromIntegral (len [x])
-promedio (x:xs) = (fromIntegral x + promedio xs) / fromIntegral (len (x:xs))  
+promedio (x:xs) = fromIntegral (sumarElementos (x:xs)) / fromIntegral (len (x:xs))  
 
