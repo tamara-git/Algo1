@@ -32,3 +32,37 @@ cantidadNumerosAbundantes :: Int -> Int -> Int
 cantidadNumerosAbundantes d h | d > h = 0   
                               | (d <= h) && (esNumeroAbundante d == True) = 1 + cantidadNumerosAbundantes (d + 1) h 
                               | otherwise = cantidadNumerosAbundantes (d + 1) h
+
+{-Representaremos una cursada aprobada con una tupla String x Z x Z, donde:
+La primera componente de la tupla contiene el nombre de una materia
+La segunda componente de la tupla contiene el año de aprobación de la cursada
+La tercera componente de la tupla contiene el cuatrimestre de aprobación de la cursada (el valor 0 representa un curso de verano)
+Se pide implementar cursadasVencidas, que dada una lista de cursadas devuelva aquellas materias cuya aprobación de la cursada ya venció, y por lo tanto ya no se puede rendir el final
+problema cursadasVencidas (s: seq⟨String x Z x Z⟩) :seq⟨String⟩ {
+  requiere: { s[i]1 ≥ 1993 para todo i tal que 0 ≤ i < |s|}
+  requiere: { 0 ≤ s[i]2 ≤ 2 para todo i tal que 0 ≤ i < |s|}
+  asegura: { res no tiene elementos repetidos}
+  asegura: { res contiene los nombres de todas las materias incluídas en s tales que la materia fue aprobada a más tardar en el primer cuatrimestre de 2021, inclusive}
+  asegura: { res contiene solamente los nombres de las materias incluídas en s tales que la materia fue aprobada a más tardar en el primer cuatrimestre de 2021, inclusive}
+}
+
+    Ejemplo: cursadasVencidas [("Algoritmos y Estructuras de Datos I", 2020, 2), ("Algoritmos y Estructuras de Datos II", 2022, 1)] debe devolver ["Algoritmos y Estructuras de Datos I"]
+    -}
+
+
+accederAElemPorIndice :: [([Char], Int, Int)] -> ([Char], Int, Int)
+accederAElemPorIndice [x] 1 = x 
+accederAElemPorIndice (x:xs) 1 = x
+accederAElemPorIndice (x:xs) i = accederAElemPorIndice xs (i-1)
+
+third :: [([Char], Int, Int)] -> Int -> Int
+third [(a,b,c)] 1 = c
+third ((a,b,c):xs) indice | indice == 1 = c
+                          | otherwise = third xs indice
+
+cursadasVencidas :: [([Char], Int, Int)] -> [[Char]]
+cursadasVencidas [x] 1 | snd x < 2021 = fst (accederAElemPorIndice [x] 1)
+                       | otherwise = []
+cursadasVencidas (x:xs) i | snd x < 2021 = fst (accederAElemPorIndice (x:xs) i)
+                          | otherwise = cursadasVencidas xs i
+                          | (snd x == 2021) && ()
