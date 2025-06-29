@@ -9,8 +9,8 @@ problema cantidadNumerosAbundantes (d: Z,h: Z) : Z {
 
   Ejemplo: cantidadNumerosAbundantes 12 24 debe devolver 4-}
 
-Divisor :: Int -> Int -> [Int]
-Divisor n i | (i < n) && (mod n i == 0 ) = [i]
+divisor :: Int -> Int -> [Int]
+divisor n i | (i < n) && (mod n i == 0 ) = [i]
               | otherwise = []
 
 --divisoresPropios :: [Int] -> Int -> [Int]
