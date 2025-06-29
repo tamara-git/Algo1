@@ -51,7 +51,7 @@ esPrimo n | minimoDivisor n 2 == n = True
           | otherwise = False 
 
 primos :: Int -> [Int]
-primos n hasta | (n > hasta) == []
+primos n hasta | (n > hasta) = []
                | (n <= hasta) && (esPrimo n == True) = n:primos (n+1) hasta 
                | otherwise = primos (n+1) hasta
 
