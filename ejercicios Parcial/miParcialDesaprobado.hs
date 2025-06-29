@@ -60,9 +60,9 @@ third [(a,b,c)] 1 = c
 third ((a,b,c):xs) indice | indice == 1 = c
                           | otherwise = third xs indice
 
-cursadasVencidas :: [([Char], Int, Int)] -> [[Char]]
+{-cursadasVencidas :: [([Char], Int, Int)] -> [[Char]]
 cursadasVencidas [x] 1 | snd x < 2021 = fst (accederAElemPorIndice [x] 1)
                        | otherwise = []
 cursadasVencidas (x:xs) i | snd x < 2021 = fst (accederAElemPorIndice (x:xs) i)
                           | otherwise = cursadasVencidas xs i
-                          | (snd x == 2021) && ()
+                          | (snd x == 2021) && ()-}
