@@ -49,5 +49,5 @@ esPrimo :: Int -> Bool
 esPrimo n | minimoDivisor n 2 == n = True
           | otherwise = False 
 
-esAtractivo :: Int -> Bool
-esAtractivo n | 
+{-esAtractivo :: Int -> Bool
+esAtractivo n | -}
