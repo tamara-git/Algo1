@@ -60,7 +60,7 @@ third (a,b,c) = c
 
 
 cursadasVencidas :: [([Char], Int, Int)] -> Int -> [[Char]]
-cursadasVencidas [x] 1 | snd x < 2021 = fst (accederAElemPorIndice [x] 1)
+cursadasVencidas [x] 1 | (snd x) < 2021 = [fst (accederAElemPorIndice [x] 1)]
                        | otherwise = []
 {-cursadasVencidas (x:xs) i | snd x < 2021 = [fst (accederAElemPorIndice (x:xs) i)] ++ cursadasVencidas (x:xs) (i+1)
                           | otherwise = cursadasVencidas (x:xs) (i+1)
