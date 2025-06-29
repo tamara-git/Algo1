@@ -55,11 +55,11 @@ accederAElemPorIndice [x] 1 = x
 accederAElemPorIndice (x:xs) 1 = x
 accederAElemPorIndice (x:xs) i = accederAElemPorIndice xs (i-1)
 
-fstTrupla :: ([Char], Int, Int) -> Int 
+fstTrupla :: ([Char], Int, Int) -> [Char] 
 fstTrupla (a,b,c) = a
 
 sndTrupla :: ([Char], Int, Int) -> Int 
-sndTrupla (a,b,c) = a
+sndTrupla (a,b,c) = b
 
 third :: ([Char], Int, Int) -> Int 
 third (a,b,c) = c 
