@@ -87,10 +87,6 @@ cursadasVencidas (x:xs) i | sndTrupla x > 2021 = [] ++ cursadasVencidas xs i
                                  [2,7,-5,3],
                                  [-1,0,5,6]] 2 debe devolver 2-}
 
-accederAElemPorIndice :: [Int] -> Int -> Int
-accederAElemPorIndice [x] 1 = x
-accederAElemPorIndice (x:xs) 1 = x 
-accederAElemPorIndice (x:xs) i = accederAElemPorIndice xs (i-1)
 
 crearColumna :: [[Int]] -> Int -> [Int]
 crearColumna [x] columna  = [accederAElemPorIndice x columna]
