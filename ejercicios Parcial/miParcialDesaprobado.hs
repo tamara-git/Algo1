@@ -55,10 +55,9 @@ accederAElemPorIndice [x] 1 = x
 accederAElemPorIndice (x:xs) 1 = x
 accederAElemPorIndice (x:xs) i = accederAElemPorIndice xs (i-1)
 
-third :: [([Char], Int, Int)] -> Int -> Int
-third [(a,b,c)] 1 = c
-third ((a,b,c):xs) indice | indice == 1 = c
-                          | otherwise = third xs indice
+third :: ([Char], Int, Int) -> Int 
+third (a,b,c) = c 
+
 
 {-cursadasVencidas :: [([Char], Int, Int)] -> [[Char]]
 cursadasVencidas [x] 1 | snd x < 2021 = fst (accederAElemPorIndice [x] 1)
