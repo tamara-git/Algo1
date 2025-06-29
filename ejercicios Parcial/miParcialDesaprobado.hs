@@ -90,7 +90,7 @@ cursadasVencidas (x:xs) i | sndTrupla x > 2021 = [] ++ cursadasVencidas xs i
 
 crearColumna :: [[Int]] -> Int -> [Int]
 crearColumna [x] columna  = [accederAElemPorIndice x columna]
-crearColumna (x:xs) = [accederAElemPorIndice x columna ] ++ crearColumna xs
+crearColumna (x:xs) columna = [accederAElemPorIndice x columna ] ++ crearColumna xs
 
 
 
