@@ -60,7 +60,8 @@ primo n | esPrimo n == True = n
         | otherwise = primo (n+1)
 
 factoresPrimos :: Int -> Int -> [Int]
-factoresPrimos n i | mod n (primo i) == 0 = i:factoresPrimos n (i+1)   
+factoresPrimos n i | mod n (primo i) == 0 = i:factoresPrimos n (i+1)
+                   | otherwise = factoresPrimos n (i+1)
 
 {-esAtractivo :: Int -> Bool
 esAtractivo n |-}
