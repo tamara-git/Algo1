@@ -16,7 +16,9 @@ divisoresPropios n d | d >= n = []
                      | (d < n) && (mod n d == 0) = [d] ++ [divisoresPropios n (d+1)]
                      | otherwise = [divisoresPropios n (d+1)]
 
+--sumarDivisores :: [Int] -> Int
 
-cantidadNumerosAbundantes :: Int -> Int -> Int 
-cantidadNumerosAbundantes d h 
+
+--cantidadNumerosAbundantes :: Int -> Int -> Int 
+--cantidadNumerosAbundantes d h 
 
