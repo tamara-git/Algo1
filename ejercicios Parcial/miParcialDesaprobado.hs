@@ -28,6 +28,7 @@ esNumeroAbundante :: Int -> Bool
 esNumeroAbundante n | sumarDivisores (divisoresPropios n) > n = True  
                     | otherwise = False  
 
-cantidadNumerosAbundantesDesde :: Int -> Int
-cantidadNumerosAbundantesDesde desde | esNumeroAbundante n == True = 1 + cantidadNumerosAbundantesDesde (desde + 1)
-                                       | otherwise = 0
+cantidadNumerosAbundantesDesde :: Int -> Int -> Int
+cantidadNumerosAbundantesDesde desde hasta | desde > hasta = 0   
+                                           | (desde <= hasta) && (esNumeroAbundante n == True) = 1 + cantidadNumerosAbundantesDesde (desde + 1) hasta 
+                                           | otherwise = 0
