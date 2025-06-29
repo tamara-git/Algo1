@@ -17,7 +17,7 @@ elementoEnIndice [x] 1 = x
 elementoEnIndice (x:xs) 1 = x 
 elementoEnIndice (x:xs) i = elementoEnIndice xs (i-1)
 
-promedio 
+
 listaDesdeN :: [Int] -> Int -> Int -> [Int]
 listaDesdeN [x] 1 1 = [x]
 listaDesdeN (x:xs) desde hasta | (hasta <= len (x:xs)) = (elementoEnIndice (x:xs) desde): listaDesdeN xs (desde) hasta
