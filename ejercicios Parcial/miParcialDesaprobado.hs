@@ -15,9 +15,20 @@ esDivisor n i | i >= n = []
               | otherwise = esDivisor n (i+1)
 
 
-{-divisoresPropios :: Int -> [Int]
-divisoresPropios n = e
-cantidadNumerosAbundantes :: Int -> Int -> Int 
-cantidadNumerosAbundantes d h 
+divisoresPropios :: Int -> [Int]
+divisoresPropios n = esDivisor n 1
 
--}
+
+sumarDivisores :: [Int] -> Int
+sumarDivisores [x] = x
+sumarDivisores (x:xs) = x + sumarDivisores xs 
+
+
+esNumeroAbundante :: Int -> Bool 
+esNumeroAbundante n | sumarDivisores (divisoresPropios n) > n = True  
+                    | otherwise = False  
+
+cantidadNumerosAbundantesDesde :: Int ->  Int -> Int
+cantidadNumerosAbundantesDesde n desde | esNumeroAbundante n == True = 1 + cantidadNumerosAbundantesDesde n (desde + 1)
+                                       | otherwise = 0
+                                       
