@@ -105,4 +105,5 @@ cantidadPares (x:xs) | mod x 2 == 0 = 1 + cantidadPares xs
                      | otherwise = cantidadPares xs
 
 cantidadParesColumna :: [[Int]] -> Int -> Int
-cantidadParesColumna _ col = cantidadPares(crearColumna _ col)
+cantidadParesColumna [x] col = cantidadPares(crearColumna [x] col)
+cantidadParesColumna (x:xs) col = cantidadPares(crearColumna (x:xs) col)
