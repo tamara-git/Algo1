@@ -55,8 +55,8 @@ primos n hasta | (n > hasta) == []
                | (n <= hasta) && (esPrimo n == True) = n:primos (n+1) hasta 
                | otherwise = primos (n+1) hasta
 
-factoresPrimos :: Int -> [Int]
-factoresPrimos n =  
+{-factoresPrimos :: Int -> [Int]
+factoresPrimos n | primos n n 
 
 esAtractivo :: Int -> Bool
-esAtractivo n |
+esAtractivo n |-}
