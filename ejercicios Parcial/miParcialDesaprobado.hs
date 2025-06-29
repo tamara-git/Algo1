@@ -30,5 +30,5 @@ esNumeroAbundante n | sumarDivisores (divisoresPropios n) > n = True
 
 cantidadNumerosAbundantesDesde :: Int -> Int -> Int
 cantidadNumerosAbundantesDesde desde hasta | desde > hasta = 0   
-                                           | (desde <= hasta) && (esNumeroAbundante n == True) = 1 + cantidadNumerosAbundantesDesde (desde + 1) hasta 
+                                           | (desde <= hasta) && (esNumeroAbundante desde == True) = 1 + cantidadNumerosAbundantesDesde (desde + 1) hasta 
                                            | otherwise = 0
