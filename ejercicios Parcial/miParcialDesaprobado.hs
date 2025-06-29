@@ -11,8 +11,9 @@ problema cantidadNumerosAbundantes (d: Z,h: Z) : Z {
 
 esDivisor :: Int -> Int -> [Int]
 esDivisor n i | i >= n = []
-              | (i < n) && (mod n i == 0) = [i] ++ [esDivisor n (i+1)]
-              | otherwise = [esDivisor n (i+1)]
+              | (i < n) && (mod n i == 0) = i:esDivisor n (i+1)
+              | otherwise = esDivisor n (i+1)
+
 
 {-divisoresPropios :: Int -> [Int]
 divisoresPropios n = e
