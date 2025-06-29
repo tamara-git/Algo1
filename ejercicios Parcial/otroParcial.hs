@@ -23,3 +23,11 @@ listaDesdeN [x] 1 1 = [x]
 listaDesdeN (x:xs) desde hasta | (desde <= hasta) && (hasta <= len (x:xs)) = (elementoEnIndice (x:xs) desde): listaDesdeN (x:xs) (desde + 1) hasta
                                | otherwise = []
 
+sumarElementos :: [Int] -> Int
+sumarElementos [x] = x
+sumarElementos (x:xs) = x + sumarElementos xs
+
+promedio :: [Int] -> Float
+promedio [x] = fromIntegral x / len [x]
+promedio (x:xs) = (fromIntegral x + promedio xs) / len (x:xs)  
+
