@@ -73,3 +73,32 @@ cursadasVencidas [x] i | (sndTrupla x < 2021) || ((sndTrupla x == 2021) && (thir
 cursadasVencidas (x:xs) i | sndTrupla x > 2021 = [] ++ cursadasVencidas xs i
                           | (sndTrupla x < 2021) || ((sndTrupla x == 2021) && (third x == 1)) = [fstTrupla (accederAElemPorIndice (x:xs) i)] ++ cursadasVencidas xs i
                           | otherwise = cursadasVencidas xs i
+
+
+{-problema cantidadParesColumna (matriz: seq⟨seq⟨Z⟩⟩, col: Z) : Z{
+  requiere: {Todos los elementos de la secuencia matriz tienen la misma longitud}
+  requiere: {|matriz| > 0}
+  requiere: {|matriz[0]| > 0}
+  requiere: {1 ≤ col ≤ |matriz[0]|}
+  asegura: {res es la cantidad de números pares de los elementos matriz[i][col-1] para todo i tal que 0 ≤ i < |matriz| }
+}
+
+  Ejemplo: cantidadParesColumna [[-9,8,2,3],
+                                 [2,7,-5,3],
+                                 [-1,0,5,6]] 2 debe devolver 2-}
+
+accederAElemPorIndice :: [Int] -> Int -> Int
+accederAElemPorIndice [x] 1 = x
+accederAElemPorIndice (x:xs) 1 = x 
+accederAElemPorIndice (x:xs) i = accederAElemPorIndice xs (i-1)
+
+crearColumna :: [[Int]] -> Int -> [Int]
+crearColumna [x] columna  = [accederAElemPorIndice x columna]
+crearColumna (x:xs) = [accederAElemPorIndice x columna ] ++ crearColumna xs
+
+
+
+{-cantidadParesColumna :: [[Int]] -> Int -> Int
+cantidadParesColumna [x] col 
+
+-}
