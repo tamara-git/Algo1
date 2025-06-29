@@ -42,7 +42,8 @@ mediaMovilN (x:xs) n = promedio (listaDesdeN (x:xs) n (len (x:xs)))
 -- Aclaración: los factores primos de 30 son [5,3,2]. Los factores primos de 9 son [3,3]. -}
 
 minimoDivisor :: Int -> Int -> Int
-minimoDivisor n desde | (mod n desde == 0) = desde
+minimoDivisor n desde | (desde > n) = 0
+                      | (desde <= n) && (mod n desde == 0) = desde
                       | otherwise = minimoDivisor n (desde + 1)
 
 esPrimo :: Int -> Bool
