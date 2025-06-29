@@ -51,6 +51,7 @@ problema cursadasVencidas (s: seq⟨String x Z x Z⟩) :seq⟨String⟩ {
 
 
 accederAElemPorIndice :: [([Char], Int, Int)] -> Int -> ([Char], Int, Int)
+accederAElemPorIndice [] i = ()
 accederAElemPorIndice [x] 1 = x 
 accederAElemPorIndice (x:xs) 1 = x
 accederAElemPorIndice (x:xs) i = accederAElemPorIndice xs (i-1)
@@ -69,8 +70,6 @@ cursadasVencidas :: [([Char], Int, Int)] -> Int -> [[Char]]
 cursadasVencidas [] i = []
 cursadasVencidas [x] 1 | (sndTrupla x < 2021) || ((sndTrupla x == 2021) && (third x == 1)) = [fstTrupla (accederAElemPorIndice [x] 1)]
                        | otherwise = [] 
-
-
 cursadasVencidas (x:xs) i | sndTrupla x > 2021 = [] ++ cursadasVencidas xs (i+1)
                           | sndTrupla x < 2021 = [fstTrupla (accederAElemPorIndice (x:xs) i)] ++ cursadasVencidas xs (i+1)
                           | (sndTrupla x == 2021) && (third x == 1) = [fstTrupla (accederAElemPorIndice (x:xs) i)] ++ cursadasVencidas xs (i+1)
