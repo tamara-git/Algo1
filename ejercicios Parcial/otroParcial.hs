@@ -86,7 +86,12 @@ indiceAbecedario [] elemento = 0
 indiceAbecedario (x:xs) elemento | elemento == x = 1
                                  | otherwise = 1 + indiceAbecedario xs elemento
 
+
+esMenor :: [Char] -> Bool
+esMenor (x:xs) | indiceAbecedario (x:xs) x < indiceAbecedario (x:xs) (head xs) = esMenor xs
+               | otherwise = False 
+
 palabraOrdenada :: [Char] -> Bool
 palabraOrdenada [x] = True
-palabraOrdenada (x:xs) | indiceAbecedario (x:xs) x < palabraOrdenada xs = True
-                       | otherwise = False 
+palabraOrdenada (x:xs) | indiceAbecedario (x:xs) x < indiceAbecedario xs = True
+                       | otherwise = Faldr
