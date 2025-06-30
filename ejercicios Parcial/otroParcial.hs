@@ -61,7 +61,6 @@ factoresPrimos n [] = []
 factoresPrimos n (x:xs) | (mod n x == 0) = x:factoresPrimos (div n x) xs
                         | otherwise = factoresPrimos n xs
 
-facto
 
 {-esAtractivo :: Int -> Bool
 esAtractivo n |-}
