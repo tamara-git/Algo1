@@ -51,9 +51,9 @@ esPrimo n | minimoDivisor n 2 == n = True
           | otherwise = False 
 
 primos :: Int -> Int -> [Int]
-primos n hasta | (n > hasta) = []
-               | (n <= hasta) && (esPrimo n == True) = n:primos (n+1) hasta 
-               | otherwise = primos (n+1) hasta
+primos desde hasta | (desde > hasta) = []
+               | (desde <= hasta) && (esPrimo desde == True) = desde:primos (n+1) hasta 
+               | otherwise = primos (desde+1) hasta
 
 
 factoresPrimos :: Int -> [Int] -> [Int]
@@ -68,5 +68,5 @@ cantidadElementos (x:xs) = 1 + cantidadElementos xs
 
 
 esAtractivo :: Int -> Bool
-esAtractivo n | esPrimo (cantidadElementos(factoresPrimos n (primos n n))) == True = True
+esAtractivo n | esPrimo (cantidadElementos(factoresPrimos n (primos 2 n))) == True = True
               | otherwise = False
