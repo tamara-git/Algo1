@@ -89,7 +89,7 @@ indiceAbecedario (x:xs) elemento | elemento == x = 1
 
 esMenor :: [Char] -> Bool
 esMenor [] = True 
-esMenor (x:xs) | (indiceAbecedario abecedario x) < (indiceAbecedario abecedario (head xs)) = esMenor xs
+esMenor (x:xs) | (indiceAbecedario abecedario x) < esMenor xs == True
                | otherwise = False 
 
 
