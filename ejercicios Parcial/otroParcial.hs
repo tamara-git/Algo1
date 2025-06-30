@@ -70,3 +70,25 @@ cantidadElementos (x:xs) = 1 + cantidadElementos xs
 esAtractivo :: Int -> Bool
 esAtractivo n | esPrimo (cantidadElementos(factoresPrimos n (primos 2 n))) == True = True
               | otherwise = False
+
+
+{--- EJERCICIO 3 (2 puntos)
+-- problema palabraOrdenada (palabra: seq⟨Char⟩) : Bool {
+--   requiere: {True}
+--   asegura: {res = true <=> cada uno de los elementos no blancos de palabra es mayor o igual al anterior caracter no blanco, si existe alguno.}
+-- }
+-- Aclaración: 'a' < 'b' es True. -}
+
+abecedario :: Char -> [Char]
+abecedario a = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","k","y","z"]
+abecedario A = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","K","Y","Z"]
+
+indiceAbecedario :: [Char] -> Char -> Int
+indiceAbecedario [] elemento = 0
+indiceAbecedario (x:xs) elemento | elemento == x = 1
+                                 | otherwise = 1 + indiceAbecedario xs elemento
+
+palabraOrdenada :: [Char] -> Bool
+palabraOrdenada [x] =  True
+palabraOrdenada (x:xs) | x < palabraOrdenada xs = palabraOrdenada xs 
+                       | otherwise = False 
