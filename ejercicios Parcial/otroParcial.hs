@@ -58,7 +58,7 @@ primos n hasta | (n > hasta) = []
 
 factoresPrimos :: Int -> [Int] -> [Int]
 factoresPrimos n [] = []
-factoresPrimos n (x:xs) | (mod n x == 0) = x:factoresPrimos (div n x) xs
+factoresPrimos n (x:xs) | (mod n x == 0) = x:factoresPrimos (div n x) (x:xs)
                         | otherwise = factoresPrimos n xs
 
 
