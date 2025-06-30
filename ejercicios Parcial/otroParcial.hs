@@ -91,5 +91,6 @@ palabraOrdenadaAux :: [Char] -> Bool
 palabraOrdenadaAux [] = True
 palabraOrdenadaAux [x] = True
 palabraOrdenadaAux (x:y:xs) | indiceAbecedario abecedario x < indiceAbecedario abecedario y = palabraOrdenadaAux (y:xs)
+                            | otherwise = False 
 
 
