@@ -57,8 +57,8 @@ primos n hasta | (n > hasta) = []
 
 
 factoresPrimos :: Int -> [Int] -> [Int]
-factoresPrimos n (x:xs) | (mod n x == 0) = x:factoresPrimos (div n x) (x:xs)
-                        | otherwise = factoresPrimos (div n x) (x:xs)
+factoresPrimos n (x:xs) | (mod n x == 0) = x:factoresPrimos (div n x) xs
+                        | otherwise = factoresPrimos (div n x) xs
 
 {-esAtractivo :: Int -> Bool
 esAtractivo n |-}
