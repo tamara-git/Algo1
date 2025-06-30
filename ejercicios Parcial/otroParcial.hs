@@ -91,7 +91,7 @@ esMenor :: [Char] -> Bool
 esMenor (x:xs) | indiceAbecedario (x:xs) x < indiceAbecedario (x:xs) (head xs) = esMenor xs
                | otherwise = False 
 
-palabraOrdenada :: [Char] -> Bool
+{-palabraOrdenada :: [Char] -> Bool
 palabraOrdenada [x] = True
 palabraOrdenada (x:xs) | indiceAbecedario (x:xs) x < indiceAbecedario xs = True
-                       | otherwise = Faldr
+                       | otherwise = Faldr-}
