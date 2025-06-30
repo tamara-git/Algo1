@@ -62,6 +62,7 @@ factoresPrimos n (x:xs) | (mod n x == 0) = x:factoresPrimos (div n x) (x:xs)
                         | otherwise = factoresPrimos n xs
 
 cantidadElementos :: [Int] -> Int
+cantidadElementos [] = 0
 cantidadElementos [x] = 1
 cantidadElementos (x:xs) = 1 + cantidadElementos xs
 
