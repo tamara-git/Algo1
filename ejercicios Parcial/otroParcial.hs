@@ -88,5 +88,5 @@ indiceAbecedario (x:xs) elemento | elemento == x = 1
 
 palabraOrdenada :: [Char] -> Bool
 palabraOrdenada [x] = True
-palabraOrdenada (x:xs) | x < palabraOrdenada xs = palabraOrdenada xs 
+palabraOrdenada (x:xs) | indiceAbecedario (x:xs) x < palabraOrdenada xs = True
                        | otherwise = False 
