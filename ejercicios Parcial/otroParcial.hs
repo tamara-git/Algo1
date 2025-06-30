@@ -61,6 +61,11 @@ factoresPrimos n [] = []
 factoresPrimos n (x:xs) | (mod n x == 0) = x:factoresPrimos (div n x) (x:xs)
                         | otherwise = factoresPrimos n xs
 
+cantidadElementos :: [Int] -> Int
+cantidadElementos [x] = 1
+cantidadElementos (x:xs) = 1 + cantidadElementos xs
 
-{-esAtractivo :: Int -> Bool
-esAtractivo n |-}
+
+esAtractivo :: Int -> Bool
+esAtractivo n | esPrimo (cantidadElementos(factoresPrimos n (primos n n))) == True = True
+              | otherwise = False
