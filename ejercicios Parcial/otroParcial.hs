@@ -79,7 +79,7 @@ esAtractivo n | esPrimo (cantidadElementos(factoresPrimos n (primos 2 n))) == Tr
 -- }
 -- Aclaración: 'a' < 'b' es True. -}
 
-abecedario = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","k","y","z"]
+abecedario = "abcdefghijklmnñopqrstuvwxyz"
 
 indiceAbecedario :: [Char] -> Char -> Int
 indiceAbecedario [] elemento = 0
