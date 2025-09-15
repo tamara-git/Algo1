@@ -1,15 +1,19 @@
+{-Implementar menorDivisor :: Integer -> Integer que calcule el menor divisor (mayor que 1)
+ de un natural n pasado como parámetro.
+-}
 --Mio
-esdivisor :: Integer -> Integer -> Integer
-esdivisor n i | mod (n i) == 0 = div n i 
-              | otherwise = 
+
+menorDivisorDesde :: Integer -> Integer -> Integer
+menorDivisorDesde n d | (d <= n) && (mod n d == 0) = d 
+                      | (d <= n) && (mod n d /= 0) = menorDivisorDesde n (d+1)
+
+
 
 menorDivisor :: Integer -> Integer
-menorDivisor n | 
-               | 
-
-esdivisor n m < esdivisor n i
+menorDivisor n = menorDivisorDesde n 2
 
 
+{-
 --Clase
 --requiere desde < n
 menorDivisorDesde :: Integer -> Integer -> Integer
@@ -18,4 +22,4 @@ menorDivisorDesde n desde | mod n desde == 0 = desde
 
 menorDivisor :: Integer -> Integer
 menorDivisor n = menorDivisorDesde n 2
-               
+               -}

@@ -1,3 +1,6 @@
+--Implementar una función que determine si un número es primo, o no.
+
+
 esPrimo :: Integer -> Bool
 esPrimo n | menorDivisor n == n = True
           | otherwise = False

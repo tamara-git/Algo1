@@ -1,12 +1,11 @@
 --dados dos números racionales, decide si alguno es igual a 0 (resolverlo con y sin pattern matching)
 algunoEsCero ::  Float -> Float -> Bool
-algunoEsCero x y | x == 0 = True
-                 | y == 0 = True 
+algunoEsCero x y | x == 0 || (y == 0) = True
                  | otherwise = False
 
 --Con Pattern Matching
-algunoEsCero2 :: Float -> Float -> Bool
-algunoEsCero2 x 0 = True
-algunoEsCero2 0 y = True
-algunoEsCero2 x y = False
+algunoEsCeroPattern :: Float -> Float -> Bool
+algunoEsCeroPattern x 0 = True
+algunoEsCeroPattern 0 y = True
+algunoEsCeroPattern x y = False
 

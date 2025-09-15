@@ -2,13 +2,9 @@
 un número natural. Para esta función pueden utilizar div y mod.-}
 
 digitoUnidad :: Integer -> Integer
-digitoUnidad x = mod x 10
+digitoUnidad n = mod n 10
 
-cantidadDigitos :: Integer -> Integer
-cantidadDigitos x | x == 0 = 0
-                  | x < 10 = 1
-                  | otherwise = cantidadDigitos (div x 10) + 1
 
 sumaDigitos :: Integer -> Integer
-sumaDigitos n | cantidadDigitos n == 1 = n 
-              | otherwise = sumaDigitos (div n 10) + digitoUnidad n 
+sumaDigitos n | n < 10 = n
+              | otherwise = digitoUnidad n + sumaDigitos (div n 10)

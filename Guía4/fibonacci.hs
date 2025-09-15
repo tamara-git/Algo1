@@ -1,4 +1,4 @@
-{-Implementar la funci´on fibonacci:: Integer ->Integer que devuelve el i-´esimo n´umero de Fibonacci.
+{-Implementar la función fibonacci:: Integer ->Integer que devuelve el i-´esimo número de Fibonacci.
 Recordar que la secuencia de Fibonacci se define como:
    f ib(n) =
 0 si n = 0
@@ -10,7 +10,15 @@ requiere: { n ≥ 0 }
 asegura: { resultado = f ib(n) }
 }
 -}
- fibonacci :: Integer -> Integer
- fibonacci n  | n==0 = 0
+
+--Fibonacci con Patern Matching
+fibonacci :: Integer -> Integer
+fibonacci 0 = 0
+fibonacci 1 = 1
+fibonacci n = fibonacci (n-1) + fibonacci (n-2)
+
+--Fibonacci2, sin Patern Matching
+ fibonacci2 :: Integer -> Integer
+ fibonacci2 n  | n==0 = 0
               | n==1 = 1
-              | otherwise = fibonacci (n-1) + fibonacci (n-2)
+              | otherwise = fibonacci2 (n-1) + fibonacci2 (n-2)

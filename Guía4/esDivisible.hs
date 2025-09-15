@@ -2,8 +2,11 @@
 que dados dos números naturales determina si el primero es divisible por el segundo. 
 No está permitido utilizar las funciones mod ni div.-}
 
+siEsMultiploDevuelveN :: Integer -> Integer -> Integer
+siEsMultiploDevuelveN n m | n < m = 0
+                          | otherwise = m + siEsMultiploDevuelveN (n-m) m 
+
+
 esDivisible :: Integer -> Integer -> Bool
-esDivisible x y | x < y = False
-                |  
-x = a*Y   
-                |  esDivisible () 
+esDivisible n m | siEsMultiploDevuelveN n m == n = True
+                | otherwise = False

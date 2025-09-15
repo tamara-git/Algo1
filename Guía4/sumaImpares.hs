@@ -4,7 +4,6 @@ asegura: { resultado = sumatoria i=1 n (2n-1) }
 } 
 -}
 
-
 impar :: Integer -> Integer
 impar x = 2*x - 1
 
