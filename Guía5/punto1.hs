@@ -1,7 +1,9 @@
+import Distribution.Simple.Utils (xargs)
 --Definir las siguientes funciones sobre listas:
 -- 1. longitud :: [t] -> Integer, que dada una lista devuelve su cantidad de elementos.
 longitud :: [t] -> Integer
 longitud [] = 0
+longitud [x] = 1
 longitud (x:xs) = 1 + longitud (xs)
 
 {-  2. ultimo :: [t] -> t según la siguiente especificación:
@@ -10,6 +12,8 @@ longitud (x:xs) = 1 + longitud (xs)
             asegura: { resultado = s[|s| − 1] }
 }
 -}
+
+
 ultimo :: [t] -> t 
 ultimo [x] = x
 ultimo (_:xs) = ultimo (xs)
