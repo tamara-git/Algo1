@@ -20,7 +20,5 @@ hayRepetidos (x:xs) | (x:xs) == [x] = False
                     | pertenece x xs == True = True
                     | otherwise = hayRepetidos (xs)
 
---Otra forma pero sin recursión directa en hayRepetidos
-{-
-hayRepetidos xs = not (todosDistintos xs)
--}
+-- Otra forma pero sin recursión directa en hayRepetidos
+{- hayRepetidos xs = not (todosDistintos xs) -}

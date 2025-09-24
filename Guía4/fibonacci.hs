@@ -21,4 +21,4 @@ fibonacci n = fibonacci (n-1) + fibonacci (n-2)
  fibonacci2 :: Integer -> Integer
  fibonacci2 n  | n==0 = 0
               | n==1 = 1
-              | otherwise = fibonacci2 (n-1) + fibonacci2 (n-2)
+              | otherwise = fibonacci2 (n-1) + fibonacci2 (n-2)  

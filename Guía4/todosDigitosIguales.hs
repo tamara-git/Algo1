@@ -10,4 +10,4 @@ digitoUnidad n = mod n 10
 todosDigitosIguales :: Integer -> Bool
 todosDigitosIguales n | n < 10 = True
                       | digitoUnidad n /= digitoUnidad (div n 10) = False
-                      | otherwise = todosDigitosIguales (div n 10)
+                      | otherwise = todosDigitosIguales (div n 10)  

@@ -1,13 +1,6 @@
-sumatoriaqn :: Float -> Integer -> Float
-sumatoriaqn q n | n == 1 = q 
-                | otherwise = sumatoriaqn q (n-1) + q^n
-
-sumatoriaq2n :: Float -> Integer -> Float
-sumatoriaq2n q n | n == 0 = 0
-                 | n == 1 = (q^2 + q^1)
-                 | otherwise = q^(2*n) + q^(2*n-1) + sumatoriaq2n q (n-1)     
-
-sumatoria2_q2n :: Float -> Integer -> Float
-sumatoria2_q2n q n | n == 0 = 1
-                   | n == 1 = (q^2 + q^1)
-                   | otherwise = q^n + sumatoriaq2n q n - sumatoriaqn q n              
+{- f4(n,q) = sumatoria desde i=n hasta 2n de q^i 
+requiere : {n >= 0  ^  q pertenece a los reales} -}
+f4 :: Float -> Integer -> Float
+f4 q 0 = 1 
+f4 q 1 = q^2 + q 
+f4 q n = q^2n + q^(2*n-1) + f4 q (n-1) - q^(n-1)

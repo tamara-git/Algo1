@@ -5,9 +5,7 @@ asegura: { resultado = sumatoria i=1 n (2n-1) }
 -}
 
 impar :: Integer -> Integer
-impar x = 2*x - 1
+impar n = 2*n - 1
 
 sumaImpares :: Integer -> Integer
-sumaImpares x | x == 1 = 1
-              | otherwise = sumaImpares (x-1) + impar x
-
+sumaImpares x = impar x + sumaImpares (x-1)

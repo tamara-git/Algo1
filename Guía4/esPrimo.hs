@@ -1,14 +1,12 @@
 --Implementar una función que determine si un número es primo, o no.
 
-
-esPrimo :: Integer -> Bool
-esPrimo n | menorDivisor n == n = True
-          | otherwise = False
-
-
 menorDivisorDesde :: Integer -> Integer -> Integer
-menorDivisorDesde n desde | mod n desde == 0 = desde
-                          | otherwise = menorDivisorDesde n (desde + 1) 
+menorDivisorDesde x d | mod x d == 0 = d
+                      | otherwise = menorDivisorDesde x (d + 1)
 
 menorDivisor :: Integer -> Integer
-menorDivisor n = menorDivisorDesde n 2
+menorDivisor x = menorDivisorDesde x 2 
+
+esPrimo :: Integer -> Bool 
+esPrimo x | menorDivisor x == x = True
+          | otherwise = False

@@ -7,4 +7,4 @@ digitoUnidad n = mod n 10
 
 sumaDigitos :: Integer -> Integer
 sumaDigitos n | n < 10 = n
-              | otherwise = digitoUnidad n + sumaDigitos (div n 10)
+              | otherwise = digitoUnidad n + sumaDigitos (div n 10) 

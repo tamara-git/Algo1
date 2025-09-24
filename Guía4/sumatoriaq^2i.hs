@@ -1,4 +1,4 @@
-sumatoriaq2n :: Float -> Integer -> Float
-sumatoriaq2n q n | n == 0 = 0
-                 | n == 1 = (q^2 + q^1)
-                 | otherwise = q^(2*n) + q^(2*n-1) + sumatoriaq2n q (n-1)            
+{-f3(n,q) = sumatoria desde i=1 hasta 2n de q^i -}
+f3 :: Float -> Integer -> Float
+f3 q 1 = q + q^2
+f3 q n = q^(2*n) + q^(2*n-1) + f3 q (n-1)

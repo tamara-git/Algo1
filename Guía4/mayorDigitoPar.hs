@@ -6,7 +6,7 @@ Si n no tiene ningún dígito par, entonces resultado es -1.}
 
 digitoUnidad :: Integer -> Integer
 digitoUnidad n = mod n 10
-
+   
 
 listarDigitosPares :: Integer -> [Integer]
 listarDigitosPares n | n < 10 && (mod n 2 == 0) = [n]

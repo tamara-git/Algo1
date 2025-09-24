@@ -9,4 +9,4 @@ siEsMultiploDevuelveN n m | n < m = 0
 
 esDivisible :: Integer -> Integer -> Bool
 esDivisible n m | siEsMultiploDevuelveN n m == n = True
-                | otherwise = False
+                | otherwise = False 

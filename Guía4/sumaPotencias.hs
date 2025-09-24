@@ -33,4 +33,4 @@ sumatoriaInterna q n m  | m == 1 = q^(n+m)
 
 sumaPotenciasClase :: Integer -> Integer -> Integer -> Integer
 sumaPotenciasClase q n m | n == 1 = sumatoriaInterna q n m
-                    | otherwise = sumatoriaInterna q n m + sumaPotenciasClase q (n-1) m 
+                         | otherwise = sumatoriaInterna q n m + sumaPotenciasClase q (n-1) m 

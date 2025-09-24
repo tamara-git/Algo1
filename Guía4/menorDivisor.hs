@@ -8,7 +8,6 @@ menorDivisorDesde n d | (d <= n) && (mod n d == 0) = d
                       | (d <= n) && (mod n d /= 0) = menorDivisorDesde n (d+1)
 
 
-
 menorDivisor :: Integer -> Integer
 menorDivisor n = menorDivisorDesde n 2
 
