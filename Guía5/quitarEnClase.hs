@@ -2,5 +2,8 @@
 la lista xs de haberla-}
 
 quitar :: (Eq t) => t -> [t] -> [t]
-quitar x (y:ys) | x == y = x:quitar x ys
-                | otherwise = quitar x ys
+quitar x [] = []
+quitar x [y] | x == y = []
+             | otherwise = [y]
+quitar x (y:ys) | x == y = ys 
+                | otherwise = y:quitar x ys
