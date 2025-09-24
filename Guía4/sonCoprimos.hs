@@ -7,7 +7,7 @@ divisoresDe n desde | (desde <= n) && mod n desde /= 0 = [] ++ divisoresDe n (de
                     | otherwise = []
 
 hayDivisorComun :: [Integer] -> [Integer] -> Bool
-hayDivisorComun [] [] = True
+hayDivisorComun [] [] = False
 hayDivisorComun [x] [] = False
 hayDivisorComun [] [y] = False
 hayDivisorComun [x] [y] | x == y = True
