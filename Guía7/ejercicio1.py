@@ -214,12 +214,108 @@ def iguales_consecutivos(secuencia:list[int]) -> bool:
 
 print(iguales_consecutivos([0,1,1,2,4,4,5]))
 
+
 '''12. Recorrer una palabra en formato string y devolver True si ´esta tiene al menos 3 vocales distintas y False en caso
 contrario.
 problema vocales distintas (in s:seq⟨Char⟩) : Bool {
-requiere: { T rue }
+requiere: { True }
 asegura: { (res = true) ↔ (existe i, j, k ∈ Z tal que (0 ≤ i, j, k < (|s| − 1)) y (s[i]̸ = s[j]̸ = s[k]) y
 (s[i], s[j], s[k] ∈ {‘a‘, ‘e‘, ‘i‘, ‘o‘, ‘u‘})) }
 }'''
 
+def vocales_minusculas(letra:str) -> str:
+    vocal: str = ''
+    if letra =='a' or letra == 'A':
+        vocal = 'a'
+    if letra =='e' or letra == 'E':
+        vocal = 'e'
+    if letra =='i' or letra == 'I':
+        vocal = 'i'
+    if letra =='o' or letra == 'O':
+        vocal = 'o'
+    if letra =='u' or letra == 'U':
+        vocal ='u'
+    if (letra not in "aeiou") and (letra not in "AEIOU"):
+        vocal = ''
+    return vocal
 
+print(vocales_minusculas('E'))
+
+def sin_consonantes(palabra:str) -> str:
+    palabra_sin_consonantes: str = ''
+    for i in range (len(palabra)):
+        palabra_sin_consonantes += vocales_minusculas(palabra[i])
+    return palabra_sin_consonantes
+
+print(sin_consonantes("tAmarA"))
+
+def vocales_distintas(palabra:str) -> bool:
+    vocales_dif: int = 0
+    primer_vocal: str = sin_consonantes(palabra)[0]
+    res: bool = False
+    for i in range(1,len(sin_consonantes(palabra))):
+        if primer_vocal != sin_consonantes(palabra)[i]:
+            vocales_dif += 2
+        else:
+            primer_vocal = sin_consonantes(palabra)[i]
+    if vocales_dif >= 3:
+        res = True 
+    else:
+        res = False
+    return res
+        
+print(vocales_distintas("mateo"))
+
+'''13. Recorrer una seq⟨Z⟩ y devolver la posici´on donde inicia la secuencia de n´umeros ordenada m´as larga. Si hay dos
+subsecuencias de igual longitud devolver la posici´on donde empieza la primera. La secuencia de entrada es no vac´ıa.
+problema pos secuencia ordenada mas larga (in s:seq⟨Z⟩) : Z {
+requiere: { |s| > 0 }
+asegura: { (res = i) ↔ (existe i, j ∈ Z tal que (0 ≤ i, j < (|s| − 1)) y i ≤ j y (para todo k tal que i ≤ k < j →
+s[k] ≤ s[k + 1]) y j-i+1 es m´aximo e i es el m´ınimo valor que lo cumple) }
+}'''
+
+def pos_secuencia_ordenada_mas_larga_aux(secuencia:list[int]) -> int:
+    indice: int = 0
+    indice_max: int = 0
+    cant_elementos: int = 1
+    max_cant: int = 0
+    for i in range(len(secuencia)-1):
+        if secuencia[i] <= secuencia[i+1]:
+            cant_elementos += 1
+        else:
+            if cant_elementos > max_cant:
+                max_cant = cant_elementos
+                indice_max = indice
+                indice = i+1
+            cant_elementos = 1
+    if cant_elementos > max_cant:
+        indice_max = indice
+    return indice_max
+        
+
+        
+print(pos_secuencia_ordenada_mas_larga_aux([1,2,3,5,6,7,1,2,3,4,5,6,1,2]))
+
+'''14. Cantidad de d´ıgitos impares.
+problema cantidad digitos impares (in s:seq⟨Z⟩) : Z {
+requiere: { Todos los elementos de n´umeros son mayores o iguales a 0 }
+asegura: { res es la cantidad total de d´ıgitos impares que aparecen en cada uno de los elementos de n´umeros }
+}
+Por ejemplo, si la lista de n´umeros es [57, 2383, 812, 246], entonces el resultado esperado ser´ıa 5 (los d´ıgitos impares
+son 5, 7, 3, 3 y 1)'''
+
+def contar_digitos_impares(numero: int) -> int:
+    contador: int = 0
+    for i in range(len(str(numero))):
+        if int(str(numero)[i]) % 2 != 0:
+            contador += 1
+    return contador 
+
+
+def cantidad_digitos_impares(secuencia:list[int]) -> int:
+    contador: int = 0
+    for i in range(len(secuencia)):
+        contador += contar_digitos_impares(secuencia[i])
+    return contador
+
+print(cantidad_digitos_impares([57, 2383, 812, 246]))
