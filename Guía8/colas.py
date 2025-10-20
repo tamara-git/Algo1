@@ -16,12 +16,12 @@ import random
 
 def armar_secuencia_de_bingo() -> Cola[int]:
     lista_sin_repetidos: list[int] = []
-    cola: Cola[int] = Cola()
+    bolillero: Cola[int] = Cola()
     for _ in range(100):
         numero: int = random.randint(0,99)
         if numero not in lista_sin_repetidos:
-            cola.put(numero)
-    return cola
+            bolillero.put(numero)
+    return bolillero
 
 
 '''2. problema jugar carton de bingo (in carton: seq⟨Z⟩, in bolillero: Cola[Z]) : Z {
@@ -33,17 +33,23 @@ bolillero}
 
 
 def jugar_carton_de_bingo(carton: list[int], bolillero: Cola[int]) -> int:
+    bolillero_aux: Cola[int] = Cola()
     carton_copia: list[int] = carton.copy()
-    restablecer_bolillero: Cola[int] = Cola()
     res: int = 0
-    while not carton_copia.empty():
+    while not len(carton_copia) == 0:
         elemento: int = bolillero.get()
+        bolillero_aux.put(elemento)
         if elemento in carton_copia:
             carton_copia.remove(elemento)
             res += 1
         else:
             res += 1
+    
+    while not bolillero_aux.empty():
+        elemento: int = bolillero_aux.get()
+        bolillero.put(elemento)
     return res
+
         
 
     

@@ -12,7 +12,17 @@ def pertenece(s: list[int], e: int) -> bool:
             res = True
     return res
 
-def pertenece_a_cada_uno_version_1(secuencia: list[list[int]], elemento: int) -> list[bool]:
+def pertenece_a_cada_uno_version_1(secuencia:list[list[int]], elemento: int, res: list[bool]):
+    res.clear() 
+    for i in range(len(secuencia)):
+        if pertenece(secuencia[i], elemento) == True:
+            res.append(True)
+        else:
+            res.append(False)
+    return res
+
+
+def pertenece_a_cada_uno_version_3(secuencia: list[list[int]], elemento: int) -> list[bool]:
     res: list[bool] = []
     for i in range(len(secuencia)): 
         if pertenece(secuencia[i], elemento) == True:

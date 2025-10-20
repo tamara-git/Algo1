@@ -1,4 +1,5 @@
-'''Vamos a programar en Python usando composición de funciones (como en funcional). Resolver este ejercicio
+'''
+Vamos a programar en Python usando composición de funciones (como en funcional). Resolver este ejercicio
 usando las funciones de python min y max:
 En una plantación de pinos, de cada árbol se conoce la altura expresada en metros. El peso de un pino se puede estimar
 a partir de la altura de la siguiente manera:

@@ -52,7 +52,7 @@ def cantidad_elementos(p: Pila) -> int:
     pila_copia: Pila[int] = copiar_pila(p)
     cantidad: int = 0
     while not pila_copia.empty():
-        elemento: int = pila_copia.get()
+        pila_copia.get()
         cantidad += 1
     return cantidad
 
@@ -106,27 +106,77 @@ espacios
 Entonces las siguientes son f´ormulas aritm´eticas con sus par´entesis bien balanceados:
 1 + ( 2 x 3 = ( 20 / 5 ) )
 10 * ( 1 + ( 2 * ( =1)))
-Y la siguiente es una f´ormula que no tiene los par´entesis bien balanceados:
+Y la siguiente es una 0f´ormula que no tiene los par´entesis bien balanceados:
 1 + ) 2 x 3 ( ( '''
 
-def pila_de_parentesis(s:str) -> Pila[str]:
+def esta_bien_balanceada(s:str) -> bool:
+    res: bool = False
+    cant_inicio: int = 0
+    cant_final: int = 0
     pila: Pila[str] = Pila()
     for i in range(len(s)):
-        if s[i] == "(" or s[i] == ")":
+        if s[i] == "(" :
             pila.put(s[i])
-    return pila
-
-
-def esta_bien_balanceada(secuencia:str) -> bool:
-    res: bool = False 
-    pila: Pila[str] = pila_de_parentesis(secuencia)
-    elemento: str = pila.get()
-    while not pila.empty():
-        segundo_elem: str = pila.get() 
-        if elemento == ")" and segundo_elem == "(":
-            res = True
+            cant_inicio += 1
+        if s[i] == ")":
+            pila.put(s[i])
+            cant_final += 1
+    if cant_inicio == cant_final and pila.get() == ")":
+        res = True 
     return res
-            
 
 
-    
+'''Ejercicio 7. Implementar una soluci´on para el siguiente problema.
+problema intercalar (in p1: Pila, in p2: Pila) : Pila {
+requiere: {p1 y p2 tienen la misma cantidad de elementos}
+asegura: {res solo contiene los elementos de p1 y p2}
+asegura: {res contiene todos los elementos de p1 y p2, intercalados y respetando el orden original}
+asegura: {El tope de la pila res es el tope de p2}
+asegura: {El tama˜no de res es igual al doble del tama˜no de p1}
+}
+'''    
+def invertir_pila(pila: Pila) -> Pila:
+    lista_testeo: list = []
+    res: Pila = Pila ()
+    while not pila.empty():
+        elemento = pila.get()
+        res.put(elemento)
+        lista_testeo.append(elemento)
+    return res
+
+def intercalar(p1: Pila, p2: Pila) -> Pila:
+    res: Pila = Pila()
+    p1_copia: Pila = copiar_pila(p1)
+    p2_copia: Pila = copiar_pila(p2)
+    while not p2_copia.empty():
+        elemento_p1 = p1_copia.get()
+        elemento_p2 = p2_copia.get()
+        res.put(elemento_p2)
+        res.put(elemento_p1) 
+
+    return invertir_pila(res)
+
+
+
+def invertir_pila_testeo(pila: Pila) -> list:
+    lista_testeo: list = []
+    res: Pila = Pila ()
+    while not pila.empty():
+        elemento = pila.get()
+        res.put(elemento)
+        lista_testeo.append(elemento)
+    return lista_testeo
+
+def intercalar_testeo(p1: Pila, p2: Pila) -> Pila:
+    res: Pila = Pila()
+    p1_copia: Pila = copiar_pila(p1)
+    p2_copia: Pila = copiar_pila(p2)
+    while not p2_copia.empty():
+        elemento_p1 = p1_copia.get()
+        elemento_p2 = p2_copia.get()
+        res.put(elemento_p2)
+        res.put(elemento_p1) 
+
+    return invertir_pila_testeo(res)
+
+
