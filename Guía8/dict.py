@@ -1,3 +1,4 @@
+from queue import LifoQueue as Pila
 '''3. Diccionarios
 En esta secci´on trabajaremos con el tipo dict de Python, que nos permite asociar claves con valores.
 Ejercicio 16. Implementar una soluci´on para el siguiente problema.
@@ -31,11 +32,94 @@ def promedio_estudiante(notas: list[tuple[str,float]], estudiante: str) -> int:
 
 def calcular_promedio_por_estudiante(notas: list[tuple[str,float]]) -> dict[str,float]:
     res: dict[str,float] = {}
-    calif: int = 0
     for i in range(len(notas)):
         estudiante_actual: str = notas[i][0] 
         if estudiante_actual not in res.keys():
             res[estudiante_actual] = promedio_estudiante(notas, estudiante_actual)
     return res
-        
-        
+
+#Ejercicio 17
+
+'''2.problema visitar sitio (inout historiales: Diccionario⟨seq⟨Char⟩, P ila[seq⟨Char⟩]⟩, in usuario: seq⟨Char⟩, in sitio: seq⟨Char⟩)
+{
+requiere: {Ninguno de los Strings de los par´ametros es vac´ıo}
+asegura: {Si usuario es una de las claves de historiales@pre, entonces se agrega sitio a su pila de historiales@pre[usuario]}
+asegura: {Si usuario no es una de las claves de historiales@pre, entonces historiales[usuario] es igual a la pila
+que tiene solo el elemento sitio}
+asegura: {No se modifica ning´un otro historial salvo, si existe, el de usuario}
+asegura: {Todos los pares clave-valor de historiales@pre est´an en historiales}
+asegura: {Todos los pares clave-valor de historiales est´an en historiales@pre, salvo historiales[usuario] que podr´ıa
+no existir en historiales@pre}
+}'''
+
+def visitar_sitio(historiales: dict[str, Pila[str]], usuario:str, sitio: str) -> None:
+    if usuario not in historiales:
+        sitios: Pila[str] = Pila()
+        sitios.put(sitio)
+        historiales[usuario] =  sitios
+    else:
+        historiales[usuario].put(sitio)
+    
+
+'''3. problema navegar atras (inout historiales: Diccionario⟨ seq⟨Char⟩, Pila[ seq⟨Char⟩, in usuario: seq⟨Char⟩⟩) : seq⟨Char⟩
+{
+requiere: {Ninguno de los Strings de los par´ametros es vac´ıo}
+requiere: {usuario es una clave de historiales}
+requiere: {La pila asociada a usuario no est´a vac´ıa}
+asegura: {res es igual al tope de historiales@pre[usuario]}
+asegura: {historiales[usuario] es igual a historiales@pre[usuario] quitando el tope de la pila de
+historiales@pre[usuario]}
+asegura: {En historiales, salvo la pila asociada a usuario, no se modifica ning´un otro por clave-valor}
+}'''
+
+def navegar_atras(historiales: dict[str, Pila[str]], usuario: str) -> str:
+    res: str = historiales[usuario].get()
+    return res
+
+
+#Ejercicio 18
+'''1. problema agregar producto (inout inventario: Diccionario⟨ seq⟨Char⟩, Diccionario⟨ seq⟨Char⟩, T ⟩⟩, in nombre: seq⟨Char⟩,
+in precio: R, in cantidad: Z) {
+requiere: {T ∈ [Z, R]}
+requiere: {cantidad ≥ 0}
+requiere: {precio ≥ 0}
+requiere: {Ninguno de los Strings de los par´ametros es vac´ıo}
+requiere: {nombre no es una clave de inventario }
+asegura: {Todas los pares clave-valor de inventario@pre est´an tal cual en inventario}
+asegura: {Todas los pares clave-valor de inventario est´an en inventario@pre y, adem´as, hay una nueva con clave
+igual a nombre y como valor tendr´a un diccionario con los pares clave-valor (“precio”, precio) y (“cantidad”,
+cantidad)}
+}
+Se necesitar´a un diccionario cuyas claves son de tipo String (“precio” y “cantidad”) y cuyos valores ser´an de tipo float
+y enteros respectivamente. Para declarar los tipos de este diccionario mediante anotaciones en Python, se procede de la
+siguiente manera:
+
+Union indica que los valores pueden ser de m´as de un tipo.
+En Python 3.10 o superior:
+usar el operador | para representar una uni´on de tipos.   (mi_diccionario: dict[str, int | float])
+'''
+
+def agregar_producto(inventario: dict[str, dict[str, int | float]], nombre: str, precio: float, cantidad: int) -> None:
+    valor: dict[str,int|float] = {}
+    valor["precio"] = precio
+    valor["cantidad"] = cantidad
+    inventario[nombre] = valor
+
+
+'''2. problema actualizar stock (inout inventario: Diccionario ⟨ seq⟨Char⟩, Diccionario⟨ seq⟨Char⟩, T ⟩⟩, in nombre: seq⟨Char⟩,
+in cantidad: R) {
+requiere: {T ∈ [Z, R]}
+requiere: {cantidad ≥ 0}
+requiere: {nombre es una clave existente en el inventario}
+requiere: {Ninguno de los Strings de los par´ametros es vac´ıo}
+asegura: {Todos los pares clave-valor de inventario@pre est´an tal cual en inventario, con excepci´on del que tiene
+como clave nombre}
+asegura: {Todos los pares clave-valor de inventario est´an en inventario@pre}
+asegura: {En inventario, el valor asociado a la clave nombre, tendr´a el mismo precio que antes y la cantidad ser´a
+cantidad}
+}
+
+'''
+    
+
+

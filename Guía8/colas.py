@@ -50,6 +50,8 @@ def jugar_carton_de_bingo(carton: list[int], bolillero: Cola[int]) -> int:
         bolillero.put(elemento)
     return res
 
+    
+
         
 
     

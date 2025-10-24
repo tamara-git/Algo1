@@ -1,5 +1,5 @@
 import unittest
-from dict import calcular_promedio_por_estudiante
+from dict import calcular_promedio_por_estudiante, 
 
 class test_calcular_promedio_por_estudiante(unittest.TestCase):
     def test_ejemplo(self):
@@ -11,7 +11,6 @@ class test_calcular_promedio_por_estudiante(unittest.TestCase):
         notas: list[tuple[str, float]] = [("Maxi", 8.0)]
         res: dict[str,float] = {"Maxi": 8.0}
         self.assertEqual(calcular_promedio_por_estudiante(notas),res)
-
 
 
 if __name__ == '__main__':
