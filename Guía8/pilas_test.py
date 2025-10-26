@@ -13,7 +13,7 @@ class test_buscar_nota_maxima(unittest.TestCase):
 class test_esta_bien_balanceada(unittest.TestCase):
     def test_ejemplo(self):
         s: str = "1 + ( 2 x 3 = ( 20 / 5 ) )"
-        res: bool = False
+        res: bool = True
         self.assertEqual(esta_bien_balanceada(s), res)
 
 class test_intercalar(unittest.TestCase):

@@ -100,10 +100,9 @@ usar el operador | para representar una uni´on de tipos.   (mi_diccionario: dic
 '''
 
 def agregar_producto(inventario: dict[str, dict[str, int | float]], nombre: str, precio: float, cantidad: int) -> None:
-    valor: dict[str,int|float] = {}
-    valor["precio"] = precio
-    valor["cantidad"] = cantidad
-    inventario[nombre] = valor
+    if nombre not in inventario.keys():
+        inventario[nombre] = {"precio": precio,
+                          "cantidad": cantidad}
 
 
 '''2. problema actualizar stock (inout inventario: Diccionario ⟨ seq⟨Char⟩, Diccionario⟨ seq⟨Char⟩, T ⟩⟩, in nombre: seq⟨Char⟩,
@@ -118,8 +117,40 @@ asegura: {Todos los pares clave-valor de inventario est´an en inventario@pre}
 asegura: {En inventario, el valor asociado a la clave nombre, tendr´a el mismo precio que antes y la cantidad ser´a
 cantidad}
 }
-
 '''
-    
+
+def actualizar_stock(inventario: dict[str, dict[str, int|float]], nombre: str, cantidad: float) -> None:
+    valor: dict[str,int|float] = inventario[nombre]
+    if nombre in inventario.keys():
+           valor["cantidad"] = cantidad
+
+'''3. problema actualizar precio (inout inventario: Diccionario⟨ seq⟨Char⟩, Diccionario⟨ seq⟨Char⟩, T ⟩⟩, in nombre:seq⟨Char⟩,
+in precio: R) {
+requiere: {T ∈ [Z, R]}
+requiere: {precio ≥ 0}
+requiere: {nombre es una clave existente en el inventario}
+requiere: {Ninguno de los Strings de los par´ametros es vac´ıo}
+asegura: {Todos los pares clave-valor de inventario@pre est´an tal cual en inventario, con excepci´on del valor que
+tiene como clave nombre}
+asegura: {Todos los pares clave-valor de inventario est´an en inventario@pre}
+asegura: {En inventario el diccionario asociado a nombre, tendr´a la misma cantidad que antes y el precio ser´a
+precio}
+}'''
+
+def actualizar_precio(inventario: dict[str, dict[str, int|float]], nombre: str, precio: float) -> None:
+    if nombre in inventario.keys():
+        inventario[nombre]["precio"] = precio
 
 
+'''4. problema calcular valor inventario (in inventario: Diccionario ⟨ seq⟨Char⟩, Diccionario ⟨ seq⟨Char⟩, T ⟩⟩) : R {
+requiere: {T ∈ [Z, R]}
+requiere: {Ninguno de los Strings del inventario es vac´ıo}
+asegura: {res es la suma, para cada producto, del precio multiplicado por la cantidad}
+}'''
+
+def calcular_valor_inventario(inventario: dict[str,dict[str, int|float]]) -> float:
+    res: float = 0.0
+    for producto in inventario.keys():
+        valor: dict[str, int|float] = inventario[producto]  
+        res += valor["precio"]*valor["cantidad"]
+    return res
