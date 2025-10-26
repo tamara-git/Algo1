@@ -1,0 +1,8 @@
+# esto es un comentario
+esto #claramente no
+esto tampoco
+#este sí
+        #y este también
+es #esto un comentario?
+                      #no
+                      #
