@@ -36,9 +36,6 @@ def subsecuencia_mas_larga(tipos_pacientes_atendidos: list[str]) -> int:
 print(subsecuencia_mas_larga(["perro","gato","perro","tortuga","perro","perro","hamster", "perro","perro"]))
             
             
-            
-            
-            
 
 
 '''Ejercicio 14. Hospital - Alarma epidemiol´ogica

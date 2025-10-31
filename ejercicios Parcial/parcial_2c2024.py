@@ -11,7 +11,6 @@
 #  es igual a 1 }
 # }
 
-
 def todos_consecutivos(v: list[int]) -> bool:
     res: bool = True
     for i in range(len(v)-1):
@@ -58,6 +57,29 @@ print(subsecuencia_mas_larga([1,2,4,3,1,2,4,2,3,1,2,3,4,5,6,7,8,9]))
 from queue import Queue as Cola
 def mejor_resultado_de_ana(examenes: Cola[list[bool]]) -> list[int]:
     res: list[int] = []
+    cola_aux: Cola[list[bool]] = Cola()
+    while not examenes.empty():
+        examen: list[bool] = examenes.get()
+        cola_aux.put(examen)
+        cant_True: int = 0 
+        cant_False: int = 0
+        respuestas_correctas: int = len(examen)
+        for i in range(len(examen)):
+            if examen[i] == True:
+                cant_True += 1
+            else:
+                cant_False += 1
+        if cant_False > cant_True:
+            respuestas_correctas = respuestas_correctas - (cant_False - int(respuestas_correctas/2))
+        if cant_True > cant_False:
+            respuestas_correctas = respuestas_correctas - (cant_True - int(respuestas_correctas/2))
+        res.append(respuestas_correctas)
+
+
+    return res
+
+
+
 
         
 # Ejercicio 4 (2,25 puntos)
@@ -98,10 +120,11 @@ def vocales_por_palabra_en_texto(texto: str) -> list[int]:
             if letra in "aeiou" or letra in "AEIOU": 
                 cantidad_vocales_palabra += 1        
         lista_con_vocales_por_palabra.append(cantidad_vocales_palabra)
+    return lista_con_vocales_por_palabra
 
 def vocales_en_palabra(palabra: str) -> int:
+    cantidad_vocales: int = 0
     for i in range(len(palabra)):
-        cantidad_vocales: int = 0
         if palabra[i] in "aeiou" or palabra[i] in "AEIOU": 
             cantidad_vocales += 1        
     return cantidad_vocales
