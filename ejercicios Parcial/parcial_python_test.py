@@ -4,9 +4,9 @@ from parcial_python import cantidad_parejas_que_suman, pasar_por_autoservicio, p
 
 class Test_cantidad_parejas_que_suman(unittest.TestCase):
     def test_ejemplo(self):
-        s: list[int] = [1,3,2,5,4,8]
+        s: list[int] = [1,3,2,5,4,8,3,2]
         n: int = 5
-        res: int = 2
+        res: int = 5
         self.assertEqual(cantidad_parejas_que_suman(s,n), res) 
 
     def test_sin_cantidad(self):
